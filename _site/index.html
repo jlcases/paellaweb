@@ -5,15 +5,46 @@
     <meta charset="utf-8">
     <title>PAELLADOC - AI Documentation Framework</title>
     <meta name="description" content="PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.">
+    
+    <!-- Optimización para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Critical CSS Inline -->
 <style>
 /* Critical CSS here to improve render performance */
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   line-height: 1.6;
   color: #333;
 }
+
+/* Fuentes fallback precisas para evitar CLS */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Arial');
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Arial Bold');
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
 .site-header {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -49,6 +80,14 @@ h1 {
   color: #0066cc;
   line-height: 1.2;
 }
+
+/* Contenedor principal con altura mínima para evitar saltos de diseño */
+.site-content {
+  contain: layout style paint;
+  content-visibility: auto;
+  min-height: calc(100vh - 100px);
+}
+
 .hero-section {
   padding: 3rem 0;
   background-color: #f8f9fa;
@@ -77,12 +116,18 @@ img:not([width]):not([height]) {
 }
 </style>
 
+<!-- Preload critical fonts to prevent CLS -->
+<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa2ZL7SUc.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin>
+
 <!-- Preload the LCP image if exists -->
 <link rel="preload" href="/assets/images/hero.webp" as="image" fetchpriority="high" />
 
 <!-- Resource hints for critical resources -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <!-- Capture y silencia errores JS no críticos -->
 <script>
@@ -99,14 +144,21 @@ img:not([width]):not([height]) {
     }
     return true;
   }, true);
+  
+  // Establecer variables CSS para controlar espaciado y evitar CLS
+  document.documentElement.style.setProperty('--font-adjustment', '0px');
 })();
 </script> 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Font loading strategy optimizada para reducir CLS -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"></noscript>
+    
+    <!-- Carga de CSS principal de forma no bloqueante -->
     <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
+    
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>PAELLADOC - AI Documentation Framework | PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.</title>
@@ -130,6 +182,16 @@ img:not([width]):not([height]) {
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    
+    <!-- Font Face Observer para controlar carga de fuentes -->
+    <script>
+      // Detectar cuando las fuentes se cargan para reducir CLS
+      if ("fonts" in document) {
+        document.fonts.ready.then(function() {
+          document.documentElement.classList.add('fonts-loaded');
+        });
+      }
+    </script>
   </head>
   <body>
     <header class="site-header">

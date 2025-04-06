@@ -1,79 +1,85 @@
-// Paella-inspired color scheme
-$saffron: #F5C43C;
-$paprika: #E25822;
-$greenBean: #567D38;
-$rice: #F9F6F0;
-$darkBrown: #2D2926;
-
-// Typography
-$bodyFont: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-$codeFont: 'Roboto Mono', monospace;
-
-// Layout
-$maxWidth: 1200px;
-$headerHeight: 70px;
+// Variables
+$paprika: #cf2e2e;    // Main color, inspired by the reddish hue of paprika
+$saffron: #f5a623;    // Secondary color, inspired by saffron
+$rice: #f5f5f5;       // Light background, inspired by rice
+$greenBean: #4caf50;  // Success color, inspired by green beans
+$darkBrown: #222;     // Text color, inspired by a dark roast
 $spacing: 2rem;
 
 // Breakpoints
-$mobile: 576px;
 $tablet: 768px;
-$desktop: 992px;
-$widescreen: 1200px;
+$desktop: 1024px;
+$large: 1440px;
 
-// Reset and base styles
-*, *::before, *::after {
+// Typography
+$baseFont: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+$codeFont: 'Roboto Mono', monospace;
+
+// Reset
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+}
+
+// Fix para CLS durante la carga de fuentes
+:root {
+  --font-adjustment: 0px;
+}
+
+// Estado de carga de fuentes
+html {
+  &:not(.fonts-loaded) {
+    .site-content * {
+      letter-spacing: var(--font-adjustment);
+    }
+  }
+  
+  &.fonts-loaded {
+    .site-content {
+      --font-adjustment: 0px;
+    }
+  }
+}
+
+// Fallback fonts para evitar CLS
+@font-face {
+  font-family: 'Inter-fallback';
+  src: local(Arial);
+  size-adjust: 107%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
 }
 
 html {
   font-size: 16px;
+  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
 body {
-  background: $rice;
+  margin: 0;
+  font-family: $baseFont;
+  font-family: 'Inter', 'Inter-fallback', sans-serif;
   color: $darkBrown;
-  font-family: $bodyFont;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: $paprika;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  
-  &:hover, &:focus {
-    color: darken($paprika, 10%);
-  }
-}
-
-// Container
-.container {
-  width: 100%;
-  max-width: $maxWidth;
-  margin: 0 auto;
-  padding: 0 1rem;
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // Typography
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1rem;
+  margin-top: 0;
   line-height: 1.2;
   font-weight: 700;
+  color: $darkBrown;
 }
 
+// Estilos precisos para encabezados para evitar cambios durante la carga de fuentes
 h1 {
   font-size: 2.5rem;
+  margin-bottom: 1.5rem;
   
   @media (min-width: $tablet) {
     font-size: 3rem;
@@ -82,88 +88,115 @@ h1 {
 
 h2 {
   font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: $paprika;
+  text-decoration: none;
+  transition: color 0.3s ease;
   
-  @media (min-width: $tablet) {
-    font-size: 2.5rem;
+  &:hover {
+    color: darken($paprika, 10%);
   }
 }
 
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
-
-p {
-  margin-bottom: 1.5rem;
+blockquote {
+  border-left: 4px solid $paprika;
+  margin-left: 0;
+  padding-left: 1rem;
+  font-style: italic;
+  color: lighten($darkBrown, 20%);
 }
 
 code {
   font-family: $codeFont;
-  background: rgba($darkBrown, 0.05);
+  background-color: $rice;
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
 }
 
 pre {
-  background: $darkBrown;
+  background-color: $darkBrown;
   color: $rice;
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
-  margin-bottom: 1.5rem;
   
   code {
-    background: transparent;
+    background-color: transparent;
     padding: 0;
     color: inherit;
   }
 }
 
+hr {
+  border: 0;
+  height: 1px;
+  background-color: lighten($darkBrown, 70%);
+  margin: 2rem 0;
+}
+
 // Lists
 ul, ol {
-  margin: 0 0 1.5rem 1.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
   
   li {
     margin-bottom: 0.5rem;
   }
 }
 
-// Buttons
+// Button
 .button {
   display: inline-block;
-  background: $paprika;
+  background-color: $paprika;
   color: white;
   padding: 0.75rem 1.5rem;
-  border-radius: 5px;
+  border-radius: 4px;
   font-weight: 600;
   text-align: center;
-  transition: background-color 0.3s ease;
-  border: none;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid $paprika;
   cursor: pointer;
   
-  &:hover, &:focus {
-    background: darken($paprika, 10%);
+  &:hover {
+    background-color: darken($paprika, 10%);
+    border-color: darken($paprika, 10%);
     color: white;
+    text-decoration: none;
   }
   
   &.secondary {
-    background: $saffron;
-    color: $darkBrown;
-    
-    &:hover, &:focus {
-      background: darken($saffron, 10%);
-    }
-  }
-  
-  &.outline {
-    background: transparent;
-    border: 2px solid $paprika;
+    background-color: transparent;
     color: $paprika;
     
-    &:hover, &:focus {
-      background: $paprika;
+    &:hover {
+      background-color: $paprika;
       color: white;
     }
   }
+}
+
+// Utilities
+.text-center {
+  text-align: center;
 }
