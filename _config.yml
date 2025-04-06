@@ -1,0 +1,27 @@
+url: "https://paelladoc.com" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+title: "PAELLADOC - AI Documentation Framework" # the name of your site
+description: "PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem."
+author: "PAELLADOC Team"
+email: "contact@paelladoc.com"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
+  - README.md
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/

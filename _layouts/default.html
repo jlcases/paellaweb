@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
+    {% seo %}
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container">
+        <div class="header-content">
+          <a href="{{ "/" | relative_url }}" class="site-logo">
+            <span class="logo-text">PAELLADOC</span>
+          </a>
+          <nav class="site-nav">
+            <button class="menu-toggle" aria-label="Toggle Menu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+            <ul class="nav-links">
+              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
+              <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active"{% endif %}>The Problem</a></li>
+              <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active"{% endif %}>Solution</a></li>
+              <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active"{% endif %}>Quick Start</a></li>
+              <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active"{% endif %}>Use Cases</a></li>
+              <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active"{% endif %}>Community</a></li>
+              <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active"{% endif %}>Resources</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="site-content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <span class="logo-text">PAELLADOC</span>
+            <p>Solving context loss in AI development</p>
+          </div>
+          <div class="footer-links">
+            <div class="footer-column">
+              <h3>Documentation</h3>
+              <ul>
+                <li><a href="{{ "/quickstart" | relative_url }}">Quick Start</a></li>
+                <li><a href="{{ "/solution" | relative_url }}">PAELLADOC Approach</a></li>
+                <li><a href="{{ "/resources" | relative_url }}">Templates</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Community</h3>
+              <ul>
+                <li><a href="https://github.com/jlcases/paellaweb" target="_blank">GitHub Repo</a></li>
+                <li><a href="https://github.com/jlcases/paellaweb/discussions" target="_blank">Discussions</a></li>
+                <li><a href="{{ "/community" | relative_url }}">Contribute</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; {{ site.time | date: '%Y' }} PAELLADOC. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+        this.classList.toggle('active');
+      });
+    </script>
+  </body>
+</html>

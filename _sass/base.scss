@@ -1,0 +1,169 @@
+// Paella-inspired color scheme
+$saffron: #F5C43C;
+$paprika: #E25822;
+$greenBean: #567D38;
+$rice: #F9F6F0;
+$darkBrown: #2D2926;
+
+// Typography
+$bodyFont: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+$codeFont: 'Roboto Mono', monospace;
+
+// Layout
+$maxWidth: 1200px;
+$headerHeight: 70px;
+$spacing: 2rem;
+
+// Breakpoints
+$mobile: 576px;
+$tablet: 768px;
+$desktop: 992px;
+$widescreen: 1200px;
+
+// Reset and base styles
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $rice;
+  color: $darkBrown;
+  font-family: $bodyFont;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $paprika;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+  &:hover, &:focus {
+    color: darken($paprika, 10%);
+  }
+}
+
+// Container
+.container {
+  width: 100%;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Typography
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.5rem;
+  
+  @media (min-width: $tablet) {
+    font-size: 3rem;
+  }
+}
+
+h2 {
+  font-size: 2rem;
+  
+  @media (min-width: $tablet) {
+    font-size: 2.5rem;
+  }
+}
+
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1.5rem;
+}
+
+code {
+  font-family: $codeFont;
+  background: rgba($darkBrown, 0.05);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+pre {
+  background: $darkBrown;
+  color: $rice;
+  padding: 1rem;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+  
+  code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+}
+
+// Lists
+ul, ol {
+  margin: 0 0 1.5rem 1.5rem;
+  
+  li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+// Buttons
+.button {
+  display: inline-block;
+  background: $paprika;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  border: none;
+  cursor: pointer;
+  
+  &:hover, &:focus {
+    background: darken($paprika, 10%);
+    color: white;
+  }
+  
+  &.secondary {
+    background: $saffron;
+    color: $darkBrown;
+    
+    &:hover, &:focus {
+      background: darken($saffron, 10%);
+    }
+  }
+  
+  &.outline {
+    background: transparent;
+    border: 2px solid $paprika;
+    color: $paprika;
+    
+    &:hover, &:focus {
+      background: $paprika;
+      color: white;
+    }
+  }
+}

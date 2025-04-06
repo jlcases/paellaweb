@@ -1,0 +1,368 @@
+// Hero Section
+.hero {
+  background: linear-gradient(135deg, $paprika, darken($paprika, 15%));
+  color: white;
+  padding: $spacing * 2 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 37.5L25 56.25L32.5 87.5L67.5 87.5L75 56.25L50 37.5Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" /></svg>');
+    background-size: 100px 100px;
+    opacity: 0.3;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1 {
+    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    
+    @media (min-width: $tablet) {
+      font-size: 3.5rem;
+    }
+  }
+  
+  p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+// Page Header
+.page-header {
+  background: linear-gradient(135deg, $saffron, darken($saffron, 15%));
+  color: $darkBrown;
+  padding: $spacing 0;
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 37.5L25 56.25L32.5 87.5L67.5 87.5L75 56.25L50 37.5Z" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1" /></svg>');
+    background-size: 100px 100px;
+    opacity: 0.1;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin: 0;
+  }
+}
+
+// Content Section
+.content-section {
+  padding: $spacing 0;
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    color: $paprika;
+  }
+  
+  h3 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Feature Section
+.features {
+  padding: $spacing * 2 0;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing;
+  }
+  
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    
+    @media (min-width: $tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (min-width: $desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+// Feature Card
+.feature-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba($darkBrown, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba($darkBrown, 0.1);
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba($saffron, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    color: $paprika;
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    margin-bottom: 0.75rem;
+  }
+  
+  p {
+    margin-bottom: 1.25rem;
+  }
+  
+  a {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    
+    &:after {
+      content: '→';
+      margin-left: 0.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover:after {
+      transform: translateX(5px);
+    }
+  }
+}
+
+// Problem-Solution Card
+.problem-solution {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing;
+  
+  @media (min-width: $desktop) {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .problem-card, .solution-card {
+    flex: 1;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .problem-card {
+    background: #f2f2f2;
+    color: $darkBrown;
+    margin-bottom: 1rem;
+    
+    @media (min-width: $desktop) {
+      margin-bottom: 0;
+      margin-right: 1rem;
+    }
+    
+    h3 {
+      color: darken($paprika, 10%);
+      margin-bottom: 1rem;
+      
+      &:before {
+        content: '❌ ';
+      }
+    }
+  }
+  
+  .solution-card {
+    background: rgba($greenBean, 0.1);
+    color: $darkBrown;
+    
+    h3 {
+      color: $greenBean;
+      margin-bottom: 1rem;
+      
+      &:before {
+        content: '✅ ';
+      }
+    }
+  }
+}
+
+// CTA Section
+.cta-section {
+  background: rgba($saffron, 0.1);
+  padding: $spacing * 2 0;
+  text-align: center;
+  position: relative;
+  
+  // Paella-inspired circular background
+  &:before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: rgba($paprika, 0.05);
+    border-radius: 50%;
+    top: -200px;
+    right: -200px;
+    z-index: 0;
+  }
+  
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  h2 {
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+}
+
+// Code Block
+.code-example {
+  background: $darkBrown;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: $spacing;
+  
+  .code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: darken($darkBrown, 3%);
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(white, 0.1);
+    color: $rice;
+    
+    .code-title {
+      font-family: $codeFont;
+      font-size: 0.9rem;
+    }
+    
+    .code-lang {
+      background: rgba($paprika, 0.2);
+      color: $saffron;
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+  
+  .code-content {
+    padding: 1rem;
+    overflow-x: auto;
+    
+    pre {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+    }
+  }
+}
+
+// Testimonial
+.testimonial {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 5px 15px rgba($darkBrown, 0.05);
+  margin-bottom: $spacing;
+  
+  .testimonial-content {
+    font-style: italic;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0 1rem;
+    
+    &:before, &:after {
+      content: '"';
+      font-size: 2rem;
+      color: rgba($paprika, 0.2);
+      line-height: 1;
+    }
+    
+    &:before {
+      position: absolute;
+      left: -0.5rem;
+      top: -0.5rem;
+    }
+    
+    &:after {
+      position: absolute;
+      right: -0.5rem;
+      bottom: -1rem;
+    }
+  }
+  
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 1rem;
+    }
+    
+    .author-info {
+      h4 {
+        margin: 0;
+        font-size: 1rem;
+      }
+      
+      p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: rgba($darkBrown, 0.7);
+      }
+    }
+  }
+} 

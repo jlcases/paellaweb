@@ -1,0 +1,256 @@
+// Header styles
+.site-header {
+  background-color: $rice;
+  box-shadow: 0 1px 3px rgba($darkBrown, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: $headerHeight;
+  display: flex;
+  align-items: center;
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .site-logo {
+    display: flex;
+    align-items: center;
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $paprika;
+      letter-spacing: 1px;
+      
+      &:before {
+        content: "🥘 ";
+      }
+    }
+  }
+}
+
+// Navigation styles
+.site-nav {
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 30px;
+    height: 24px;
+    position: relative;
+    
+    span {
+      display: block;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      background: $paprika;
+      border-radius: 3px;
+      opacity: 1;
+      left: 0;
+      transform: rotate(0deg);
+      transition: .25s ease-in-out;
+      
+      &:nth-child(1) {
+        top: 0px;
+      }
+      
+      &:nth-child(2) {
+        top: 10px;
+      }
+      
+      &:nth-child(3) {
+        top: 20px;
+      }
+    }
+    
+    &.active {
+      span {
+        &:nth-child(1) {
+          top: 10px;
+          transform: rotate(135deg);
+        }
+        
+        &:nth-child(2) {
+          opacity: 0;
+          left: -60px;
+        }
+        
+        &:nth-child(3) {
+          top: 10px;
+          transform: rotate(-135deg);
+        }
+      }
+    }
+    
+    @media (max-width: $tablet) {
+      display: block;
+    }
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin: 0 0 0 1.5rem;
+      
+      a {
+        color: $darkBrown;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        position: relative;
+        
+        &:after {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: $paprika;
+          transition: width 0.3s;
+        }
+        
+        &:hover:after, &.active:after {
+          width: 100%;
+        }
+        
+        &.active {
+          color: $paprika;
+        }
+      }
+    }
+    
+    @media (max-width: $tablet) {
+      position: absolute;
+      top: $headerHeight;
+      left: 0;
+      width: 100%;
+      flex-direction: column;
+      background-color: $rice;
+      box-shadow: 0 5px 5px rgba($darkBrown, 0.1);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      
+      &.active {
+        max-height: 400px;
+      }
+      
+      li {
+        margin: 0;
+        
+        a {
+          display: block;
+          padding: 1rem;
+          border-bottom: 1px solid rgba($darkBrown, 0.1);
+        }
+      }
+    }
+  }
+}
+
+// Main content
+.site-content {
+  flex: 1;
+  padding: $spacing 0;
+}
+
+// Footer styles
+.site-footer {
+  background-color: $darkBrown;
+  color: $rice;
+  padding: $spacing 0;
+  
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    
+    @media (max-width: $tablet) {
+      flex-direction: column;
+    }
+  }
+  
+  .footer-logo {
+    margin-bottom: 1.5rem;
+    
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $saffron;
+      margin-bottom: 0.5rem;
+      display: inline-block;
+    }
+    
+    p {
+      margin-bottom: 0;
+      max-width: 250px;
+    }
+  }
+  
+  .footer-links {
+    display: flex;
+    
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+  
+  .footer-column {
+    margin-left: 3rem;
+    
+    @media (max-width: $tablet) {
+      margin-left: 0;
+      margin-right: 3rem;
+    }
+    
+    @media (max-width: $mobile) {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+    
+    h3 {
+      color: $saffron;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      
+      li {
+        margin-bottom: 0.5rem;
+        
+        a {
+          color: $rice;
+          
+          &:hover {
+            color: $saffron;
+          }
+        }
+      }
+    }
+  }
+  
+  .footer-bottom {
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba($rice, 0.2);
+    text-align: center;
+    
+    p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+  }
+} 
