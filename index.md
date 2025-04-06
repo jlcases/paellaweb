@@ -57,9 +57,9 @@ layout: default
           <span class="github-stars">224 ⭐ on GitHub</span>
         </div>
         <div class="hero-buttons">
-          <a href="https://github.com/jlcases/paelladoc" target="_blank" class="button primary">Get Started</a>
-          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button secondary">Join Community</a>
-          <a href="https://x.com/i/communities/1907494161458090406" target="_blank" class="button secondary">Join X Community</a>
+          <a href="https://github.com/jlcases/paelladoc" target="_blank" class="button primary">GitHub</a>
+          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button secondary">GitHub Discussions</a>
+          <a href="https://x.com/i/communities/1907494161458090406" target="_blank" class="button secondary">X Community</a>
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@ layout: default
       <div class="collaboration-content">
         <h2>Collaboration across borders</h2>
         <p>Our development framework enables seamless collaboration between teams worldwide. We prioritize structured communication to support fast-paced, collaborative projects. Exceptional teams using PAELLADOC can work together effectively no matter where they're located.</p>
-        <a href="{{ '/community' | relative_url }}" class="button">Join the Community</a>
+        <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">GitHub Discussions</a>
       </div>
     </div>
   </section>
@@ -196,7 +196,7 @@ GENERATE_CODE component="auth_service"</code></pre>
     <div class="container">
       <h2>Elevate Your Development Process</h2>
       <p>Experience the most comprehensive AI-powered development system available for modern product teams.</p>
-      <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">Join GitHub Discussions</a>
+      <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">GitHub Discussions</a>
     </div>
   </section>
 </div>
