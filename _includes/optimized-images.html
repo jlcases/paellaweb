@@ -1,10 +1,28 @@
 <!-- Image optimization helpers -->
 <script>
-  // Lazy loading images
+  // Feature detection
+  const supportsIntersectionObserver = 'IntersectionObserver' in window;
+  const supportsNativeLazyLoading = 'loading' in HTMLImageElement.prototype;
+  
   document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    // Find all images that should be lazy-loaded
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
     
-    if ("IntersectionObserver" in window) {
+    if (lazyImages.length === 0) return;
+    
+    // Use native lazy loading if available
+    if (supportsNativeLazyLoading) {
+      lazyImages.forEach(function(img) {
+        img.src = img.dataset.src;
+        if (img.dataset.srcset) {
+          img.srcset = img.dataset.srcset;
+        }
+        img.loading = "lazy";
+        img.classList.remove("lazy");
+      });
+    } 
+    // Otherwise use IntersectionObserver if available
+    else if (supportsIntersectionObserver) {
       let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -17,13 +35,17 @@
             lazyImageObserver.unobserve(lazyImage);
           }
         });
+      }, {
+        rootMargin: "300px 0px" // Start loading when image is 300px below viewport
       });
 
       lazyImages.forEach(function(lazyImage) {
         lazyImageObserver.observe(lazyImage);
       });
-    } else {
-      // Fallback for browsers that don't support IntersectionObserver
+    } 
+    // Fallback for older browsers
+    else {
+      // Implement minimal fallback to load images when they're in viewport
       let active = false;
 
       const lazyLoad = function() {

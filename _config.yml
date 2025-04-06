@@ -26,3 +26,12 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
+
+# Cache settings
+sass:
+  style: compressed
+
+# Custom headers for resources
+webrick:
+  headers:
+    "Cache-Control": "max-age=31536000, public"

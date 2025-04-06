@@ -2,13 +2,13 @@
 layout: default
 ---
 
-<section class="hero">
+<section class="hero" id="lcp-container">
   <div class="container">
-    <h1>PAELLADOC Documentation Framework</h1>
+    <h1 id="lcp-target" fetchpriority="high">PAELLADOC Documentation Framework</h1>
     <p>Solve context loss in AI development with our structured MECE-based documentation approach</p>
     <div class="hero-buttons">
-      <a href="{{ '/quickstart' | relative_url }}" class="button">Quick Start Guide</a>
-      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary">View on GitHub</a>
+      <a href="{{ '/quickstart' | relative_url }}" class="button" aria-label="View Quick Start Guide">Quick Start Guide</a>
+      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary" aria-label="View on GitHub">View on GitHub</a>
     </div>
   </div>
 </section>
@@ -18,22 +18,22 @@ layout: default
     <h2>Why PAELLADOC?</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">📋</div>
+        <div class="feature-icon" aria-hidden="true">📋</div>
         <h3>MECE Approach</h3>
         <p>Our Mutually Exclusive, Collectively Exhaustive framework ensures complete, non-redundant documentation.</p>
-        <a href="{{ '/solution' | relative_url }}">Learn more</a>
+        <a href="{{ '/solution' | relative_url }}" aria-label="Learn more about MECE Approach">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🧠</div>
+        <div class="feature-icon" aria-hidden="true">🧠</div>
         <h3>Context Preservation</h3>
         <p>Address the common problem of context loss in AI development workflows.</p>
-        <a href="{{ '/problem' | relative_url }}">Learn more</a>
+        <a href="{{ '/problem' | relative_url }}" aria-label="Learn more about Context Preservation">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🔄</div>
+        <div class="feature-icon" aria-hidden="true">🔄</div>
         <h3>GitHub Integration</h3>
         <p>Seamlessly works with your existing GitHub repositories and workflows.</p>
-        <a href="{{ '/community' | relative_url }}">Learn more</a>
+        <a href="{{ '/community' | relative_url }}" aria-label="Learn more about GitHub Integration">Learn more</a>
       </div>
     </div>
   </div>

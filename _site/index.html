@@ -12,10 +12,14 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
+  color: #333;
 }
 .site-header {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .container {
   max-width: 1200px;
@@ -28,12 +32,51 @@ body {
   align-items: center;
   padding: 1rem 0;
 }
-</style> 
+.site-logo {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #333;
+}
+.logo-text {
+  color: #0066cc;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #0066cc;
+  line-height: 1.2;
+}
+.hero-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-tagline {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+</style>
+
+<!-- Preload the LCP image if exists -->
+<link rel="preload" href="/assets/images/hero.webp" as="image" fetchpriority="high" />
+
+<!-- Resource hints for critical resources -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/main.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="/assets/css/main.css"></noscript>
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>PAELLADOC - AI Documentation Framework | PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.</title>
@@ -53,6 +96,10 @@ body {
 {"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"PAELLADOC Team"},"description":"PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.","headline":"PAELLADOC - AI Documentation Framework","name":"PAELLADOC - AI Documentation Framework","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
+    <!-- Fix for missing meta content -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
   </head>
   <body>
     <header class="site-header">
@@ -68,13 +115,13 @@ body {
               <span></span>
             </button>
             <ul class="nav-links">
-              <li><a href="/" class="active">Home</a></li>
-              <li><a href="/problem" >The Problem</a></li>
-              <li><a href="/solution" >Solution</a></li>
-              <li><a href="/quickstart" >Quick Start</a></li>
-              <li><a href="/use-cases" >Use Cases</a></li>
-              <li><a href="/community" >Community</a></li>
-              <li><a href="/resources" >Resources</a></li>
+              <li><a href="/" class="active" aria-label="Home">Home</a></li>
+              <li><a href="/problem"  aria-label="The Problem">The Problem</a></li>
+              <li><a href="/solution"  aria-label="Solution">Solution</a></li>
+              <li><a href="/quickstart"  aria-label="Quick Start">Quick Start</a></li>
+              <li><a href="/use-cases"  aria-label="Use Cases">Use Cases</a></li>
+              <li><a href="/community"  aria-label="Community">Community</a></li>
+              <li><a href="/resources"  aria-label="Resources">Resources</a></li>
             </ul>
           </nav>
         </div>
@@ -82,13 +129,13 @@ body {
     </header>
 
     <main class="site-content">
-      <section class="hero">
+      <section class="hero" id="lcp-container">
   <div class="container">
-    <h1>PAELLADOC Documentation Framework</h1>
+    <h1 id="lcp-target" fetchpriority="high">PAELLADOC Documentation Framework</h1>
     <p>Solve context loss in AI development with our structured MECE-based documentation approach</p>
     <div class="hero-buttons">
-      <a href="/quickstart" class="button">Quick Start Guide</a>
-      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary">View on GitHub</a>
+      <a href="/quickstart" class="button" aria-label="View Quick Start Guide">Quick Start Guide</a>
+      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary" aria-label="View on GitHub">View on GitHub</a>
     </div>
   </div>
 </section>
@@ -98,22 +145,22 @@ body {
     <h2>Why PAELLADOC?</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">📋</div>
+        <div class="feature-icon" aria-hidden="true">📋</div>
         <h3>MECE Approach</h3>
         <p>Our Mutually Exclusive, Collectively Exhaustive framework ensures complete, non-redundant documentation.</p>
-        <a href="/solution">Learn more</a>
+        <a href="/solution" aria-label="Learn more about MECE Approach">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🧠</div>
+        <div class="feature-icon" aria-hidden="true">🧠</div>
         <h3>Context Preservation</h3>
         <p>Address the common problem of context loss in AI development workflows.</p>
-        <a href="/problem">Learn more</a>
+        <a href="/problem" aria-label="Learn more about Context Preservation">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">🔄</div>
+        <div class="feature-icon" aria-hidden="true">🔄</div>
         <h3>GitHub Integration</h3>
         <p>Seamlessly works with your existing GitHub repositories and workflows.</p>
-        <a href="/community">Learn more</a>
+        <a href="/community" aria-label="Learn more about GitHub Integration">Learn more</a>
       </div>
     </div>
   </div>
@@ -212,11 +259,29 @@ DECISION impact="architecture" rationale="Chose transformer-based approach for b
 
     <!-- Image optimization helpers -->
 <script>
-  // Lazy loading images
+  // Feature detection
+  const supportsIntersectionObserver = 'IntersectionObserver' in window;
+  const supportsNativeLazyLoading = 'loading' in HTMLImageElement.prototype;
+  
   document.addEventListener("DOMContentLoaded", function() {
-    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    // Find all images that should be lazy-loaded
+    const lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
     
-    if ("IntersectionObserver" in window) {
+    if (lazyImages.length === 0) return;
+    
+    // Use native lazy loading if available
+    if (supportsNativeLazyLoading) {
+      lazyImages.forEach(function(img) {
+        img.src = img.dataset.src;
+        if (img.dataset.srcset) {
+          img.srcset = img.dataset.srcset;
+        }
+        img.loading = "lazy";
+        img.classList.remove("lazy");
+      });
+    } 
+    // Otherwise use IntersectionObserver if available
+    else if (supportsIntersectionObserver) {
       let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
         entries.forEach(function(entry) {
           if (entry.isIntersecting) {
@@ -229,13 +294,17 @@ DECISION impact="architecture" rationale="Chose transformer-based approach for b
             lazyImageObserver.unobserve(lazyImage);
           }
         });
+      }, {
+        rootMargin: "300px 0px" // Start loading when image is 300px below viewport
       });
 
       lazyImages.forEach(function(lazyImage) {
         lazyImageObserver.observe(lazyImage);
       });
-    } else {
-      // Fallback for browsers that don't support IntersectionObserver
+    } 
+    // Fallback for older browsers
+    else {
+      // Implement minimal fallback to load images when they're in viewport
       let active = false;
 
       const lazyLoad = function() {

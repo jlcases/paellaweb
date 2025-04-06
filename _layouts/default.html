@@ -10,9 +10,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
     <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     {% seo %}
+    <!-- Fix for missing meta content -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
   </head>
   <body>
     <header class="site-header">
@@ -28,13 +33,13 @@
               <span></span>
             </button>
             <ul class="nav-links">
-              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
-              <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active"{% endif %}>The Problem</a></li>
-              <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active"{% endif %}>Solution</a></li>
-              <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active"{% endif %}>Quick Start</a></li>
-              <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active"{% endif %}>Use Cases</a></li>
-              <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active"{% endif %}>Community</a></li>
-              <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active"{% endif %}>Resources</a></li>
+              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active"{% endif %} aria-label="Home">Home</a></li>
+              <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active"{% endif %} aria-label="The Problem">The Problem</a></li>
+              <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active"{% endif %} aria-label="Solution">Solution</a></li>
+              <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active"{% endif %} aria-label="Quick Start">Quick Start</a></li>
+              <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active"{% endif %} aria-label="Use Cases">Use Cases</a></li>
+              <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active"{% endif %} aria-label="Community">Community</a></li>
+              <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active"{% endif %} aria-label="Resources">Resources</a></li>
             </ul>
           </nav>
         </div>

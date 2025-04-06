@@ -5,10 +5,14 @@ body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
+  color: #333;
 }
 .site-header {
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .container {
   max-width: 1200px;
@@ -21,4 +25,42 @@ body {
   align-items: center;
   padding: 1rem 0;
 }
-</style> 
+.site-logo {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #333;
+}
+.logo-text {
+  color: #0066cc;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #0066cc;
+  line-height: 1.2;
+}
+.hero-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa;
+}
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero-tagline {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: #555;
+}
+</style>
+
+<!-- Preload the LCP image if exists -->
+<link rel="preload" href="{{ site.baseurl }}/assets/images/hero.webp" as="image" fetchpriority="high" />
+
+<!-- Resource hints for critical resources -->
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com"> 
