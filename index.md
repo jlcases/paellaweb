@@ -6,29 +6,53 @@ layout: default
   <div class="paella-bg-circles"></div>
   <div class="container">
     <div class="hero-content">
-      <div class="hero-text">
-        <!-- Elemento LCP optimizado -->
-        <h1 id="lcp-target" fetchpriority="high" class="critical-animation">The Development Exoskeleton for AI Teams</h1>
-        <p class="hero-value-prop">From Idea to Code: Complete Development Lifecycle with Perfect Context</p>
-        
-        <div class="hero-pillars">
-          <div class="hero-pillar">
-            <span class="pillar-number">01</span>
-            <h4 class="pillar-title">Research & Validation</h4>
-            <p class="pillar-desc">Automated market research with multi-source validation</p>
+      <h1 id="lcp-target" fetchpriority="high" class="critical-animation">The Development Exoskeleton for AI Teams</h1>
+      <p class="hero-value-prop">From Idea to Code: Complete Development Lifecycle with Perfect Context</p>
+      
+      <div class="process-diagram">
+        <!-- Pilar 01: Research & Validation - Arriba a la izquierda -->
+        <div class="pillar pillar-01">
+          <div class="pillar-content">
+            <div class="pillar-header">
+              <span class="pillar-number">01</span>
+              <h3 class="pillar-title">Research & Validation</h3>
+            </div>
+            <p class="pillar-desc">Automated market research with multi-source validation, statistical verification, and hallucination prevention. Making decisions with confidence.</p>
           </div>
-          <div class="hero-pillar">
-            <span class="pillar-number">02</span>
-            <h4 class="pillar-title">Product Management</h4>
-            <p class="pillar-desc">Built-in tools for user stories, sprints & tasks</p>
-          </div>
-          <div class="hero-pillar">
-            <span class="pillar-number">03</span>
-            <h4 class="pillar-title">Documentation-to-Code</h4>
-            <p class="pillar-desc">Generate functional code directly from documentation</p>
-          </div>
+          <div class="pillar-arrow pillar-arrow-01"></div>
         </div>
         
+        <!-- Imagen central - Chef -->
+        <div class="chef-image">
+          <img src="{{ '/assets/images/imagen-min.png' | relative_url }}" alt="PAELLADOC Chef with paella ingredients: Context, Structure, Clarity, Reusability" class="paella-avatar" fetchpriority="high">
+        </div>
+        
+        <!-- Pilar 02: Product Management - Abajo a la izquierda -->
+        <div class="pillar pillar-02">
+          <div class="pillar-content">
+            <div class="pillar-header">
+              <span class="pillar-number">02</span>
+              <h3 class="pillar-title">Product Management</h3>
+            </div>
+            <p class="pillar-desc">Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting. Keep your team aligned and efficient.</p>
+          </div>
+          <div class="pillar-arrow pillar-arrow-02"></div>
+        </div>
+        
+        <!-- Pilar 03: Documentation-to-Code - Derecha -->
+        <div class="pillar pillar-03">
+          <div class="pillar-content">
+            <div class="pillar-header">
+              <span class="pillar-number">03</span>
+              <h3 class="pillar-title">Documentation-to-Code</h3>
+            </div>
+            <p class="pillar-desc">Generate functional code directly from your documentation with powerful code generation commands. Eliminate the implementation gap.</p>
+          </div>
+          <div class="pillar-arrow pillar-arrow-03"></div>
+        </div>
+      </div>
+      
+      <div class="hero-footer">
         <div class="social-proof">
           <span class="github-stars">224 ⭐ on GitHub</span>
         </div>
@@ -36,9 +60,6 @@ layout: default
           <a href="{{ '/quickstart' | relative_url }}" class="button primary">Get Started</a>
           <a href="{{ '/community' | relative_url }}" class="button secondary">Join Community</a>
         </div>
-      </div>
-      <div class="hero-image">
-        <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="PAELLADOC Chef with paella ingredients: Context, Structure, Clarity, Reusability" class="paella-avatar" fetchpriority="high">
       </div>
     </div>
   </div>

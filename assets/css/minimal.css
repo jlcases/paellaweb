@@ -51,120 +51,184 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Estilos para la nueva sección hero con tema de paella */
 .paella-hero {
-  background: linear-gradient(135deg, #F5C43C 0%, #E25822 100%) !important;
-  min-height: 90vh !important;
+  background: #f7f7f7 !important; /* Fondo claro como en la imagen */
+  min-height: 100vh !important;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   padding-top: 80px !important;
+  padding-bottom: 30px !important;
 }
 
 .paella-hero h1, 
 .paella-hero p,
 .paella-hero .social-proof,
-.paella-hero .hero-pillars * {
+.paella-hero .process-diagram * {
   color: #2D2926 !important;
   text-shadow: none !important;
 }
 
 .paella-hero h1 {
-  font-size: 3.5rem !important;
+  font-size: 2.8rem !important;
   line-height: 1.1 !important;
   margin-bottom: 1rem !important;
-  max-width: 700px;
+  text-align: center;
+  color: #333 !important;
 }
 
 .hero-content {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-image {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.paella-avatar {
-  max-width: 100%;
-  height: auto;
-  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
 }
 
 .hero-value-prop {
-  font-size: 1.5rem !important;
+  font-size: 1.3rem !important;
   font-weight: 600 !important;
-  margin-bottom: 1.5rem !important;
+  margin-bottom: 2rem !important;
   color: #2D2926 !important;
+  text-align: center;
 }
 
-/* Estilos para los tres pilares en el hero */
-.hero-pillars {
+/* Estilos para el diagrama de proceso circular */
+.process-diagram {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 680px; /* Más espacio vertical */
+  margin: 0 auto;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem !important;
-  background-color: rgba(255,255,255,0.15);
-  border-radius: 12px;
-  padding: 1.2rem;
-}
-
-.hero-pillar {
-  display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+}
+
+/* Imagen del Chef en el centro */
+.chef-image {
+  position: absolute;
+  width: 400px; /* Más grande como en la imagen */
+  height: auto; /* Mantener proporción */
+  z-index: 10;
+}
+
+.paella-avatar {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+/* Estilos para los pilares */
+.pillar {
+  position: absolute;
+  width: 280px;
+}
+
+/* Posicionamiento de cada pilar - como en la imagen */
+.pillar-01 {
+  top: 30px;
+  left: 120px;
+}
+
+.pillar-02 {
+  bottom: 30px;
+  left: 120px;
+}
+
+.pillar-03 {
+  top: 50%;
+  right: 120px;
+  transform: translateY(-50%);
+}
+
+.pillar-content {
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.pillar-header {
+  display: flex;
+  align-items: flex-start; /* Alineación superior como en la imagen */
+  margin-bottom: 10px;
 }
 
 .pillar-number {
-  font-weight: 800 !important;
-  font-size: 1.1rem !important;
-  color: #2D2926 !important;
-  background-color: rgba(255,255,255,0.4);
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  flex-shrink: 0;
+  font-size: 3rem !important; /* Más grande como en la imagen */
+  font-weight: 900 !important;
+  color: #333 !important;
+  margin-right: 15px;
+  line-height: 1;
 }
 
 .pillar-title {
+  font-size: 1.3rem !important;
   font-weight: 700 !important;
-  font-size: 1.1rem !important;
-  color: #2D2926 !important;
+  color: #333 !important;
   margin: 0 !important;
-  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .pillar-desc {
   font-size: 0.9rem !important;
-  color: #2D2926 !important;
+  line-height: 1.5 !important;
+  color: #333 !important;
   margin: 0 !important;
-  opacity: 0.9;
 }
 
-.hero-subtitle {
-  font-size: 1.25rem !important;
-  margin-bottom: 1.5rem !important;
-  max-width: 600px;
-  color: #2D2926 !important;
+/* Flechas conectoras como en la imagen */
+.pillar-arrow {
+  position: absolute;
+  background-color: transparent;
+  width: 100px;
+  height: 40px;
+}
+
+.pillar-arrow-01 {
+  bottom: -30px;
+  right: 20px;
+  width: 160px;
+  height: 120px;
+  border-right: 2px solid rgba(166, 166, 166, 0.7);
+  border-bottom: 2px solid rgba(166, 166, 166, 0.7);
+  border-bottom-right-radius: 60px;
+  transform: rotate(-45deg);
+}
+
+.pillar-arrow-02 {
+  top: -30px;
+  right: 20px;
+  width: 160px;
+  height: 120px;
+  border-right: 2px solid rgba(166, 166, 166, 0.7);
+  border-top: 2px solid rgba(166, 166, 166, 0.7);
+  border-top-right-radius: 60px;
+  transform: rotate(45deg);
+}
+
+.pillar-arrow-03 {
+  left: -70px;
+  top: 50%;
+  width: 70px;
+  height: 2px;
+  background-color: rgba(166, 166, 166, 0.7);
+  transform: translateY(-50%);
+}
+
+/* Estilo para el footer del hero */
+.hero-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .social-proof {
   margin-bottom: 1.5rem !important;
   font-weight: 600 !important;
   display: inline-block;
-  background-color: rgba(255,255,255,0.3);
+  background-color: rgba(45, 41, 38, 0.1);
   padding: 0.5rem 1rem;
   border-radius: 2rem;
 }
@@ -179,7 +243,6 @@ h1, h2, h3, h4, h5, h6 {
 .hero-buttons {
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
 }
 
 .button.primary {
@@ -219,7 +282,7 @@ h1, h2, h3, h4, h5, h6 {
   content: "";
   position: absolute;
   border-radius: 50%;
-  border: 2px dashed rgba(45,41,38,0.15);
+  border: 2px dashed rgba(45,41,38,0.08);
   width: 200px;
   height: 200px;
 }
@@ -239,47 +302,110 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Media queries para responsividad */
-@media (max-width: 768px) {
-  .hero-content {
-    flex-direction: column-reverse;
-    text-align: center;
+@media (max-width: 1200px) {
+  .process-diagram {
+    height: 600px;
   }
   
+  .chef-image {
+    width: 350px;
+  }
+  
+  .pillar {
+    width: 240px;
+  }
+  
+  .pillar-01 {
+    left: 50px;
+  }
+  
+  .pillar-02 {
+    left: 50px;
+  }
+  
+  .pillar-03 {
+    right: 50px;
+  }
+}
+
+@media (max-width: 992px) {
+  .process-diagram {
+    height: auto;
+    flex-direction: column;
+    padding: 30px 0;
+  }
+  
+  .chef-image {
+    position: relative;
+    width: 300px;
+    margin: 30px 0;
+    order: 1;
+  }
+  
+  .pillar {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: 15px 0;
+  }
+  
+  .pillar-01 {
+    top: auto;
+    left: auto;
+    order: 0;
+  }
+  
+  .pillar-02 {
+    bottom: auto;
+    left: auto;
+    order: 2;
+  }
+  
+  .pillar-03 {
+    top: auto;
+    right: auto;
+    transform: none;
+    order: 3;
+  }
+  
+  .pillar-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
   .paella-hero h1 {
-    font-size: 2.5rem !important;
+    font-size: 2.3rem !important;
   }
   
   .hero-value-prop {
-    font-size: 1.25rem !important;
-  }
-  
-  .hero-pillars {
-    align-items: flex-start;
-    text-align: left;
-  }
-  
-  .hero-pillar {
-    flex-direction: row;
-    align-items: center;
-    text-align: left;
-  }
-  
-  .pillar-number {
-    margin-right: 0.5rem;
+    font-size: 1.1rem !important;
   }
   
   .hero-buttons {
-    justify-content: center;
-  }
-  
-  .paella-avatar {
-    max-width: 80%;
-    margin-bottom: 2rem;
-  }
-  
-  .hero-text {
-    display: flex;
     flex-direction: column;
+    width: 100%;
     align-items: center;
+  }
+  
+  .button {
+    width: 100%;
+    max-width: 250px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .pillar {
+    max-width: 280px;
+  }
+  
+  .pillar-number {
+    font-size: 2rem !important;
+  }
+  
+  .pillar-title {
+    font-size: 1.1rem !important;
   }
 } 
