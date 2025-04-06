@@ -1,16 +1,16 @@
 /* Minimal Theme - Apple-inspired Black and White Design */
 :root {
-  /* Core colors */
+  /* Core colors con mejor contraste */
   --background-dark: #000000;
   --background-light: #111111;
   --background-lighter: #1a1a1a;
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.86);
-  --text-tertiary: rgba(255, 255, 255, 0.65);
+  --text-secondary: rgba(255, 255, 255, 0.95); /* Incrementado para mejor contraste */
+  --text-tertiary: rgba(255, 255, 255, 0.85); /* Incrementado para mejor contraste */
   --accent: #ffffff;
   
   /* Accessibility enhancements */
-  --focus-ring: rgba(255, 255, 255, 0.8);
+  --focus-ring: #ffffff;
   --focus-ring-width: 2px;
   
   /* Spacing & sizing variables */
@@ -60,8 +60,8 @@ body {
 
 /* Accessibility Improvements */
 *:focus {
-  outline: var(--focus-ring-width) solid var(--focus-ring);
-  outline-offset: 2px;
+  outline: 3px solid #FFFFFF; /* Contorno más grueso y visible */
+  outline-offset: 3px;
 }
 
 .visually-hidden {
@@ -235,39 +235,25 @@ a::after {
   font-size: var(--font-size-sm);
   text-transform: none; /* Apple uses sentence case */
   letter-spacing: -0.01em;
-  opacity: 0.85;
-  color: var(--text-primary);
-  font-weight: 400;
+  opacity: 1; /* Opacidad completa */
+  color: #FFFFFF; /* Blanco sólido para navegación */
+  font-weight: 500; /* Peso medio para mejor legibilidad */
   position: relative;
   padding: calc(var(--spacing-unit)) 0;
 }
 
-.nav-links a.active {
-  opacity: 1;
-  font-weight: 500;
-}
-
-.nav-links a:hover, .nav-links a:focus {
-  opacity: 1;
+.nav-links a.active,
+.nav-links a:hover, 
+.nav-links a:focus {
+  color: #FFFFFF;
+  font-weight: 700; /* Negrita para el estado activo */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
 
 .nav-links a::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: var(--text-primary);
-  bottom: 0;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-.nav-links a:hover::after, 
-.nav-links a:focus::after,
-.nav-links a.active::after {
-  transform: scaleX(1);
+  display: none; /* Eliminar comportamiento anterior */
 }
 
 .menu-toggle {
@@ -339,9 +325,9 @@ a::after {
 .button {
   padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 4);
   background-color: var(--text-primary);
-  color: var(--background-dark);
+  color: #000000; /* Negro puro sobre blanco para máximo contraste */
   border-radius: 980px; /* Apple's rounded buttons */
-  font-weight: 500;
+  font-weight: 600; /* Negrita para mejor legibilidad */
   font-size: var(--font-size-md);
   letter-spacing: -0.01em;
   display: inline-flex;
@@ -356,18 +342,19 @@ a::after {
 
 .button:hover, .button:focus {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5); /* Añadir outline visible */
 }
 
 .button.secondary {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: var(--text-primary);
+  color: #FFFFFF; /* Blanco puro para botones secundarios */
+  border: 2px solid #FFFFFF; /* Borde más visible */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo más visible */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
 
 .button.secondary:hover, .button.secondary:focus {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.3); /* Incrementar opacidad ligeramente */
 }
 
 .button::after {
@@ -509,10 +496,10 @@ a::after {
   position: absolute;
   left: 0;
   top: 10px;
-  width: 6px;
-  height: 6px;
+  width: 8px; /* Aumentar tamaño */
+  height: 8px; /* Aumentar tamaño */
   border-radius: 50%;
-  background-color: var(--text-primary);
+  background-color: #FFFFFF; /* Blanco sólido para puntos de lista */
 }
 
 /* Code Example Section - Apple Style */
@@ -570,7 +557,7 @@ a::after {
   font-family: "SF Mono", "Roboto Mono", Menlo, Monaco, Consolas, monospace;
   font-size: var(--font-size-sm);
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #FFFFFF;
 }
 
 /* CTA Section - Apple Style */
@@ -721,8 +708,8 @@ a::after {
 .svg-icon {
   width: 48px;
   height: 48px;
-  stroke: var(--text-primary);
-  stroke-width: 1.5;
+  stroke: #FFFFFF; /* Color blanco puro para íconos */
+  stroke-width: 2px; /* Aumentar grosor para mejor visibilidad */
   fill: none;
   display: inline-block;
 }
@@ -1178,4 +1165,124 @@ a::after {
 .no-js .js-scroll-reveal {
   opacity: 1;
   transform: none;
+}
+
+/* Asegura que todos los textos secundarios tengan suficiente contraste */
+p, 
+.footer-column a,
+.footer-bottom,
+.text-secondary,
+.minimal-icon-description,
+.problem-card li, 
+.solution-card li,
+.feature-number {
+  color: #FFFFFF; /* Usar blanco puro en lugar de transparencias */
+}
+
+/* Botones secundarios con mejor contraste */
+.button.secondary {
+  background-color: rgba(255, 255, 255, 0.15); /* Incrementar opacidad de fondo */
+  border: 1px solid rgba(255, 255, 255, 0.9); /* Añadir borde para mejor definición */
+}
+
+/* Elementos de tipo terciario con mejor contraste */
+.text-tertiary,
+.footer-column h3,
+.footer-bottom {
+  color: rgba(255, 255, 255, 0.95); /* Alto contraste para textos pequeños */
+}
+
+/* Indicador visible de focus para elementos interactivos */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #FFFFFF; /* Contorno sólido blanco */
+  outline-offset: 2px;
+}
+
+/* Estilo global para todos los textos con mejor contraste */
+body, p, a, span, li, h1, h2, h3, h4, h5, h6, button, input, select, textarea {
+  color: var(--text-primary);
+}
+
+/* Estilos específicos para navegación con alto contraste */
+.nav-links a {
+  color: #FFFFFF; /* Blanco sólido para navegación */
+  opacity: 1; /* Opacidad completa */
+  font-weight: 500; /* Peso medio para mejor legibilidad */
+}
+
+/* Estado activo de navegación más visible */
+.nav-links a.active {
+  color: #FFFFFF;
+  font-weight: 700; /* Negrita para el estado activo */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* Mejora de contraste en elementos secundarios */
+p, 
+.footer-column a,
+.footer-column li,
+.text-secondary,
+.minimal-icon-description,
+.problem-card li, 
+.solution-card li,
+.feature-number {
+  color: #FFFFFF; /* Usar blanco puro en lugar de transparencias */
+}
+
+/* Elementos de énfasis terciario con contraste mejorado */
+.text-tertiary,
+.footer-column h3,
+.code-lang {
+  color: rgba(255, 255, 255, 0.95); /* Alto contraste para textos pequeños */
+}
+
+/* Mejor contraste para footer */
+.footer-bottom,
+.footer-bottom p,
+.footer-bottom a {
+  color: #FFFFFF; /* Blanco puro para textos pequeños del footer */
+}
+
+/* Código con alto contraste */
+.code-content code {
+  color: #FFFFFF;
+}
+
+/* Corregir contraste de elementos small y textos pequeños */
+small, 
+.small-text,
+.code-title {
+  color: #FFFFFF;
+}
+
+/* Mejorar visibilidad de puntos de lista */
+.problem-card li:before, 
+.solution-card li:before {
+  background-color: #FFFFFF; /* Blanco sólido para puntos de lista */
+  width: 8px; /* Aumentar tamaño */
+  height: 8px; /* Aumentar tamaño */
+}
+
+/* Botones con texto de alto contraste */
+.button {
+  color: #000000; /* Negro puro sobre blanco para máximo contraste */
+  font-weight: 600; /* Negrita para mejor legibilidad */
+}
+
+.button.secondary {
+  color: #FFFFFF; /* Blanco puro para botones secundarios */
+  border: 2px solid #FFFFFF; /* Borde más visible */
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo más visible */
+}
+
+/* Focus states más obvios */
+*:focus {
+  outline: 3px solid #FFFFFF; /* Contorno más grueso y visible */
+  outline-offset: 3px;
 } 
