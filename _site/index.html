@@ -5,8 +5,36 @@
     <meta charset="utf-8">
     <title>PAELLADOC - AI Documentation Framework</title>
     <meta name="description" content="PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <!-- Critical CSS Inline -->
+<style>
+/* Critical CSS here to improve render performance */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+.site-header {
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+</style> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>PAELLADOC - AI Documentation Framework | PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.</title>
 <meta name="generator" content="Jekyll v4.3.4" />
@@ -182,7 +210,72 @@ DECISION impact="architecture" rationale="Chose transformer-based approach for b
       </div>
     </footer>
 
-    <script>
+    <!-- Image optimization helpers -->
+<script>
+  // Lazy loading images
+  document.addEventListener("DOMContentLoaded", function() {
+    var lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+    
+    if ("IntersectionObserver" in window) {
+      let lazyImageObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            let lazyImage = entry.target;
+            lazyImage.src = lazyImage.dataset.src;
+            if (lazyImage.dataset.srcset) {
+              lazyImage.srcset = lazyImage.dataset.srcset;
+            }
+            lazyImage.classList.remove("lazy");
+            lazyImageObserver.unobserve(lazyImage);
+          }
+        });
+      });
+
+      lazyImages.forEach(function(lazyImage) {
+        lazyImageObserver.observe(lazyImage);
+      });
+    } else {
+      // Fallback for browsers that don't support IntersectionObserver
+      let active = false;
+
+      const lazyLoad = function() {
+        if (active === false) {
+          active = true;
+
+          setTimeout(function() {
+            lazyImages.forEach(function(lazyImage) {
+              if ((lazyImage.getBoundingClientRect().top <= window.innerHeight && lazyImage.getBoundingClientRect().bottom >= 0) && getComputedStyle(lazyImage).display !== "none") {
+                lazyImage.src = lazyImage.dataset.src;
+                if (lazyImage.dataset.srcset) {
+                  lazyImage.srcset = lazyImage.dataset.srcset;
+                }
+                lazyImage.classList.remove("lazy");
+
+                lazyImages = lazyImages.filter(function(image) {
+                  return image !== lazyImage;
+                });
+
+                if (lazyImages.length === 0) {
+                  document.removeEventListener("scroll", lazyLoad);
+                  window.removeEventListener("resize", lazyLoad);
+                  window.removeEventListener("orientationchange", lazyLoad);
+                }
+              }
+            });
+
+            active = false;
+          }, 200);
+        }
+      };
+
+      document.addEventListener("scroll", lazyLoad);
+      window.addEventListener("resize", lazyLoad);
+      window.addEventListener("orientationchange", lazyLoad);
+      lazyLoad();
+    }
+  });
+</script> 
+    <script defer>
       document.querySelector('.menu-toggle').addEventListener('click', function() {
         document.querySelector('.nav-links').classList.toggle('active');
         this.classList.toggle('active');

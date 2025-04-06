@@ -5,8 +5,13 @@
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    {% include head-optimization.html %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
+    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
+    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
     {% seo %}
   </head>
   <body>
@@ -72,7 +77,8 @@
       </div>
     </footer>
 
-    <script>
+    {% include optimized-images.html %}
+    <script defer>
       document.querySelector('.menu-toggle').addEventListener('click', function() {
         document.querySelector('.nav-links').classList.toggle('active');
         this.classList.toggle('active');
