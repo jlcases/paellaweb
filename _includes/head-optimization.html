@@ -6,7 +6,7 @@
   --background-dark: #000000;
   --background-light: #0f0f0f;
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.86);
+  --text-secondary: #ffffff; /* Cambiado a blanco sólido para mayor contraste */
   --font-size-md: 16px;
   --font-size-xl: 20px;
   --font-size-4xl: 40px;
@@ -21,6 +21,30 @@ body {
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Forzar estilos de alta visibilidad */
+* {
+  color: #FFFFFF !important; /* Forzar blanco para todo texto para mejor legibilidad */
+  text-shadow: 0 0 1px rgba(0,0,0,0.5); /* Ligero halo para mejorar contraste */
+}
+
+/* Excepciones para elementos específicos */
+.button {
+  color: #000000 !important; /* Negro puro sobre fondo blanco */
+  text-shadow: none !important; /* Sin sombra */
+}
+
+.button.secondary {
+  color: #FFFFFF !important; /* Blanco sobre fondo oscuro */
+  border: 2px solid #FFFFFF !important; /* Borde visible */
+  background-color: rgba(0,0,0,0.5) !important; /* Fondo oscuro para contraste */
+}
+
+/* Accesibilidad mejorada */
+a:focus, button:focus {
+  outline: 3px solid #FFFFFF !important; /* Borde más visible para foco */
+  outline-offset: 3px;
 }
 
 /* Accessibility: Skip to content link */
@@ -51,6 +75,7 @@ h1#lcp-target {
   min-height: 4rem;
   margin-bottom: 24px;
   margin-top: 0;
+  text-shadow: 0 0 3px rgba(0,0,0,0.8) !important; /* Halo más pronunciado */
 }
 
 /* Elemento hero extremadamente simplificado */
@@ -95,7 +120,7 @@ h1#lcp-target {
 /* SVG Icons */
 .svg-icon {
   stroke: var(--text-primary);
-  stroke-width: 1.5;
+  stroke-width: 2; /* Aumentado para mejor visibilidad */
   fill: none;
   display: inline-block;
   width: 48px;
@@ -110,7 +135,7 @@ h1#lcp-target {
   right: 0;
   height: 80px;
   z-index: 100;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.95); /* Más oscuro para mejor contraste */
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
   border-bottom: none;
@@ -124,7 +149,7 @@ h1#lcp-target {
   left: 0;
   right: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.2); /* Más visible */
 }
 
 .header-content {
@@ -136,17 +161,20 @@ h1#lcp-target {
 
 /* Estilos para navegación */
 .site-logo {
-  font-size: var(--font-size-md);
-  font-weight: 500;
+  font-size: 28px !important; /* Aumentado */
+  font-weight: 900 !important; /* Más negrita */
   display: flex;
   align-items: center;
   letter-spacing: -0.02em;
+  text-shadow: 0 0 4px rgba(255,255,255,0.3) !important; /* Halo suave */
 }
 
 .logo-text {
   color: var(--text-primary);
-  font-weight: 500;
+  font-weight: 900; /* Extra negrita */
   letter-spacing: -0.03em;
+  font-size: 28px !important; /* Aumentado */
+  text-shadow: 0 0 4px rgba(255,255,255,0.3) !important; /* Halo suave */
 }
 
 .site-nav {
@@ -166,27 +194,34 @@ h1#lcp-target {
 }
 
 .nav-links a {
-  color: var(--text-primary);
-  font-size: 14px;
-  opacity: 0.85;
-  letter-spacing: -0.01em;
-  font-weight: 400;
+  color: var(--text-primary) !important;
+  font-size: 20px !important; /* Aumentado */
+  opacity: 1 !important; /* Sin transparencia */
+  letter-spacing: 0.02em;
+  font-weight: 700 !important; /* Negrita */
   position: relative;
   padding: 8px 0;
   text-decoration: none;
+  text-transform: uppercase !important; /* Mayúsculas */
+  text-shadow: 0 0 3px rgba(255,255,255,0.3) !important; /* Halo */
 }
 
 .nav-links a.active {
   opacity: 1;
-  font-weight: 500;
+  font-weight: 900 !important; /* Extra negrita */
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
 }
 
 .hero-subtitle {
   font-size: var(--font-size-xl);
   max-width: 750px;
   margin: 0 auto 48px;
-  color: var(--text-secondary) !important;
+  color: var(--text-primary) !important;
   line-height: 1.5;
+  font-weight: 600 !important; /* Semi-negrita */
+  text-shadow: 0 0 2px rgba(0,0,0,0.6) !important; /* Halo */
 }
 
 /* Animaciones Apple-style */
@@ -207,7 +242,7 @@ h1#lcp-target {
   background-color: var(--text-primary);
   color: var(--background-dark);
   border-radius: 980px;
-  font-weight: 500;
+  font-weight: 700; /* Más negrita */
   font-size: var(--font-size-md);
   letter-spacing: -0.01em;
   display: inline-flex;
@@ -227,8 +262,8 @@ h1#lcp-target {
 
 /* Focus styles para accesibilidad */
 *:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 2px;
+  outline: 3px solid #FFFFFF !important; /* Borde blanco más visible */
+  outline-offset: 3px;
 }
 
 /* Detectar cuando se ha renderizado el LCP */
