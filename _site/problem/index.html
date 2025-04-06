@@ -53,6 +53,7 @@
   --background-dark: #000000;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
+  --hero-background: #cf2e2e;
 }
 
 /* Critical Base Styles */
@@ -84,6 +85,9 @@ h1#lcp-target {
   align-items: center;
   padding-top: 100px;
   padding-bottom: 0;
+  background-color: var(--hero-background);
+  justify-content: center;
+  text-align: center;
 }
 
 .container {
@@ -117,7 +121,7 @@ h1#lcp-target {
   height: 80px;
   z-index: 100;
   background-color: var(--background-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header-content {
@@ -125,6 +129,49 @@ h1#lcp-target {
   justify-content: space-between;
   align-items: center;
   height: 100%;
+}
+
+/* Estilos para navegación */
+.site-logo {
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  color: var(--text-primary);
+  font-weight: bold;
+  letter-spacing: -0.03em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 32px;
+}
+
+.nav-links a {
+  color: var(--text-primary);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  max-width: 650px;
+  margin: 0 auto 48px;
+  color: var(--text-primary) !important;
 }
 
 /* Fuente base en Base64 para títulos principales - versión mínima */

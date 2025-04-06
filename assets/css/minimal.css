@@ -1,4 +1,4 @@
-/* Minimal Theme - Black and White Design */
+/* Minimal Theme - Black and White Design with Red Hero */
 :root {
   --background-dark: #000000;
   --background-light: #111111;
@@ -6,6 +6,7 @@
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-tertiary: rgba(255, 255, 255, 0.5);
   --accent: #ff5500;
+  --hero-background: #cf2e2e;
   --spacing-unit: 8px;
   --container-width: 1200px;
   --header-height: 80px;
@@ -83,7 +84,7 @@ a:hover {
   right: 0;
   z-index: 100;
   background-color: var(--background-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .header-content {
@@ -96,10 +97,14 @@ a:hover {
 .site-logo {
   font-size: 20px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
 }
 
 .logo-text {
   letter-spacing: -0.03em;
+  color: var(--text-primary);
+  font-weight: bold;
 }
 
 /* Navigation */
@@ -122,10 +127,13 @@ a:hover {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   opacity: 0.8;
+  color: var(--text-primary);
+  font-weight: 500;
 }
 
 .nav-links a:hover, .nav-links a.active {
   opacity: 1;
+  text-decoration: underline;
 }
 
 .menu-toggle {
@@ -138,11 +146,26 @@ a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  background-color: var(--hero-background);
+  justify-content: center;
+  text-align: center;
+}
+
+.hero h1, .hero p {
+  color: var(--text-primary);
+}
+
+.hero-subtitle {
+  font-size: 20px;
+  max-width: 650px;
+  margin: 0 auto calc(var(--spacing-unit) * 6);
+  color: var(--text-primary) !important;
 }
 
 .hero-buttons {
   display: flex;
   margin-top: calc(var(--spacing-unit) * 6);
+  justify-content: center;
 }
 
 .button {
@@ -485,7 +508,7 @@ a:hover {
     left: 0;
     right: 0;
     background-color: var(--background-dark);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     padding: calc(var(--spacing-unit) * 3);
   }
   
@@ -495,6 +518,11 @@ a:hover {
 }
 
 /* Custom Classes for Minimal Design */
+.minimal-values {
+  padding: calc(var(--spacing-unit) * 16) 0;
+  background-color: var(--background-light);
+}
+
 .minimal-icons {
   display: flex;
   justify-content: space-between;
@@ -532,18 +560,6 @@ a:hover {
 }
 
 /* Additional styles for new minimalist sections */
-
-/* Minimal Values Section */
-.minimal-values {
-  padding: calc(var(--spacing-unit) * 16) 0;
-  background-color: var(--background-light);
-}
-
-.hero-subtitle {
-  font-size: 20px;
-  max-width: 650px;
-  margin-bottom: calc(var(--spacing-unit) * 6);
-}
 
 .feature-number {
   font-size: 18px;
