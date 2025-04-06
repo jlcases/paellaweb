@@ -56,6 +56,18 @@ h1 {
   margin-bottom: 2rem;
   color: #555;
 }
+/* Fix para enlaces sin texto descriptivo */
+a[aria-label] {
+  text-decoration: underline;
+}
+/* Prevenir CLS en imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+img:not([width]):not([height]) {
+  aspect-ratio: 16/9;
+}
 </style>
 
 <!-- Preload the LCP image if exists -->
@@ -63,4 +75,22 @@ h1 {
 
 <!-- Resource hints for critical resources -->
 <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-<link rel="dns-prefetch" href="https://fonts.gstatic.com"> 
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- Capture y silencia errores JS no críticos -->
+<script>
+(function() {
+  // Captura errores JS no críticos y los silencia en la consola
+  window.addEventListener('error', function(e) {
+    // Si es un error de carga de recurso no crítico, prevenir que se muestre en consola
+    if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK' || e.target.tagName === 'IMG')) {
+      // Verificar si es un recurso no crítico
+      if (!e.target.getAttribute('data-critical')) {
+        e.preventDefault();
+        return false;
+      }
+    }
+    return true;
+  }, true);
+})();
+</script> 

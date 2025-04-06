@@ -374,6 +374,7 @@ ul li, ol li {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 300px;
 }
 .hero:before {
   content: "";
@@ -385,6 +386,7 @@ ul li, ol li {
   background-image: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M50 37.5L25 56.25L32.5 87.5L67.5 87.5L75 56.25L50 37.5Z" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" /></svg>');
   background-size: 100px 100px;
   opacity: 0.3;
+  will-change: transform;
 }
 .hero .container {
   position: relative;
@@ -393,22 +395,26 @@ ul li, ol li {
 .hero h1 {
   margin-bottom: 1rem;
   font-size: 2.5rem;
+  min-height: 3.5rem;
 }
 @media (min-width: 768px) {
   .hero h1 {
     font-size: 3.5rem;
+    min-height: 4.5rem;
   }
 }
 .hero p {
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto 2rem;
+  min-height: 1.5rem;
 }
 .hero .hero-buttons {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  min-height: 56px;
 }
 
 .page-header {
@@ -485,6 +491,7 @@ ul li, ol li {
   height: 100%;
   display: flex;
   flex-direction: column;
+  will-change: transform;
 }
 .feature-card:hover {
   transform: translateY(-5px);
@@ -504,9 +511,11 @@ ul li, ol li {
 }
 .feature-card h3 {
   margin-bottom: 0.75rem;
+  min-height: 1.75rem;
 }
 .feature-card p {
   margin-bottom: 1.25rem;
+  min-height: 4.5rem;
 }
 .feature-card a {
   margin-top: auto;
@@ -518,6 +527,7 @@ ul li, ol li {
   content: "→";
   margin-left: 0.5rem;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 .feature-card a:hover:after {
   transform: translateX(5px);
@@ -585,6 +595,7 @@ ul li, ol li {
   top: -200px;
   right: -200px;
   z-index: 0;
+  will-change: transform;
 }
 .cta-section .container {
   position: relative;
@@ -592,10 +603,12 @@ ul li, ol li {
 }
 .cta-section h2 {
   margin-bottom: 1rem;
+  min-height: 2.5rem;
 }
 .cta-section p {
   max-width: 700px;
   margin: 0 auto 2rem;
+  min-height: 3rem;
 }
 
 .code-example {

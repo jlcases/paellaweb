@@ -2,11 +2,11 @@
 layout: default
 ---
 
-<section class="hero" id="lcp-container">
+<section class="hero" id="lcp-container" style="min-height:300px;">
   <div class="container">
-    <h1 id="lcp-target" fetchpriority="high">PAELLADOC Documentation Framework</h1>
-    <p>Solve context loss in AI development with our structured MECE-based documentation approach</p>
-    <div class="hero-buttons">
+    <h1 id="lcp-target" fetchpriority="high" style="min-height:3.5rem;">PAELLADOC Documentation Framework</h1>
+    <p style="min-height:1.5rem;">Solve context loss in AI development with our structured MECE-based documentation approach</p>
+    <div class="hero-buttons" style="min-height:56px;">
       <a href="{{ '/quickstart' | relative_url }}" class="button" aria-label="View Quick Start Guide">Quick Start Guide</a>
       <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary" aria-label="View on GitHub">View on GitHub</a>
     </div>
@@ -15,24 +15,24 @@ layout: default
 
 <section class="features">
   <div class="container">
-    <h2>Why PAELLADOC?</h2>
+    <h2 style="min-height:2.5rem;">Why PAELLADOC?</h2>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">📋</div>
-        <h3>MECE Approach</h3>
-        <p>Our Mutually Exclusive, Collectively Exhaustive framework ensures complete, non-redundant documentation.</p>
+        <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">📋</div>
+        <h3 style="min-height:1.75rem;">MECE Approach</h3>
+        <p style="min-height:4.5rem;">Our Mutually Exclusive, Collectively Exhaustive framework ensures complete, non-redundant documentation.</p>
         <a href="{{ '/solution' | relative_url }}" aria-label="Learn more about MECE Approach">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">🧠</div>
-        <h3>Context Preservation</h3>
-        <p>Address the common problem of context loss in AI development workflows.</p>
+        <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">🧠</div>
+        <h3 style="min-height:1.75rem;">Context Preservation</h3>
+        <p style="min-height:4.5rem;">Address the common problem of context loss in AI development workflows.</p>
         <a href="{{ '/problem' | relative_url }}" aria-label="Learn more about Context Preservation">Learn more</a>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">🔄</div>
-        <h3>GitHub Integration</h3>
-        <p>Seamlessly works with your existing GitHub repositories and workflows.</p>
+        <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">🔄</div>
+        <h3 style="min-height:1.75rem;">GitHub Integration</h3>
+        <p style="min-height:4.5rem;">Seamlessly works with your existing GitHub repositories and workflows.</p>
         <a href="{{ '/community' | relative_url }}" aria-label="Learn more about GitHub Integration">Learn more</a>
       </div>
     </div>
