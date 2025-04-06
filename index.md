@@ -57,8 +57,9 @@ layout: default
           <span class="github-stars">224 ⭐ on GitHub</span>
         </div>
         <div class="hero-buttons">
-          <a href="{{ '/quickstart' | relative_url }}" class="button primary">Get Started</a>
-          <a href="{{ '/community' | relative_url }}" class="button secondary">Join Community</a>
+          <a href="https://github.com/jlcases/paelladoc" target="_blank" class="button primary">Get Started</a>
+          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button secondary">Join Community</a>
+          <a href="https://x.com/i/communities/1907494161458090406" target="_blank" class="button secondary">Join X Community</a>
         </div>
       </div>
     </div>
