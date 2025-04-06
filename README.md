@@ -2,21 +2,28 @@
 
 This is the official website for PAELLADOC, an AI documentation framework that helps solve context loss problems in AI development teams.
 
-## Local Development
+## Features
+
+- Clean, minimal design inspired by Apple's aesthetic
+- Mobile-responsive layout for all devices
+- Focus on content and readability
+- Fast loading with optimized assets
+- Accessibility-first approach
+
+## Development
 
 ### Prerequisites
 
-- Ruby (version 2.7.0 or higher recommended)
-- RubyGems
+- Ruby 2.7.0 or higher
 - Bundler
-- Jekyll (version 4.3.4)
+- Jekyll 4.2.0 or higher
 
 ### Setup
 
-1. Clone this repository
+1. Clone the repository
 ```bash
-git clone https://github.com/jlcases/paellaweb.git
-cd paellaweb
+git clone https://github.com/jlcases/paelladocweb.git
+cd paelladocweb
 ```
 
 2. Install dependencies
@@ -24,38 +31,55 @@ cd paellaweb
 bundle install
 ```
 
-3. Run the local development server
+3. Start the development server
 ```bash
 bundle exec jekyll serve
 ```
 
-4. View the site at [http://localhost:4000](http://localhost:4000)
+4. Visit `http://localhost:4000` to see the site.
 
-### Testing Changes
+### Directory Structure
 
-- The site will automatically rebuild when you make changes
-- Refresh your browser to see updates
-- Use the `--livereload` flag for automatic browser refreshing:
-```bash
-bundle exec jekyll serve --livereload
-```
+- `_layouts/`: HTML templates
+- `_includes/`: Reusable HTML components
+- `_sass/`: SCSS stylesheets
+- `assets/`: Static assets like CSS, JS, and images
+- `_data/`: YAML files with site data
+- `_posts/`: Blog posts (if applicable)
+- `_site/`: Generated site (do not edit)
 
-## Structure
+### CSS Architecture
 
-- `_layouts/` - Contains HTML templates
-- `_sass/` - Contains SCSS stylesheets
-- `assets/` - Contains compiled CSS and other static assets
-- `_data/` - Contains site data files
-- `_config.yml` - Main Jekyll configuration file
-- Other directories contain individual section pages
+The CSS follows a component-based architecture with:
+
+- `_sass/base.scss`: Base styles and variables
+- `_sass/layout.scss`: Layout components (header, footer, etc.)
+- `_sass/components.scss`: UI components (buttons, cards, etc.)
 
 ## Deployment
 
-This site is deployed using GitHub Pages. Push changes to the main branch to deploy.
+The site is deployed automatically when changes are pushed to the main branch. The site uses GitHub Pages for hosting.
+
+## Configuration
+
+The site is configured in `_config.yml`. Main settings:
+
+- `title`: Site title
+- `description`: Site description
+- `url`: Site URL
 
 ## Custom Domain
 
 The site is configured to use [paelladoc.com](https://paelladoc.com).
+
+## License
+
+This project is licensed under the MIT License.
+
+## Credits
+
+- Design: PAELLADOC Design Team
+- Development: PAELLADOC Engineering Team
 
 ## Contributing
 

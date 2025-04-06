@@ -140,7 +140,7 @@ GENERATE_CODE component="auth_service"</code></pre>
     <div class="container">
       <h2>Elevate Your Development Process</h2>
       <p>Experience the most comprehensive AI-powered development system available for modern product teams.</p>
-      <a href="https://github.com/jlcases/paellaweb/discussions" target="_blank" class="button">Join GitHub Discussions</a>
+      <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">Join GitHub Discussions</a>
     </div>
   </section>
 </div>
