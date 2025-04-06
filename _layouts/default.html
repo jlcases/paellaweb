@@ -6,43 +6,46 @@
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
     
-    <!-- Font Face Observer para controlar carga de fuentes -->
+    <!-- Preload solo recursos críticos inmediatamente -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+    
+    <!-- Quick loading script -->
     <script>
-      // Marcamos como no-js hasta que carguemos todo
-      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js-loading';
+      // Marcar como loading hasta que el LCP se renderice
+      document.documentElement.className = 'no-js loading';
       
-      // Función para marcar cuando se han cargado las fuentes principales
-      function markFontsReady() {
-        document.documentElement.className = document.documentElement.className.replace(/\bjs-loading\b/g, '') + ' js-fonts-loaded';
-      }
+      // Activar renderizado progresivo
+      window.enableProgressiveLoading = function() {
+        document.documentElement.className = document.documentElement.className.replace('loading', 'loaded');
+        
+        // Cargar recursos no críticos
+        setTimeout(function() {
+          // Cargar estilos completos
+          const mainCSS = document.createElement('link');
+          mainCSS.rel = 'stylesheet';
+          mainCSS.href = "{{ '/assets/css/main.css' | relative_url }}";
+          document.head.appendChild(mainCSS);
+          
+          // Cargar scripts no críticos
+          const scripts = document.querySelectorAll('script[data-src]');
+          scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.src = script.getAttribute('data-src');
+            newScript.async = true;
+            document.body.appendChild(newScript);
+          });
+        }, 100);
+      };
       
-      // Detectar si las fuentes ya están en caché
-      if (sessionStorage.fontsLoaded) {
-        markFontsReady();
-      }
+      // En caso de que la detección de LCP falle, forzar la carga después de un tiempo
+      setTimeout(function() {
+        if (document.documentElement.className.includes('loading')) {
+          window.enableProgressiveLoading();
+        }
+      }, 3000);
     </script>
     
-    <!-- Optimización para fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
     {% include head-optimization.html %}
-    
-    <!-- Font loading strategy optimizada para reducir CLS -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap" media="print" onload="this.media='all'; if(document.documentElement.className.indexOf('js-fonts-loaded') === -1) { document.documentElement.className += ' fonts-loaded'; sessionStorage.fontsLoaded = true; }">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"></noscript>
-    
-    <!-- Carga de CSS principal de forma no bloqueante -->
-    <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}"></noscript>
-    
-    <meta http-equiv="Cache-Control" content="max-age=31536000, public">
-    {% seo %}
-    <!-- Fix for missing meta content -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
   </head>
   <body>
     <header class="site-header">
@@ -107,7 +110,23 @@
       </div>
     </footer>
 
-    {% include optimized-images.html %}
+    <!-- Detector de LCP completado -->
+    <script>
+      // Observar cuando se completa el LCP
+      if ('PerformanceObserver' in window) {
+        const lcpObserver = new PerformanceObserver((entryList) => {
+          const entries = entryList.getEntries();
+          if (entries.length > 0) {
+            window.enableProgressiveLoading();
+            lcpObserver.disconnect();
+          }
+        });
+        lcpObserver.observe({entryTypes: ['largest-contentful-paint']});
+      }
+    </script>
+    
+    <!-- Scripts no bloqueantes -->
+    <script data-src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script defer>
       document.querySelector('.menu-toggle').addEventListener('click', function() {
         document.querySelector('.nav-links').classList.toggle('active');

@@ -1,11 +1,45 @@
-<!-- Critical CSS Inline -->
+<!-- LCP Critical Rendering Optimization - Minimal CSS for first paint -->
 <style>
-/* Critical CSS here to improve render performance */
+/* Estilos mínimos para renderizar rápidamente el LCP */
+:root {
+  --lcp-rendered: 0;
+}
+
+/* Critical Base Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif; /* Sistema como primera opción */
-  line-height: 1.6;
-  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Específicamente para el LCP */
+h1#lcp-target {
+  font-family: Arial, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0066cc;
+  line-height: 1.2;
+  min-height: 3.5rem;
+}
+
+/* Elemento hero extremadamente simplificado */
+.hero {
+  background-color: #cf2e2e;
+  color: white;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Progressive hydration - hide non-critical elements */
+.defer-visibility {
+  content-visibility: auto;
 }
 
 /* Fuente base en Base64 para títulos principales - versión mínima */
@@ -13,175 +47,96 @@ body {
   font-family: 'Inter-Critical';
   font-style: normal;
   font-weight: 700;
-  font-display: block;
+  font-display: swap;
   src: url('data:application/font-woff2;charset=utf-8;base64,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') format('woff2');
 }
 
-/* Fallback fonts con métricas precisas para evitar CLS */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  font-display: optional; /* Mejor que swap para CLS */
-  src: local('Arial');
-  size-adjust: 105%;
-  ascent-override: 90%;
-  descent-override: 23%;
-  line-gap-override: normal;
+/* Aplicar la fuente crítica solo a elementos clave */
+h1#lcp-target {
+  font-family: 'Inter-Critical', Arial, sans-serif;
 }
 
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: optional;
-  src: local('Arial Bold'), local('Arial-Bold');
-  size-adjust: 105%;
-  ascent-override: 90%;
-  descent-override: 23%;
-  line-gap-override: normal;
-}
-
-.site-header {
-  background-color: #fff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-}
-.site-logo {
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #333;
-}
-.logo-text {
-  color: #0066cc;
-}
-h1 {
-  font-size: 2.5rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-weight: 700;
-  color: #0066cc;
-  line-height: 1.2;
-  min-height: 3.5rem; /* Altura exacta reservada */
-}
-
-/* Contenedor principal con altura mínima para evitar saltos de diseño */
+/* Detectar cuando se ha renderizado el LCP */
 .site-content {
-  contain: layout style;
-  content-visibility: auto;
-  contain-intrinsic-size: 1px 5000px; /* Reserva espacio aproximado */
-  min-height: calc(100vh - 100px);
+  contain: layout paint style;
 }
 
-.hero-section {
-  padding: 3rem 0;
-  background-color: #f8f9fa;
-}
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-.hero-tagline {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-  color: #555;
-}
-/* Fix para enlaces sin texto descriptivo */
-a[aria-label] {
-  text-decoration: underline;
-}
-/* Prevenir CLS en imágenes */
-img {
-  max-width: 100%;
-  height: auto;
-}
-img:not([width]):not([height]) {
-  aspect-ratio: 16/9;
-}
-
-/* Prevenir CLS en la navegación */
-.nav-links {
-  min-height: 40px; /* Altura mínima para la navegación */
-}
-
-/* Clase para aplicar cuando las fuentes se cargan */
-.fonts-loaded body {
-  font-family: 'Inter', Arial, sans-serif;
-}
 </style>
 
-<!-- Preload critical fonts with highest priority -->
-<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+<!-- Preload SOLO lo crítico para el LCP -->
 <link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
 
-<!-- Preload the LCP image if exists -->
-<link rel="preload" href="{{ site.baseurl }}/assets/images/hero.webp" as="image" fetchpriority="high" />
-
-<!-- Resource hints for critical resources -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<!-- Font Face Observer para controlar carga perfecta de fuentes -->
+<!-- Progressive loading scripts -->
 <script>
 (function() {
-  // Registramos la carga inicial del documento
-  const startTime = performance.now();
+  // Marcar inicio de tiempo para análisis
+  window.perfData = {
+    startTime: performance.now(),
+    lcpTime: 0
+  };
   
-  // Función para marcar cuando se cargan las fuentes
-  function markFontsLoaded() {
-    document.documentElement.classList.add('fonts-loaded');
-    console.info('Fuentes cargadas correctamente en ' + (performance.now() - startTime) + 'ms');
-  }
-  
-  // Usamos FontFaceSet API para detectar cuando las fuentes están disponibles
-  if ("fonts" in document) {
-    Promise.all([
-      document.fonts.load('700 1em Inter'),
-      document.fonts.load('400 1em Inter')
-    ]).then(function() {
-      markFontsLoaded();
-    }).catch(function() {
-      // Si hay un error, también marcamos como cargadas después de un tiempo
-      setTimeout(markFontsLoaded, 1000);
+  // LCP rendering optimization
+  document.addEventListener('DOMContentLoaded', () => {
+    // Crear un observador para el elemento LCP
+    const lcpObserver = new PerformanceObserver((entryList) => {
+      const entries = entryList.getEntries();
+      if (entries.length > 0) {
+        const lcpEntry = entries[entries.length - 1];
+        window.perfData.lcpTime = lcpEntry.startTime;
+        
+        // Marcar que el LCP ya se ha renderizado
+        document.documentElement.style.setProperty('--lcp-rendered', '1');
+        
+        // Activar la carga progresiva de recursos no críticos
+        setTimeout(() => {
+          document.querySelectorAll('.defer-visibility').forEach(el => {
+            el.style.contentVisibility = 'visible';
+          });
+          
+          // Cargar estilos completos después del LCP
+          const fullStyles = document.createElement('link');
+          fullStyles.rel = 'stylesheet';
+          fullStyles.href = '/assets/css/main.css';
+          document.head.appendChild(fullStyles);
+          
+          // Cargar fuentes completas
+          const fontStylesheet = document.createElement('link');
+          fontStylesheet.rel = 'stylesheet';
+          fontStylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
+          document.head.appendChild(fontStylesheet);
+        }, 0);
+      }
     });
     
-    // Fallback: si después de 3 segundos no se han cargado, las marcamos como cargadas
-    setTimeout(function() {
-      if (!document.documentElement.classList.contains('fonts-loaded')) {
-        markFontsLoaded();
+    // Observar las métricas de LCP
+    lcpObserver.observe({entryTypes: ['largest-contentful-paint']});
+    
+    // Asegurarse de cargar recursos no críticos incluso si la API Observe falla
+    setTimeout(() => {
+      if (document.documentElement.style.getPropertyValue('--lcp-rendered') !== '1') {
+        document.documentElement.style.setProperty('--lcp-rendered', '1');
+        document.querySelectorAll('.defer-visibility').forEach(el => {
+          el.style.contentVisibility = 'visible';
+        });
       }
     }, 3000);
-  } else {
-    // Para navegadores que no soportan la API, marcamos como cargadas inmediatamente
-    markFontsLoaded();
-  }
+  });
   
-  // Captura errores JS no críticos y los silencia en la consola
-  window.addEventListener('error', function(e) {
-    // Si es un error de carga de recurso no crítico, prevenir que se muestre en consola
-    if (e.target && (e.target.tagName === 'SCRIPT' || e.target.tagName === 'LINK' || e.target.tagName === 'IMG')) {
-      // Verificar si es un recurso no crítico
-      if (!e.target.getAttribute('data-critical')) {
-        e.preventDefault();
-        return false;
+  // Desactivar animaciones hasta después del LCP
+  const style = document.createElement('style');
+  style.textContent = `
+    @media screen and (prefers-reduced-motion: no-preference) {
+      *:not(.critical-animation) {
+        animation-play-state: paused !important;
+        transition: none !important;
       }
     }
-    return true;
-  }, true);
+  `;
+  document.head.appendChild(style);
+  
+  // Remover el estilo de pausa después del LCP
+  setTimeout(() => {
+    style.remove();
+  }, 3000);
 })();
 </script> 
