@@ -45,7 +45,7 @@
       }, 3000);
     </script>
     
-    <!-- LCP Critical Rendering Optimization - Minimal CSS for first paint -->
+    <!-- LCP Critical Rendering Optimization - Apple Style CSS for first paint -->
 <style>
 /* Estilos mínimos para renderizar rápidamente el LCP */
 :root {
@@ -53,28 +53,49 @@
   --background-dark: #000000;
   --background-light: #0f0f0f;
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --hero-background: #cf2e2e;
+  --text-secondary: rgba(255, 255, 255, 0.86);
+  --font-size-md: 16px;
+  --font-size-xl: 20px;
+  --font-size-4xl: 40px;
+  --font-size-6xl: 64px;
 }
 
 /* Critical Base Styles */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background-color: var(--background-dark);
   color: var(--text-primary);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Accessibility: Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -9999px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--background-light);
+  color: var(--text-primary);
+  padding: 16px;
+  z-index: 9999;
+  border: 1px solid var(--text-secondary);
+}
+
+.skip-to-content:focus {
+  top: 8px;
 }
 
 /* Específicamente para el LCP */
 h1#lcp-target {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-  font-size: 54px;
-  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: var(--font-size-6xl);
+  font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--text-primary);
-  line-height: 1.1;
-  min-height: 3.5rem;
+  line-height: 1.05;
+  min-height: 4rem;
   margin-bottom: 24px;
   margin-top: 0;
 }
@@ -87,13 +108,27 @@ h1#lcp-target {
   padding-top: 100px;
   padding-bottom: 0;
   background-color: var(--background-dark);
-  background-image: linear-gradient(to bottom, #000000, #0a0a0a);
+  background-image: linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(255,255,255,0));
   justify-content: center;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 30%, rgba(255,255,255,0.1) 0%, transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 24px;
@@ -114,7 +149,7 @@ h1#lcp-target {
   height: 48px;
 }
 
-/* Site header styles */
+/* Site header styles - Apple Style */
 .site-header {
   position: fixed;
   top: 0;
@@ -122,8 +157,21 @@ h1#lcp-target {
   right: 0;
   height: 80px;
   z-index: 100;
-  background-color: var(--background-dark);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: none;
+  transition: background-color 0.3s ease;
+}
+
+.site-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .header-content {
@@ -135,15 +183,16 @@ h1#lcp-target {
 
 /* Estilos para navegación */
 .site-logo {
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--font-size-md);
+  font-weight: 500;
   display: flex;
   align-items: center;
+  letter-spacing: -0.02em;
 }
 
 .logo-text {
   color: var(--text-primary);
-  font-weight: bold;
+  font-weight: 500;
   letter-spacing: -0.03em;
 }
 
@@ -155,6 +204,8 @@ h1#lcp-target {
 .nav-links {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-links li {
@@ -164,30 +215,67 @@ h1#lcp-target {
 .nav-links a {
   color: var(--text-primary);
   font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  opacity: 0.85;
+  letter-spacing: -0.01em;
+  font-weight: 400;
+  position: relative;
+  padding: 8px 0;
+  text-decoration: none;
+}
+
+.nav-links a.active {
+  opacity: 1;
   font-weight: 500;
 }
 
 .hero-subtitle {
-  font-size: 20px;
-  max-width: 650px;
+  font-size: var(--font-size-xl);
+  max-width: 750px;
   margin: 0 auto 48px;
-  color: var(--text-primary) !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.5;
 }
 
-/* Fuente base en Base64 para títulos principales - versión mínima */
-@font-face {
-  font-family: 'Inter-Critical';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('data:application/font-woff2;charset=utf-8;base64,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') format('woff2');
+/* Animaciones Apple-style */
+@keyframes fadeUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+/* Botones estilo Apple */
+.button {
+  padding: 12px 24px;
+  background-color: var(--text-primary);
+  color: var(--background-dark);
+  border-radius: 980px;
+  font-weight: 500;
+  font-size: var(--font-size-md);
+  letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border: none;
+  margin-right: 24px;
+  min-width: 160px;
+  text-decoration: none;
 }
 
 /* Aplicar la fuente crítica solo a elementos clave */
 h1#lcp-target {
-  font-family: 'Inter-Critical', Arial, sans-serif;
+  font-family: 'Inter-Critical', -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Focus styles para accesibilidad */
+*:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
 }
 
 /* Detectar cuando se ha renderizado el LCP */
@@ -195,10 +283,26 @@ h1#lcp-target {
   contain: layout paint style;
 }
 
+/* Aplicar estilos de accesibilidad para lectores de pantalla */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 </style>
 
+<!-- Skip to content para accesibilidad -->
+<a href="#main-content" class="skip-to-content">Skip to main content</a>
+
 <!-- Inline SVG Icons for minimal design -->
-<svg style="display:none">
+<svg style="display:none" aria-hidden="true">
   <symbol id="icon-reasoning" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="10" stroke-linecap="round" />
     <path d="M12 7v6M12 17h.01" stroke-linecap="round" stroke-linejoin="round" />
@@ -215,6 +319,10 @@ h1#lcp-target {
 <link rel="preload" href="/assets/css/minimal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="/assets/css/minimal.css"></noscript>
 
+<!-- Meta tags para accesibilidad -->
+<meta name="description" content="PAELLADOC - The Complete AI-Powered Development Exoskeleton. Transform your entire product development lifecycle with an integrated system for research, documentation, management, and code generation.">
+<meta name="theme-color" content="#000000">
+
 <!-- Progressive loading scripts -->
 <script>
 (function() {
@@ -224,7 +332,7 @@ h1#lcp-target {
     lcpTime: 0
   };
   
-  // LCP rendering optimization
+  // LCP rendering optimization - Apple Style
   document.addEventListener('DOMContentLoaded', () => {
     // Crear un observador para el elemento LCP
     const lcpObserver = new PerformanceObserver((entryList) => {
@@ -235,6 +343,7 @@ h1#lcp-target {
         
         // Marcar que el LCP ya se ha renderizado
         document.documentElement.style.setProperty('--lcp-rendered', '1');
+        document.documentElement.classList.add('lcp-rendered');
         
         // Activar la carga progresiva de recursos no críticos
         setTimeout(() => {
@@ -260,11 +369,39 @@ h1#lcp-target {
     setTimeout(() => {
       if (document.documentElement.style.getPropertyValue('--lcp-rendered') !== '1') {
         document.documentElement.style.setProperty('--lcp-rendered', '1');
+        document.documentElement.classList.add('lcp-rendered');
         document.querySelectorAll('.defer-visibility').forEach(el => {
           el.style.contentVisibility = 'visible';
         });
       }
     }, 3000);
+    
+    // Configurar scroll reveal para animaciones tipo Apple
+    const setupScrollReveal = () => {
+      const elements = document.querySelectorAll('.js-scroll-reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      });
+      
+      elements.forEach(el => observer.observe(el));
+    };
+    
+    // Configurar una vez que el DOM está listo
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(setupScrollReveal, 1000);
+    } else {
+      window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(setupScrollReveal, 1000);
+      });
+    }
   });
   
   // Desactivar animaciones hasta después del LCP
@@ -283,37 +420,53 @@ h1#lcp-target {
   setTimeout(() => {
     style.remove();
   }, 3000);
+  
+  // Añadir clases para usuarios que no tienen JavaScript
+  if (document.documentElement.classList.contains('no-js')) {
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+  }
+  
+  // Respeta preferencias de movimiento reducido
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('reduced-motion');
+  }
+  
+  // Manejador para modo de alto contraste
+  if (window.matchMedia('(prefers-contrast: more)').matches) {
+    document.documentElement.classList.add('high-contrast');
+  }
 })();
 </script> 
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header" role="banner">
       <div class="container">
         <div class="header-content">
-          <a href="/" class="site-logo">
+          <a href="/" class="site-logo" aria-label="PAELLADOC Home">
             <span class="logo-text">PAELLADOC</span>
           </a>
-          <nav class="site-nav">
-            <button class="menu-toggle" aria-label="Toggle Menu">
+          <nav class="site-nav" role="navigation" aria-label="Main Navigation">
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
               <span></span>
               <span></span>
               <span></span>
             </button>
-            <ul class="nav-links">
-              <li><a href="/"  aria-label="Home">Home</a></li>
-              <li><a href="/problem" class="active" aria-label="The Problem">The Problem</a></li>
-              <li><a href="/solution"  aria-label="Solution">Solution</a></li>
-              <li><a href="/quickstart"  aria-label="Quick Start">Quick Start</a></li>
-              <li><a href="/use-cases"  aria-label="Use Cases">Use Cases</a></li>
-              <li><a href="/community"  aria-label="Community">Community</a></li>
-              <li><a href="/resources"  aria-label="Resources">Resources</a></li>
+            <ul class="nav-links" id="main-navigation">
+              <li><a href="/"  aria-label="Home">HOME</a></li>
+              <li><a href="/problem" class="active" aria-current="page" aria-label="The Problem">THE PROBLEM</a></li>
+              <li><a href="/solution"  aria-label="Solution">SOLUTION</a></li>
+              <li><a href="/quickstart"  aria-label="Quick Start">QUICK START</a></li>
+              <li><a href="/use-cases"  aria-label="Use Cases">USE CASES</a></li>
+              <li><a href="/community"  aria-label="Community">COMMUNITY</a></li>
+              <li><a href="/resources"  aria-label="Resources">RESOURCES</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <main class="site-content">
+    <main class="site-content" id="main-content" role="main" tabindex="-1">
       <section class="page-header">
   <div class="container">
     <h1>The Context Loss Problem</h1>
@@ -381,27 +534,27 @@ h1#lcp-target {
 
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
             <span class="logo-text">PAELLADOC</span>
-            <p>Solving context loss in AI development</p>
+            <p>The Complete AI-Powered Development Exoskeleton</p>
           </div>
           <div class="footer-links">
             <div class="footer-column">
-              <h3>Documentation</h3>
-              <ul>
+              <h3 id="product-heading">Product Suite</h3>
+              <ul aria-labelledby="product-heading">
                 <li><a href="/quickstart" aria-label="Go to Quick Start guide">Quick Start</a></li>
-                <li><a href="/solution" aria-label="Learn about PAELLADOC Approach">PAELLADOC Approach</a></li>
-                <li><a href="/resources" aria-label="View documentation templates">Templates</a></li>
+                <li><a href="/solution" aria-label="Learn about Professional Tools">Professional Tools</a></li>
+                <li><a href="/resources" aria-label="View command reference">Command Reference</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h3>Community</h3>
-              <ul>
-                <li><a href="https://github.com/jlcases/paellaweb" target="_blank" aria-label="View GitHub Repository">GitHub Repo</a></li>
-                <li><a href="https://github.com/jlcases/paellaweb/discussions" target="_blank" aria-label="Join GitHub Discussions">Discussions</a></li>
+              <h3 id="developer-heading">Developer Resources</h3>
+              <ul aria-labelledby="developer-heading">
+                <li><a href="https://github.com/jlcases/paellaweb" target="_blank" rel="noopener" aria-label="View GitHub Repository">GitHub Repo</a></li>
+                <li><a href="https://github.com/jlcases/paellaweb/discussions" target="_blank" rel="noopener" aria-label="Join GitHub Discussions">Discussions</a></li>
                 <li><a href="/community" aria-label="Learn how to contribute">Contribute</a></li>
               </ul>
             </div>
@@ -409,6 +562,11 @@ h1#lcp-target {
         </div>
         <div class="footer-bottom">
           <p>&copy; 2025 PAELLADOC. All rights reserved.</p>
+          <div class="footer-links-legal">
+            <a href="#" aria-label="Privacy Policy">Privacy</a>
+            <a href="#" aria-label="Terms of Service">Terms</a>
+            <a href="#" aria-label="Accessibility Statement">Accessibility</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -432,8 +590,36 @@ h1#lcp-target {
     <script data-src="/assets/js/main.js"></script>
     <script defer>
       document.querySelector('.menu-toggle').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
+        const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded', !expanded);
+        
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
         this.classList.toggle('active');
+      });
+      
+      // Add Apple-style scroll animations
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add JS class to elements that should be animated on scroll
+        const animatedSections = document.querySelectorAll('.features, .problem-solution-section, .collaboration-section, .code-example-section, .cta-section');
+        animatedSections.forEach(section => {
+          section.classList.add('js-scroll-reveal');
+        });
+        
+        // Add animation to feature cards
+        const featureCards = document.querySelectorAll('.feature-card, .minimal-icon');
+        featureCards.forEach((card, index) => {
+          card.classList.add('js-scroll-reveal');
+          card.style.animationDelay = `${0.2 * (index % 3)}s`;
+        });
+      });
+      
+      // Add ability to skip to content for accessibility
+      document.querySelector('.skip-to-content')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const mainContent = document.getElementById('main-content');
+        mainContent.setAttribute('tabindex', '-1');
+        mainContent.focus();
       });
     </script>
   </body>

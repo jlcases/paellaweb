@@ -48,57 +48,57 @@
     {% include head-optimization.html %}
   </head>
   <body>
-    <header class="site-header">
+    <header class="site-header" role="banner">
       <div class="container">
         <div class="header-content">
-          <a href="{{ "/" | relative_url }}" class="site-logo">
+          <a href="{{ "/" | relative_url }}" class="site-logo" aria-label="PAELLADOC Home">
             <span class="logo-text">PAELLADOC</span>
           </a>
-          <nav class="site-nav">
-            <button class="menu-toggle" aria-label="Toggle Menu">
+          <nav class="site-nav" role="navigation" aria-label="Main Navigation">
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
               <span></span>
               <span></span>
               <span></span>
             </button>
-            <ul class="nav-links">
-              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active"{% endif %} aria-label="Home">Home</a></li>
-              <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active"{% endif %} aria-label="The Problem">The Problem</a></li>
-              <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active"{% endif %} aria-label="Solution">Solution</a></li>
-              <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active"{% endif %} aria-label="Quick Start">Quick Start</a></li>
-              <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active"{% endif %} aria-label="Use Cases">Use Cases</a></li>
-              <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active"{% endif %} aria-label="Community">Community</a></li>
-              <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active"{% endif %} aria-label="Resources">Resources</a></li>
+            <ul class="nav-links" id="main-navigation">
+              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home">HOME</a></li>
+              <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active" aria-current="page"{% endif %} aria-label="The Problem">THE PROBLEM</a></li>
+              <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active" aria-current="page"{% endif %} aria-label="Solution">SOLUTION</a></li>
+              <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active" aria-current="page"{% endif %} aria-label="Quick Start">QUICK START</a></li>
+              <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active" aria-current="page"{% endif %} aria-label="Use Cases">USE CASES</a></li>
+              <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active" aria-current="page"{% endif %} aria-label="Community">COMMUNITY</a></li>
+              <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active" aria-current="page"{% endif %} aria-label="Resources">RESOURCES</a></li>
             </ul>
           </nav>
         </div>
       </div>
     </header>
 
-    <main class="site-content">
+    <main class="site-content" id="main-content" role="main" tabindex="-1">
       {{ content }}
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" role="contentinfo">
       <div class="container">
         <div class="footer-content">
           <div class="footer-logo">
             <span class="logo-text">PAELLADOC</span>
-            <p>Solving context loss in AI development</p>
+            <p>The Complete AI-Powered Development Exoskeleton</p>
           </div>
           <div class="footer-links">
             <div class="footer-column">
-              <h3>Documentation</h3>
-              <ul>
+              <h3 id="product-heading">Product Suite</h3>
+              <ul aria-labelledby="product-heading">
                 <li><a href="{{ "/quickstart" | relative_url }}" aria-label="Go to Quick Start guide">Quick Start</a></li>
-                <li><a href="{{ "/solution" | relative_url }}" aria-label="Learn about PAELLADOC Approach">PAELLADOC Approach</a></li>
-                <li><a href="{{ "/resources" | relative_url }}" aria-label="View documentation templates">Templates</a></li>
+                <li><a href="{{ "/solution" | relative_url }}" aria-label="Learn about Professional Tools">Professional Tools</a></li>
+                <li><a href="{{ "/resources" | relative_url }}" aria-label="View command reference">Command Reference</a></li>
               </ul>
             </div>
             <div class="footer-column">
-              <h3>Community</h3>
-              <ul>
-                <li><a href="https://github.com/jlcases/paellaweb" target="_blank" aria-label="View GitHub Repository">GitHub Repo</a></li>
-                <li><a href="https://github.com/jlcases/paellaweb/discussions" target="_blank" aria-label="Join GitHub Discussions">Discussions</a></li>
+              <h3 id="developer-heading">Developer Resources</h3>
+              <ul aria-labelledby="developer-heading">
+                <li><a href="https://github.com/jlcases/paellaweb" target="_blank" rel="noopener" aria-label="View GitHub Repository">GitHub Repo</a></li>
+                <li><a href="https://github.com/jlcases/paellaweb/discussions" target="_blank" rel="noopener" aria-label="Join GitHub Discussions">Discussions</a></li>
                 <li><a href="{{ "/community" | relative_url }}" aria-label="Learn how to contribute">Contribute</a></li>
               </ul>
             </div>
@@ -106,6 +106,11 @@
         </div>
         <div class="footer-bottom">
           <p>&copy; {{ site.time | date: '%Y' }} PAELLADOC. All rights reserved.</p>
+          <div class="footer-links-legal">
+            <a href="#" aria-label="Privacy Policy">Privacy</a>
+            <a href="#" aria-label="Terms of Service">Terms</a>
+            <a href="#" aria-label="Accessibility Statement">Accessibility</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -129,8 +134,36 @@
     <script data-src="{{ '/assets/js/main.js' | relative_url }}"></script>
     <script defer>
       document.querySelector('.menu-toggle').addEventListener('click', function() {
-        document.querySelector('.nav-links').classList.toggle('active');
+        const expanded = this.getAttribute('aria-expanded') === 'true' || false;
+        this.setAttribute('aria-expanded', !expanded);
+        
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
         this.classList.toggle('active');
+      });
+      
+      // Add Apple-style scroll animations
+      document.addEventListener('DOMContentLoaded', function() {
+        // Add JS class to elements that should be animated on scroll
+        const animatedSections = document.querySelectorAll('.features, .problem-solution-section, .collaboration-section, .code-example-section, .cta-section');
+        animatedSections.forEach(section => {
+          section.classList.add('js-scroll-reveal');
+        });
+        
+        // Add animation to feature cards
+        const featureCards = document.querySelectorAll('.feature-card, .minimal-icon');
+        featureCards.forEach((card, index) => {
+          card.classList.add('js-scroll-reveal');
+          card.style.animationDelay = `${0.2 * (index % 3)}s`;
+        });
+      });
+      
+      // Add ability to skip to content for accessibility
+      document.querySelector('.skip-to-content')?.addEventListener('click', function(e) {
+        e.preventDefault();
+        const mainContent = document.getElementById('main-content');
+        mainContent.setAttribute('tabindex', '-1');
+        mainContent.focus();
       });
     </script>
   </body>
