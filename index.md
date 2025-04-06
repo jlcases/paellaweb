@@ -2,11 +2,27 @@
 layout: default
 ---
 
-<section class="hero" id="lcp-container">
+<section class="hero paella-hero" id="lcp-container">
+  <div class="paella-bg-circles"></div>
   <div class="container">
-    <!-- Elemento LCP optimizado -->
-    <h1 id="lcp-target" fetchpriority="high" class="critical-animation">At our core</h1>
-    <p class="hero-subtitle">We create powerful AI-driven development systems that transform how teams build software. Our development exoskeleton enhances every aspect of your process.</p>
+    <div class="hero-content">
+      <div class="hero-text">
+        <!-- Elemento LCP optimizado -->
+        <h1 id="lcp-target" fetchpriority="high" class="critical-animation">The Development Exoskeleton for AI Teams</h1>
+        <p class="hero-value-prop">90% of success in AI programming depends on context</p>
+        <p class="hero-subtitle">Stop wasting time repeating context. PAELLADOC structures your documentation like a master chef prepares paella.</p>
+        <div class="social-proof">
+          <span class="github-stars">224 ⭐ on GitHub</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="{{ '/quickstart' | relative_url }}" class="button primary">Get Started</a>
+          <a href="{{ '/community' | relative_url }}" class="button secondary">Join Community</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="PAELLADOC Chef with paella ingredients: Context, Structure, Clarity, Reusability" class="paella-avatar" fetchpriority="high">
+      </div>
+    </div>
   </div>
 </section>
 

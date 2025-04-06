@@ -47,4 +47,181 @@ h1, h2, h3, h4, h5, h6 {
 .site-header * {
   color: #FFFFFF !important; /* Forzar blanco */
   text-shadow: 0 0 3px rgba(0,0,0,0.8) !important; /* Halo negro para mejorar legibilidad */
+}
+
+/* Estilos para la nueva sección hero con tema de paella */
+.paella-hero {
+  background: linear-gradient(135deg, #F5C43C 0%, #E25822 100%) !important;
+  min-height: 90vh !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 80px !important;
+}
+
+.paella-hero h1, 
+.paella-hero p,
+.paella-hero .social-proof {
+  color: #2D2926 !important;
+  text-shadow: none !important;
+}
+
+.paella-hero h1 {
+  font-size: 3.5rem !important;
+  line-height: 1.1 !important;
+  margin-bottom: 1rem !important;
+  max-width: 700px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.paella-avatar {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+}
+
+.hero-value-prop {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 1rem !important;
+  color: #2D2926 !important;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 600px;
+  color: #2D2926 !important;
+}
+
+.social-proof {
+  margin-bottom: 1.5rem !important;
+  font-weight: 600 !important;
+  display: inline-block;
+  background-color: rgba(255,255,255,0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+}
+
+.github-stars {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2D2926 !important;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.button.primary {
+  background-color: #567D38 !important;
+  color: white !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 2rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block;
+  border: none !important;
+}
+
+.button.secondary {
+  background-color: transparent !important;
+  color: #2D2926 !important;
+  border: 2px solid #2D2926 !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: 2rem !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.paella-bg-circles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.paella-bg-circles::before,
+.paella-bg-circles::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 2px dashed rgba(45,41,38,0.15);
+  width: 200px;
+  height: 200px;
+}
+
+.paella-bg-circles::before {
+  top: 10%;
+  right: 5%;
+  width: 300px;
+  height: 300px;
+}
+
+.paella-bg-circles::after {
+  bottom: 5%;
+  left: 10%;
+  width: 250px;
+  height: 250px;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  
+  .paella-hero h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .hero-value-prop {
+    font-size: 1.25rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem !important;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .paella-avatar {
+    max-width: 80%;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 } 
