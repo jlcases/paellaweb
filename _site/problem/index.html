@@ -50,43 +50,81 @@
 /* Estilos mínimos para renderizar rápidamente el LCP */
 :root {
   --lcp-rendered: 0;
+  --background-dark: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
 }
 
 /* Critical Base Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Específicamente para el LCP */
 h1#lcp-target {
-  font-family: Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0066cc;
-  line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
   min-height: 3.5rem;
+  margin-bottom: 24px;
+  margin-top: 0;
 }
 
 /* Elemento hero extremadamente simplificado */
 .hero {
-  background-color: #cf2e2e;
-  color: white;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 0;
 }
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 24px;
 }
 
 /* Progressive hydration - hide non-critical elements */
 .defer-visibility {
   content-visibility: auto;
+}
+
+/* SVG Icons */
+.svg-icon {
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+  fill: none;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+/* Site header styles */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 100;
+  background-color: var(--background-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 /* Fuente base en Base64 para títulos principales - versión mínima */
@@ -110,8 +148,23 @@ h1#lcp-target {
 
 </style>
 
+<!-- Inline SVG Icons for minimal design -->
+<svg style="display:none">
+  <symbol id="icon-reasoning" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" stroke-linecap="round" />
+    <path d="M12 7v6M12 17h.01" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+  <symbol id="icon-ambitious" viewBox="0 0 24 24">
+    <path d="M13 6.5l4.5 4.5-4.5 4.5m-7-9L6 12l4.5 4.5" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+  <symbol id="icon-quick" viewBox="0 0 24 24">
+    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+</svg>
+
 <!-- Preload SOLO lo crítico para el LCP -->
-<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+<link rel="preload" href="/assets/css/minimal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/minimal.css"></noscript>
 
 <!-- Progressive loading scripts -->
 <script>
@@ -140,17 +193,13 @@ h1#lcp-target {
             el.style.contentVisibility = 'visible';
           });
           
-          // Cargar estilos completos después del LCP
-          const fullStyles = document.createElement('link');
-          fullStyles.rel = 'stylesheet';
-          fullStyles.href = '/assets/css/main.css';
-          document.head.appendChild(fullStyles);
-          
-          // Cargar fuentes completas
-          const fontStylesheet = document.createElement('link');
-          fontStylesheet.rel = 'stylesheet';
-          fontStylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
-          document.head.appendChild(fontStylesheet);
+          // Cargar estilos completos después del LCP si no se han cargado ya
+          if (!document.querySelector('link[href*="minimal.css"]')) {
+            const fullStyles = document.createElement('link');
+            fullStyles.rel = 'stylesheet';
+            fullStyles.href = '/assets/css/minimal.css';
+            document.head.appendChild(fullStyles);
+          }
         }, 0);
       }
     });

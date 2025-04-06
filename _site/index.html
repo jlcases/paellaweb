@@ -50,43 +50,81 @@
 /* Estilos mínimos para renderizar rápidamente el LCP */
 :root {
   --lcp-rendered: 0;
+  --background-dark: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
 }
 
 /* Critical Base Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Específicamente para el LCP */
 h1#lcp-target {
-  font-family: Arial, sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #0066cc;
-  line-height: 1.2;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 54px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
   min-height: 3.5rem;
+  margin-bottom: 24px;
+  margin-top: 0;
 }
 
 /* Elemento hero extremadamente simplificado */
 .hero {
-  background-color: #cf2e2e;
-  color: white;
-  padding-top: 3rem;
-  padding-bottom: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 0;
 }
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 24px;
 }
 
 /* Progressive hydration - hide non-critical elements */
 .defer-visibility {
   content-visibility: auto;
+}
+
+/* SVG Icons */
+.svg-icon {
+  stroke: var(--text-primary);
+  stroke-width: 1.5;
+  fill: none;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+/* Site header styles */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  z-index: 100;
+  background-color: var(--background-dark);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
 /* Fuente base en Base64 para títulos principales - versión mínima */
@@ -110,8 +148,23 @@ h1#lcp-target {
 
 </style>
 
+<!-- Inline SVG Icons for minimal design -->
+<svg style="display:none">
+  <symbol id="icon-reasoning" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" stroke-linecap="round" />
+    <path d="M12 7v6M12 17h.01" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+  <symbol id="icon-ambitious" viewBox="0 0 24 24">
+    <path d="M13 6.5l4.5 4.5-4.5 4.5m-7-9L6 12l4.5 4.5" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+  <symbol id="icon-quick" viewBox="0 0 24 24">
+    <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" />
+  </symbol>
+</svg>
+
 <!-- Preload SOLO lo crítico para el LCP -->
-<link rel="preload" href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuGKYAZ9hjp-Ek-_0ew.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high">
+<link rel="preload" href="/assets/css/minimal.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/assets/css/minimal.css"></noscript>
 
 <!-- Progressive loading scripts -->
 <script>
@@ -140,17 +193,13 @@ h1#lcp-target {
             el.style.contentVisibility = 'visible';
           });
           
-          // Cargar estilos completos después del LCP
-          const fullStyles = document.createElement('link');
-          fullStyles.rel = 'stylesheet';
-          fullStyles.href = '/assets/css/main.css';
-          document.head.appendChild(fullStyles);
-          
-          // Cargar fuentes completas
-          const fontStylesheet = document.createElement('link');
-          fontStylesheet.rel = 'stylesheet';
-          fontStylesheet.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap';
-          document.head.appendChild(fontStylesheet);
+          // Cargar estilos completos después del LCP si no se han cargado ya
+          if (!document.querySelector('link[href*="minimal.css"]')) {
+            const fullStyles = document.createElement('link');
+            fullStyles.rel = 'stylesheet';
+            fullStyles.href = '/assets/css/minimal.css';
+            document.head.appendChild(fullStyles);
+          }
         }, 0);
       }
     });
@@ -216,44 +265,71 @@ h1#lcp-target {
     </header>
 
     <main class="site-content">
-      <section class="hero" id="lcp-container" style="min-height:300px;">
+      <section class="hero" id="lcp-container">
   <div class="container">
-    <h1 id="lcp-target" fetchpriority="high" style="min-height:3.5rem;" class="critical-animation">PAELLADOC: The Complete AI-Powered Development Exoskeleton</h1>
-    <p style="min-height:1.5rem;">Transform your entire product development lifecycle with an integrated system for research, documentation, management, and code generation</p>
-    <div class="hero-buttons" style="min-height:56px;">
-      <a href="/quickstart" class="button" aria-label="View Quick Start Guide">Quick Start Guide</a>
-      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary" aria-label="View on GitHub">View on GitHub</a>
+    <!-- Elemento LCP optimizado -->
+    <h1 id="lcp-target" fetchpriority="high" class="critical-animation">At our core</h1>
+    <p class="hero-subtitle">We create powerful AI-driven development systems that transform how teams build software. Our development exoskeleton enhances every aspect of your process.</p>
+  </div>
+</section>
+
+<!-- Core values section with minimalist design -->
+<section class="minimal-values">
+  <div class="container">
+    <div class="minimal-icons">
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-reasoning"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">Reasoning from First Principles</h3>
+        <p class="minimal-icon-description">We challenge conventional thinking by breaking down problems to their fundamental components, grounded in structured logic and methodical approaches.</p>
+      </div>
+
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-ambitious"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">No goal is too ambitious</h3>
+        <p class="minimal-icon-description">We embrace the most challenging obstacles by always pushing the limits of what's possible. We are motivated by what's unprecedented.</p>
+      </div>
+
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-quick"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">Move quickly and fix things</h3>
+        <p class="minimal-icon-description">Our approach to rapid development and iteration allows us to innovate at breakneck speeds. We're here to solve real problems, not just build software.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="defer-visibility">
-  <section class="features">
+  <!-- Comprehensive system section -->
+  <section class="features dark">
     <div class="container">
-      <h2 style="min-height:2.5rem;">Professional Development Ecosystem</h2>
+      <h2>The Complete Development Exoskeleton</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">🧠</div>
-          <h3 style="min-height:1.75rem;">AI-Powered Research &amp; Validation</h3>
-          <p style="min-height:4.5rem;">Automated market research with multi-source validation, statistical verification, and hallucination prevention.</p>
-          <a href="/solution" aria-label="Learn more about AI-Powered Research">Learn more</a>
+          <div class="feature-number">01</div>
+          <h3>Research &amp; Validation</h3>
+          <p>Automated market research with multi-source validation, statistical verification, and hallucination prevention. Making decisions with confidence.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">📊</div>
-          <h3 style="min-height:1.75rem;">Complete Product Management</h3>
-          <p style="min-height:4.5rem;">Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting.</p>
-          <a href="/problem" aria-label="Learn more about Product Management">Learn more</a>
+          <div class="feature-number">02</div>
+          <h3>Product Management</h3>
+          <p>Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting. Keep your team aligned and efficient.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">💻</div>
-          <h3 style="min-height:1.75rem;">Documentation-to-Code Bridge</h3>
-          <p style="min-height:4.5rem;">Generate functional code directly from your documentation with powerful code generation commands.</p>
-          <a href="/community" aria-label="Learn more about Code Generation">Learn more</a>
+          <div class="feature-number">03</div>
+          <h3>Documentation-to-Code</h3>
+          <p>Generate functional code directly from your documentation with powerful code generation commands. Eliminate the implementation gap.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Command system section -->
   <section class="problem-solution-section">
     <div class="container">
       <h2>Professional Command System</h2>
@@ -287,6 +363,18 @@ h1#lcp-target {
     </div>
   </section>
 
+  <!-- Collaboration section -->
+  <section class="collaboration-section">
+    <div class="container">
+      <div class="collaboration-content">
+        <h2>Collaboration across borders</h2>
+        <p>Our development framework enables seamless collaboration between teams worldwide. We prioritize structured communication to support fast-paced, collaborative projects. Exceptional teams using PAELLADOC can work together effectively no matter where they're located.</p>
+        <a href="/community" class="button">Join the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code example section -->
   <section class="code-example-section">
     <div class="container">
       <h2>Professional Development Workflow</h2>
@@ -310,6 +398,7 @@ GENERATE_CODE component="auth_service"</code></pre>
     </div>
   </section>
 
+  <!-- CTA section -->
   <section class="cta-section">
     <div class="container">
       <h2>Elevate Your Development Process</h2>

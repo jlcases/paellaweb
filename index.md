@@ -2,44 +2,71 @@
 layout: default
 ---
 
-<section class="hero" id="lcp-container" style="min-height:300px;">
+<section class="hero" id="lcp-container">
   <div class="container">
-    <h1 id="lcp-target" fetchpriority="high" style="min-height:3.5rem;" class="critical-animation">PAELLADOC: The Complete AI-Powered Development Exoskeleton</h1>
-    <p style="min-height:1.5rem;">Transform your entire product development lifecycle with an integrated system for research, documentation, management, and code generation</p>
-    <div class="hero-buttons" style="min-height:56px;">
-      <a href="{{ '/quickstart' | relative_url }}" class="button" aria-label="View Quick Start Guide">Quick Start Guide</a>
-      <a href="https://github.com/jlcases/paellaweb" target="_blank" class="button secondary" aria-label="View on GitHub">View on GitHub</a>
+    <!-- Elemento LCP optimizado -->
+    <h1 id="lcp-target" fetchpriority="high" class="critical-animation">At our core</h1>
+    <p class="hero-subtitle">We create powerful AI-driven development systems that transform how teams build software. Our development exoskeleton enhances every aspect of your process.</p>
+  </div>
+</section>
+
+<!-- Core values section with minimalist design -->
+<section class="minimal-values">
+  <div class="container">
+    <div class="minimal-icons">
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-reasoning"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">Reasoning from First Principles</h3>
+        <p class="minimal-icon-description">We challenge conventional thinking by breaking down problems to their fundamental components, grounded in structured logic and methodical approaches.</p>
+      </div>
+
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-ambitious"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">No goal is too ambitious</h3>
+        <p class="minimal-icon-description">We embrace the most challenging obstacles by always pushing the limits of what's possible. We are motivated by what's unprecedented.</p>
+      </div>
+
+      <div class="minimal-icon">
+        <div class="minimal-icon-image">
+          <svg class="svg-icon"><use xlink:href="#icon-quick"></use></svg>
+        </div>
+        <h3 class="minimal-icon-title">Move quickly and fix things</h3>
+        <p class="minimal-icon-description">Our approach to rapid development and iteration allows us to innovate at breakneck speeds. We're here to solve real problems, not just build software.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="defer-visibility">
-  <section class="features">
+  <!-- Comprehensive system section -->
+  <section class="features dark">
     <div class="container">
-      <h2 style="min-height:2.5rem;">Professional Development Ecosystem</h2>
+      <h2>The Complete Development Exoskeleton</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">🧠</div>
-          <h3 style="min-height:1.75rem;">AI-Powered Research & Validation</h3>
-          <p style="min-height:4.5rem;">Automated market research with multi-source validation, statistical verification, and hallucination prevention.</p>
-          <a href="{{ '/solution' | relative_url }}" aria-label="Learn more about AI-Powered Research">Learn more</a>
+          <div class="feature-number">01</div>
+          <h3>Research & Validation</h3>
+          <p>Automated market research with multi-source validation, statistical verification, and hallucination prevention. Making decisions with confidence.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">📊</div>
-          <h3 style="min-height:1.75rem;">Complete Product Management</h3>
-          <p style="min-height:4.5rem;">Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting.</p>
-          <a href="{{ '/problem' | relative_url }}" aria-label="Learn more about Product Management">Learn more</a>
+          <div class="feature-number">02</div>
+          <h3>Product Management</h3>
+          <p>Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting. Keep your team aligned and efficient.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon" aria-hidden="true" style="width:60px;height:60px;">💻</div>
-          <h3 style="min-height:1.75rem;">Documentation-to-Code Bridge</h3>
-          <p style="min-height:4.5rem;">Generate functional code directly from your documentation with powerful code generation commands.</p>
-          <a href="{{ '/community' | relative_url }}" aria-label="Learn more about Code Generation">Learn more</a>
+          <div class="feature-number">03</div>
+          <h3>Documentation-to-Code</h3>
+          <p>Generate functional code directly from your documentation with powerful code generation commands. Eliminate the implementation gap.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Command system section -->
   <section class="problem-solution-section">
     <div class="container">
       <h2>Professional Command System</h2>
@@ -73,6 +100,18 @@ layout: default
     </div>
   </section>
 
+  <!-- Collaboration section -->
+  <section class="collaboration-section">
+    <div class="container">
+      <div class="collaboration-content">
+        <h2>Collaboration across borders</h2>
+        <p>Our development framework enables seamless collaboration between teams worldwide. We prioritize structured communication to support fast-paced, collaborative projects. Exceptional teams using PAELLADOC can work together effectively no matter where they're located.</p>
+        <a href="{{ '/community' | relative_url }}" class="button">Join the Community</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Code example section -->
   <section class="code-example-section">
     <div class="container">
       <h2>Professional Development Workflow</h2>
@@ -96,6 +135,7 @@ GENERATE_CODE component="auth_service"</code></pre>
     </div>
   </section>
 
+  <!-- CTA section -->
   <section class="cta-section">
     <div class="container">
       <h2>Elevate Your Development Process</h2>
