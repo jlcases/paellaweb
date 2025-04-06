@@ -1,12 +1,12 @@
-/* Minimal Theme - Black and White Design with Red Hero */
+/* Minimal Theme - Black and White Design */
 :root {
   --background-dark: #000000;
-  --background-light: #111111;
+  --background-light: #0f0f0f;
+  --background-lighter: #1a1a1a;
   --text-primary: #ffffff;
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-tertiary: rgba(255, 255, 255, 0.5);
-  --accent: #ff5500;
-  --hero-background: #cf2e2e;
+  --accent: #ffffff;
   --spacing-unit: 8px;
   --container-width: 1200px;
   --header-height: 80px;
@@ -146,7 +146,8 @@ a:hover {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  background-color: var(--hero-background);
+  background-color: var(--background-dark);
+  background-image: linear-gradient(to bottom, #000000, #0a0a0a);
   justify-content: center;
   text-align: center;
 }
@@ -261,7 +262,7 @@ a:hover {
   content: "—";
   position: absolute;
   left: 0;
-  color: var(--accent);
+  color: var(--text-primary);
 }
 
 /* Code Example Section */
@@ -520,7 +521,7 @@ a:hover {
 /* Custom Classes for Minimal Design */
 .minimal-values {
   padding: calc(var(--spacing-unit) * 16) 0;
-  background-color: var(--background-light);
+  background-color: var(--background-lighter);
 }
 
 .minimal-icons {
@@ -564,7 +565,7 @@ a:hover {
 .feature-number {
   font-size: 18px;
   font-weight: 600;
-  color: var(--accent);
+  color: var(--text-primary);
   margin-bottom: calc(var(--spacing-unit) * 3);
   letter-spacing: 0.05em;
 }
@@ -574,6 +575,7 @@ a:hover {
   padding: calc(var(--spacing-unit) * 16) 0;
   position: relative;
   overflow: hidden;
+  background-color: var(--background-dark);
 }
 
 .collaboration-content {
@@ -644,7 +646,7 @@ a:hover {
 
 /* Command highlight */
 .code-content .command {
-  color: var(--accent);
+  color: var(--text-primary);
   font-weight: 600;
 }
 
