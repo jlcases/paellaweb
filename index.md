@@ -9,8 +9,26 @@ layout: default
       <div class="hero-text">
         <!-- Elemento LCP optimizado -->
         <h1 id="lcp-target" fetchpriority="high" class="critical-animation">The Development Exoskeleton for AI Teams</h1>
-        <p class="hero-value-prop">90% of success in AI programming depends on context</p>
-        <p class="hero-subtitle">Stop wasting time repeating context. PAELLADOC structures your documentation like a master chef prepares paella.</p>
+        <p class="hero-value-prop">From Idea to Code: Complete Development Lifecycle with Perfect Context</p>
+        
+        <div class="hero-pillars">
+          <div class="hero-pillar">
+            <span class="pillar-number">01</span>
+            <h4 class="pillar-title">Research & Validation</h4>
+            <p class="pillar-desc">Automated market research with multi-source validation</p>
+          </div>
+          <div class="hero-pillar">
+            <span class="pillar-number">02</span>
+            <h4 class="pillar-title">Product Management</h4>
+            <p class="pillar-desc">Built-in tools for user stories, sprints & tasks</p>
+          </div>
+          <div class="hero-pillar">
+            <span class="pillar-number">03</span>
+            <h4 class="pillar-title">Documentation-to-Code</h4>
+            <p class="pillar-desc">Generate functional code directly from documentation</p>
+          </div>
+        </div>
+        
         <div class="social-proof">
           <span class="github-stars">224 ⭐ on GitHub</span>
         </div>
