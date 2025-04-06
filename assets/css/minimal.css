@@ -121,30 +121,30 @@ h1, h2, h3, h4, h5, h6 {
 /* Estilos para los pilares */
 .pillar {
   position: absolute;
-  width: 280px;
+  width: 300px;
 }
 
 /* Posicionamiento de cada pilar - como en la imagen */
 .pillar-01 {
-  top: 30px;
-  left: 120px;
+  top: 50px;
+  left: 100px;
 }
 
 .pillar-02 {
-  bottom: 30px;
-  left: 120px;
+  bottom: 50px;
+  left: 100px;
 }
 
 .pillar-03 {
   top: 50%;
-  right: 120px;
+  right: 90px;
   transform: translateY(-50%);
 }
 
 .pillar-content {
   background-color: rgba(255,255,255,0.9);
   border-radius: 10px;
-  padding: 20px;
+  padding: 24px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
@@ -177,34 +177,32 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 !important;
 }
 
-/* Flechas conectoras como en la imagen */
+/* Flechas conectoras exactamente como en la imagen */
 .pillar-arrow {
   position: absolute;
   background-color: transparent;
-  width: 100px;
-  height: 40px;
 }
 
 .pillar-arrow-01 {
-  bottom: -30px;
-  right: 20px;
-  width: 160px;
-  height: 120px;
+  bottom: -45px;
+  right: 70px;
+  width: 180px;
+  height: 130px;
   border-right: 2px solid rgba(166, 166, 166, 0.7);
   border-bottom: 2px solid rgba(166, 166, 166, 0.7);
-  border-bottom-right-radius: 60px;
-  transform: rotate(-45deg);
+  border-bottom-right-radius: 100px;
+  transform: rotate(-35deg);
 }
 
 .pillar-arrow-02 {
-  top: -30px;
-  right: 20px;
-  width: 160px;
-  height: 120px;
+  top: -45px;
+  right: 70px;
+  width: 180px;
+  height: 130px;
   border-right: 2px solid rgba(166, 166, 166, 0.7);
   border-top: 2px solid rgba(166, 166, 166, 0.7);
-  border-top-right-radius: 60px;
-  transform: rotate(45deg);
+  border-top-right-radius: 100px;
+  transform: rotate(35deg);
 }
 
 .pillar-arrow-03 {
