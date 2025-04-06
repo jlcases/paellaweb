@@ -1,10 +1,26 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: "en-US" }}" class="no-js">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.description | default: site.description }}">
+    
+    <!-- Font Face Observer para controlar carga de fuentes -->
+    <script>
+      // Marcamos como no-js hasta que carguemos todo
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js-loading';
+      
+      // Función para marcar cuando se han cargado las fuentes principales
+      function markFontsReady() {
+        document.documentElement.className = document.documentElement.className.replace(/\bjs-loading\b/g, '') + ' js-fonts-loaded';
+      }
+      
+      // Detectar si las fuentes ya están en caché
+      if (sessionStorage.fontsLoaded) {
+        markFontsReady();
+      }
+    </script>
     
     <!-- Optimización para fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,7 +30,7 @@
     
     <!-- Font loading strategy optimizada para reducir CLS -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap" media="print" onload="this.media='all'; if(document.documentElement.className.indexOf('js-fonts-loaded') === -1) { document.documentElement.className += ' fonts-loaded'; sessionStorage.fontsLoaded = true; }">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono&display=swap"></noscript>
     
     <!-- Carga de CSS principal de forma no bloqueante -->
@@ -27,16 +43,6 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
-    
-    <!-- Font Face Observer para controlar carga de fuentes -->
-    <script>
-      // Detectar cuando las fuentes se cargan para reducir CLS
-      if ("fonts" in document) {
-        document.fonts.ready.then(function() {
-          document.documentElement.classList.add('fonts-loaded');
-        });
-      }
-    </script>
   </head>
   <body>
     <header class="site-header">
