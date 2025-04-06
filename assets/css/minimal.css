@@ -1,6 +1,6 @@
 /* Forzar colores - regla global de emergencia */
 * {
-  color: #FFFFFF !important; /* Forzar blanco para todo texto menos botones */
+  color: #333333 !important; /* Color oscuro base para mejor legibilidad */
 }
 
 /* Solo excepción para botones primarios */
@@ -13,9 +13,9 @@
   font-size: 20px !important; /* Aumentar tamaño de fuente */
   font-weight: 800 !important; /* Extra bold */
   text-transform: uppercase !important; /* Forzar mayúsculas */
-  color: #FFFFFF !important; /* Blanco puro */
+  color: #333333 !important; /* Color oscuro para legibilidad */
   letter-spacing: 0.05em !important; /* Mejor espaciado entre letras */
-  text-shadow: 0 0 3px rgba(255,255,255,0.5) !important; /* Halo blanco */
+  text-shadow: none !important; /* Eliminar halo que dificulta legibilidad */
   opacity: 1 !important;
 }
 
@@ -25,39 +25,44 @@
   font-size: 28px !important; /* Mucho más grande */
   font-weight: 900 !important; /* El más negrita posible */
   letter-spacing: 0.02em !important; /* Mejor espaciado */
-  color: #FFFFFF !important; /* Blanco puro */
-  text-shadow: 0 0 4px rgba(255,255,255,0.7) !important; /* Halo pronunciado */
+  color: #333333 !important; /* Color oscuro para consistencia */
+  text-shadow: none !important; /* Eliminar halo */
 }
 
 /* Solución para encabezados */
 h1, h2, h3, h4, h5, h6 {
-  color: #FFFFFF !important; /* Blanco puro */
-  text-shadow: 0 0 2px rgba(255,255,255,0.3) !important; /* Halo sutil */
+  color: #333333 !important; /* Color oscuro consistente */
+  text-shadow: none !important; /* Eliminar halo */
   font-weight: 700 !important; /* Muy negrita */
 }
 
-/* Asegurar que los botones secundarios tengan texto blanco */
+/* Asegurar que los botones secundarios tengan texto oscuro */
 .button.secondary {
-  color: #FFFFFF !important; /* Blanco puro */
-  border: 2px solid #FFFFFF !important; /* Borde blanco visible */
-  background-color: rgba(0, 0, 0, 0.5) !important; /* Fondo más oscuro */
+  color: #333333 !important; /* Color oscuro para legibilidad */
+  border: 2px solid #333333 !important; /* Borde oscuro visible */
+  background-color: transparent !important; /* Fondo transparente */
 }
 
-/* Regla de emergencia para todos los textos en header */
+/* Regla para todos los textos en header */
 .site-header * {
-  color: #FFFFFF !important; /* Forzar blanco */
-  text-shadow: 0 0 3px rgba(0,0,0,0.8) !important; /* Halo negro para mejorar legibilidad */
+  color: #333333 !important; /* Color oscuro para legibilidad */
+  text-shadow: none !important; /* Eliminar halo */
+}
+
+/* Reducir espacio en el header */
+.site-header {
+  padding: 15px 0 !important;
 }
 
 /* Estilos para la nueva sección hero con tema de paella */
 .paella-hero {
   background: #f7f7f7 !important; /* Fondo claro como en la imagen */
-  min-height: 100vh !important;
+  min-height: 90vh !important; /* Reducir altura mínima */
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding-top: 80px !important;
+  padding-top: 30px !important; /* Reducir espacio superior */
   padding-bottom: 30px !important;
 }
 
