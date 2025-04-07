@@ -61,3 +61,25 @@ sass:
 webrick:
   headers:
     "Cache-Control": "max-age=31536000, public"
+
+# Jekyll Responsive Image Configuration
+responsive_image:
+  # Ruta donde están tus imágenes originales (relativa a la raíz del proyecto)
+  source: assets/images
+  # Ruta donde se guardarán las imágenes generadas (relativa a `destination`, o sea, `_site`)
+  output: assets/images/generated
+  # Formatos a generar (webp es ideal para la web)
+  formats:
+    - webp
+  # Tamaños a generar (en píxeles de ancho)
+  sizes:
+    - width: 400
+    - width: 600
+    - width: 800
+    - width: 1200
+  # Calidad por defecto para la compresión (0-100)
+  default_quality: 85
+  # Atributos por defecto para la etiqueta <img> generada
+  attributes:
+    # loading: lazy # Descomenta para activar lazy loading
+    alt: "" # Deja vacío para forzar a poner alt en el tag Liquid
