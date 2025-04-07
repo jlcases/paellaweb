@@ -196,4 +196,73 @@ function initSkipToContent() {
       }
     });
   }
-} 
+}
+
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+  // Preparar contenedor para evitar cambios de diseño
+  const lcp = document.getElementById('lcp-container');
+  if (lcp) {
+    // Establece dimensiones específicas para evitar cambios de diseño
+    lcp.style.containIntrinsicSize = 'auto 600px';
+    lcp.style.contain = 'layout paint';
+  }
+  
+  // Gestión del menú móvil
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  
+  if (menuToggle && navLinks && menuOverlay) {
+    // Optimización: Usar transform para animaciones en lugar de propiedades que afectan el layout
+    menuToggle.addEventListener('click', function() {
+      // Usar will-change para indicar al navegador que prepare la composición
+      navLinks.style.willChange = 'transform';
+      menuOverlay.style.willChange = 'opacity';
+      
+      // Toggle classes después de animar
+      requestAnimationFrame(() => {
+        this.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+        
+        // Restablecer will-change después de las animaciones
+        setTimeout(() => {
+          navLinks.style.willChange = 'auto';
+          menuOverlay.style.willChange = 'auto';
+        }, 300); // Corresponde a la duración de la transición
+      });
+    });
+  }
+  
+  // Cerrar el menú al hacer clic en el overlay
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', function() {
+      if (menuToggle && menuToggle.classList.contains('active')) {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      }
+    });
+  }
+});
+
+// Optimización de imágenes para los temas (carga solo lo necesario)
+const loadDeferredThemeImages = () => {
+  // Cargar cualquier imagen diferida solo cuando se necesite
+  const deferredImages = document.querySelectorAll('[data-src]');
+  if (deferredImages.length > 0) {
+    deferredImages.forEach(img => {
+      if (img.dataset.src) {
+        img.src = img.dataset.src;
+        img.removeAttribute('data-src');
+      }
+    });
+  }
+};
+
+// Llamar después de eventos de interacción del usuario
+window.addEventListener('scroll', loadDeferredThemeImages, {once: true});
+window.addEventListener('mousemove', loadDeferredThemeImages, {once: true}); 
