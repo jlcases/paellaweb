@@ -66,9 +66,9 @@ webrick:
 # Jekyll Responsive Image Configuration
 responsive_image:
   # Ruta donde están tus imágenes originales (relativa a la raíz del proyecto)
-  source: assets/images
-  # Ruta donde se guardarán las imágenes generadas (relativa a `destination`, o sea, `_site`)
-  output: assets/images/generated
+  source: "assets/images"
+  # Ruta donde se guardarán las imágenes generadas
+  output: "assets/resized"
   # Formatos a generar (webp es ideal para la web)
   formats:
     - webp
