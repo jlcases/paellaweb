@@ -126,9 +126,3 @@ image: /assets/images/og-image.jpg
     </div>
   </div>
 </section>
-
-## Why PAELLADOC? The pain points we solve
-
-## The PAELLADOC solution: Structured context for AI
-
-## Vision: Beyond code, building a community
