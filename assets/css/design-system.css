@@ -551,6 +551,20 @@ img {
   border: 1px solid var(--color-border);
 }
 
+.feature h3 {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-semibold);
+}
+
+.feature h3 i {
+  margin-right: var(--spacing-sm);
+  color: var(--color-primary);
+}
+
 .feature h4 {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
