@@ -25,7 +25,14 @@ image: /assets/images/og-image.jpg
       </div>
       <div class="hero-visual">
         <picture>
+          <!-- Versión WebP para diferentes tamaños de pantalla -->
+          <source media="(max-width: 400px)" srcset="/assets/images/imagen-min-400.webp" type="image/webp">
+          <source media="(max-width: 600px)" srcset="/assets/images/imagen-min-600.webp" type="image/webp">
           <source srcset="/assets/images/imagen-min.webp" type="image/webp">
+          
+          <!-- Fallback PNG para navegadores que no soportan WebP -->
+          <source media="(max-width: 400px)" srcset="/assets/images/imagen-min-400.png" type="image/png">
+          <source media="(max-width: 600px)" srcset="/assets/images/imagen-min-600.png" type="image/png">
           <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high">
         </picture>
       </div>
