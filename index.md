@@ -22,6 +22,17 @@ image: /assets/images/og-image.jpg
             <span>Join the Community</span>
           </a>
         </div>
+        
+        <div class="github-stats">
+          <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="github-stat">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <span id="github-stars">-</span> stars
+          </a>
+          <a href="https://github.com/jlcases/paelladoc/network/members" target="_blank" rel="noopener" class="github-stat">
+            <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
+            <span id="github-forks">-</span> forks
+          </a>
+        </div>
       </div>
       <div class="hero-visual">
         <picture>
