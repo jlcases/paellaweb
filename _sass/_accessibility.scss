@@ -1,0 +1,138 @@
+// Estilos específicos para mejorar la accesibilidad
+
+// Mejora del enlace de "Skip to content" para mayor contraste
+.skip-to-content {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: #000000;
+  color: #ffffff;
+  padding: 1rem;
+  z-index: 1001;
+  transition: top 0.3s ease;
+  font-weight: 700;
+  text-decoration: underline;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 3px solid #ffffff;
+  font-size: 1.1rem;
+  width: auto;
+  text-align: center;
+  
+  &:focus {
+    top: 0;
+    outline: 3px solid #ffcc00;
+    text-decoration: underline;
+  }
+}
+
+// Mejoras para los enlaces en general - no solo distinguibles por color
+a {
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  
+  &:hover, &:focus {
+    text-decoration: underline;
+    outline: 2px solid #ffcc00;
+    outline-offset: 2px;
+  }
+  
+  // Enlaces específicos
+  &.highlight-link {
+    color: #ffcc00;
+    font-weight: 700;
+    text-decoration: underline;
+    
+    &:hover, &:focus {
+      color: #ffffff;
+      background-color: #ffcc00;
+      text-decoration: none;
+      padding: 0 0.5rem;
+      border-radius: 4px;
+    }
+  }
+}
+
+// Mejorar el contraste del texto en tarjetas
+.pain-card, .feature, .feature-card {
+  p {
+    color: #ffffff; // Asegurar suficiente contraste en textos dentro de cards
+  }
+  h3 {
+    color: #ffffff;
+  }
+}
+
+// Focus visible para todos los elementos interactivos
+button, 
+a,
+input,
+select,
+textarea,
+[tabindex]:not([tabindex="-1"]) {
+  &:focus-visible {
+    outline: 3px solid #ffcc00;
+    outline-offset: 2px;
+    z-index: 10;
+  }
+}
+
+// Mejoras en el contraste de los botones
+.button {
+  text-decoration: none;
+  
+  &.primary {
+    background-color: #FF4500;
+    color: #000000;
+    font-weight: 700;
+    
+    &:hover, &:focus {
+      background-color: #ff6a33;
+      text-decoration: none;
+      outline: 3px solid #ffcc00;
+    }
+  }
+  
+  &.secondary {
+    background-color: #4A00FF;
+    color: #ffffff;
+    font-weight: 700;
+    
+    &:hover, &:focus {
+      background-color: #6633ff;
+      text-decoration: none;
+      outline: 3px solid #ffcc00;
+    }
+  }
+}
+
+// Estilo específico para el enlace del autor
+.author-link {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #ffffff;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border: 1px solid #ffffff;
+  gap: 0.5rem;
+  
+  i {
+    color: #ff4500;
+  }
+  
+  &:hover, &:focus {
+    background-color: #ff4500;
+    color: #000000;
+    text-decoration: none;
+    outline: 2px solid #ffcc00;
+    
+    i {
+      color: #000000;
+    }
+  }
+} 
