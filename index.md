@@ -33,7 +33,7 @@ image: /assets/images/og-image.jpg
           <!-- Fallback PNG para navegadores que no soportan WebP -->
           <source media="(max-width: 400px)" srcset="/assets/images/imagen-min-400.png" type="image/png">
           <source media="(max-width: 600px)" srcset="/assets/images/imagen-min-600.png" type="image/png">
-          <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high">
+          <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high" loading="eager" decoding="async" style="background-color: #121212; object-fit: contain;">
         </picture>
       </div>
     </div>
