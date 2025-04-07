@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Integrating PAELLADOC with Cursor AI: The Perfect Pairing"
-subtitle: "How to maximize your Cursor AI experience with structured documentation"
+title: "Integrating PAELLADOC with Cursor AI: The perfect pairing"
+subtitle: "Learn how to supercharge your Cursor AI experience with PAELLADOC"
 date: 2023-08-20
 author: "Maria Rodriguez"
 avatar: "https://ui-avatars.com/api/?name=Maria+Rodriguez&background=0D8ABC&color=fff"

@@ -8,19 +8,19 @@
       </div>
       <div class="footer-links">
         <div class="footer-column">
-          <h3 id="product-heading">Product Suite</h3>
-          <ul aria-labelledby="product-heading">
-            <li><a href="{{ "/quickstart" | relative_url }}" aria-label="Go to Quick Start guide">Quick Start</a></li>
-            <li><a href="{{ "/solution" | relative_url }}" aria-label="Learn about PAELLADOC Tools">Professional Tools</a></li>
-            <li><a href="{{ "/resources" | relative_url }}" aria-label="View command reference">Command Reference</a></li>
+          <h3 id="docs-heading">Documentation</h3>
+          <ul aria-labelledby="docs-heading">
+            <li><a href="{{ "/docs/getting-started" | relative_url }}" aria-label="Getting Started Guide">Getting started</a></li>
+            <li><a href="{{ "/docs/commands" | relative_url }}" aria-label="PAELLADOC Commands">Commands</a></li>
+            <li><a href="{{ "/docs/templates" | relative_url }}" aria-label="Documentation Templates">Templates</a></li>
           </ul>
         </div>
         <div class="footer-column">
-          <h3 id="developer-heading">Developer Resources</h3>
-          <ul aria-labelledby="developer-heading">
-            <li><a href="https://github.com/jlcases/paelladoc" target="_blank" aria-label="View GitHub Repository">GitHub Repo</a></li>
-            <li><a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" aria-label="Join GitHub Discussions">Discussions</a></li>
-            <li><a href="{{ "/community" | relative_url }}" aria-label="Learn how to contribute">Contribute</a></li>
+          <h3 id="community-heading">Community</h3>
+          <ul aria-labelledby="community-heading">
+            <li><a href="https://github.com/jlcases/paelladoc" aria-label="View GitHub Repository">GitHub</a></li>
+            <li><a href="https://github.com/jlcases/paelladoc/discussions" aria-label="Join GitHub Discussions">Discussions</a></li>
+            <li><a href="https://x.com/i/communities/1907494161458090406" aria-label="Join X Community">X Community</a></li>
           </ul>
         </div>
       </div>
@@ -28,9 +28,9 @@
     <div class="footer-bottom">
       <p>&copy; {{ site.time | date: '%Y' }} PAELLADOC. All rights reserved.</p>
       <div class="footer-links-legal">
-        <a href="#" aria-label="Privacy Policy">Privacy</a>
-        <a href="#" aria-label="Terms of Service">Terms</a>
-        <a href="#" aria-label="Accessibility Statement">Accessibility</a>
+        <a href="{{ '/privacy/' | relative_url }}" aria-label="Privacy Policy">Privacy</a>
+        <a href="{{ '/terms/' | relative_url }}" aria-label="Terms of Service">Terms</a>
+        <a href="{{ '/accessibility/' | relative_url }}" aria-label="Accessibility Statement">Accessibility</a>
       </div>
     </div>
   </div>

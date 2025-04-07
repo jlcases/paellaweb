@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Vibe coding with Cursor that actually scales
-description: PAELLADOC provides a powerful framework for AI-driven development that makes your coding experience mucho mejor, with perfect context preservation.
+title: PAELLADOC - AI documentation framework
+description: PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem.
 image: /assets/images/og-image.jpg
 ---
 
@@ -116,3 +116,9 @@ image: /assets/images/og-image.jpg
     </div>
   </div>
 </section>
+
+## Why PAELLADOC? The pain points we solve
+
+## The PAELLADOC solution: Structured context for AI
+
+## Vision: Beyond code, building a community

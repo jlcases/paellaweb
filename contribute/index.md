@@ -1,13 +1,13 @@
 ---
 layout: default
-title: Join the PAELLADOC Revolution
+title: Join the PAELLADOC revolution
 description: Be part of the movement that's redefining AI-assisted development. Contribute your skills to help PAELLADOC become the industry standard.
 image: /assets/images/og-image.jpg
 ---
 
 <section class="contribute-hero" aria-labelledby="contribute-hero-heading">
   <div class="container">
-    <h1 id="contribute-hero-heading">Be Part of the <span class="highlight">PAELLADOC Revolution</span></h1>
+    <h1 id="contribute-hero-heading">Be part of the <span class="highlight">PAELLADOC revolution</span></h1>
     <p class="lead">We're building something extraordinary together—a framework that transforms how teams use AI for coding. Every contribution brings us closer to the definitive standard for AI-assisted development.</p>
   </div>
 </section>
@@ -15,7 +15,7 @@ image: /assets/images/og-image.jpg
 <section class="contribute-call" aria-labelledby="expertise-heading">
   <div class="container">
     <div class="call-content">
-      <h2 id="expertise-heading">Your Expertise Makes <span>All the Difference</span></h2>
+      <h2 id="expertise-heading">Your expertise makes <span>all the difference</span></h2>
       
       <div class="roles-grid">
         <div class="role-card">
@@ -54,7 +54,7 @@ image: /assets/images/og-image.jpg
 
 <section class="join-section" aria-labelledby="join-movement-heading">
   <div class="container">
-    <h2 id="join-movement-heading">How to <span class="highlight">Join the Movement</span></h2>
+    <h2 id="join-movement-heading">How to <span class="highlight">join the movement</span></h2>
     
     <div class="step-intro">
       <p class="step-lead">The epicenter of the revolution is in <a href="https://github.com/jlcases/paelladoc/discussions" class="discussions-link" rel="noopener">GitHub Discussions</a> — where everything happens. There we share ideas, debate the future, and create together.</p>
@@ -120,7 +120,7 @@ image: /assets/images/og-image.jpg
 
 <section class="priorities-section" aria-labelledby="priorities-heading">
   <div class="container">
-    <h2 id="priorities-heading">Current <span>Priorities</span></h2>
+    <h2 id="priorities-heading">Current <span>priorities</span></h2>
     
     <div class="priorities-grid">
       <div class="priority-card">
@@ -153,7 +153,7 @@ image: /assets/images/og-image.jpg
 <section class="cta-contribute" aria-labelledby="cta-contribute-heading">
   <div class="container">
     <div class="cta-content">
-      <h2 id="cta-contribute-heading"><span>Every Contribution Counts</span></h2>
+      <h2 id="cta-contribute-heading"><span>Every contribution counts</span></h2>
       <p>From fixing typos to implementing major features, your work will be appreciated and acknowledged. Join us in creating a standard that will help thousands of developers build better AI systems.</p>
       
       <div class="cta-buttons">

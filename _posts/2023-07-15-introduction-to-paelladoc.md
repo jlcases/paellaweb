@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Introduction to PAELLADOC: The AI Documentation Framework"
+title: "Introduction to PAELLADOC: The AI documentation framework"
 subtitle: "A new approach to managing context in AI-driven development"
 date: 2023-07-15
 author: "PAELLADOC Team"
@@ -19,7 +19,7 @@ tags:
 excerpt: "PAELLADOC solves the biggest challenge in AI-driven development: context loss. Learn how this framework can transform your team's productivity and code quality."
 ---
 
-## The Context Problem in AI Development
+## The context problem in AI development
 
 One of the biggest challenges teams face when working with AI assistants for development is **context loss**. Each AI-generated code snippet adds invisible debt because the rationale behind decisions isn't preserved. Your team might not understand the code three months later, leading to confusion, duplicated work, and slower velocity over time.
 
@@ -32,11 +32,11 @@ This problem compounds as projects grow:
 
 PAELLADOC was designed to solve these exact problems by creating a systematic approach to preserving context throughout the AI development lifecycle.
 
-## What Makes PAELLADOC Different
+## What makes PAELLADOC different
 
 Unlike traditional documentation tools, PAELLADOC isn't just about writing comments or creating external documentation. It's a complete framework that integrates with your development workflow:
 
-### MECE Documentation Pattern
+### MECE documentation pattern
 
 The core of PAELLADOC is the **Mutually Exclusive, Collectively Exhaustive** documentation pattern. This ensures that:
 
@@ -66,27 +66,27 @@ The core of PAELLADOC is the **Mutually Exclusive, Collectively Exhaustive** doc
 
 This structured approach creates documentation that's both comprehensive and scannable, making it easy for developers to quickly understand components.
 
-## Key Benefits for Teams
+## Key benefits for teams
 
 Teams that adopt PAELLADOC typically see several immediate benefits:
 
-### 1. Faster Onboarding
+### 1. Faster onboarding
 
 New team members can understand your codebase in days, not months, because the context behind decisions is preserved and accessible.
 
-### 2. Sustainable Velocity
+### 2. Sustainable velocity
 
 Instead of slowing down as the project grows, teams maintain or even increase their velocity because they're not constantly rediscovering context.
 
-### 3. Improved Collaboration
+### 3. Improved collaboration
 
 Product managers, designers, and developers share a common understanding of the codebase, improving cross-functional collaboration.
 
-### 4. Reduced Technical Debt
+### 4. Reduced technical debt
 
 By making context explicit, teams naturally reduce technical debt and make more consistent architectural decisions.
 
-## Getting Started with PAELLADOC
+## Getting started with PAELLADOC
 
 Starting with PAELLADOC is straightforward:
 

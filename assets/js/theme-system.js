@@ -1,81 +1,72 @@
 // theme-system.js - Sistema de gestión de temas oscuro/claro
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Forzar la aplicación del tema al cargar
-  applyTheme();
-  
-  // Comprobar si hay una preferencia guardada
-  function applyTheme() {
-    const savedTheme = localStorage.getItem('paellaTheme');
-    
-    // Comprobar la preferencia del sistema
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Eliminar clases antiguas que puedan interferir
-    document.documentElement.classList.remove('light-theme', 'dark-theme');
-    
-    // Aplicar tema guardado o usar preferencia del sistema
-    if (savedTheme === 'light') {
-      document.body.setAttribute('data-theme', 'light');
-      document.documentElement.classList.add('light-theme');
-      console.log("Tema aplicado: claro");
-    } else if (savedTheme === 'dark') {
-      document.body.removeAttribute('data-theme');
-      document.documentElement.classList.add('dark-theme');
-      console.log("Tema aplicado: oscuro");
-    } else if (prefersDarkScheme.matches) {
-      document.body.removeAttribute('data-theme');
-      document.documentElement.classList.add('dark-theme');
-      console.log("Tema aplicado: oscuro (preferencia del sistema)");
-    } else {
-      document.body.setAttribute('data-theme', 'light');
-      document.documentElement.classList.add('light-theme');
-      console.log("Tema aplicado: claro (preferencia del sistema)");
-    }
-    
-    // Forzar la aplicación de estilos con un pequeño retraso
-    setTimeout(function() {
-      if (document.body.getAttribute('data-theme') === 'light') {
-        document.documentElement.style.backgroundColor = '#ffffff';
-        document.body.style.backgroundColor = '#ffffff';
-      } else {
-        document.documentElement.style.backgroundColor = '#000000';
-        document.body.style.backgroundColor = '#000000';
-      }
-    }, 50);
-  }
-  
-  // Manejar el cambio de tema cuando se hace clic en el botón
   const themeToggle = document.querySelector('.theme-toggle');
+  const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+  // Función para aplicar el tema (oscuro o claro)
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      console.log("Tema aplicado: claro");
+    } else { // 'dark' or default
+      document.documentElement.removeAttribute('data-theme');
+      console.log("Tema aplicado: oscuro");
+    }
+    // Update button state (optional, if you add specific styles for button)
+    updateToggleButton(theme);
+  }
+
+  // Función para actualizar el estado visual del botón (opcional)
+  function updateToggleButton(theme) {
+    if (themeToggle) {
+      // Aquí puedes añadir lógica para cambiar el icono o estilo del botón
+      // Ejemplo: themeToggle.classList.toggle('active', theme === 'light');
+    }
+  }
+
+  // Obtener el tema guardado o usar la preferencia del sistema
+  function getInitialTheme() {
+    const savedTheme = localStorage.getItem('paellaTheme');
+    if (savedTheme) {
+      return savedTheme;
+    } else {
+      return prefersDarkScheme.matches ? 'dark' : 'light';
+    }
+  }
+
+  // Aplicar el tema inicial al cargar la página
+  const initialTheme = getInitialTheme();
+  applyTheme(initialTheme);
+
+  // Manejar el clic en el botón de cambio de tema
   if (themeToggle) {
     themeToggle.addEventListener('click', function() {
-      if (document.body.getAttribute('data-theme') === 'light') {
-        document.body.removeAttribute('data-theme');
-        localStorage.setItem('paellaTheme', 'dark');
-        console.log("Cambiando a tema oscuro");
-      } else {
-        document.body.setAttribute('data-theme', 'light');
-        localStorage.setItem('paellaTheme', 'light');
-        console.log("Cambiando a tema claro");
-      }
-      applyTheme(); // Asegurar que los estilos se aplican correctamente
+      const currentTheme = document.documentElement.hasAttribute('data-theme') ? 'light' : 'dark';
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      localStorage.setItem('paellaTheme', newTheme);
+      applyTheme(newTheme);
+      console.log(`Cambiando a tema ${newTheme}`);
     });
   }
-  
-  // Actualizar cuando cambie la preferencia del sistema
+
+  // Escuchar cambios en la preferencia del sistema
   prefersDarkScheme.addEventListener('change', function(e) {
+    // Solo actualiza si no hay una preferencia guardada manualmente
     if (!localStorage.getItem('paellaTheme')) {
-      if (e.matches) {
-        document.body.removeAttribute('data-theme');
-      } else {
-        document.body.setAttribute('data-theme', 'light');
-      }
-      applyTheme(); // Asegurar que los estilos se aplican correctamente
+      const newTheme = e.matches ? 'dark' : 'light';
+      applyTheme(newTheme);
+      console.log(`Preferencia del sistema cambió a ${newTheme}`);
     }
   });
-  
-  // Si el usuario navega entre páginas, asegurar que el tema se mantiene
-  window.addEventListener('pageshow', function() {
-    applyTheme();
+
+  // Asegurar que el tema se aplique correctamente al usar el historial del navegador
+  window.addEventListener('pageshow', function(event) {
+    // event.persisted es true si la página se carga desde el bfcache
+    if (event.persisted) {
+      const currentStoredTheme = localStorage.getItem('paellaTheme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+      applyTheme(currentStoredTheme);
+      console.log("Tema reaplicado desde bfcache");
+    }
   });
 }); 

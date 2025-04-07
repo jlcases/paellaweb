@@ -743,6 +743,7 @@ img {
   text-align: center;
   background: linear-gradient(to bottom, var(--color-surface), transparent);
   border-bottom: 1px solid var(--color-border);
+  margin-top: 80px; /* Añadir margen superior igual a la altura del header */
 }
 
 .blog-hero h1 {
@@ -1070,6 +1071,7 @@ img {
   text-align: center;
   padding: var(--spacing-3xl) 0 var(--spacing-2xl);
   background: linear-gradient(to bottom, var(--color-surface), transparent);
+  margin-top: 80px; /* Añadir margen superior para el header fijo */
 }
 
 .contribute-hero h1 {
@@ -1374,8 +1376,6 @@ img {
   color: var(--color-text-secondary);
 }
 
-/* --- Fin Contribute Styles --- */
-
 /* ======= MEDIA QUERIES (contribute specific) ======= */
 
 @media (max-width: 768px) {
@@ -1617,4 +1617,323 @@ img {
   .vision-text p, .vision-cta {
     font-size: var(--font-size-md);
   }
+} 
+
+.blog-content {
+  padding-top: var(--spacing-lg);
+}
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-xl) 0;
+} 
+
+/* --- Newsletter Section --- */
+.newsletter-section {
+  background-color: var(--color-surface-variant);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-md);
+  text-align: center;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-md);
+  gap: var(--spacing-sm);
+}
+
+.newsletter-form input[type="email"] {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  min-width: 250px;
+}
+
+/* --- Documentation Page Styles --- */
+.docs-page {
+  padding: var(--spacing-2xl) 0; /* Más espacio vertical */
+  margin-top: 80px; /* Adjust for fixed header */
+}
+
+.docs-content {
+  max-width: 800px; /* Consistent width */
+  margin: 0 auto;
+}
+
+.docs-content h1 {
+  font-size: var(--font-size-4xl); /* Título más grande */
+  font-weight: var(--font-weight-black);
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--color-primary); /* Línea de separación más prominente */
+  padding-bottom: var(--spacing-md);
+  line-height: 1.2;
+}
+
+.docs-content h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-top: var(--spacing-2xl); /* Más espacio antes del H2 */
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.docs-content h3 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary); /* Destacar H3 */
+}
+
+.docs-content p,
+.docs-content li {
+  font-size: var(--font-size-md); /* Ligeramente más grande para legibilidad */
+  line-height: 1.8;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg); /* Espacio entre párrafos/elementos de lista */
+}
+
+.docs-content ul,
+.docs-content ol {
+  padding-left: var(--spacing-lg); /* Indentación estándar */
+}
+
+.docs-content li {
+  margin-bottom: var(--spacing-sm); /* Espacio entre items de lista */
+}
+
+.docs-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.docs-content a:hover {
+  color: var(--color-primary-dark);
+  text-decoration-thickness: 2px;
+}
+
+/* Estilos mejorados para código */
+.docs-content code {
+  background-color: var(--color-surface-variant);
+  padding: 0.2em 0.4em;
+  margin: 0 0.1em;
+  font-size: 88%; /* Ligeramente más grande */
+  border-radius: var(--border-radius-sm);
+  font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada clara */
+  color: var(--color-text-secondary);
+}
+
+.docs-content pre {
+  background-color: var(--color-surface); /* Fondo ligeramente distinto */
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-lg);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.docs-content pre code {
+  background: none;
+  padding: 0;
+  margin: 0;
+  font-size: 95%;
+  border-radius: 0;
+  color: var(--color-text-primary); /* Texto primario dentro de pre */
+  box-shadow: none;
+}
+
+/* Estilo para las secciones de marcador de posición */
+.docs-content p:contains('[') {
+  font-style: italic;
+  color: var(--color-text-tertiary);
+  background-color: rgba(var(--color-primary-rgb, 255, 69, 0), 0.05);
+  padding: var(--spacing-sm);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--border-radius-sm);
+}
+
+/* --- Legal Page Styles --- */
+.legal-page {
+  padding: var(--spacing-2xl) 0;
+  margin-top: 80px; /* Adjust for fixed header */
+  background-color: var(--color-surface); /* Fondo ligeramente distinto para diferenciar */
+}
+
+.legal-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* El H1 ya está en el layout, no necesita estilos aquí si los globales son suficientes */
+/* Si se necesita override: */
+.legal-content h1 {
+  font-size: var(--font-size-3xl); /* Un poco menos imponente que en docs */
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-primary);
+}
+
+.legal-content h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--spacing-xl); /* Buen espacio antes de sección */
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-primary); /* Títulos claros */
+}
+
+.legal-content h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-top: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-secondary); /* Subtítulos más sutiles */
+}
+
+.legal-content p,
+.legal-content li {
+  font-size: var(--font-size-base); /* Tamaño base estándar */
+  line-height: 1.7; /* Buena legibilidad */
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md); /* Espacio entre párrafos */
+}
+
+.legal-content ul,
+.legal-content ol {
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+
+.legal-content li {
+  margin-bottom: var(--spacing-xs); /* Espacio ajustado entre items */
+}
+
+/* Destacar texto importante o fechas */
+.legal-content strong,
+.legal-content em {
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.legal-content em { /* Para fechas o notas */
+  font-style: normal;
+  color: var(--color-text-tertiary);
+}
+
+/* Enlaces discretos pero claros */
+.legal-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--color-primary);
+}
+
+.legal-content a:hover {
+  color: var(--color-primary-dark);
+  border-bottom-style: solid;
+}
+
+/* Estilo para los marcadores de posición, más sutil que en docs */
+.legal-content p:contains('[') {
+  font-style: italic;
+  color: var(--color-text-tertiary);
+  background-color: rgba(var(--color-secondary-rgb, 0, 102, 255), 0.05);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-left: 2px solid var(--color-secondary);
+  border-radius: var(--border-radius-sm);
+}
+
+/* --- Vision Section --- */
+.vision-section {
+  /* background: linear-gradient(135deg, rgba(var(--color-primary-rgb, 255, 69, 0), 0.03), transparent 60%), var(--color-surface); */ /* Eliminado gradiente */
+  background-color: var(--color-surface); /* Fondo consistente con otras secciones */
+  padding: var(--spacing-3xl) 0; /* Espaciado consistente */
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.vision-section h2 {
+  font-size: var(--font-size-3xl); /* Usar tamaño estándar */
+  margin-bottom: var(--spacing-xl);
+  font-weight: var(--font-weight-bold);
+}
+
+.vision-content {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
+  z-index: var(--z-base);
+}
+
+.vision-text p {
+  font-size: var(--font-size-lg); /* Tamaño estándar para párrafos */
+  color: var(--color-text-secondary); /* Color secundario estándar */
+  line-height: 1.7;
+  margin-bottom: var(--spacing-lg);
+}
+
+.vision-text p strong {
+   color: var(--color-text-primary); /* Primario para énfasis */
+   font-weight: var(--font-weight-semibold);
+}
+
+ .vision-text p em { /* Para 'sabor' */
+   font-style: italic;
+   color: var(--color-primary); /* Primario para énfasis especial */
+}
+
+.vision-cta {
+   margin-top: var(--spacing-xl);
+   font-weight: var(--font-weight-semibold);
+   font-size: var(--font-size-lg);
+}
+
+.vision-cta a.highlight-link {
+   color: var(--color-primary);
+   /* text-decoration: underline; */ /* Quitar subrayado, usar borde inferior */
+   /* text-underline-offset: 4px; */
+   /* text-decoration-thickness: 2px; */
+   border-bottom: 2px solid var(--color-primary); /* Borde inferior para destacar */
+   padding-bottom: 2px;
+   font-weight: var(--font-weight-bold);
+   transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.vision-cta a.highlight-link:hover {
+   color: var(--color-primary-dark);
+   border-bottom-color: var(--color-primary-dark);
+   background: none; 
+}
+
+/* ======= MEDIA QUERIES GLOBALES ======= */
+@media (max-width: 768px) {
+  /* Vision Section móvil */
+  .vision-section h2 {
+    font-size: var(--font-size-2xl);
+  }
+  .vision-text p, .vision-cta {
+    font-size: var(--font-size-md);
+  }
+} 
+
+.blog-content {
+  padding-top: var(--spacing-lg);
+}
+
+.blog-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--spacing-2xl);
+  margin: var(--spacing-xl) 0;
 } 
