@@ -1,11 +1,16 @@
+@import "variables"; // Importar variables globales primero
+
 // Variables
-$paprika: #cf2e2e;    // Main color, inspired by the reddish hue of paprika
-$saffron: #f5a623;    // Secondary color, inspired by saffron
-$rice: #f5f5f5;       // Light background, inspired by rice
-$greenBean: #4caf50;  // Success color, inspired by green beans
-$darkBrown: #222;     // Text color, inspired by a dark roast
+$paprika: #FF4500;    // Main color, inspired by the reddish hue of paprika
+$accent: #4A00FF;     // Accent color
+$dark: #000;          // Dark background
+$light: #fff;         // Light text
+$darkBrown: #8B4513;  // Dark brown color for compatibility
 $spacing: 2rem;
 $headerHeight: 70px;  // Altura del header
+$lightBackground: #f7f7f7;
+$textColor: #1d1d1f;
+$rice: #f5f5f5;       // Light background color
 
 // Breakpoints
 $mobile: 576px;       // Punto de ruptura para móviles
@@ -55,17 +60,16 @@ html {
 }
 
 html {
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  font-family: $baseFont;
-  font-family: 'Inter', 'Inter-fallback', sans-serif;
-  color: $darkBrown;
-  background-color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: $light;
+  background-color: $dark;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -75,13 +79,13 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   line-height: 1.2;
   font-weight: 700;
-  color: $darkBrown;
+  color: $light;
 }
 
 // Estilos precisos para encabezados para evitar cambios durante la carga de fuentes
 h1 {
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: ($spacing-unit * 1.5);
   
   @media (min-width: $tablet) {
     font-size: 3rem;
@@ -90,54 +94,55 @@ h1 {
 
 h2 {
   font-size: 2rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: ($spacing-unit * 1.25);
 }
 
 h3 {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-unit;
 }
 
 h4 {
   font-size: 1.25rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: ($spacing-unit * 0.75);
 }
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: $spacing-unit;
 }
 
 a {
-  color: $paprika;
+  color: $dark-primary-color;
   text-decoration: none;
   transition: color 0.3s ease;
   
   &:hover {
-    color: darken($paprika, 10%);
+    color: $dark-link-hover-color;
   }
 }
 
 blockquote {
-  border-left: 4px solid $paprika;
+  border-left: 4px solid $dark-primary-color;
   margin-left: 0;
-  padding-left: 1rem;
+  padding-left: $spacing-unit;
   font-style: italic;
-  color: lighten($darkBrown, 20%);
+  color: $dark-secondary-color;
 }
 
 code {
   font-family: $codeFont;
-  background-color: $rice;
+  background-color: $dark-card-bg;
   padding: 0.2em 0.4em;
   border-radius: 3px;
   font-size: 0.9em;
+  color: $dark-text-color;
 }
 
 pre {
-  background-color: $darkBrown;
-  color: $rice;
-  padding: 1rem;
+  background-color: darken($dark-card-bg, 5%);
+  color: $dark-text-color;
+  padding: $spacing-unit;
   border-radius: 5px;
   overflow-x: auto;
   
@@ -151,49 +156,95 @@ pre {
 hr {
   border: 0;
   height: 1px;
-  background-color: lighten($darkBrown, 70%);
-  margin: 2rem 0;
+  background-color: $dark-card-border;
+  margin: ($spacing-unit * 2) 0;
 }
 
 // Lists
 ul, ol {
   margin-top: 0;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
+  margin-bottom: $spacing-unit;
+  padding-left: ($spacing-unit * 1.5);
   
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: ($spacing-unit * 0.5);
   }
 }
 
 // Button
 .button {
-  display: inline-block;
-  background-color: $paprika;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border-radius: 12px;
   font-weight: 600;
-  text-align: center;
-  transition: all 0.3s ease;
   text-decoration: none;
-  border: 2px solid $paprika;
-  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  gap: 0.75rem;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  z-index: 10;
+  border: none;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transition: transform 0.5s ease;
+    z-index: -1;
+  }
   
   &:hover {
-    background-color: darken($paprika, 10%);
-    border-color: darken($paprika, 10%);
+    transform: translateY(-5px);
+    
+    &::after {
+      transform: translateX(100%);
+    }
+  }
+  
+  &:active {
+    transform: translateY(0px);
+  }
+  
+  i {
+    font-size: 1.5rem;
+  }
+  
+  &.primary {
+    background: linear-gradient(135deg, $paprika, darken($paprika, 10%));
     color: white;
-    text-decoration: none;
+    box-shadow: 0 10px 30px rgba($paprika, 0.3);
+    
+    &:hover {
+      box-shadow: 0 15px 40px rgba($paprika, 0.5);
+    }
   }
   
   &.secondary {
-    background-color: transparent;
-    color: $paprika;
+    background: rgba(255,255,255,0.05);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
     
     &:hover {
-      background-color: $paprika;
-      color: white;
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.2);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 1.1rem 2rem;
+    
+    i {
+      font-size: 1.4rem;
     }
   }
 }
@@ -201,4 +252,70 @@ ul, ol {
 // Utilities
 .text-center {
   text-align: center;
+}
+
+// Mixins
+@mixin button-style($background, $color) {
+  background-color: $background;
+  color: $color;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  
+  &:hover {
+    background-color: mix(black, $background, 10%);
+  }
+}
+
+// Definición de los botones
+.button {
+  &.primary {
+    @include button-style($darkBrown, white);
+  }
+  
+  &.secondary {
+    @include button-style(transparent, $darkBrown);
+    border: 1px solid $darkBrown;
+    
+    &:hover {
+      background-color: rgba($darkBrown, 0.1);
+    }
+  }
+}
+
+// --- Estilos para modo claro --- 
+body[data-theme="light"] {
+  a {
+    color: $primary-color;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+
+  blockquote {
+    border-left-color: $primary-color;
+    color: $secondary-color;
+  }
+
+  code {
+    background-color: $rice;
+    color: $text-color;
+  }
+
+  pre {
+    background-color: darken($rice, 5%);
+    color: $text-color;
+  }
+  
+  hr {
+    background-color: $card-border;
+  }
+  
+  // Sobrescribir estilos de botón si es necesario para el modo claro
+  // .button { ... }
 }

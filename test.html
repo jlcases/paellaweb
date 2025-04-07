@@ -1,0 +1,62 @@
+---
+layout: default
+title: Prueba de Estilos
+---
+
+<div class="container">
+  <h1>Prueba de Estilos <span>Destacados</span></h1>
+  <p class="hero-value-prop">Esta es una página de prueba para verificar que los estilos oscuros se aplican correctamente.</p>
+  
+  <div class="hero-buttons">
+    <a href="#" class="button primary">Botón Primario</a>
+    <a href="#" class="button secondary">Botón Secundario</a>
+  </div>
+  
+  <h2>Sección de Prueba</h2>
+  <p>Este texto debería ser legible en modo oscuro sobre fondo oscuro.</p>
+  
+  <div class="pain-grid">
+    <div class="pain-card">
+      <div class="pain-icon">📋</div>
+      <h3>Tarjeta de Prueba 1</h3>
+      <p>Este es un contenido de prueba para verificar el contraste y legibilidad.</p>
+    </div>
+    
+    <div class="pain-card">
+      <div class="pain-icon">🔍</div>
+      <h3>Tarjeta de Prueba 2</h3>
+      <p>Este es un contenido de prueba para verificar el contraste y legibilidad.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Añadir un toggle de tema para probar el cambio entre claro y oscuro (opcional)
+document.addEventListener('DOMContentLoaded', function() {
+  // Crear un botón
+  const themeToggle = document.createElement('button');
+  themeToggle.textContent = 'Cambiar Tema';
+  themeToggle.style.position = 'fixed';
+  themeToggle.style.bottom = '20px';
+  themeToggle.style.right = '20px';
+  themeToggle.style.zIndex = '1000';
+  themeToggle.style.padding = '10px 20px';
+  themeToggle.style.background = '#FF4500';
+  themeToggle.style.color = 'white';
+  themeToggle.style.border = 'none';
+  themeToggle.style.borderRadius = '8px';
+  themeToggle.style.cursor = 'pointer';
+  
+  // Añadir funcionalidad
+  themeToggle.addEventListener('click', function() {
+    if (document.body.getAttribute('data-theme') === 'light') {
+      document.body.removeAttribute('data-theme');
+    } else {
+      document.body.setAttribute('data-theme', 'light');
+    }
+  });
+  
+  // Añadir al DOM
+  document.body.appendChild(themeToggle);
+});
+</script> 

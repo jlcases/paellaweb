@@ -10,6 +10,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-paginate
 
 # Exclude from processing
 exclude:
@@ -26,6 +27,31 @@ collections:
   docs:
     output: true
     permalink: /:collection/:path/
+  posts:
+    output: true
+    permalink: /blog/:year/:month/:day/:title/
+
+# Blog settings
+paginate: 6
+paginate_path: "/blog/page:num/"
+permalink: /blog/:year/:month/:day/:title/
+
+# Default front matter
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "PAELLADOC Team"
+      avatar: "/assets/images/paelladoc-avatar.png"
+      github: "https://github.com/jlcases"
+
+# Category settings
+category_archive:
+  enabled: true
+  path: "/blog/categories/"
 
 # Cache settings
 sass:

@@ -1,3 +1,9 @@
+@import "variables";
+
+// Variables locales (Revisar si son necesarias o pueden ser globales)
+$saffron: #F4B400; // Tono azafrán, puede ir a variables si se usa globalmente
+$greenBean: #34A853; // Tono judía verde, puede ir a variables
+
 // Hero Section
 .hero {
   background: linear-gradient(135deg, $paprika, darken($paprika, 15%));
@@ -57,7 +63,7 @@
 .page-header {
   background: linear-gradient(135deg, $saffron, darken($saffron, 15%));
   color: $darkBrown;
-  padding: $spacing 0;
+  padding: ($spacing-unit * 2) 0;
   position: relative;
   overflow: hidden;
   
@@ -79,43 +85,45 @@
   }
   
   h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: ($spacing-unit * 0.5);
+    color: $darkBrown;
   }
   
   p {
     font-size: 1.2rem;
     margin: 0;
+    color: $darkBrown;
   }
 }
 
 // Content Section
 .content-section {
-  padding: $spacing 0;
+  padding: ($spacing-unit * 2) 0;
   
   h2 {
-    margin-bottom: 1.5rem;
-    color: $paprika;
+    margin-bottom: ($spacing-unit * 1.5);
+    color: $dark-primary-color;
   }
   
   h3 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    margin-top: ($spacing-unit * 2);
+    margin-bottom: $spacing-unit;
   }
 }
 
 // Feature Section
 .features {
-  padding: $spacing * 2 0;
+  padding: ($spacing-unit * 4) 0;
   
   h2 {
     text-align: center;
-    margin-bottom: $spacing;
+    margin-bottom: ($spacing-unit * 2);
   }
   
   .features-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: ($spacing-unit * 2);
     
     @media (min-width: $tablet) {
       grid-template-columns: repeat(2, 1fr);
@@ -129,42 +137,46 @@
 
 // Feature Card
 .feature-card {
-  background: white;
+  background: $dark-card-bg;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 5px 15px rgba($darkBrown, 0.05);
+  padding: ($spacing-unit * 1.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
   will-change: transform;
+  border: 1px solid $dark-card-border;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba($darkBrown, 0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: lighten($dark-card-border, 10%);
   }
   
   .feature-icon {
     width: 60px;
     height: 60px;
-    background: rgba($saffron, 0.1);
+    background: rgba($dark-primary-color, 0.1);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    color: $paprika;
+    margin-bottom: $spacing-unit;
+    color: $dark-primary-color;
     font-size: 1.5rem;
   }
   
   h3 {
-    margin-bottom: 0.75rem;
+    margin-bottom: ($spacing-unit * 0.75);
     min-height: 1.75rem;
+    color: $dark-text-color;
   }
   
   p {
-    margin-bottom: 1.25rem;
+    margin-bottom: ($spacing-unit * 1.25);
     min-height: 4.5rem;
+    color: $dark-secondary-color;
   }
   
   a {
@@ -172,16 +184,20 @@
     display: inline-flex;
     align-items: center;
     font-weight: 600;
+    color: $dark-primary-color;
     
     &:after {
       content: '→';
-      margin-left: 0.5rem;
+      margin-left: ($spacing-unit * 0.5);
       transition: transform 0.3s ease;
       will-change: transform;
     }
     
-    &:hover:after {
-      transform: translateX(5px);
+    &:hover {
+        color: $dark-link-hover-color;
+        &:after {
+            transform: translateX(5px);
+        }
     }
   }
 }
@@ -190,7 +206,7 @@
 .problem-solution {
   display: flex;
   flex-direction: column;
-  margin-bottom: $spacing;
+  margin-bottom: ($spacing-unit * 2);
   
   @media (min-width: $desktop) {
     flex-direction: row;
@@ -199,23 +215,24 @@
   
   .problem-card, .solution-card {
     flex: 1;
-    padding: 2rem;
+    padding: ($spacing-unit * 2);
     border-radius: 8px;
   }
   
   .problem-card {
-    background: #f2f2f2;
-    color: $darkBrown;
-    margin-bottom: 1rem;
-    
+    background: darken($dark-card-bg, 5%);
+    color: $dark-secondary-color;
+    margin-bottom: $spacing-unit;
+    border: 1px solid $dark-card-border;
+
     @media (min-width: $desktop) {
       margin-bottom: 0;
-      margin-right: 1rem;
+      margin-right: $spacing-unit;
     }
     
     h3 {
-      color: darken($paprika, 10%);
-      margin-bottom: 1rem;
+      color: lighten($dark-primary-color, 10%);
+      margin-bottom: $spacing-unit;
       
       &:before {
         content: '❌ ';
@@ -225,11 +242,12 @@
   
   .solution-card {
     background: rgba($greenBean, 0.1);
-    color: $darkBrown;
-    
+    color: $dark-text-color;
+    border: 1px solid $dark-card-border;
+
     h3 {
       color: $greenBean;
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-unit;
       
       &:before {
         content: '✅ ';
@@ -240,18 +258,19 @@
 
 // CTA Section
 .cta-section {
-  background: rgba($saffron, 0.1);
-  padding: $spacing * 2 0;
+  background: rgba($dark-primary-color, 0.05);
+  padding: ($spacing-unit * 4) 0;
   text-align: center;
   position: relative;
+  border-top: 1px solid $dark-card-border;
+  border-bottom: 1px solid $dark-card-border;
   
-  // Paella-inspired circular background
   &:before {
     content: '';
     position: absolute;
     width: 400px;
     height: 400px;
-    background: rgba($paprika, 0.05);
+    background: rgba($dark-primary-color, 0.03);
     border-radius: 50%;
     top: -200px;
     right: -200px;
@@ -265,32 +284,35 @@
   }
   
   h2 {
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-unit;
     min-height: 2.5rem;
+    color: $dark-text-color;
   }
   
   p {
     max-width: 700px;
-    margin: 0 auto 2rem;
+    margin: 0 auto ($spacing-unit * 2);
     min-height: 3rem;
+    color: $dark-secondary-color;
   }
 }
 
 // Code Block
 .code-example {
-  background: $darkBrown;
+  background: $dark-card-bg;
   border-radius: 8px;
   overflow: hidden;
-  margin-bottom: $spacing;
+  margin-bottom: ($spacing-unit * 2);
+  border: 1px solid $dark-card-border;
   
   .code-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: darken($darkBrown, 3%);
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid rgba(white, 0.1);
-    color: $rice;
+    background: darken($dark-card-bg, 3%);
+    padding: ($spacing-unit * 0.75) $spacing-unit;
+    border-bottom: 1px solid $dark-card-border;
+    color: $dark-secondary-color;
     
     .code-title {
       font-family: $codeFont;
@@ -298,8 +320,8 @@
     }
     
     .code-lang {
-      background: rgba($paprika, 0.2);
-      color: $saffron;
+      background: rgba($dark-primary-color, 0.2);
+      color: $dark-primary-color;
       padding: 0.2rem 0.5rem;
       border-radius: 3px;
       font-size: 0.75rem;
@@ -309,7 +331,7 @@
   }
   
   .code-content {
-    padding: 1rem;
+    padding: $spacing-unit;
     overflow-x: auto;
     
     pre {
@@ -322,35 +344,37 @@
 
 // Testimonial
 .testimonial {
-  background: white;
+  background: $dark-card-bg;
   border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 5px 15px rgba($darkBrown, 0.05);
-  margin-bottom: $spacing;
+  padding: ($spacing-unit * 1.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: ($spacing-unit * 2);
+  border: 1px solid $dark-card-border;
   
   .testimonial-content {
     font-style: italic;
-    margin-bottom: 1rem;
+    margin-bottom: $spacing-unit;
     position: relative;
-    padding: 0 1rem;
+    padding: 0 $spacing-unit;
+    color: $dark-text-color;
     
     &:before, &:after {
       content: '"';
       font-size: 2rem;
-      color: rgba($paprika, 0.2);
+      color: rgba($dark-primary-color, 0.2);
       line-height: 1;
     }
     
     &:before {
       position: absolute;
-      left: -0.5rem;
-      top: -0.5rem;
+      left: -($spacing-unit * 0.5);
+      top: -($spacing-unit * 0.5);
     }
     
     &:after {
       position: absolute;
-      right: -0.5rem;
-      bottom: -1rem;
+      right: -($spacing-unit * 0.5);
+      bottom: -$spacing-unit;
     }
   }
   
@@ -362,20 +386,132 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      margin-right: 1rem;
+      margin-right: $spacing-unit;
     }
     
     .author-info {
       h4 {
         margin: 0;
         font-size: 1rem;
+        color: $dark-text-color;
       }
       
       p {
         margin: 0;
         font-size: 0.875rem;
-        color: rgba($darkBrown, 0.7);
+        color: $dark-secondary-color;
       }
     }
+  }
+}
+
+// --- Estilos para modo claro --- 
+body[data-theme="light"] {
+  .page-header {
+     background: linear-gradient(135deg, lighten($saffron, 30%), lighten($saffron, 10%));
+     color: $text-color;
+     &:before {
+        stroke: rgba($text-color, 0.1);
+     }
+     h1, p {
+        color: $text-color;
+     }
+  }
+
+  .content-section h2 {
+     color: $primary-color;
+  }
+
+  .feature-card {
+     background: $card-bg;
+     box-shadow: 0 5px 15px rgba($secondary-color, 0.05);
+     border-color: $card-border;
+     &:hover {
+        box-shadow: 0 10px 25px rgba($secondary-color, 0.1);
+        border-color: darken($card-border, 5%);
+     }
+     .feature-icon {
+        background: rgba($primary-color, 0.1);
+        color: $primary-color;
+     }
+     h3 {
+        color: $text-color;
+     }
+     p {
+        color: $secondary-color;
+     }
+     a {
+        color: $primary-color;
+        &:hover {
+           color: $link-hover-color;
+        }
+     }
+  }
+
+  .problem-solution {
+     .problem-card {
+        background: $rice;
+        color: $text-color;
+        border-color: $card-border;
+        h3 {
+           color: darken($primary-color, 10%);
+        }
+     }
+     .solution-card {
+        background: rgba($greenBean, 0.1);
+        color: $text-color;
+        border-color: $card-border;
+        h3 {
+           color: darken($greenBean, 10%);
+        }
+     }
+  }
+
+  .cta-section {
+     background: rgba($primary-color, 0.05);
+     border-color: $card-border;
+     &:before {
+        background: rgba($primary-color, 0.03);
+     }
+     h2 {
+        color: $text-color;
+     }
+     p {
+        color: $secondary-color;
+     }
+  }
+  
+  .code-example {
+     background: $rice;
+     border-color: $card-border;
+     .code-header {
+        background: darken($rice, 3%);
+        border-bottom-color: $card-border;
+        color: $secondary-color;
+        .code-lang {
+           background: rgba($primary-color, 0.2);
+           color: $primary-color;
+        }
+     }
+  }
+
+  .testimonial {
+     background: $card-bg;
+     box-shadow: 0 5px 15px rgba($secondary-color, 0.05);
+     border-color: $card-border;
+     .testimonial-content {
+        color: $text-color;
+        &:before, &:after {
+           color: rgba($primary-color, 0.2);
+        }
+     }
+     .testimonial-author .author-info {
+        h4 {
+           color: $text-color;
+        }
+        p {
+           color: $secondary-color;
+        }
+     }
   }
 } 

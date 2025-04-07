@@ -1,0 +1,43 @@
+---
+layout: blog
+---
+
+<div class="category-header">
+  <h2 class="category-title">{{ page.title }}</h2>
+  <p class="category-description">{{ page.description }}</p>
+</div>
+
+<div class="category-posts">
+  {% for post in site.categories[page.category] %}
+    <article class="post-card">
+      <div class="post-card-content">
+        <div class="post-meta">
+          <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+          {% if post.categories.size > 0 %}
+          <span class="post-categories">
+            {% for category in post.categories %}
+            <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
+            {% endfor %}
+          </span>
+          {% endif %}
+        </div>
+        <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        <div class="post-footer">
+          <div class="post-author">
+            <img src="{{ post.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+            <span class="author-name">{{ post.author | default: site.author }}</span>
+          </div>
+          <span class="post-reading-time">{{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+        </div>
+      </div>
+      {% if post.image %}
+      <div class="post-card-image">
+        <a href="{{ post.url | relative_url }}">
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+        </a>
+      </div>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div> 

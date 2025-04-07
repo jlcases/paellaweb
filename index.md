@@ -1,202 +1,118 @@
 ---
 layout: default
+title: Vibe coding with Cursor that actually scales
+description: PAELLADOC provides a powerful framework for AI-driven development that makes your coding experience mucho mejor, with perfect context preservation.
+image: /assets/images/og-image.jpg
 ---
 
-<section class="hero paella-hero" id="lcp-container">
-  <div class="paella-bg-circles"></div>
+<section class="hero paella-hero" id="lcp-container" aria-labelledby="lcp-target">
   <div class="container">
     <div class="hero-content">
-      <h1 id="lcp-target" fetchpriority="high" class="critical-animation">The Development Exoskeleton for AI Teams</h1>
-      <p class="hero-value-prop">From Idea to Code: Complete Development Lifecycle with Perfect Context</p>
-      
-      <div class="process-diagram">
-        <!-- Pilar 01: Research & Validation - Arriba a la izquierda -->
-        <div class="pillar pillar-01">
-          <div class="pillar-content">
-            <div class="pillar-header">
-              <span class="pillar-number">01</span>
-              <h3 class="pillar-title">Research & Validation</h3>
-            </div>
-            <p class="pillar-desc">Automated market research with multi-source validation, statistical verification, and hallucination prevention. Making decisions with confidence.</p>
-          </div>
-          <div class="pillar-arrow pillar-arrow-01"></div>
-        </div>
+      <div class="hero-text">
+        <h1 id="lcp-target" fetchpriority="high">Vibe coding <span class="highlight">with Cursor</span> that <span class="highlight">actually&nbsp;scales</span></h1>
+        <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation. PAELLADOC makes your development <strong>mucho mejor</strong>, where context is king.</p>
         
-        <!-- Imagen central - Chef -->
-        <div class="chef-image">
-          <img src="{{ '/assets/images/imagen-min.png' | relative_url }}" alt="PAELLADOC Chef with paella ingredients: Context, Structure, Clarity, Reusability" class="paella-avatar" fetchpriority="high">
-        </div>
-        
-        <!-- Pilar 02: Product Management - Abajo a la izquierda -->
-        <div class="pillar pillar-02">
-          <div class="pillar-content">
-            <div class="pillar-header">
-              <span class="pillar-number">02</span>
-              <h3 class="pillar-title">Product Management</h3>
-            </div>
-            <p class="pillar-desc">Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting. Keep your team aligned and efficient.</p>
-          </div>
-          <div class="pillar-arrow pillar-arrow-02"></div>
-        </div>
-        
-        <!-- Pilar 03: Documentation-to-Code - Derecha -->
-        <div class="pillar pillar-03">
-          <div class="pillar-content">
-            <div class="pillar-header">
-              <span class="pillar-number">03</span>
-              <h3 class="pillar-title">Documentation-to-Code</h3>
-            </div>
-            <p class="pillar-desc">Generate functional code directly from your documentation with powerful code generation commands. Eliminate the implementation gap.</p>
-          </div>
-          <div class="pillar-arrow pillar-arrow-03"></div>
-        </div>
-      </div>
-      
-      <div class="hero-footer">
-        <div class="social-proof">
-          <span class="github-stars">224 ⭐ on GitHub</span>
-        </div>
         <div class="hero-buttons">
-          <a href="https://github.com/jlcases/paelladoc" target="_blank" class="button primary">GitHub</a>
-          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button secondary">GitHub Discussions</a>
-          <a href="https://x.com/i/communities/1907494161458090406" target="_blank" class="button secondary">X Community</a>
+          <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button primary" aria-label="View PAELLADOC on GitHub">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>View on GitHub</span>
+          </a>
+          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" rel="noopener" class="button secondary" aria-label="Join the PAELLADOC Community">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            <span>Join the Community</span>
+          </a>
         </div>
+      </div>
+      <div class="hero-visual">
+        <img src="{{ '/assets/images/imagen-min.png' | relative_url }}" alt="PAELLADOC AI Development Workflow" class="workflow-image" fetchpriority="high" width="600" height="400">
       </div>
     </div>
   </div>
 </section>
 
-<!-- Core values section with minimalist design -->
-<section class="minimal-values">
+<section class="pain-points" aria-labelledby="pain-points-heading">
   <div class="container">
-    <div class="minimal-icons">
-      <div class="minimal-icon">
-        <div class="minimal-icon-image">
-          <svg class="svg-icon"><use xlink:href="#icon-reasoning"></use></svg>
-        </div>
-        <h3 class="minimal-icon-title">Reasoning from First Principles</h3>
-        <p class="minimal-icon-description">We challenge conventional thinking by breaking down problems to their fundamental components, grounded in structured logic and methodical approaches.</p>
+    <h2 id="pain-points-heading">Your AI Projects Are <span>Unsustainable</span></h2>
+    
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon"><i class="fa-solid fa-bomb" aria-hidden="true"></i></div>
+        <h3>Technical Debt Timebomb</h3>
+        <p>Each AI-generated code snippet adds invisible debt. Your team won't understand it in 3 months.</p>
       </div>
-
-      <div class="minimal-icon">
-        <div class="minimal-icon-image">
-          <svg class="svg-icon"><use xlink:href="#icon-ambitious"></use></svg>
-        </div>
-        <h3 class="minimal-icon-title">No goal is too ambitious</h3>
-        <p class="minimal-icon-description">We embrace the most challenging obstacles by always pushing the limits of what's possible. We are motivated by what's unprecedented.</p>
+      
+      <div class="pain-card">
+        <div class="pain-icon"><i class="fa-solid fa-gauge-simple-low" aria-hidden="true"></i></div>
+        <h3>Teams That Slow Down</h3>
+        <p>Initial AI velocity feels amazing until context gets lost and your team grinds to a halt.</p>
       </div>
-
-      <div class="minimal-icon">
-        <div class="minimal-icon-image">
-          <svg class="svg-icon"><use xlink:href="#icon-quick"></use></svg>
-        </div>
-        <h3 class="minimal-icon-title">Move quickly and fix things</h3>
-        <p class="minimal-icon-description">Our approach to rapid development and iteration allows us to innovate at breakneck speeds. We're here to solve real problems, not just build software.</p>
+      
+      <div class="pain-card">
+        <div class="pain-icon"><i class="fa-solid fa-fire" aria-hidden="true"></i></div>
+        <h3>Product Managers in Pain</h3>
+        <p>PMs can't track what's happening when AI development lacks structure and transparency.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="defer-visibility">
-  <!-- Comprehensive system section -->
-  <section class="features dark">
-    <div class="container">
-      <h2>The Complete Development Exoskeleton</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-number">01</div>
-          <h3>Research & Validation</h3>
-          <p>Automated market research with multi-source validation, statistical verification, and hallucination prevention. Making decisions with confidence.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-number">02</div>
-          <h3>Product Management</h3>
-          <p>Built-in tools for user stories, sprint planning, task tracking, and visual progress reporting. Keep your team aligned and efficient.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-number">03</div>
-          <h3>Documentation-to-Code</h3>
-          <p>Generate functional code directly from your documentation with powerful code generation commands. Eliminate the implementation gap.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Command system section -->
-  <section class="problem-solution-section">
-    <div class="container">
-      <h2>Professional Command System</h2>
-      <div class="problem-solution">
-        <div class="problem-card">
-          <h3>Comprehensive Toolset</h3>
-          <p>Complete suite of professional commands:</p>
-          <ul>
-            <li>PAELLA - Start new documentation project</li>
-            <li>STORY - Manage user stories and requirements</li>
-            <li>SPRINT - Plan and manage development sprints</li>
-            <li>TASK - Create and assign development tasks</li>
-            <li>GENERATE_CODE - Create code from documentation</li>
-            <li>ACHIEVEMENT - Record project milestones</li>
-            <li>DECISION - Document architecture decisions</li>
-          </ul>
-        </div>
-        <div class="solution-card">
-          <h3>End-to-End Benefits</h3>
-          <p>Transform your development process with:</p>
-          <ul>
-            <li>Structured development workflows</li>
-            <li>Automatic documentation of decisions</li>
-            <li>Complete historical context preservation</li>
-            <li>Seamless transition from planning to code</li>
-            <li>Robust product management capabilities</li>
-            <li>Comprehensive reporting and visualization</li>
-          </ul>
+<section class="solution" aria-labelledby="solution-heading">
+  <div class="container">
+    <div class="solution-content">
+      <div class="solution-text">
+        <h2 id="solution-heading"><span>10x</span> Your Team's AI Development</h2>
+        <p class="solution-lead">PAELLADOC connects the entire product lifecycle, from research to deployment.</p>
+        
+        <div class="solution-features">
+          <div class="feature">
+            <h4><i class="fa-solid fa-rocket" aria-hidden="true"></i> 3x Faster Onboarding</h4>
+            <p>New team members understand your codebase in days, not months, with full context on every AI component.</p>
+          </div>
+          
+          <div class="feature">
+            <h4><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Sustainable Velocity</h4>
+            <p>As your AI product matures, your speed increases instead of slowing down, thanks to perfect context preservation.</p>
+          </div>
+          
+          <div class="feature">
+            <h4><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i> Ship With Confidence</h4>
+            <p>From prompt engineering to code generation, every change is tested, documented, and tracked.</p>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Collaboration section -->
-  <section class="collaboration-section">
-    <div class="container">
-      <div class="collaboration-content">
-        <h2>Collaboration across borders</h2>
-        <p>Our development framework enables seamless collaboration between teams worldwide. We prioritize structured communication to support fast-paced, collaborative projects. Exceptional teams using PAELLADOC can work together effectively no matter where they're located.</p>
-        <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">GitHub Discussions</a>
+<section class="cta-section" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-content">
+      <h2 id="cta-heading">Build AI Products That <span>Last</span></h2>
+      <p>Stop the AI hacking. Start building responsibly.</p>
+      <div class="cta-buttons">
+        <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button primary" aria-label="View PAELLADOC on GitHub">
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span>View on GitHub</span>
+        </a>
+        <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" rel="noopener" class="button secondary" aria-label="Join the PAELLADOC Community Discussions">
+          <i class="fa-solid fa-comments" aria-hidden="true"></i>
+          <span>Join the Community</span>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Code example section -->
-  <section class="code-example-section">
-    <div class="container">
-      <h2>Professional Development Workflow</h2>
-      <div class="code-example">
-        <div class="code-header">
-          <span class="code-title">Example PAELLADOC professional workflow</span>
-          <span class="code-lang">Terminal</span>
-        </div>
-        <div class="code-content">
-          <pre><code>PAELLA project_name="AI Assistant" language="en"
-
-# Comprehensive development lifecycle
-STORY operation="create" title="User Authentication Feature"
-TASK operation="create" title="Implement OAuth" assignee="dev@example.com"
-SPRINT operation="create" name="Sprint 1" start_date="2023-09-01" end_date="2023-09-14"
-DECISION "Use React for frontend" impact=["architecture"] rationale="Better performance and component reuse"
-ACHIEVEMENT "Completed market analysis" category="research"
-GENERATE_CODE component="auth_service"</code></pre>
-        </div>
+<section class="vision-section section" aria-labelledby="vision-heading">
+  <div class="container">
+    <h2 id="vision-heading">More Than Just Code: The <span class="highlight">PAELLADOC Vision</span></h2>
+    <div class="vision-content">
+      <div class="vision-text">
+        <p>PAELLADOC began as a personal passion project by <a href="https://github.com/jlcases" target="_blank" rel="noopener">@jlcases</a> – just another CPTO trying to make sense of it all – driven by a core mission: to create a <strong>secure and reliable</strong> framework for programming with AI. My goal isn't just about writing code faster; it's about making development teams <strong>faster and more confident</strong>, empowering professionals to thrive without feeling threatened by AI.</p>
+        <p>Think about it: did accountants disappear when Microsoft Excel arrived? No! The best accountants became <em>even more valuable</em> by leveraging the new tool. PAELLADOC aims to do the same for developers using AI. By mastering context and structure, developers using PAELLADOC deliver higher-quality products and become indispensable assets.</p>
+        <p>And yes, <strong>I dream</strong> of building a vibrant community around this idea, culminating one day in a major developer gathering right here in <strong>Valencia, Spain</strong> – the birthplace of paella. Imagine sharing ideas, forging connections, and enjoying authentic paella together. That's the <em>sabor</em> we want to bring to AI development.</p>
+        <p class="vision-cta">This is more than a tool; it's a movement towards a more collaborative, secure, and empowering future for AI programming. <a href="{{ "/contribute" | relative_url }}" class="highlight-link">Join me on this journey.</a></p>
       </div>
     </div>
-  </section>
-
-  <!-- CTA section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Elevate Your Development Process</h2>
-      <p>Experience the most comprehensive AI-powered development system available for modern product teams.</p>
-      <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" class="button">GitHub Discussions</a>
-    </div>
-  </section>
-</div>
+  </div>
+</section>

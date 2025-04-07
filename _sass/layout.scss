@@ -1,13 +1,18 @@
+@import "variables";
+
 // Header styles
 .site-header {
-  background-color: $rice;
-  box-shadow: 0 1px 3px rgba($darkBrown, 0.1);
+  // Estilos de fondo/color definidos en _direct.scss y sobrescritos en main.scss para modo claro
+  // background-color: $rice; 
+  box-shadow: 0 1px 3px rgba($dark-secondary-color, 0.1); // Usar secundario oscuro
   position: sticky;
   top: 0;
   z-index: 100;
-  height: $headerHeight;
+  // height: $headerHeight; // Definir altura en variables si es necesario
+  height: 70px; // Mantener por ahora
   display: flex;
   align-items: center;
+  border-bottom: 1px solid $dark-card-border; // Añadir borde como en direct.css
   
   .header-content {
     display: flex;
@@ -23,9 +28,14 @@
     .logo-text {
       font-size: 1.5rem;
       font-weight: 700;
-      color: $paprika;
+      color: $dark-primary-color; // Primario oscuro
       letter-spacing: 1px;
+      text-decoration: none; // Asegurar que no esté subrayado
       
+      &:hover {
+        color: $dark-link-hover-color; // Hover oscuro
+      }
+
       &:before {
         content: "🥘 ";
       }
@@ -49,7 +59,7 @@
       position: absolute;
       height: 3px;
       width: 100%;
-      background: $paprika;
+      background: $dark-primary-color; // Primario oscuro para el icono
       border-radius: 3px;
       opacity: 1;
       left: 0;
@@ -88,7 +98,7 @@
       }
     }
     
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet) { // Usar breakpoint definido en base.scss o moverlo a variables
       display: block;
     }
   }
@@ -100,13 +110,14 @@
     padding: 0;
     
     li {
-      margin: 0 0 0 1.5rem;
+      margin: 0 0 0 ($spacing-unit * 1.5); // Variable global
       
       a {
-        color: $darkBrown;
+        color: $dark-secondary-color; // Secundario oscuro para enlaces no activos
         font-weight: 500;
-        padding: 0.5rem 0;
+        padding: ($spacing-unit * 0.5) 0; // Variable global
         position: relative;
+        text-decoration: none; // Asegurar
         
         &:after {
           content: '';
@@ -115,34 +126,35 @@
           height: 2px;
           bottom: 0;
           left: 0;
-          background-color: $paprika;
+          background-color: $dark-primary-color; // Primario oscuro para el subrayado
           transition: width 0.3s;
         }
         
-        &:hover:after, &.active:after {
-          width: 100%;
-        }
-        
-        &.active {
-          color: $paprika;
+        &:hover, &.active {
+          color: $dark-primary-color; // Primario oscuro al hover o activo
+          &:after {
+            width: 100%;
+          }
         }
       }
     }
     
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet) { // Usar breakpoint
       position: absolute;
-      top: $headerHeight;
+      // top: $headerHeight; // Usar valor fijo o variable
+      top: 70px;
       left: 0;
       width: 100%;
       flex-direction: column;
-      background-color: $rice;
-      box-shadow: 0 5px 5px rgba($darkBrown, 0.1);
+      background-color: $dark-header-bg; // Fondo de header oscuro
+      box-shadow: 0 5px 5px rgba($dark-secondary-color, 0.1); // Sombra oscura
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.3s ease-out;
+      border-top: 1px solid $dark-card-border;
       
       &.active {
-        max-height: 400px;
+        max-height: 400px; // Ajustar si es necesario
       }
       
       li {
@@ -150,8 +162,16 @@
         
         a {
           display: block;
-          padding: 1rem;
-          border-bottom: 1px solid rgba($darkBrown, 0.1);
+          padding: $spacing-unit; // Variable global
+          border-bottom: 1px solid $dark-card-border; // Borde oscuro
+          color: $dark-text-color; // Texto oscuro general
+
+          &:hover, &.active {
+             color: $dark-primary-color; // Primario oscuro
+             background-color: darken($dark-header-bg, 5%);
+          }
+          // Quitar after en móvil o ajustar
+          &:after { display: none; }
         }
       }
     }
@@ -161,67 +181,70 @@
 // Main content
 .site-content {
   flex: 1;
-  padding: $spacing 0;
+  padding: ($spacing-unit * 2) 0; // Variable global
 }
 
 // Footer styles
 .site-footer {
-  background-color: $darkBrown;
-  color: $rice;
-  padding: $spacing 0;
+  // Estilos de fondo/color definidos en _direct.scss
+  // background-color: $darkBrown; 
+  // color: $rice;
+  padding: ($spacing-unit * 2) 0; // Variable global
+  border-top: 1px solid $dark-card-border; // Borde oscuro como en direct.css
   
   .footer-content {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: ($spacing-unit * 2); // Variable global
     
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet) { // Usar breakpoint
       flex-direction: column;
     }
   }
   
   .footer-logo {
-    margin-bottom: 1.5rem;
+    margin-bottom: ($spacing-unit * 1.5); // Variable global
     
     .logo-text {
       font-size: 1.5rem;
       font-weight: 700;
-      color: $saffron;
-      margin-bottom: 0.5rem;
+      color: $dark-primary-color; // Primario oscuro
+      margin-bottom: ($spacing-unit * 0.5); // Variable global
       display: inline-block;
     }
     
     p {
       margin-bottom: 0;
       max-width: 250px;
+      color: $dark-secondary-color; // Secundario oscuro
     }
   }
   
   .footer-links {
     display: flex;
     
-    @media (max-width: $mobile) {
+    @media (max-width: $mobile) { // Usar breakpoint
       flex-direction: column;
     }
   }
   
   .footer-column {
-    margin-left: 3rem;
+    margin-left: ($spacing-unit * 3); // Variable global
     
-    @media (max-width: $tablet) {
+    @media (max-width: $tablet) { // Usar breakpoint
       margin-left: 0;
-      margin-right: 3rem;
+      margin-right: ($spacing-unit * 3); // Variable global
     }
     
-    @media (max-width: $mobile) {
+    @media (max-width: $mobile) { // Usar breakpoint
       margin-right: 0;
-      margin-bottom: 1.5rem;
+      margin-bottom: ($spacing-unit * 1.5); // Variable global
     }
     
     h3 {
-      color: $saffron;
+      color: $dark-primary-color; // Primario oscuro
       font-size: 1.1rem;
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-unit; // Variable global
     }
     
     ul {
@@ -230,13 +253,14 @@
       padding: 0;
       
       li {
-        margin-bottom: 0.5rem;
+        margin-bottom: ($spacing-unit * 0.5); // Variable global
         
         a {
-          color: $rice;
-          
+          color: $dark-secondary-color; // Secundario oscuro
+          text-decoration: none;
+
           &:hover {
-            color: $saffron;
+            color: $dark-primary-color; // Primario oscuro
           }
         }
       }
@@ -244,13 +268,85 @@
   }
   
   .footer-bottom {
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba($rice, 0.2);
+    padding-top: ($spacing-unit * 1.5); // Variable global
+    border-top: 1px solid $dark-card-border; // Borde oscuro
     text-align: center;
     
     p {
       margin-bottom: 0;
       font-size: 0.9rem;
+      color: $dark-secondary-color; // Secundario oscuro
     }
+  }
+}
+
+// --- Estilos para modo claro --- 
+body[data-theme="light"] {
+  .site-header {
+    // Hereda de main.scss
+    box-shadow: 0 1px 3px rgba($secondary-color, 0.1);
+    border-bottom-color: $card-border;
+    .site-logo .logo-text {
+      color: $primary-color;
+       &:hover {
+         color: $link-hover-color;
+       }
+    }
+    .site-nav .menu-toggle span {
+      background: $primary-color;
+    }
+  }
+
+  .site-nav .nav-links li a {
+    color: $secondary-color;
+    &:after {
+       background-color: $primary-color;
+    }
+    &:hover, &.active {
+       color: $primary-color;
+    }
+  }
+
+  @media (max-width: $tablet) {
+     .site-nav .nav-links {
+        background-color: $header-bg;
+        box-shadow: 0 5px 5px rgba($secondary-color, 0.1);
+        border-top-color: $card-border;
+        li a {
+           border-bottom-color: $card-border;
+           color: $text-color;
+           &:hover, &.active {
+              color: $primary-color;
+              background-color: darken($header-bg, 5%);
+           }
+        }
+     }
+  }
+
+  .site-footer {
+     background-color: $header-bg; // Fondo claro para footer
+     color: $text-color;
+     border-top-color: $card-border;
+     .footer-logo .logo-text {
+        color: $primary-color;
+     }
+     .footer-logo p {
+        color: $secondary-color;
+     }
+     .footer-column h3 {
+        color: $primary-color;
+     }
+     .footer-column ul li a {
+        color: $secondary-color;
+        &:hover {
+           color: $primary-color;
+        }
+     }
+     .footer-bottom {
+        border-top-color: $card-border;
+        p {
+           color: $secondary-color;
+        }
+     }
   }
 } 

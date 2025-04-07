@@ -1,0 +1,164 @@
+---
+layout: default
+---
+
+<section class="blog-hero">
+  <div class="container">
+    <h1>{{ page.title | default: "PAELLADOC Blog" }}</h1>
+    <p class="blog-description">{{ page.description | default: "Insights, tutorials, and updates from the PAELLADOC team and community." }}</p>
+  </div>
+</section>
+
+<section class="blog-content">
+  <div class="container">
+    <div class="blog-layout">
+      <main class="posts-container">
+        {% if page.featured_post %}
+          {% assign featured = site.posts | where: "slug", page.featured_post | first %}
+          {% if featured %}
+          <div class="featured-post">
+            <div class="featured-post-content">
+              <div class="featured-post-meta">
+                <span class="featured-label">Featured</span>
+                <span class="post-date">{{ featured.date | date: "%B %d, %Y" }}</span>
+                {% if featured.categories.size > 0 %}
+                <span class="post-categories">
+                  {% for category in featured.categories %}
+                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
+                  {% endfor %}
+                </span>
+                {% endif %}
+              </div>
+              <h2 class="featured-post-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
+              <p class="featured-post-excerpt">{{ featured.excerpt | strip_html | truncatewords: 35 }}</p>
+              <div class="featured-post-author">
+                <img src="{{ featured.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                <span class="author-name">{{ featured.author | default: site.author }}</span>
+                <span class="post-reading-time">{{ featured.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+              </div>
+            </div>
+            {% if featured.image %}
+            <div class="featured-post-image">
+              <a href="{{ featured.url | relative_url }}">
+                <img src="{{ featured.image | relative_url }}" alt="{{ featured.title }}">
+              </a>
+            </div>
+            {% endif %}
+          </div>
+          {% endif %}
+        {% endif %}
+        
+        <div class="posts-grid">
+          {{ content }}
+          
+          {% for post in paginator.posts %}
+          <article class="post-card">
+            <div class="post-card-content">
+              <div class="post-meta">
+                <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+                {% if post.categories.size > 0 %}
+                <span class="post-categories">
+                  {% for category in post.categories %}
+                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
+                  {% endfor %}
+                </span>
+                {% endif %}
+              </div>
+              <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+              <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+              <div class="post-footer">
+                <div class="post-author">
+                  <img src="{{ post.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                  <span class="author-name">{{ post.author | default: site.author }}</span>
+                </div>
+                <span class="post-reading-time">{{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
+              </div>
+            </div>
+            {% if post.image %}
+            <div class="post-card-image">
+              <a href="{{ post.url | relative_url }}">
+                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+              </a>
+            </div>
+            {% endif %}
+          </article>
+          {% endfor %}
+        </div>
+        
+        {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page">
+              <i class="fas fa-arrow-left" aria-hidden="true"></i>
+              <span>Previous</span>
+            </a>
+          {% endif %}
+          
+          <div class="page-number">
+            <span>{{ paginator.page }} of {{ paginator.total_pages }}</span>
+          </div>
+          
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | relative_url }}" class="next-page">
+              <span>Next</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </main>
+      
+      <aside class="blog-sidebar">
+        <div class="sidebar-section categories-section">
+          <h3>Categories</h3>
+          <ul class="categories-list">
+            {% assign categories = site.categories | sort %}
+            {% for category in categories %}
+            <li>
+              <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}">
+                {{ category[0] }}
+                <span class="category-count">{{ category[1].size }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class="sidebar-section popular-posts-section">
+          <h3>Popular Posts</h3>
+          <ul class="popular-posts-list">
+            {% for post in site.posts limit:4 %}
+            <li>
+              <a href="{{ post.url | relative_url }}" class="popular-post-link">
+                <span class="popular-post-title">{{ post.title }}</span>
+                <span class="popular-post-date">{{ post.date | date: "%B %d, %Y" }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        
+        <div class="sidebar-section tags-section">
+          <h3>Tags</h3>
+          <div class="tags-cloud">
+            {% assign tags = site.tags | sort %}
+            {% for tag in tags %}
+            <a href="{{ site.baseurl }}/blog/tags/{{ tag[0] | slugify }}" class="tag-link">
+              {{ tag[0] }}
+            </a>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="sidebar-section newsletter-section">
+          <h3>Newsletter</h3>
+          <p>Stay updated with the latest from PAELLADOC</p>
+          <form class="newsletter-form" action="#" method="post">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit" class="button primary">Subscribe</button>
+          </form>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section> 

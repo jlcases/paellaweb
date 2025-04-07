@@ -1,0 +1,785 @@
+/* Global Styles */
+body {
+  font-family: $base-font-family;
+  line-height: $base-line-height;
+  color: $dark-text-color;
+  background-color: $dark-background-color;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.02em;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Override background for all elements so nothing inherits a different background */
+header, main, footer, section, div, nav, aside {
+  background-color: $dark-background-color;
+}
+
+/* Ensure all text is visible */
+p, h1, h2, h3, h4, h5, h6, span, a, li, ul, ol {
+  color: $dark-text-color;
+}
+
+.container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-unit * 2;
+}
+
+/* Buttons */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-unit ($spacing-unit * 2);
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  gap: $spacing-unit * 0.75;
+  position: relative;
+  overflow: hidden;
+  font-size: 1.1rem;
+  letter-spacing: -0.01em;
+  z-index: 10;
+  border: none;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: transform 0.5s ease;
+  z-index: -1;
+}
+
+.button:hover {
+  transform: translateY(-5px);
+}
+
+.button:hover::after {
+  transform: translateX(100%);
+}
+
+.button:active {
+  transform: translateY(0px);
+}
+
+.button i {
+  font-size: 1.5rem;
+}
+
+.button.primary {
+  background: linear-gradient(135deg, $dark-primary-color, darken($dark-primary-color, 15%));
+  color: $dark-text-color;
+  box-shadow: 0 10px 30px rgba($dark-primary-color, 0.3);
+}
+
+.button.primary:hover {
+  box-shadow: 0 15px 40px rgba($dark-primary-color, 0.5);
+}
+
+.button.secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: $dark-text-color;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.button.secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .button {
+    width: 100%;
+    padding: 1.1rem ($spacing-unit * 2);
+  }
+  
+  .button i {
+    font-size: 1.4rem;
+  }
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  background: $gradient-bg !important;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: ($spacing-unit * 5) 0;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/images/grid-pattern.svg');
+  opacity: 0.07;
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba($dark-primary-color, 0.15) 0%, rgba($dark-accent-color, 0.1) 50%, rgba(0, 0, 0, 0) 70%);
+  transform: translate(-50%, -50%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-content {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: $spacing-unit * 5;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  flex-direction: row !important;
+}
+
+.hero-text {
+  flex: 1 !important;
+  max-width: 600px !important;
+}
+
+.hero-visual {
+  flex: 1 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  position: relative !important;
+}
+
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: rgba($dark-primary-color, 0.15);
+  border-radius: 50%;
+  filter: blur(120px);
+  z-index: -1;
+  animation: pulse 6s ease-in-out infinite alternate;
+}
+
+.workflow-image {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  max-height: 80vh;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: perspective(1000px) rotateY(-10deg);
+  filter: brightness(1.1) contrast(1.1);
+}
+
+.workflow-image:hover {
+  transform: perspective(1000px) rotateY(-5deg) scale(1.03);
+}
+
+h1 {
+  font-size: 4rem !important;
+  line-height: 1.05 !important;
+  margin-bottom: ($spacing-unit * 1.5) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.03em !important;
+  color: $dark-text-color !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+h1 span, h2 span {
+  position: relative;
+  white-space: nowrap;
+  color: $dark-primary-color !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  position: relative;
+  z-index: 1;
+}
+
+h1 span::after, h2 span::after {
+  content: '';
+  position: absolute;
+  bottom: 0.1em;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background: linear-gradient(135deg, rgba($dark-primary-color, 0.3), rgba($dark-accent-color, 0.3));
+  z-index: -1;
+  border-radius: 4px;
+}
+
+.hero-value-prop {
+  font-size: 1.4rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: ($spacing-unit * 2.5) !important;
+  color: rgba($dark-text-color, 0.9) !important;
+  font-weight: 500 !important;
+}
+
+.hero-buttons {
+  display: flex !important;
+  gap: ($spacing-unit * 1.25) !important;
+  flex-wrap: wrap !important;
+}
+
+/* Pain Points Section */
+.pain-points {
+  padding: ($spacing-unit * 10) 0;
+  background: $dark-background-color !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.pain-points::before {
+  content: '';
+  position: absolute;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba($dark-primary-color, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  top: -20%;
+  right: -20%;
+  z-index: 0;
+}
+
+.pain-points .container {
+  position: relative;
+  z-index: 1;
+}
+
+h2 {
+  text-align: center;
+  font-size: 3.5rem !important;
+  margin-bottom: ($spacing-unit * 5);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: $dark-text-color !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  line-height: 1.1;
+}
+
+.pain-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: ($spacing-unit * 3) !important;
+}
+
+.pain-card {
+  padding: ($spacing-unit * 3.5);
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: $border-radius;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pain-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pain-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.pain-card:hover::before {
+  transform: translateX(100%);
+}
+
+.pain-card:hover .pain-icon {
+  transform: scale(1.2);
+  color: $dark-primary-color;
+}
+
+.pain-card:hover h3 {
+  color: $dark-primary-color !important;
+}
+
+.pain-icon {
+  font-size: 3.5rem;
+  margin-bottom: ($spacing-unit * 2);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: rgba($dark-text-color, 0.9);
+}
+
+.pain-card h3 {
+  font-size: 1.8rem !important;
+  margin-bottom: ($spacing-unit * 1.5);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: $dark-text-color !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.pain-card p {
+  color: rgba($dark-text-color, 0.8) !important;
+  font-size: 1.1rem !important;
+  line-height: $base-line-height;
+  margin-top: auto;
+}
+
+/* Solution Section */
+.solution {
+  padding: ($spacing-unit * 10) 0;
+  background: $dark-background-color !important;
+  position: relative;
+  overflow: hidden;
+}
+
+.solution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.solution::after {
+  content: '';
+  position: absolute;
+  width: 80vw;
+  height: 80vw;
+  background: radial-gradient(circle, rgba($dark-accent-color, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+  bottom: -40%;
+  left: -30%;
+  z-index: 0;
+}
+
+.solution .container {
+  position: relative;
+  z-index: 1;
+}
+
+.solution-content {
+  max-width: $container-max-width;
+  margin: 0 auto;
+}
+
+.solution-lead {
+  font-size: 1.5rem;
+  color: rgba($dark-text-color, 0.8) !important;
+  margin-bottom: ($spacing-unit * 5);
+  font-weight: 500;
+  text-align: center;
+}
+
+.solution-features {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: ($spacing-unit * 3) !important;
+}
+
+.feature {
+  background: rgba(255, 255, 255, 0.03) !important;
+  border-radius: $border-radius;
+  padding: ($spacing-unit * 3.5);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  transform: translateX(-100%);
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.feature:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.feature:hover::before {
+  transform: translateX(100%);
+}
+
+.feature:hover h4 {
+  color: $dark-primary-color !important;
+}
+
+.feature:hover h4 i {
+  transform: scale(1.2);
+  color: $dark-primary-color !important;
+}
+
+.feature h4 {
+  font-size: 1.8rem !important;
+  margin-bottom: ($spacing-unit * 1.5);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  display: flex;
+  align-items: center;
+  gap: $spacing-unit;
+  color: $dark-text-color !important;
+}
+
+.feature h4 i {
+  font-size: 2.2rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+  color: $dark-text-color;
+}
+
+.feature p {
+  color: rgba($dark-text-color, 0.8) !important;
+  font-size: 1.1rem !important;
+  line-height: $base-line-height;
+  margin-top: auto;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: ($spacing-unit * 8) 0;
+  background: $gradient-bg !important;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+.cta-section::after {
+  content: '';
+  position: absolute;
+  width: 70vw;
+  height: 70vw;
+  background: radial-gradient(circle, rgba($dark-primary-color, 0.1) 0%, rgba($dark-accent-color, 0.05) 50%, rgba(0, 0, 0, 0) 70%);
+  top: -30%;
+  right: -30%;
+  z-index: 0;
+}
+
+.cta-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-section p {
+  color: rgba($dark-text-color, 0.8) !important;
+  margin-bottom: ($spacing-unit * 3);
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.cta-buttons {
+  display: flex !important;
+  gap: ($spacing-unit * 1.5) !important;
+  justify-content: center !important;
+}
+
+/* Header & Footer overrides */
+.site-header {
+  background-color: $dark-header-bg !important;
+  color: $dark-header-text !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.site-header a {
+  color: $dark-header-text !important;
+}
+
+.site-footer {
+  background-color: $dark-background-color !important;
+  color: $dark-text-color !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.site-footer a {
+  color: rgba($dark-text-color, 0.7) !important;
+}
+
+.site-footer a:hover {
+  color: $dark-primary-color !important;
+}
+
+/* Global heading styles */
+h1, h2, h3, h4, h5, h6 {
+  color: $dark-text-color !important;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+}
+
+/* Span color hotfix */
+span:not(.logo-text):not(.button span) {
+  color: inherit;
+}
+
+/* Special highlight for spans in headers */
+h1 span, h2 span, h3 span {
+  color: $dark-primary-color !important;
+}
+
+/* Animation for spans on hover in headings */
+h1:hover span, h2:hover span, h3:hover span {
+  color: $dark-accent-color !important;
+  transition: color 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.3);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  h1 {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-value-prop {
+    font-size: 1.3rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero {
+    min-height: auto;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
+  
+  .hero-value-prop {
+    font-size: 1.2rem !important;
+  }
+  
+  .workflow-image {
+    transform: none;
+  }
+  
+  .workflow-image:hover {
+    transform: scale(1.03);
+  }
+  
+  .pain-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .pain-card {
+    padding: ($spacing-unit * 3);
+  }
+  
+  .pain-icon {
+    font-size: 3rem;
+  }
+  
+  .pain-card h3 {
+    font-size: 1.6rem !important;
+  }
+  
+  .pain-card p {
+    font-size: 1rem !important;
+  }
+  
+  .solution h2 {
+    font-size: 3rem !important;
+  }
+  
+  .solution-lead {
+    font-size: 1.3rem;
+    margin-bottom: ($spacing-unit * 4);
+  }
+  
+  .solution-features {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  .feature {
+    padding: ($spacing-unit * 3);
+  }
+  
+  .feature h4 {
+    font-size: 1.6rem !important;
+  }
+  
+  .feature h4 i {
+    font-size: 2rem;
+  }
+  
+  .feature p {
+    font-size: 1rem !important;
+  }
+  
+  .cta-section h2 {
+    font-size: 3rem !important;
+  }
+  
+  .cta-section p {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    padding: ($spacing-unit * 6) 0;
+  }
+  
+  .hero-content {
+    flex-direction: column-reverse !important;
+    text-align: center !important;
+    gap: ($spacing-unit * 4) !important;
+  }
+  
+  .hero-text {
+    max-width: 100% !important;
+  }
+  
+  .hero-visual {
+    justify-content: center !important;
+    width: 100% !important;
+  }
+  
+  .hero-visual::after {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .workflow-image {
+    max-width: 100% !important;
+    max-height: 60vh !important;
+  }
+  
+  .hero-buttons {
+    justify-content: center !important;
+  }
+  
+  h1 {
+    font-size: 2.8rem !important;
+  }
+  
+  .hero-value-prop {
+    font-size: 1.1rem !important;
+  }
+  
+  .pain-points {
+    padding: ($spacing-unit * 6) 0;
+  }
+  
+  .pain-points h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: ($spacing-unit * 4);
+  }
+  
+  .pain-grid {
+    grid-template-columns: 1fr !important;
+    gap: ($spacing-unit * 2.5) !important;
+  }
+  
+  .solution {
+    padding: ($spacing-unit * 6) 0;
+  }
+  
+  .solution h2 {
+    font-size: 2.5rem !important;
+    margin-bottom: ($spacing-unit * 4);
+  }
+  
+  .solution-lead {
+    font-size: 1.1rem;
+    margin-bottom: ($spacing-unit * 3);
+  }
+  
+  .solution-features {
+    grid-template-columns: 1fr !important;
+    gap: ($spacing-unit * 2.5) !important;
+  }
+  
+  .cta-section {
+    padding: ($spacing-unit * 6) 0;
+  }
+  
+  .cta-section h2 {
+    font-size: 2.5rem !important;
+  }
+  
+  .cta-section p {
+    font-size: 1.1rem;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    gap: $spacing-unit !important;
+  }
+} 

@@ -1,0 +1,27 @@
+---
+layout: blog
+title: Blog Categories
+description: Browse all PAELLADOC blog posts by category
+---
+
+<div class="categories-index">
+  <h2>All Categories</h2>
+  
+  <div class="categories-grid">
+    {% assign categories = site.categories | sort %}
+    {% for category in categories %}
+      <div class="category-card">
+        <h3 class="category-name">
+          <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}">{{ category[0] }}</a>
+        </h3>
+        <span class="category-count">{{ category[1].size }} post{% if category[1].size != 1 %}s{% endif %}</span>
+        <p class="category-description">
+          {% for post in category[1] limit:1 %}
+            {{ post.excerpt | strip_html | truncatewords: 15 }}
+          {% endfor %}
+        </p>
+        <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}" class="view-category">View posts</a>
+      </div>
+    {% endfor %}
+  </div>
+</div> 

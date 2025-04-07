@@ -1,0 +1,70 @@
+name: Process Documentation PRs
+
+on:
+  pull_request:
+    paths:
+      - 'docs/**'
+    types: [opened, synchronize, reopened]
+  pull_request_target:
+    paths:
+      - 'docs/**'
+    types: [closed]
+
+jobs:
+  validate-docs:
+    if: github.event.pull_request.merged != true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      
+      - name: Validate Documentation
+        run: |
+          # Check if documentation follows template
+          ruby .github/scripts/validate_docs.rb
+          
+  process-merged-docs:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2'
+          bundler-cache: true
+      
+      - name: Get PR Author Info
+        id: author
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number
+            });
+            return {
+              username: pr.data.user.login,
+              avatar_url: pr.data.user.avatar_url,
+              profile_url: pr.data.user.html_url
+            }
+      
+      - name: Process Documentation
+        run: |
+          # Add author info to docs metadata
+          ruby .github/scripts/process_docs.rb "${{ steps.author.outputs.result }}"
+      
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add docs/
+          git commit -m "Process documentation from PR #${{ github.event.pull_request.number }}"
+          git push 

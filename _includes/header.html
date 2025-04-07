@@ -1,25 +1,24 @@
 <!-- Site Header -->
-<header class="site-header">
+<header class="site-header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
   <div class="container">
     <div class="header-content">
-      <a href="{{ "/" | relative_url }}" class="site-logo">
-        <span class="logo-text">PAELLADOC</span>
+      <a href="{{ "/" | relative_url }}" class="site-logo" aria-label="PAELLADOC Home" itemprop="url">
+        <span class="logo-text" itemprop="name">PAELLADOC</span>
       </a>
-      <nav class="site-nav">
-        <button class="menu-toggle" aria-label="Toggle Menu">
+      <nav class="site-nav" role="navigation" aria-label="Main Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
           <span></span>
           <span></span>
           <span></span>
         </button>
-        <ul class="nav-links">
-          <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active"{% endif %} aria-label="Home">HOME</a></li>
-          <li><a href="{{ "/problem" | relative_url }}" {% if page.url == "/problem/" %}class="active"{% endif %} aria-label="The Problem">THE PROBLEM</a></li>
-          <li><a href="{{ "/solution" | relative_url }}" {% if page.url == "/solution/" %}class="active"{% endif %} aria-label="Solution">SOLUTION</a></li>
-          <li><a href="{{ "/quickstart" | relative_url }}" {% if page.url == "/quickstart/" %}class="active"{% endif %} aria-label="Quick Start">QUICK START</a></li>
-          <li><a href="{{ "/use-cases" | relative_url }}" {% if page.url == "/use-cases/" %}class="active"{% endif %} aria-label="Use Cases">USE CASES</a></li>
-          <li><a href="{{ "/community" | relative_url }}" {% if page.url == "/community/" %}class="active"{% endif %} aria-label="Community">COMMUNITY</a></li>
-          <li><a href="{{ "/resources" | relative_url }}" {% if page.url == "/resources/" %}class="active"{% endif %} aria-label="Resources">RESOURCES</a></li>
+        <ul class="nav-links" id="main-navigation">
+          <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home" itemprop="url"><span itemprop="name">HOME</span></a></li>
+          <li><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog" itemprop="url"><span itemprop="name">BLOG</span></a></li>
+          <li><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute" itemprop="url"><span itemprop="name">CONTRIBUTE</span></a></li>
+          <li><a href="https://github.com/jlcases/paelladoc" aria-label="GitHub Repository" itemprop="url"><span itemprop="name">GITHUB</span></a></li>
+          <li><a href="https://github.com/jlcases/paelladoc/discussions" aria-label="GitHub Discussions" itemprop="url"><span itemprop="name">DISCUSSIONS</span></a></li>
         </ul>
+        {% include theme-toggle.html %}
       </nav>
     </div>
   </div>

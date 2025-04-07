@@ -1,0 +1,821 @@
+/* theme-system.css - Para asegurar que el tema oscuro y claro funcionan correctamente */
+
+/* Forzar fondo más oscuro en modo oscuro - PRIORIDAD MÁXIMA */
+html body {
+  background-color: #000000 !important; /* Negro puro para mejor contraste */
+  color: #ffffff !important; /* Blanco puro para mejor contraste */
+  transition: background-color 0.3s ease, color 0.3s ease !important;
+}
+
+/* Asegurar que todos los elementos heredan el fondo oscuro con !important */
+html body header, 
+html body main, 
+html body footer, 
+html body section, 
+html body div, 
+html body nav, 
+html body aside {
+  background-color: #000000 !important; /* Forzar negro en todos los elementos */
+}
+
+/* Hacer más legible el menú de navegación */
+html body .site-header {
+  background-color: #000000 !important; /* Negro puro para el header */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+html body .site-nav {
+  display: flex !important;
+  align-items: center !important;
+}
+
+html body .nav-links {
+  margin-right: 10px !important;
+}
+
+html body .nav-links a {
+  color: #ffffff !important; /* Texto blanco puro */
+  font-weight: 700 !important; /* Más negrita */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important; /* Sombra para mejor legibilidad */
+}
+
+html body .nav-links li {
+  margin-left: 40px !important; /* Aumentado para mejor espaciado con menos ítems */
+}
+
+/* Arreglar el logo */
+html body .logo-text {
+  color: #ffffff !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* Arreglar elementos especiales */
+html body h1, 
+html body h2, 
+html body h3, 
+html body h4, 
+html body h5, 
+html body h6 {
+  color: #ffffff !important;
+}
+
+/* Mejora de contraste para el título principal */
+html body #lcp-target {
+  color: #ffffff !important; /* Blanco puro para el título principal */
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9) !important; /* Sombra más pronunciada */
+}
+
+/* DESTACADOS - Color naranja brillante para modo oscuro */
+html body h1 span.highlight, 
+html body h2 span.highlight, 
+html body h3 span.highlight {
+  color: #FF7000 !important; /* Naranja más intenso */
+  font-weight: 900 !important; /* Máxima negrita */
+  text-shadow: 0 0 15px rgba(255, 112, 0, 0.6) !important; /* Halo más grande y visible */
+  position: relative !important; /* Para el subrayado */
+  display: inline-block !important;
+  border-bottom: 3px solid #FF7000 !important; /* Subrayado real y grueso */
+  padding-bottom: 2px !important; /* Espacio para el subrayado */
+  background: linear-gradient(to bottom, transparent 80%, rgba(255, 112, 0, 0.2) 80%) !important; /* Fondo degradado */
+}
+
+/* Resto de spans */
+html body h1 span:not(.highlight), 
+html body h2 span:not(.highlight), 
+html body h3 span:not(.highlight) {
+  color: #FF4500 !important; /* Color naranja para destacados normales */
+}
+
+/* Mejorar contraste de hero-value-prop */
+html body .hero-value-prop {
+  color: #ffffff !important; /* Blanco puro para mejor legibilidad */
+  font-size: 1.3rem !important; /* Tamaño más grande */
+  font-weight: 500 !important; /* Semi-negrita para mejor legibilidad */
+  line-height: 1.6 !important; /* Mejor espaciado entre líneas */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8) !important; /* Sombra para mejor contraste */
+  opacity: 1 !important; /* Asegurar que no hay transparencia */
+}
+
+html body .hero-value-prop strong {
+  color: #FF4500 !important; /* Naranja para destacar "mucho mejor" */
+  font-weight: 700 !important; /* Más negrita */
+}
+
+/* Botones con mejor contraste */
+html body .button.primary {
+  background: linear-gradient(135deg, #FF4500, #cc3700) !important;
+  color: white !important;
+}
+
+html body .button.secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+}
+
+/* Mejor contraste para texto en botones */
+html body .button span {
+  color: white !important; /* Asegurar texto blanco en botones */
+  font-weight: 600 !important; /* Semi-negrita */
+}
+
+/* Forzar fondo negro para todos los contenedores en modo oscuro */
+html body .hero, 
+html body .pain-points, 
+html body .solution, 
+html body .cta-section {
+  background-color: #000000 !important;
+}
+
+/* Modo claro - PRIORIDAD MÁXIMA */
+html body[data-theme="light"] {
+  background-color: #ffffff !important; /* Blanco puro */
+  color: #121212 !important; /* Texto casi negro */
+}
+
+html body[data-theme="light"] header, 
+html body[data-theme="light"] main, 
+html body[data-theme="light"] footer, 
+html body[data-theme="light"] section, 
+html body[data-theme="light"] div, 
+html body[data-theme="light"] nav, 
+html body[data-theme="light"] aside {
+  background-color: #ffffff !important; /* Forzar blanco en todos los elementos */
+}
+
+html body[data-theme="light"] .site-header {
+  background-color: #f8f9fa !important; /* Fondo claro para header */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+html body[data-theme="light"] .nav-links a {
+  color: #121212 !important; /* Texto oscuro */
+  text-shadow: none !important; /* Sin sombra en modo claro */
+}
+
+/* Arreglar el logo en modo claro */
+html body[data-theme="light"] .logo-text {
+  color: #007bff !important; /* Azul para el logo en modo claro */
+  text-shadow: none !important;
+}
+
+/* Arreglar elementos especiales en modo claro */
+html body[data-theme="light"] h1, 
+html body[data-theme="light"] h2, 
+html body[data-theme="light"] h3, 
+html body[data-theme="light"] h4, 
+html body[data-theme="light"] h5, 
+html body[data-theme="light"] h6 {
+  color: #121212 !important;
+}
+
+/* Mejora del contraste para título en modo claro */
+html body[data-theme="light"] #lcp-target {
+  color: #121212 !important; /* Negro para el título principal */
+}
+
+/* DESTACADOS - Color azul brillante para modo claro */
+html body[data-theme="light"] h1 span.highlight, 
+html body[data-theme="light"] h2 span.highlight, 
+html body[data-theme="light"] h3 span.highlight {
+  color: #0055FF !important; /* Azul más intenso */
+  font-weight: 900 !important; /* Máxima negrita */
+  text-shadow: 0 0 15px rgba(0, 85, 255, 0.6) !important; /* Halo más grande y visible */
+  position: relative !important; /* Para el subrayado */
+  display: inline-block !important;
+  border-bottom: 3px solid #0055FF !important; /* Subrayado real y grueso */
+  padding-bottom: 2px !important; /* Espacio para el subrayado */
+  background: linear-gradient(to bottom, transparent 80%, rgba(0, 85, 255, 0.2) 80%) !important; /* Fondo degradado */
+}
+
+/* Resto de spans en modo claro */
+html body[data-theme="light"] h1 span:not(.highlight), 
+html body[data-theme="light"] h2 span:not(.highlight), 
+html body[data-theme="light"] h3 span:not(.highlight) {
+  color: #007bff !important; /* Azul para destacados normales */
+}
+
+/* Mejorar contraste de hero-value-prop en modo claro */
+html body[data-theme="light"] .hero-value-prop {
+  color: #121212 !important; /* Negro para mejor legibilidad */
+  text-shadow: none !important; /* Sin sombra en modo claro */
+}
+
+html body[data-theme="light"] .hero-value-prop strong {
+  color: #007bff !important; /* Azul para destacar "mucho mejor" */
+}
+
+/* Mejor contraste para texto en botones en modo claro */
+html body[data-theme="light"] .button.secondary span {
+  color: #121212 !important; /* Negro para texto en botones secundarios */
+}
+
+/* Botones con mejor contraste en modo claro */
+html body[data-theme="light"] .button.primary {
+  background: linear-gradient(135deg, #007bff, #0056b3) !important;
+  color: white !important;
+}
+
+html body[data-theme="light"] .button.secondary {
+  background: rgba(0, 0, 0, 0.05) !important;
+  border: 1px solid rgba(0, 0, 0, 0.2) !important;
+  color: #121212 !important;
+}
+
+/* Forzar fondo blanco para todos los contenedores en modo claro */
+html body[data-theme="light"] .hero,
+html body[data-theme="light"] .pain-points,
+html body[data-theme="light"] .solution,
+html body[data-theme="light"] .cta-section {
+  background-color: #ffffff !important;
+}
+
+/* Selector de tema */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  margin-left: 20px;
+  transition: background-color 0.3s;
+  /* Asegurar que está en la posición correcta */
+  position: relative;
+  top: 0;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+body[data-theme="light"] .theme-toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+body[data-theme="light"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+body[data-theme="light"] .theme-toggle .moon-icon {
+  display: none;
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: absolute;
+    top: 15px;
+    right: 60px;
+    margin-left: 0;
+  }
+}
+
+/* Estilos para la página de contribución */
+html body .contribute-hero {
+  text-align: center;
+  padding: 80px 0 60px;
+}
+
+html body .contribute-hero h1 {
+  font-size: 3rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+html body .contribute-hero .lead {
+  font-size: 1.4rem !important;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+html body .contribute-call {
+  padding: 60px 0;
+}
+
+html body .roles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+html body .role-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html body .role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 85, 0, 0.3);
+}
+
+html body .role-icon {
+  font-size: 2rem;
+  color: #FF5500;
+  margin-bottom: 20px;
+}
+
+html body .role-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+html body .steps-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 30px; /* Espacio para la línea */
+}
+
+html body .step-path {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px; /* Línea más gruesa */
+  z-index: 1;
+  height: 100%;
+}
+
+html body .path-line {
+  background: linear-gradient(to bottom, #FF7000, rgba(255,112,0,0.3));
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+}
+
+html body .step {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+html body .step::before {
+  content: '';
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  background: #FF7000;
+  left: -30px;
+  top: 48px; /* Centrado con el número */
+  z-index: 2;
+}
+
+html body .step:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 112, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+html body .step-feature {
+  background: rgba(255, 112, 0, 0.05) !important;
+  border: 1px solid rgba(255, 112, 0, 0.15) !important;
+  transform: scale(1.05);
+  z-index: 3;
+}
+
+html body .step-number {
+  background: linear-gradient(135deg, #FF7000, #FF5500);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(255, 85, 0, 0.3);
+  position: relative;
+  z-index: 3;
+}
+
+html body .step-content {
+  flex: 1;
+}
+
+html body .step-content h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff !important;
+}
+
+/* Arreglar comportamiento de los pasos destacados */
+html body .step-feature:hover {
+  transform: scale(1.05) translateX(10px);
+}
+
+html body .join-section {
+  padding: 90px 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), #000000) !important;
+  position: relative;
+  overflow: hidden;
+}
+
+html body .join-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0L100,100" stroke="rgba(255,85,0,0.1)" stroke-width="1"/><path d="M100,0L0,100" stroke="rgba(255,85,0,0.1)" stroke-width="1"/></svg>');
+  opacity: 0.2;
+  z-index: 0;
+}
+
+html body .join-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+html body .step-intro {
+  max-width: 900px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+html body .step-lead {
+  font-size: 1.5rem !important;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+html body .discussions-link {
+  color: #FF7000 !important;
+  font-weight: 700;
+  border-bottom: 2px dashed #FF7000;
+  text-decoration: none;
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+html body .discussions-link:hover {
+  background: rgba(255, 112, 0, 0.1);
+  padding: 0 5px;
+}
+
+html body .step-icon {
+  font-size: 2.5rem;
+  color: #FF7000;
+  margin-left: auto;
+  margin-right: 10px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+html body .step:hover .step-icon {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+html body .highlight-link {
+  color: #FF7000 !important;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid #FF7000;
+  transition: all 0.3s ease;
+}
+
+html body .highlight-link:hover {
+  background: rgba(255, 112, 0, 0.1);
+  padding: 0 5px;
+}
+
+html body .community-highlight {
+  margin-top: 60px;
+  background: linear-gradient(135deg, rgba(255, 112, 0, 0.15), rgba(255, 85, 0, 0.05));
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  border: 1px solid rgba(255, 112, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+html body .community-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="1" cy="1" r="1" fill="rgba(255,112,0,0.3)"/></svg>');
+  opacity: 0.1;
+  z-index: 0;
+}
+
+html body .community-highlight i {
+  font-size: 3rem;
+  color: #FF7000;
+  margin-bottom: 20px;
+  display: block;
+}
+
+html body .community-highlight p {
+  font-size: 1.3rem !important;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+html body .community-highlight .button {
+  font-size: 1.1rem;
+  padding: 15px 30px;
+  border-radius: 30px;
+  box-shadow: 0 10px 20px rgba(255, 85, 0, 0.3);
+}
+
+/* Estilos para modo claro */
+html body[data-theme="light"] .join-section {
+  background: linear-gradient(135deg, rgba(240, 240, 245, 0.9), #ffffff) !important;
+}
+
+html body[data-theme="light"] .join-section::before {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="none"/><path d="M0,0L100,100" stroke="rgba(0,102,255,0.1)" stroke-width="1"/><path d="M100,0L0,100" stroke="rgba(0,102,255,0.1)" stroke-width="1"/></svg>');
+}
+
+html body[data-theme="light"] .discussions-link,
+html body[data-theme="light"] .highlight-link {
+  color: #0055FF !important;
+  border-bottom-color: #0055FF;
+}
+
+html body[data-theme="light"] .discussions-link:hover,
+html body[data-theme="light"] .highlight-link:hover {
+  background: rgba(0, 85, 255, 0.1);
+}
+
+html body[data-theme="light"] .step-path .path-line {
+  background: linear-gradient(to bottom, #0055FF, rgba(0,85,255,0.3));
+}
+
+html body[data-theme="light"] .step {
+  background: rgba(0, 0, 0, 0.02);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+html body[data-theme="light"] .step:hover {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 85, 255, 0.2);
+}
+
+html body[data-theme="light"] .step-feature {
+  background: rgba(0, 85, 255, 0.05) !important;
+  border: 1px solid rgba(0, 85, 255, 0.15) !important;
+}
+
+html body[data-theme="light"] .step-number {
+  background: linear-gradient(135deg, #0066FF, #0055FF);
+  box-shadow: 0 5px 15px rgba(0, 85, 255, 0.3);
+}
+
+html body[data-theme="light"] .step-content h3 {
+  color: #121212 !important;
+}
+
+html body[data-theme="light"] .step-icon {
+  color: #0066FF;
+}
+
+html body[data-theme="light"] .community-highlight {
+  background: linear-gradient(135deg, rgba(0, 85, 255, 0.1), rgba(0, 85, 255, 0.03));
+  border: 1px solid rgba(0, 85, 255, 0.2);
+}
+
+html body[data-theme="light"] .community-highlight::before {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><circle cx="1" cy="1" r="1" fill="rgba(0,85,255,0.3)"/></svg>');
+}
+
+html body[data-theme="light"] .community-highlight i {
+  color: #0066FF;
+}
+
+html body[data-theme="light"] .community-highlight .button {
+  box-shadow: 0 10px 20px rgba(0, 85, 255, 0.2);
+}
+
+/* Ajustes responsive */
+@media (max-width: 768px) {
+  html body .steps-container {
+    padding-left: 20px;
+  }
+  
+  html body .step::before {
+    width: 20px;
+    left: -20px;
+    top: 25px; /* Ajustado para pantallas pequeñas */
+  }
+  
+  html body .step-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+  
+  html body .step-lead {
+    font-size: 1.2rem !important;
+  }
+  
+  html body .community-highlight p {
+    font-size: 1.1rem !important;
+  }
+}
+
+html body .priorities-section {
+  padding: 70px 0;
+}
+
+html body .priorities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+html body .priority-card {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 10px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html body .priority-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 85, 0, 0.3);
+}
+
+html body .priority-icon {
+  font-size: 2rem;
+  color: #FF5500;
+  margin-bottom: 20px;
+}
+
+html body .priority-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+html body .cta-contribute {
+  padding: 80px 0;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(255, 85, 0, 0.1), rgba(0, 0, 0, 0));
+}
+
+html body .cta-contribute .cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+html body .cta-contribute h2 {
+  font-size: 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+html body .cta-contribute p {
+  font-size: 1.2rem !important;
+  margin-bottom: 2rem;
+}
+
+html body .cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Modo claro */
+html body[data-theme="light"] .role-card,
+html body[data-theme="light"] .priority-card {
+  background: rgba(0, 0, 0, 0.03) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+html body[data-theme="light"] .role-card:hover,
+html body[data-theme="light"] .priority-card:hover {
+  border-color: rgba(0, 102, 255, 0.3);
+}
+
+html body[data-theme="light"] .role-icon,
+html body[data-theme="light"] .priority-icon {
+  color: #0066FF;
+}
+
+html body[data-theme="light"] .step-number {
+  background: #0066FF;
+}
+
+html body[data-theme="light"] .join-section {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+html body[data-theme="light"] .cta-contribute {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(255, 255, 255, 0));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  html body .roles-grid,
+  html body .priorities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  html body .contribute-hero h1 {
+    font-size: 2rem !important;
+  }
+  
+  html body .contribute-hero .lead {
+    font-size: 1.1rem !important;
+  }
+  
+  html body .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Responsive ajustes */
+@media (max-width: 768px) {
+  html body .step {
+    flex-direction: column;
+  }
+  
+  html body .step-feature {
+    transform: scale(1);
+  }
+  
+  html body .step-feature:hover {
+    transform: translateX(10px);
+  }
+}
+
+/* Skip to Content - Accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #FF4500;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid #FF7000;
+}
+
+/* Light mode */
+html body[data-theme="light"] .skip-to-content {
+  background: #0055FF;
+  color: white;
+}
+
+html body[data-theme="light"] .skip-to-content:focus {
+  outline: 2px solid #007bff;
+}
+
+/* Theme variables */
+:root {
+  // ... existing code ...
+}
