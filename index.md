@@ -65,17 +65,17 @@ image: /assets/images/og-image.jpg
         
         <div class="solution-features">
           <div class="feature">
-            <h4><i class="fa-solid fa-rocket" aria-hidden="true"></i> 3x Faster Onboarding</h4>
+            <h3><i class="fa-solid fa-rocket" aria-hidden="true"></i> 3x Faster Onboarding</h3>
             <p>New team members understand your codebase in days, not months, with full context on every AI component.</p>
           </div>
           
           <div class="feature">
-            <h4><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Sustainable Velocity</h4>
+            <h3><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Sustainable Velocity</h3>
             <p>As your AI product matures, your speed increases instead of slowing down, thanks to perfect context preservation.</p>
           </div>
           
           <div class="feature">
-            <h4><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i> Ship With Confidence</h4>
+            <h3><i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i> Ship With Confidence</h3>
             <p>From prompt engineering to code generation, every change is tested, documented, and tracked.</p>
           </div>
         </div>
