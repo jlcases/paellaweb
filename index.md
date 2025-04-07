@@ -24,7 +24,10 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high">
+        <picture>
+          <source srcset="/assets/images/imagen-min.webp" type="image/webp">
+          <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high">
+        </picture>
       </div>
     </div>
   </div>
