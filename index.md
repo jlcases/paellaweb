@@ -35,14 +35,49 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        <img 
-          src="/assets/images/imagen-min.png" 
-          alt="Hero visual PAELLADOC" 
-          class="hero-image" 
-          width="1024" 
-          height="1024"
-          loading="eager" 
-          fetchpriority="high">
+        <picture class="hero-image">
+          <!-- AVIF (mejor compresión) -->
+          <source
+            type="image/avif"
+            srcset="/assets/images/responsive/imagen_320.avif 320w,
+                    /assets/images/responsive/imagen_480.avif 480w,
+                    /assets/images/responsive/imagen_768.avif 768w,
+                    /assets/images/responsive/imagen_1024.avif 1024w,
+                    /assets/images/responsive/imagen_1200.avif 1200w,
+                    /assets/images/responsive/imagen_1920.avif 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
+          
+          <!-- WebP (ampliamente soportado) -->
+          <source
+            type="image/webp"
+            srcset="/assets/images/responsive/imagen_320.webp 320w,
+                    /assets/images/responsive/imagen_480.webp 480w,
+                    /assets/images/responsive/imagen_768.webp 768w,
+                    /assets/images/responsive/imagen_1024.webp 1024w,
+                    /assets/images/responsive/imagen_1200.webp 1200w,
+                    /assets/images/responsive/imagen_1920.webp 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
+          
+          <!-- Fallback original -->
+          <img
+            src="/assets/images/imagen-min.png"
+            alt="Hero visual PAELLADOC"
+            width="1024"
+            height="1024"
+            loading="eager"
+            fetchpriority="high"
+            class="hero-image">
+        </picture>
       </div>
     </div>
   </div>
