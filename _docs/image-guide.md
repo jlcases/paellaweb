@@ -10,7 +10,20 @@ Esta guía explica el proceso para añadir imágenes a tus posts en el blog de P
 - Formatos aceptados: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`
 - **Recomendación**: Usa imágenes de al menos 1200px de ancho para mejor calidad
 - **No es necesario** redimensionar o comprimir previamente, el sistema lo hará por ti
-- Las imágenes originales **se gestionan con Git LFS** para manejar archivos grandes
+- **Importante**: Las imágenes originales no se incluyen en el repositorio Git (están en .gitignore)
+
+### Manejar Imágenes Originales
+
+Dado que las imágenes originales están excluidas del control de versiones:
+
+1. **Para contribuir con imágenes nuevas**:
+   - Coloca tus imágenes en `_posts_images_original/`
+   - Ejecuta `rake optimize_post_images` para generar las versiones responsivas
+   - Las versiones responsivas sí se subirán a Git al hacer commit
+
+2. **Para equipo de mantenimiento**:
+   - Establecer un proceso para compartir imágenes originales (Dropbox, Google Drive, etc.)
+   - Mantener un archivo comprimido de seguridad con las imágenes originales
 
 ### 2. Procesamiento Automático
 

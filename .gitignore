@@ -1,4 +1,17 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
+# Imágenes originales (no se incluyen en git por su peso)
+_posts_images_original/
+!_posts_images_original/.gitkeep
+
+# Otros archivos
 .DS_Store
-_site
+.env
+Thumbs.db
 node_modules/
 package-lock.json 

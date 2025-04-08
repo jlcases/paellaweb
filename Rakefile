@@ -31,34 +31,7 @@ task :prepare_post_images do
   
   puts "Directorio para imágenes originales de posts creado en: #{posts_images_dir}"
   puts "Coloca tus imágenes en esta carpeta y luego ejecuta 'rake optimize_post_images'"
-end
-
-desc "Instalar configuración para Git LFS"
-task :setup_git_lfs do
-  # Crear archivo .gitattributes si no existe
-  gitattributes_path = File.join(Dir.pwd, '.gitattributes')
-  
-  unless File.exist?(gitattributes_path)
-    File.open(gitattributes_path, 'w') do |file|
-      file.puts "# Configuración Git LFS"
-      file.puts "_posts_images_original/**/*.jpg filter=lfs diff=lfs merge=lfs -text"
-      file.puts "_posts_images_original/**/*.jpeg filter=lfs diff=lfs merge=lfs -text"
-      file.puts "_posts_images_original/**/*.png filter=lfs diff=lfs merge=lfs -text"
-      file.puts "_posts_images_original/**/*.gif filter=lfs diff=lfs merge=lfs -text"
-      file.puts "_posts_images_original/**/*.webp filter=lfs diff=lfs merge=lfs -text"
-    end
-    puts "✅ Archivo .gitattributes creado para Git LFS"
-  else
-    puts "ℹ️ Archivo .gitattributes ya existe, asegúrate de que incluya configuración para imágenes"
-  end
-  
-  # Mostrar instrucciones para instalar y configurar Git LFS
-  puts ""
-  puts "📋 Para usar Git LFS con las imágenes originales:"
-  puts "1. Instala Git LFS desde https://git-lfs.github.com/"
-  puts "2. Ejecuta 'git lfs install' en este repositorio"
-  puts "3. Si tienes imágenes existentes, ejecuta 'git lfs migrate import --include=\"_posts_images_original/**/*.jpg,*.jpeg,*.png,*.gif,*.webp\"'"
-  puts ""
+  puts "Nota: Las imágenes originales no se incluirán en el repositorio Git (.gitignore)"
 end
 
 desc "Instalar hooks de git"
@@ -90,13 +63,14 @@ task :install_hooks do
 end
 
 desc "Configuración inicial completa para manejo de imágenes"
-task :setup_images => [:prepare_post_images, :install_hooks, :setup_git_lfs] do
+task :setup_images => [:prepare_post_images, :install_hooks] do
   puts "✅ Configuración de imágenes completada."
   puts ""
   puts "📋 Instrucciones de uso:"
   puts "1. Coloca tus imágenes originales en la carpeta _posts_images_original/"
   puts "2. Ejecuta 'rake optimize_post_images' para generar versiones responsivas"
   puts "3. O simplemente añádelas con 'git add' y haz commit - se optimizarán automáticamente"
+  puts "4. ⚠️ Nota: Las imágenes originales NO se incluirán en Git (.gitignore)"
   puts ""
   puts "En tus posts, usa la etiqueta así:"
   puts "{% responsive_image path: _posts_images_original/nombre-imagen.jpg alt: 'Descripción de la imagen' %}"

@@ -5,7 +5,7 @@ Hello PAELLADOC community! We've implemented a robust image optimization system 
 ## Image System Architecture
 
 We've designed an intelligent image processing system that:
-- Stores original high-resolution images separately using Git LFS
+- Keeps original high-resolution images separate and excluded from the Git repository
 - Automatically generates responsive versions during build
 - Creates multiple sizes and modern formats (WebP, AVIF)
 - Ensures proper accessibility through HTML5 `<picture>` elements
@@ -18,7 +18,20 @@ We've designed an intelligent image processing system that:
 - Supported formats: `.jpg`, `.jpeg`, `.png`, `.gif`, `.webp`
 - **Recommendation**: Use images at least 1200px wide for best quality
 - **No need** to resize or compress beforehand - Jekyll will do it for you
-- Original images are managed with **Git LFS** for efficient repository handling
+- **Important**: Original images are excluded from Git (via .gitignore) to keep the repository lightweight
+
+### Managing Original Images
+
+Since original images are excluded from version control:
+
+1. **For contributors adding new images**:
+   - Place your images in `_posts_images_original/`
+   - Run `rake optimize_post_images` to generate responsive versions
+   - The responsive versions will be committed to Git when you commit changes
+
+2. **For maintenance team**:
+   - Establish a process to share original images (Dropbox, Google Drive, etc.)
+   - Maintain a backup archive of original images for future needs
 
 ### 2. Automatic Processing
 
@@ -62,7 +75,7 @@ image_alt: "Accessible description of the featured image"
 
 When you add images to the system:
 
-1. Original high-resolution images are stored using Git LFS for efficient handling
+1. Original high-resolution images stay local (not committed to Git)
 2. During build, Jekyll generates optimized versions (320px to 1920px)
 3. Images are converted to modern formats (WebP, AVIF) with fallbacks
 4. HTML5 `<picture>` markup is generated with proper srcset and sizes attributes
@@ -70,7 +83,7 @@ When you add images to the system:
 
 ## Benefits of This Architecture
 
-- **Separate Original Files**: High-resolution images managed efficiently with Git LFS
+- **Repository Stays Lightweight**: Original heavy images are excluded from Git
 - **Automatic Optimization**: Jekyll handles optimization during site build
 - **Clean Separation**: Processed images kept separate from originals
 - **Modern Formats**: Automatic support for WebP and AVIF with fallbacks
@@ -88,7 +101,6 @@ When you add images to the system:
 - If your images don't appear, verify they're in `_posts_images_original/`
 - If you need to regenerate all images, run `rake optimize_post_images`
 - If you need to reset the configuration, run `rake setup_images`
-- For Git LFS issues, refer to [Git LFS documentation](https://git-lfs.github.com/)
 
 ---
 
