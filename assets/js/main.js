@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initIntersectionObserver();
     initMobileMenu();
     initThemeToggle();
-    initSkipToContent(); 
+    initSkipToContent();
+    initDeferredImages();
     console.log('PAELLADOC SCRIPTS: Componentes inicializados.');
   } catch (error) {
     console.error('PAELLADOC SCRIPTS: Error inicializando componentes:', error);
@@ -76,6 +77,16 @@ function initMobileMenu() {
     navLinks.classList.add('active');
     menuOverlay.classList.add('active');
     body.classList.add('no-scroll');
+    
+    // Usar will-change para mejor rendimiento
+    navLinks.style.willChange = 'transform';
+    menuOverlay.style.willChange = 'opacity';
+    
+    // Restablecer will-change después de la animación
+    setTimeout(() => {
+      navLinks.style.willChange = 'auto';
+      menuOverlay.style.willChange = 'auto';
+    }, 300);
   };
 
   const closeMenu = () => {
@@ -198,8 +209,10 @@ function initSkipToContent() {
   }
 }
 
-// Esperar a que el DOM esté completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
+/**
+ * Optimiza las imágenes de contenido crítico para evitar CLS
+ */
+function initDeferredImages() {
   // Preparar contenedor para evitar cambios de diseño
   const lcp = document.getElementById('lcp-container');
   if (lcp) {
@@ -208,61 +221,21 @@ document.addEventListener('DOMContentLoaded', function() {
     lcp.style.contain = 'layout paint';
   }
   
-  // Gestión del menú móvil
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  const menuOverlay = document.querySelector('.menu-overlay');
-  
-  if (menuToggle && navLinks && menuOverlay) {
-    // Optimización: Usar transform para animaciones en lugar de propiedades que afectan el layout
-    menuToggle.addEventListener('click', function() {
-      // Usar will-change para indicar al navegador que prepare la composición
-      navLinks.style.willChange = 'transform';
-      menuOverlay.style.willChange = 'opacity';
-      
-      // Toggle classes después de animar
-      requestAnimationFrame(() => {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        menuOverlay.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-        
-        // Restablecer will-change después de las animaciones
-        setTimeout(() => {
-          navLinks.style.willChange = 'auto';
-          menuOverlay.style.willChange = 'auto';
-        }, 300); // Corresponde a la duración de la transición
+  // Optimización de imágenes para los temas (carga solo lo necesario)
+  const loadDeferredThemeImages = () => {
+    // Cargar cualquier imagen diferida solo cuando se necesite
+    const deferredImages = document.querySelectorAll('[data-src]');
+    if (deferredImages.length > 0) {
+      deferredImages.forEach(img => {
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+        }
       });
-    });
-  }
-  
-  // Cerrar el menú al hacer clic en el overlay
-  if (menuOverlay) {
-    menuOverlay.addEventListener('click', function() {
-      if (menuToggle && menuToggle.classList.contains('active')) {
-        menuToggle.classList.remove('active');
-        navLinks.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.classList.remove('no-scroll');
-      }
-    });
-  }
-});
+    }
+  };
 
-// Optimización de imágenes para los temas (carga solo lo necesario)
-const loadDeferredThemeImages = () => {
-  // Cargar cualquier imagen diferida solo cuando se necesite
-  const deferredImages = document.querySelectorAll('[data-src]');
-  if (deferredImages.length > 0) {
-    deferredImages.forEach(img => {
-      if (img.dataset.src) {
-        img.src = img.dataset.src;
-        img.removeAttribute('data-src');
-      }
-    });
-  }
-};
-
-// Llamar después de eventos de interacción del usuario
-window.addEventListener('scroll', loadDeferredThemeImages, {once: true});
-window.addEventListener('mousemove', loadDeferredThemeImages, {once: true}); 
+  // Llamar después de eventos de interacción del usuario
+  window.addEventListener('scroll', loadDeferredThemeImages, {once: true});
+  window.addEventListener('mousemove', loadDeferredThemeImages, {once: true});
+} 
