@@ -28,7 +28,7 @@
 }
 
 // Mejoras para los enlaces en general - no solo distinguibles por color
-a {
+a:not(.nav-links a, .site-logo, .menu-toggle, .theme-toggle) {
   text-decoration: underline;
   transition: all 0.2s ease;
   font-weight: 500;
@@ -55,6 +55,17 @@ a {
   }
 }
 
+// Restaurar estilos originales para los enlaces de navegación
+.nav-links a,
+.site-logo {
+  text-decoration: none;
+  
+  &:hover, &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
 // Mejorar el contraste del texto en tarjetas
 .pain-card, .feature, .feature-card {
   p {
@@ -65,9 +76,9 @@ a {
   }
 }
 
-// Focus visible para todos los elementos interactivos
-button, 
-a,
+// Focus visible para todos los elementos interactivos (excepto en navegación)
+button:not(.menu-toggle, .theme-toggle), 
+a:not(.nav-links a, .site-logo),
 input,
 select,
 textarea,
@@ -81,8 +92,10 @@ textarea,
 
 // Excepciones para elementos que no deben tener outline
 .menu-toggle,
-.theme-toggle {
-  &:focus-visible {
+.theme-toggle,
+.nav-links a,
+.site-logo {
+  &:focus, &:focus-visible {
     outline: none;
   }
 }
@@ -125,7 +138,7 @@ textarea,
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: none !important;
   border: 2px solid transparent;
   gap: 0.5rem;
   transition: all 0.2s ease-in-out;
@@ -152,6 +165,7 @@ textarea,
     outline-offset: 2px;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none !important;
 
     &::before {
       transform: translateX(0);
