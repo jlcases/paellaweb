@@ -76,28 +76,7 @@ Each documentation element is designed to preserve critical context:
 
 **WHAT'S COMING SOON (NOT YET IMPLEMENTED):**
 
-We're working on a more powerful version of PAELLADOC that will include:
-
-```bash
-# Initialize documentation with AI-ready structure
-PAELLA INIT --project="ProductName" --type=SaaS
-
-# Document and structure a user story while preserving context
-STORY CREATE "As a user, I want to authenticate with SSO"
-
-# Plan a sprint with full context tracking
-SPRINT PLAN --name="Sprint 23" --stories=34,35,36
-
-# Generate architectural documentation with decision tracking
-DOCUMENT ARCHITECTURE --component="AuthService"
-```
-
-These commands will build a knowledge network:
-
-* Capture context in structured `.memory.json` files
-* Create intelligent links between related artifacts
-* Maintain decision trees for future reference
-* Ensure AI tools have complete historical context
+We're working on a more powerful version of PAELLADOC with enhanced templates and deeper Cursor AI integration to further streamline the documentation process and improve context preservation.
 
 ## Before vs. After: The transformation in action
 
@@ -111,18 +90,6 @@ These commands will build a knowledge network:
 * Document requirements with proper context preservation
 * Generate user stories with complete product context
 
-**COMING SOON:**
-```bash
-# Create a structured empathy map with linked user research
-PAELLA EMPATHY_MAP --persona="Enterprise Admin"
-
-# Define requirements with context preservation
-PAELLA REQUIREMENTS --feature="SSO Authentication"
-
-# Generate user stories with complete product context
-STORY GENERATE --from="Requirements-SSO" --count=5
-```
-
 ### 2\. Technical Design: Isolated decisions become connected insights
 
 **BEFORE**: Decisions documented separately, context erodes over time, impossible traceability.
@@ -132,15 +99,6 @@ STORY GENERATE --from="Requirements-SSO" --count=5
 * Create Architecture Decision Records with complete context
 * Design components with contextual awareness
 * Document API specifications clearly and consistently
-
-**COMING SOON:**
-```bash
-# Create Architecture Decision Record with complete context
-DOCUMENT ADR --title="OAuth Provider Selection" --req-refs="SSO-*"
-
-# Design components with contextual awareness
-DESIGN COMPONENT --name="AuthService" --adr-refs="ADR-12"
-```
 
 ### 3\. Implementation: Fragmented code becomes a coherent story
 
@@ -152,15 +110,6 @@ DESIGN COMPONENT --name="AuthService" --adr-refs="ADR-12"
 * Connect implementation details to architectural decisions
 * Maintain a living documentation that evolves with your code
 
-**COMING SOON:**
-```bash
-# Generate implementation structure with context links
-GENERATE_CODE --from="Design-AuthService" --lang=TypeScript
-
-# Document implementation decisions in context
-CODE DECISION --file="auth.service.ts" --line=56 --context="JWT for stateless scaling"
-```
-
 ## The 5 exclusive benefits that only PAELLADOC delivers
 
 1. **Context Preservation**: Every design decision and implementation detail is properly documented
@@ -170,8 +119,6 @@ CODE DECISION --file="auth.service.ts" --line=56 --context="JWT for stateless sc
 5. **Better AI Assistance**: Structured documentation improves how AI tools understand your project
 
 ## Transform your development today (in just 5 minutes)
-
-**HOW TO USE PAELLADOC TODAY:**
 
 Ready to end the context crisis in your projects? Here's how to get started right now:
 
@@ -189,25 +136,6 @@ Ready to end the context crisis in your projects? Here's how to get started righ
    ```
 
 4. **Start using templates**: Choose from research, planning, technical, or management templates
-
-**COMING SOON (NOT YET IMPLEMENTED):**
-
-We're working on making PAELLADOC even easier to use:
-
-```bash
-# Install PAELLADOC (not yet available)
-npm install -g paelladoc
-
-# Initialize in your project (planned feature)
-cd your-project
-paelladoc init
-
-# Install Cursor AI integration (in development)
-paelladoc integrate --with=cursor-ai
-
-# Create your first document with preserved context (coming soon)
-paelladoc document create --type=overview
-```
 
 ## Will you lead the future or be left behind?
 
