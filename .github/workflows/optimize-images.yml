@@ -1,12 +1,17 @@
-name: Optimize Images
+name: Optimize Images (Manual)
 
 on:
-  push:
-    paths:
-      - 'assets/images/**'
-  pull_request:
-    paths:
-      - 'assets/images/**'
+  workflow_dispatch:
+    # Solo se ejecutará manualmente desde la interfaz de GitHub Actions
+  
+# Ya no se ejecutará automáticamente en push o pull request
+# on:
+#   push:
+#     paths:
+#       - 'assets/images/**'
+#   pull_request:
+#     paths:
+#       - 'assets/images/**'
 
 jobs:
   optimize-images:
