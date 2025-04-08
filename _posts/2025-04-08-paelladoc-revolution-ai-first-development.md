@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "PAELLADOC: The definitive solution to context loss destroying your AI projects"
-subtitle: "Transform your development with the only system that preserves context throughout the entire lifecycle"
+title: "The PAELLADOC Revolution: AI-First Development with Context Preservation"
+subtitle: "How structured documentation is changing the way we develop with AI"
 date: 2025-04-08
 author: "J.L. Cases"
-author_bio: "AI Engineering Lead and Creator of PAELLADOC. Specialized in context preservation systems and AI-assisted development."
-avatar: "/assets/images/paelladoc-avatar.png"
+author_bio: "Another CPTO"
+avatar: "/assets/images/jlcases-avatar.webp"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://linkedin.com/in/jlcases"
