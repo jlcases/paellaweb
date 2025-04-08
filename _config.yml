@@ -1,7 +1,7 @@
 url: "https://paelladoc.com" # the base hostname & protocol for your site
 baseurl: "" # the subpath of your site, e.g. /blog
-title: "PAELLADOC - AI Documentation Framework" # the name of your site
-description: "PAELLADOC is a MECE-based documentation framework for AI development teams that solves the context loss problem."
+title: "Vibe Coding with Cursor as a Pro - PAELLADOC" # the name of your site
+description: "Transform your coding experience with PAELLADOC - The ultimate AI-powered development framework that makes your team's workflow mucho mejor."
 author: "PAELLADOC Team"
 email: "contact@paelladoc.com"
 
