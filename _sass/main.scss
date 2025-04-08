@@ -961,4 +961,15 @@ body[data-theme="light"] {
 
 .post-title, .post-subtitle, .related-posts h2 {
   font-family: $heading-font-family;
+}
+
+// Estilos para navegación
+.site-nav, .nav-links {
+  font-family: $heading-font-family;
+  
+  a, span {
+    font-family: $heading-font-family;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
 } 
