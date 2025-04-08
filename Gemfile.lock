@@ -52,6 +52,7 @@ GEM
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.4.0)
+    mini_magick (4.13.2)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (5.1.1)
@@ -81,6 +82,7 @@ DEPENDENCIES
   jekyll-paginate (~> 1.1.0)
   jekyll-responsive-image (~> 1.6.0)
   jekyll-seo-tag (~> 2.8.0)
+  mini_magick (~> 4.12)
   rake (~> 13.0)
   tzinfo (>= 1, < 3)
   tzinfo-data

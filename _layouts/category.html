@@ -34,7 +34,12 @@ layout: blog
       {% if post.image %}
       <div class="post-card-image">
         <a href="{{ post.url | relative_url }}">
-          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}">
+          {% include responsive-image.html 
+             path=post.image 
+             alt=post.title 
+             sizes="(max-width: 480px) 100vw, 400px" 
+             lazy="true" 
+          %}
         </a>
       </div>
       {% endif %}

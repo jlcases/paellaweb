@@ -41,7 +41,12 @@ We welcome contributions to the PAELLADOC blog! Here's a step-by-step guide on h
    ---
    ```
 
-4. **Write your content** using Markdown formatting:
+4. **Adding images** - Simple process:
+   - Place your original image in the `_posts_images_original` directory
+   - Run `rake optimize_post_images` to generate web-optimized versions
+   - Reference the image in your frontmatter with `/assets/images/your-image.jpg`
+
+5. **Write your content** using Markdown formatting:
    - Use `##` for main headings (H2)
    - Use `###` for subheadings (H3)
    - Use standard Markdown for links, lists, emphasis, code blocks, etc.
@@ -52,7 +57,7 @@ We welcome contributions to the PAELLADOC blog! Here's a step-by-step guide on h
      ```
      ````
 
-5. **Submit a Pull Request** with your changes
+6. **Submit a Pull Request** with your changes
    - Provide a brief description of your post in the PR
    - We'll review your submission and may suggest edits before merging
 

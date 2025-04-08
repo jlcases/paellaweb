@@ -1,5 +1,7 @@
 require 'yaml'
 require 'fileutils'
+require 'mini_magick' rescue LoadError
+require 'securerandom'
 
 desc "Optimizar imágenes de posts"
 task :optimize_post_images do
@@ -9,15 +11,101 @@ task :optimize_post_images do
   posts_images_dir = File.join(Dir.pwd, '_posts_images_original')
   FileUtils.mkdir_p(posts_images_dir) unless Dir.exist?(posts_images_dir)
   
-  responsive_dir = File.join(Dir.pwd, 'assets', 'images', 'posts_responsive')
-  FileUtils.mkdir_p(responsive_dir) unless Dir.exist?(responsive_dir)
+  assets_images_dir = File.join(Dir.pwd, 'assets', 'images')
+  FileUtils.mkdir_p(assets_images_dir) unless Dir.exist?(assets_images_dir)
   
-  # Ejecutar el generador de Jekyll con la bandera --regenerate-images
-  system("bundle exec jekyll build --regenerate-images")
+  # Verificar si mini_magick está instalado
+  begin
+    require 'mini_magick'
+  rescue LoadError
+    puts "⚠️ Error: La gema 'mini_magick' no está instalada."
+    puts "Ejecuta: gem install mini_magick"
+    puts "O añade 'mini_magick' a tu Gemfile y ejecuta 'bundle install'"
+    exit 1
+  end
   
-  # Notificar finalización
+  # Tamaños responsivos a generar
+  sizes = [320, 480, 768, 1024, 1200, 1920]
+  
+  # Procesamos todas las imágenes originales
+  Dir.glob(File.join(posts_images_dir, '*.{jpg,jpeg,png,gif,webp}')).each do |img_path|
+    begin
+      filename = File.basename(img_path)
+      name = File.basename(filename, ".*")
+      ext = File.extname(filename).downcase
+      
+      # Copiar el archivo original
+      orig_dest_path = File.join(assets_images_dir, filename)
+      FileUtils.cp(img_path, orig_dest_path)
+      puts "✓ Copiado: #{filename} a assets/images/"
+      
+      # Crear versión WebP y AVIF del original (sin redimensionar)
+      image = MiniMagick::Image.open(img_path)
+      original_width = image.width
+      
+      # WebP original
+      webp_path = File.join(assets_images_dir, "#{name}.webp")
+      image.format "webp"
+      image.quality "85"
+      image.write webp_path
+      puts "✓ Generado: #{name}.webp"
+      
+      # AVIF original
+      begin
+        avif_path = File.join(assets_images_dir, "#{name}.avif")
+        image = MiniMagick::Image.open(img_path) # Volver a abrir para AVIF
+        image.format "avif"
+        image.quality "85"
+        image.write avif_path
+        puts "✓ Generado: #{name}.avif"
+      rescue => e
+        puts "⚠️ AVIF no soportado: #{e.message}"
+      end
+      
+      # Generar múltiples tamaños
+      sizes.each do |width|
+        # No generar tamaños más grandes que el original
+        next if width >= original_width
+        
+        # Formato original redimensionado
+        resized_img = MiniMagick::Image.open(img_path)
+        resized_img.resize "#{width}x"
+        resized_path = File.join(assets_images_dir, "#{name}_#{width}#{ext}")
+        resized_img.write resized_path
+        puts "✓ Generado: #{name}_#{width}#{ext}"
+        
+        # WebP redimensionado
+        resized_img = MiniMagick::Image.open(img_path)
+        resized_img.resize "#{width}x"
+        resized_img.format "webp"
+        resized_img.quality "85"
+        resized_webp_path = File.join(assets_images_dir, "#{name}_#{width}.webp")
+        resized_img.write resized_webp_path
+        puts "✓ Generado: #{name}_#{width}.webp"
+        
+        # AVIF redimensionado
+        begin
+          resized_img = MiniMagick::Image.open(img_path)
+          resized_img.resize "#{width}x"
+          resized_img.format "avif"
+          resized_img.quality "85"
+          resized_avif_path = File.join(assets_images_dir, "#{name}_#{width}.avif")
+          resized_img.write resized_avif_path
+          puts "✓ Generado: #{name}_#{width}.avif"
+        rescue => e
+          puts "⚠️ AVIF no soportado para tamaño #{width}px: #{e.message}"
+        end
+      end
+      
+    rescue => e
+      puts "❌ Error procesando #{filename}: #{e.message}"
+    end
+  end
+  
   puts "¡Optimización de imágenes completada!"
-  puts "Las imágenes responsivas se han generado en: assets/images/posts_responsive/"
+  puts "Las imágenes se han copiado y convertido a múltiples tamaños y formatos en: assets/images/"
+  puts "Formatos generados: Original, WebP, AVIF"
+  puts "Tamaños generados: 320, 480, 768, 1024, 1200, 1920 pixeles (si aplica)"
 end
 
 desc "Crear directorio para imágenes originales de post"
@@ -75,7 +163,7 @@ task :setup_images => [:prepare_post_images, :install_hooks] do
   puts "En tus posts, usa la etiqueta así:"
   puts "{% responsive_image path: _posts_images_original/nombre-imagen.jpg alt: 'Descripción de la imagen' %}"
   puts ""
-  puts "Las imágenes responsivas se generarán en: assets/images/posts_responsive/"
+  puts "Las imágenes responsivas se generarán en: assets/images/responsive/"
 end
 
 task :default => :setup_images 

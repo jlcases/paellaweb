@@ -1,31 +1,56 @@
-{% assign image_path = include.image_path %}
+{% assign image_path = include.path | default: include.src %}
 {% assign alt = include.alt | default: "Image" %}
-{% assign width = include.width | default: "auto" %}
-{% assign height = include.height | default: "auto" %}
-{% assign loading = include.loading | default: "lazy" %}
-{% assign fetchpriority = include.fetchpriority | default: "auto" %}
-{% assign class = include.class %}
+{% assign base_url = "/assets/images/" %}
+{% assign filename = image_path | split: '/' | last %}
+{% assign basename = filename | split: '.' | first %}
+{% assign sizes = include.sizes | default: "(max-width: 768px) 100vw, (max-width: 1200px) 768px, 1200px" %}
+{% assign widths = include.widths | default: "320,480,768,1024,1200,1920" | split: ',' %}
+{% assign lazy = include.lazy | default: "true" %}
 
-{% assign resized = site.responsive_image.resized %}
-{% assign largest = resized | sort: 'width' | last %}
-{% assign smallest = resized | sort: 'width' | first %}
-
-<picture class="{{ class }}">
-  {% for format in site.responsive_image.formats %}
-    <source
-      type="image/{{ format }}"
-      srcset="{% for i in resized %}{{ i.path | relative_url }} {{ i.width }}w{% if forloop.last == false %}, {% endif %}{% endfor %}"
-      sizes="(max-width: 768px) 100vw, {% if include.sizes %}{{ include.sizes }}{% else %}{{ largest.width }}px{% endif %}">
-  {% endfor %}
-  
-  <!-- Fallback para navegadores antiguos -->
+<picture class="{{ include.class }}">
+  <!-- AVIF Format -->
+  <source
+    type="image/avif"
+    srcset="
+      {% for width in widths %}
+        {% if forloop.last %}
+          {{ base_url }}{{ basename }}.avif
+        {% else %}
+          {{ base_url }}{{ basename }}_{{ width }}.avif {{ width }}w,
+        {% endif %}
+      {% endfor %}
+    "
+    sizes="{{ sizes }}">
+    
+  <!-- WebP Format -->
+  <source
+    type="image/webp"
+    srcset="
+      {% for width in widths %}
+        {% if forloop.last %}
+          {{ base_url }}{{ basename }}.webp
+        {% else %}
+          {{ base_url }}{{ basename }}_{{ width }}.webp {{ width }}w,
+        {% endif %}
+      {% endfor %}
+    "
+    sizes="{{ sizes }}">
+    
+  <!-- Original Format (Fallback) -->
   <img
-    src="{{ largest.path | relative_url }}"
-    alt="{% if alt %}{{ alt }}{% else %}{{ include.alt }}{% endif %}"
+    src="{{ base_url }}{{ filename }}"
+    srcset="
+      {% for width in widths %}
+        {% if forloop.last %}
+          {{ base_url }}{{ filename }}
+        {% else %}
+          {{ base_url }}{{ basename }}_{{ width }}{{ filename | split: '.' | last | prepend: '.' }} {{ width }}w,
+        {% endif %}
+      {% endfor %}
+    "
+    alt="{{ alt }}"
+    {% if lazy == "true" %}loading="lazy" decoding="async"{% endif %}
     {% if include.width %}width="{{ include.width }}"{% endif %}
     {% if include.height %}height="{{ include.height }}"{% endif %}
-    loading="lazy"
-    decoding="async"
-    class="{{ include.image_class }}"
-    {% if include.title %}title="{{ include.title }}"{% endif %}>
+    class="{{ include.img_class }}">
 </picture> 
