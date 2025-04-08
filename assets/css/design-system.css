@@ -5,22 +5,29 @@
 
 /* ======= VARIABLES CSS GLOBALES ======= */
 :root {
-  /* Colores */
-  --color-primary: #FF5722; /* Naranja accesible */
-  --color-primary-dark: #E64A19; /* Naranja oscuro accesible */
-  --color-primary-light: #FF8A65; /* Naranja claro accesible */
-  --color-secondary: #2979FF; /* Azul accesible */
-  --color-secondary-dark: #2962FF; /* Azul oscuro accesible */
+  /* Colores - Modo oscuro por defecto */
+  /* Colores primarios con mejor contraste */
+  --color-primary: #FF7A45; /* Naranja accesible, ratio 4.5:1 sobre fondo oscuro */
+  --color-primary-dark: #FF5722; /* Naranja oscuro accesible */
+  --color-primary-light: #FF9E73; /* Naranja claro accesible */
+  --color-secondary: #62A1FF; /* Azul accesible, ratio 4.5:1 sobre fondo oscuro */
+  --color-secondary-dark: #2979FF; /* Azul oscuro accesible */
   
-  /* Neutrales - Modo oscuro por defecto */
+  /* Neutrales - Modo oscuro */
   --color-bg: #121212; /* Negro suave para reducir el deslumbramiento */
   --color-surface: #1E1E1E; /* Superficie oscura */
   --color-surface-variant: #2D2D2D; /* Variante de superficie */
-  --color-text-primary: #EEEEEE; /* Texto principal claro */
-  --color-text-secondary: #BBBBBB; /* Texto secundario claro */
-  --color-text-tertiary: #999999; /* Texto terciario claro */
-  --color-border: #444444; /* Borde visible */
+  --color-text-primary: #FFFFFF; /* Texto principal blanco para máximo contraste (ratio >15:1) */
+  --color-text-secondary: #CCCCCC; /* Texto secundario con ratio >7:1 */
+  --color-text-tertiary: #AAAAAA; /* Texto terciario con ratio >4.5:1 */
+  --color-border: #555555; /* Borde visible con mejor contraste */
   --color-overlay: rgba(0, 0, 0, 0.7); /* Overlay */
+  
+  /* Colores semánticos con mejor contraste */
+  --color-success: #4CAF50; /* Verde accesible */
+  --color-warning: #FFC107; /* Amarillo accesible */
+  --color-error: #FF5252; /* Rojo accesible */
+  --color-info: #64B5F6; /* Azul información accesible */
   
   /* Tipografía */
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -73,8 +80,8 @@
   --z-tooltip: 120;
 
   /* Añadir variables RGB si no existen */
-  --color-primary-rgb: 255, 87, 34;
-  --color-secondary-rgb: 41, 121, 255;
+  --color-primary-rgb: 255, 122, 69;
+  --color-secondary-rgb: 98, 161, 255;
 }
 
 /* ======= TEMA CLARO ======= */
@@ -82,22 +89,28 @@
   --color-bg: #ffffff; /* Fondo blanco */
   --color-surface: #f5f7fa; /* Superficie clara */
   --color-surface-variant: #edf2f7; /* Variante de superficie */
-  --color-text-primary: #1A202C; /* Texto principal oscuro - alto contraste */
-  --color-text-secondary: #4A5568; /* Texto secundario - contraste WCAG AA */
-  --color-text-tertiary: #718096; /* Texto terciario - solo para elementos decorativos */
-  --color-border: #CBD5E0; /* Borde visible */
-  --color-overlay: rgba(0, 0, 0, 0.5); /* Overlay más contrastado */
+  --color-text-primary: #222222; /* Texto principal negro suave - alto contraste (ratio >15:1) */
+  --color-text-secondary: #444444; /* Texto secundario - contraste WCAG AAA (ratio >7:1) */
+  --color-text-tertiary: #666666; /* Texto terciario - contraste WCAG AA (ratio >4.5:1) */
+  --color-border: #AAAAAA; /* Borde visible con mejor contraste */
+  --color-overlay: rgba(0, 0, 0, 0.5); /* Overlay */
   
   /* Colores principales en tema claro con buen contraste */
-  --color-primary: #0055CC; /* Azul accesible en fondo claro */
-  --color-primary-dark: #003D99; /* Azul oscuro accesible */
-  --color-primary-light: #006EFF; /* Azul claro accesible */
-  --color-secondary: #D03801; /* Naranja accesible en fondo claro */
-  --color-secondary-dark: #B22A00; /* Naranja oscuro accesible */
+  --color-primary: #0055CC; /* Azul accesible en fondo claro (ratio >4.5:1) */
+  --color-primary-dark: #003D99; /* Azul oscuro accesible (ratio >7:1) */
+  --color-primary-light: #3178C6; /* Azul claro accesible (ratio 4.5:1) */
+  --color-secondary: #C43E00; /* Naranja accesible en fondo claro (ratio 4.5:1) */
+  --color-secondary-dark: #9A3200; /* Naranja oscuro accesible (ratio 7:1) */
 
-  /* Añadir variables RGB si no existen */
+  /* Colores semánticos para tema claro */
+  --color-success: #2E7D32; /* Verde oscuro accesible (ratio 4.5:1) */
+  --color-warning: #B25000; /* Naranja accesible (ratio 4.5:1) */
+  --color-error: #C41C00; /* Rojo oscuro accesible (ratio 4.5:1) */
+  --color-info: #0055CC; /* Azul información accesible (ratio 4.5:1) */
+
+  /* Añadir variables RGB */
   --color-primary-rgb: 0, 85, 204;
-  --color-secondary-rgb: 208, 56, 1;
+  --color-secondary-rgb: 196, 62, 0;
 }
 
 /* ======= ESTILOS BASE ======= */
