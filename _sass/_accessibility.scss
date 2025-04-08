@@ -79,6 +79,14 @@ textarea,
   }
 }
 
+// Excepciones para elementos que no deben tener outline
+.menu-toggle,
+.theme-toggle {
+  &:focus-visible {
+    outline: none;
+  }
+}
+
 // Mejoras en el contraste de los botones
 .button {
   text-decoration: none;
