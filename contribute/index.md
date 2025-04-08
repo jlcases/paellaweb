@@ -31,12 +31,6 @@ image: /assets/images/og-image.jpg
         </div>
         
         <div class="role-card">
-          <div class="role-icon"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
-          <h3>Technical Writers</h3>
-          <p>Craft documentation that transforms complex concepts into clear, actionable guidance.</p>
-        </div>
-        
-        <div class="role-card">
           <div class="role-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></div>
           <h3>UX Designers</h3>
           <p>Create intuitive template systems and interfaces that make the framework a joy to use.</p>
