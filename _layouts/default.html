@@ -45,8 +45,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/brands.min.css">
     </noscript>
     
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap"></noscript>
     
     <style>
       /* Estilos críticos inline para el renderizado inicial */
@@ -68,12 +68,18 @@
         background-color: #ffffff;
         color: #121212;
       }
-      /* Estilos críticos para el logo */
-      .logo-text {
-        font-family: 'Inter', sans-serif;
+      /* Estilos críticos para el logo y títulos */
+      .logo-text, h1, h2, h3, h4, h5, h6 {
+        font-family: 'Bruno Ace SC', monospace;
         font-weight: 700;
+      }
+      .logo-text {
         font-size: 1.5rem;
         color: var(--color-text-primary);
+      }
+      /* Asegurarnos que el contenido del post usa Inter */
+      .post-content p, .post-content li, .post-content blockquote {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       }
       @font-face {
         font-family: 'Inter';

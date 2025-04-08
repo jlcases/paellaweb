@@ -940,4 +940,25 @@ body[data-theme="light"] {
   }
 
   // ...otras sobrescrituras necesarias para el modo claro...
+}
+
+// Estilos para posts
+.post-content {
+  font-family: $base-font-family;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: $heading-font-family;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.post-title, .post-subtitle, .related-posts h2 {
+  font-family: $heading-font-family;
 } 
