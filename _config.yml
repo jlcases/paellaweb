@@ -23,8 +23,8 @@ responsive_image:
     - width: 1024
     - width: 1200
     - width: 1920
-  base_path: _posts_images
-  output_path_format: assets/images/blog/:basename/:width/:basename
+  base_path: _posts_images_original   # Carpeta para imágenes originales
+  output_path_format: assets/images/posts_responsive/:basename/:width/:basename  # Carpeta para imágenes procesadas
   save_to_source: false
   strip: true
   quality: 85
@@ -46,6 +46,7 @@ exclude:
   - generate-images.js # Ya no se necesita
   - package.json
   - package-lock.json
+  - _posts_images_original  # No incluir las imágenes originales en la build
 
 # Collections
 collections:
