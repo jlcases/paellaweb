@@ -1,0 +1,45 @@
+{% assign image_path = include.image_path %}
+{% assign alt = include.alt | default: "Image" %}
+{% assign width = include.width | default: "auto" %}
+{% assign height = include.height | default: "auto" %}
+{% assign loading = include.loading | default: "lazy" %}
+{% assign fetchpriority = include.fetchpriority | default: "auto" %}
+{% assign class = include.class %}
+
+<picture class="{{ class }}">
+  <!-- AVIF -->
+  <source
+    type="image/avif"
+    srcset="
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_400.avif 400w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_600.avif 600w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_800.avif 800w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_1200.avif 1200w"
+    sizes="(max-width: 400px) 400px,
+           (max-width: 600px) 600px,
+           (max-width: 800px) 800px,
+           1200px">
+  
+  <!-- WebP -->
+  <source
+    type="image/webp"
+    srcset="
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_400.webp 400w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_600.webp 600w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_800.webp 800w,
+      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_1200.webp 1200w"
+    sizes="(max-width: 400px) 400px,
+           (max-width: 600px) 600px,
+           (max-width: 800px) 800px,
+           1200px">
+  
+  <!-- Fallback -->
+  <img
+    src="/{{ image_path }}"
+    alt="{{ alt }}"
+    width="{{ width }}"
+    height="{{ height }}"
+    loading="{{ loading }}"
+    fetchpriority="{{ fetchpriority }}"
+    decoding="async">
+</picture> 

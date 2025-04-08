@@ -1,0 +1,67 @@
+name: Optimize Images
+
+on:
+  push:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+  pull_request:
+    paths:
+      - '**.jpg'
+      - '**.jpeg'
+      - '**.png'
+      - '**.webp'
+
+jobs:
+  optimize-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install -g sharp-cli
+          npm install -g svgo
+
+      - name: Create output directories
+        run: |
+          mkdir -p assets/images/responsive
+          mkdir -p assets/images/original
+
+      - name: Process Images
+        run: |
+          find assets/images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -not -path "*/responsive/*" -not -path "*/original/*" | while read img; do
+            # Guardar original
+            cp "$img" "assets/images/original/$(basename "$img")"
+            
+            # Convertir a AVIF y WebP en diferentes tamaños
+            for size in 400 600 800 1200; do
+              sharp "$img" -resize $size --withoutEnlargement -o "assets/images/responsive/$(basename "${img%.*}")_${size}.avif" --avif
+              sharp "$img" -resize $size --withoutEnlargement -o "assets/images/responsive/$(basename "${img%.*}")_${size}.webp" --webp
+            done
+            
+            # Optimizar original
+            sharp "$img" -o "$img"
+          done
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore: optimize and convert images"
+          title: "🖼️ Optimize and convert images"
+          body: |
+            This PR optimizes images and creates responsive versions:
+            - Converts images to WebP and AVIF formats
+            - Creates responsive sizes (400w, 600w, 800w, 1200w)
+            - Optimizes original images
+            - Preserves original files in assets/images/original
+          branch: optimize-images
+          delete-branch: true 
