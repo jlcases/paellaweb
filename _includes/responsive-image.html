@@ -6,40 +6,26 @@
 {% assign fetchpriority = include.fetchpriority | default: "auto" %}
 {% assign class = include.class %}
 
+{% assign resized = site.responsive_image.resized %}
+{% assign largest = resized | sort: 'width' | last %}
+{% assign smallest = resized | sort: 'width' | first %}
+
 <picture class="{{ class }}">
-  <!-- AVIF -->
-  <source
-    type="image/avif"
-    srcset="
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_400.avif 400w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_600.avif 600w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_800.avif 800w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_1200.avif 1200w"
-    sizes="(max-width: 400px) 400px,
-           (max-width: 600px) 600px,
-           (max-width: 800px) 800px,
-           1200px">
+  {% for format in site.responsive_image.formats %}
+    <source
+      type="image/{{ format }}"
+      srcset="{% for i in resized %}{{ i.path | relative_url }} {{ i.width }}w{% if forloop.last == false %}, {% endif %}{% endfor %}"
+      sizes="(max-width: 768px) 100vw, {% if include.sizes %}{{ include.sizes }}{% else %}{{ largest.width }}px{% endif %}">
+  {% endfor %}
   
-  <!-- WebP -->
-  <source
-    type="image/webp"
-    srcset="
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_400.webp 400w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_600.webp 600w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_800.webp 800w,
-      /assets/images/responsive/{{ image_path | split: '/' | last | split: '.' | first }}_1200.webp 1200w"
-    sizes="(max-width: 400px) 400px,
-           (max-width: 600px) 600px,
-           (max-width: 800px) 800px,
-           1200px">
-  
-  <!-- Fallback -->
+  <!-- Fallback para navegadores antiguos -->
   <img
-    src="/{{ image_path }}"
-    alt="{{ alt }}"
-    width="{{ width }}"
-    height="{{ height }}"
-    loading="{{ loading }}"
-    fetchpriority="{{ fetchpriority }}"
-    decoding="async">
+    src="{{ largest.path | relative_url }}"
+    alt="{% if alt %}{{ alt }}{% else %}{{ include.alt }}{% endif %}"
+    {% if include.width %}width="{{ include.width }}"{% endif %}
+    {% if include.height %}height="{{ include.height }}"{% endif %}
+    loading="lazy"
+    decoding="async"
+    class="{{ include.image_class }}"
+    {% if include.title %}title="{{ include.title }}"{% endif %}>
 </picture> 

@@ -11,6 +11,28 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-responsive-image
+
+# Configuración del plugin jekyll-responsive-image
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - width: 320
+    - width: 480
+    - width: 768
+    - width: 1024
+    - width: 1200
+    - width: 1920
+  base_path: _posts_images
+  output_path_format: assets/images/blog/:basename/:width/:basename
+  save_to_source: false
+  strip: true
+  quality: 85
+  formats:
+    - webp
+    - avif
+  gravity: center
+  default_quality: 90
 
 # Exclude from processing
 exclude:
@@ -21,6 +43,9 @@ exclude:
   - .git
   - README.md
   - .nojekyll # Exclude this too if present
+  - generate-images.js # Ya no se necesita
+  - package.json
+  - package-lock.json
 
 # Collections
 collections:
