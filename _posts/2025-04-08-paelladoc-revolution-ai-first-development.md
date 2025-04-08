@@ -5,7 +5,7 @@ subtitle: "How structured documentation is changing the way we develop with AI"
 date: 2025-04-08
 author: "J.L. Cases"
 author_bio: "Another CPTO"
-avatar: "/assets/images/jlcases-avatar.webp"
+avatar: "/assets/images/fhf8mC-k_400x400.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
