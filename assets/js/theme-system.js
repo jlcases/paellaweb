@@ -1,7 +1,7 @@
 // theme-system.js - Sistema de gestión de temas oscuro/claro
 
 document.addEventListener('DOMContentLoaded', function() {
-  const themeToggle = document.querySelector('.theme-toggle');
+  const themeToggle = document.querySelector('#theme-toggle-button');
   const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
   // Función para aplicar el tema (oscuro o claro)
@@ -13,15 +13,40 @@ document.addEventListener('DOMContentLoaded', function() {
       document.documentElement.removeAttribute('data-theme');
       console.log("Tema aplicado: oscuro");
     }
-    // Update button state (optional, if you add specific styles for button)
+    // Update button state and ARIA attributes
     updateToggleButton(theme);
   }
 
-  // Función para actualizar el estado visual del botón (opcional)
+  // Función para actualizar el estado visual del botón y atributos ARIA
   function updateToggleButton(theme) {
     if (themeToggle) {
-      // Aquí puedes añadir lógica para cambiar el icono o estilo del botón
-      // Ejemplo: themeToggle.classList.toggle('active', theme === 'light');
+      // Actualizar atributo ARIA
+      themeToggle.setAttribute('aria-pressed', theme === 'light');
+      
+      // Actualizar texto para lectores de pantalla
+      const srText = themeToggle.querySelector('.sr-only');
+      if (srText) {
+        srText.textContent = theme === 'light' 
+          ? 'Cambiar a modo oscuro' 
+          : 'Cambiar a modo claro';
+      }
+      
+      // Anunciar cambio para lectores de pantalla
+      const announcement = document.createElement('div');
+      announcement.setAttribute('role', 'status');
+      announcement.setAttribute('aria-live', 'polite');
+      announcement.classList.add('sr-only');
+      announcement.textContent = theme === 'light' 
+        ? 'Se ha activado el modo claro' 
+        : 'Se ha activado el modo oscuro';
+      document.body.appendChild(announcement);
+      
+      // Eliminar el anuncio después de que sea leído
+      setTimeout(() => {
+        if (announcement.parentNode) {
+          announcement.parentNode.removeChild(announcement);
+        }
+      }, 3000);
     }
   }
 
@@ -47,6 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
       localStorage.setItem('paellaTheme', newTheme);
       applyTheme(newTheme);
       console.log(`Cambiando a tema ${newTheme}`);
+    });
+    
+    // Soporte para navegación por teclado
+    themeToggle.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        themeToggle.click();
+      }
     });
   }
 

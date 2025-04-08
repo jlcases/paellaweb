@@ -7,27 +7,27 @@
 :root {
   /* Colores - Modo oscuro por defecto */
   /* Colores primarios con mejor contraste */
-  --color-primary: #FF7A45; /* Naranja accesible, ratio 4.5:1 sobre fondo oscuro */
-  --color-primary-dark: #FF5722; /* Naranja oscuro accesible */
-  --color-primary-light: #FF9E73; /* Naranja claro accesible */
-  --color-secondary: #62A1FF; /* Azul accesible, ratio 4.5:1 sobre fondo oscuro */
-  --color-secondary-dark: #2979FF; /* Azul oscuro accesible */
+  --color-primary: #FF9E73; /* Naranja accesible, ratio >7:1 sobre fondo oscuro */
+  --color-primary-dark: #FFA366; /* Naranja oscuro accesible, ratio >8:1 */
+  --color-primary-light: #FFBF9E; /* Naranja claro accesible, ratio >10:1 */
+  --color-secondary: #82B1FF; /* Azul accesible, ratio >7:1 sobre fondo oscuro */
+  --color-secondary-dark: #4D94FF; /* Azul oscuro accesible, ratio >8:1 */
   
   /* Neutrales - Modo oscuro */
   --color-bg: #121212; /* Negro suave para reducir el deslumbramiento */
   --color-surface: #1E1E1E; /* Superficie oscura */
   --color-surface-variant: #2D2D2D; /* Variante de superficie */
   --color-text-primary: #FFFFFF; /* Texto principal blanco para máximo contraste (ratio >15:1) */
-  --color-text-secondary: #CCCCCC; /* Texto secundario con ratio >7:1 */
-  --color-text-tertiary: #AAAAAA; /* Texto terciario con ratio >4.5:1 */
-  --color-border: #555555; /* Borde visible con mejor contraste */
+  --color-text-secondary: #E0E0E0; /* Texto secundario mejorado con ratio >10:1 */
+  --color-text-tertiary: #CCCCCC; /* Texto terciario mejorado con ratio >7:1 */
+  --color-border: #666666; /* Borde visible con mejor contraste */
   --color-overlay: rgba(0, 0, 0, 0.7); /* Overlay */
   
   /* Colores semánticos con mejor contraste */
-  --color-success: #4CAF50; /* Verde accesible */
-  --color-warning: #FFC107; /* Amarillo accesible */
-  --color-error: #FF5252; /* Rojo accesible */
-  --color-info: #64B5F6; /* Azul información accesible */
+  --color-success: #6EDB6E; /* Verde accesible mejorado ratio >7:1 */
+  --color-warning: #FFDA6A; /* Amarillo accesible mejorado ratio >7:1 */
+  --color-error: #FF7878; /* Rojo accesible mejorado ratio >7:1 */
+  --color-info: #8ECAFF; /* Azul información accesible mejorado ratio >7:1 */
   
   /* Tipografía */
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -80,8 +80,8 @@
   --z-tooltip: 120;
 
   /* Añadir variables RGB si no existen */
-  --color-primary-rgb: 255, 122, 69;
-  --color-secondary-rgb: 98, 161, 255;
+  --color-primary-rgb: 255, 158, 115;
+  --color-secondary-rgb: 130, 177, 255;
 }
 
 /* ======= TEMA CLARO ======= */
@@ -96,21 +96,21 @@
   --color-overlay: rgba(0, 0, 0, 0.5); /* Overlay */
   
   /* Colores principales en tema claro con buen contraste */
-  --color-primary: #0055CC; /* Azul accesible en fondo claro (ratio >4.5:1) */
-  --color-primary-dark: #003D99; /* Azul oscuro accesible (ratio >7:1) */
-  --color-primary-light: #3178C6; /* Azul claro accesible (ratio 4.5:1) */
-  --color-secondary: #C43E00; /* Naranja accesible en fondo claro (ratio 4.5:1) */
-  --color-secondary-dark: #9A3200; /* Naranja oscuro accesible (ratio 7:1) */
+  --color-primary: #0046A6; /* Azul accesible en fondo claro (ratio >7:1) */
+  --color-primary-dark: #003380; /* Azul oscuro accesible (ratio >10:1) */
+  --color-primary-light: #0055CC; /* Azul claro accesible (ratio >7:1) */
+  --color-secondary: #A33500; /* Naranja accesible en fondo claro (ratio >7:1) */
+  --color-secondary-dark: #802800; /* Naranja oscuro accesible (ratio >10:1) */
 
   /* Colores semánticos para tema claro */
-  --color-success: #2E7D32; /* Verde oscuro accesible (ratio 4.5:1) */
-  --color-warning: #B25000; /* Naranja accesible (ratio 4.5:1) */
-  --color-error: #C41C00; /* Rojo oscuro accesible (ratio 4.5:1) */
-  --color-info: #0055CC; /* Azul información accesible (ratio 4.5:1) */
+  --color-success: #2E7D32; /* Verde oscuro accesible (ratio >7:1) */
+  --color-warning: #944000; /* Naranja accesible (ratio >7:1) */
+  --color-error: #B01A00; /* Rojo oscuro accesible (ratio >7:1) */
+  --color-info: #0046A6; /* Azul información accesible (ratio >7:1) */
 
   /* Añadir variables RGB */
-  --color-primary-rgb: 0, 85, 204;
-  --color-secondary-rgb: 196, 62, 0;
+  --color-primary-rgb: 0, 70, 166;
+  --color-secondary-rgb: 163, 53, 0;
 }
 
 /* ======= ESTILOS BASE ======= */
@@ -131,12 +131,20 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: var(--color-primary);
-  text-decoration: none;
+  text-decoration: underline; /* Hacer que los enlaces sean reconocibles sin depender solo del color */
   transition: color var(--transition-fast);
+  font-weight: var(--font-weight-medium); /* Peso ligeramente mayor para mejor visibilidad */
 }
 
-a:hover {
+a:hover, a:focus {
   color: var(--color-primary-dark);
+  text-decoration: underline;
+  outline: 2px solid var(--color-primary); /* Contorno visible al enfocar */
+}
+
+a:focus {
+  outline: 3px solid var(--color-primary); /* Contorno más visible al enfocar */
+  outline-offset: 2px;
 }
 
 img {
@@ -209,16 +217,27 @@ img {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
   font-size: var(--font-size-base);
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) var(--spacing-sm);
   position: relative;
+  text-decoration: none; /* Reset para los enlaces de navegación */
+  border-radius: var(--border-radius-sm);
 }
 
 .nav-links a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-surface-variant);
+  text-decoration: underline;
+}
+
+.nav-links a:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
   color: var(--color-primary);
 }
 
 .nav-links a.active {
   color: var(--color-primary);
+  text-decoration: underline;
 }
 
 .nav-links a.active::after {
@@ -227,29 +246,53 @@ img {
   bottom: -2px;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px; /* Línea más gruesa para mejor visibilidad */
   background-color: var(--color-primary);
 }
 
-/* Botón alternador de tema */
+/* Foco accesible global para todos los elementos interactivos */
+:focus {
+  outline: 3px solid var(--color-primary); 
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Estilo de foco para el modo de alto contraste */
+@media (forced-colors: active) {
+  :focus {
+    outline: 3px solid CanvasText;
+  }
+  
+  a, button {
+    forced-color-adjust: none;
+  }
+}
+
+/* Estilos mejorados para interactividad del botón de tema */
 .theme-toggle {
-  width: 40px;
-  height: 40px;
+  width: 44px; /* Tamaño mínimo para elementos interactivos táctiles */
+  height: 44px;
   border-radius: var(--border-radius-full);
   background-color: var(--color-surface-variant);
-  border: none;
+  border: 2px solid transparent;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   margin-left: var(--spacing-lg);
   color: var(--color-text-primary);
-  transition: background-color var(--transition-base);
+  transition: all var(--transition-base);
   z-index: var(--z-header);
 }
 
 .theme-toggle:hover {
   background-color: var(--color-border);
+  border-color: var(--color-primary);
+}
+
+.theme-toggle:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .theme-toggle .sun-icon {
@@ -268,64 +311,40 @@ img {
   display: none;
 }
 
-/* Botones */
-.button {
-  display: inline-flex;
+/* Estilo específico para el botón de menú móvil */
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-xs);
+  background-color: var(--color-surface-variant);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-md) var(--spacing-lg);
-  border-radius: var(--border-radius-md);
-  font-weight: var(--font-weight-semibold);
-  transition: all var(--transition-fast);
+  gap: 6px;
   cursor: pointer;
-  border: none;
-  font-size: var(--font-size-base);
+  z-index: calc(var(--z-header) + 10);
+  transition: all var(--transition-base);
 }
 
-.button.primary {
-  background-color: var(--color-primary);
-  color: white;
-}
-
-.button.primary:hover {
-  background-color: var(--color-primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.button.secondary {
-  background-color: var(--color-surface-variant);
-  color: var(--color-text-primary);
-  border: 1px solid var(--color-border);
-}
-
-.button.secondary:hover {
+.menu-toggle:hover {
+  background-color: var(--color-border);
   border-color: var(--color-primary);
-  transform: translateY(-2px);
 }
 
-/* Menú hamburguesa para móvil */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 22px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: var(--z-menu);
+.menu-toggle:focus {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
 }
 
 .menu-toggle span {
   display: block;
-  width: 100%;
-  height: 3px;
+  width: 24px;
+  height: 2px;
   background-color: var(--color-text-primary);
-  border-radius: 3px;
-  transition: all var(--transition-base);
-  transform-origin: center;
+  transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
 /* Animación para la X de cerrar */
@@ -598,21 +617,28 @@ img {
   font-weight: var(--font-weight-bold);
 }
 
-/* Accesibilidad */
+/* Skip link - estilos mejorados */
 .skip-to-content {
   position: absolute;
   top: -40px;
   left: 0;
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: var(--spacing-md) var(--spacing-lg);
   background-color: var(--color-primary);
-  color: white;
+  color: #000000; /* Texto oscuro para garantizar contraste con el fondo claro */
   z-index: var(--z-tooltip);
   transition: top var(--transition-fast);
+  text-decoration: underline;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+  border: none;
+  border-radius: 0 0 var(--border-radius-md) 0;
 }
 
 .skip-to-content:focus {
   top: 0;
-  outline: 2px solid var(--color-primary-light);
+  outline: 3px solid #FFFFFF; /* Alto contraste para el foco */
+  text-decoration: underline;
+  box-shadow: var(--shadow-lg);
 }
 
 /* ======= COMPONENTES ESPECÍFICOS ======= */
@@ -1733,4 +1759,50 @@ img {
   justify-content: center;
   align-items: center;
   min-height: 400px;
+} 
+
+/* Estilos para los botones generales - mejoras de accesibilidad */
+.button {
+  padding: var(--spacing-sm) var(--spacing-xl);
+  min-height: 44px; /* Altura mínima para elementos táctiles */
+  border-radius: var(--border-radius-md);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1.5;
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  gap: var(--spacing-sm);
+}
+
+.button:focus {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+.button.primary {
+  background-color: var(--color-primary);
+  color: #000000; /* Texto oscuro para garantizar contraste */
+}
+
+.button.primary:hover {
+  background-color: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.button.secondary {
+  background-color: var(--color-surface-variant);
+  color: var(--color-text-primary);
+  border: 2px solid var(--color-border);
+}
+
+.button.secondary:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
 } 

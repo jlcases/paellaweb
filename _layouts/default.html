@@ -125,21 +125,22 @@
             <span class="logo-text" itemprop="name">PAELLADOC</span>
           </a>
           <nav class="site-nav" role="navigation" aria-label="Main Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation">
-              <span></span>
-              <span></span>
-              <span></span>
+            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation" id="menu-toggle-button">
+              <span class="sr-only">Menu</span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
             </button>
-            <ul class="nav-links" id="main-navigation">
-              <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home" itemprop="url"><span itemprop="name">HOME</span></a></li>
-              <li><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog" itemprop="url"><span itemprop="name">BLOG</span></a></li>
-              <li><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute" itemprop="url"><span itemprop="name">CONTRIBUTE</span></a></li>
-              <li><a href="https://github.com/jlcases/paelladoc?utm_source=paelladoc&utm_medium=header&utm_campaign=github" target="_blank" rel="noopener" aria-label="GitHub Repository" itemprop="url"><span itemprop="name">GITHUB</span></a></li>
-              <li><a href="https://github.com/jlcases/paelladoc/discussions?utm_source=paelladoc&utm_medium=header&utm_campaign=discussions" target="_blank" rel="noopener" aria-label="GitHub Discussions" itemprop="url"><span itemprop="name">DISCUSSIONS</span></a></li>
+            <ul class="nav-links" id="main-navigation" role="menu">
+              <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
+              <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
+              <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
+              <li role="none"><a href="https://github.com/jlcases/paelladoc?utm_source=paelladoc&utm_medium=header&utm_campaign=github" target="_blank" rel="noopener" aria-label="GitHub Repository, opens in a new tab" itemprop="url" role="menuitem"><span itemprop="name">GITHUB</span></a></li>
+              <li role="none"><a href="https://github.com/jlcases/paelladoc/discussions?utm_source=paelladoc&utm_medium=header&utm_campaign=discussions" target="_blank" rel="noopener" aria-label="GitHub Discussions, opens in a new tab" itemprop="url" role="menuitem"><span itemprop="name">DISCUSSIONS</span></a></li>
             </ul>
             {% include theme-toggle.html %}
             <!-- Overlay para el menú móvil -->
-            <div class="menu-overlay"></div>
+            <div class="menu-overlay" aria-hidden="true"></div>
           </nav>
         </div>
       </div>
@@ -154,12 +155,62 @@
     <!-- Scripts optimizados -->
     <script defer src="/assets/js/theme-system.min.js"></script>
     <script>
+      // Add a hidden class for accessibility
+      if (!document.querySelector('.sr-only')) {
+        const style = document.createElement('style');
+        style.textContent = '.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }';
+        document.head.appendChild(style);
+      }
+      
       // Carga inmediata para el menú móvil y tema
       document.addEventListener('DOMContentLoaded', function() {
         // Cargar scripts críticos de navegación inmediatamente
         var navScript = document.createElement('script');
         navScript.src = '/assets/js/components/navigation.js';
         document.body.appendChild(navScript);
+        
+        // Add keyboard navigation to the menu
+        var menuToggle = document.getElementById('menu-toggle-button');
+        var mainNav = document.getElementById('main-navigation');
+        
+        if (menuToggle && mainNav) {
+          menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              menuToggle.click();
+            }
+          });
+          
+          // Add ESC key to close the menu
+          document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+              menuToggle.click();
+              menuToggle.focus();
+            }
+          });
+        }
+        
+        // Add focus trap when menu is open (for accessibility)
+        function setupFocusTrap() {
+          var menuItems = mainNav.querySelectorAll('a');
+          if (menuItems.length && menuToggle.getAttribute('aria-expanded') === 'true') {
+            menuItems[0].focus();
+            
+            menuItems[menuItems.length - 1].addEventListener('keydown', function(e) {
+              if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                menuToggle.focus();
+              }
+            });
+            
+            menuToggle.addEventListener('keydown', function(e) {
+              if (e.key === 'Tab' && e.shiftKey) {
+                e.preventDefault();
+                menuItems[menuItems.length - 1].focus();
+              }
+            });
+          }
+        }
         
         // Carga scripts no críticos después de la carga completa
         window.addEventListener('load', function() {
