@@ -8,7 +8,7 @@ author_bio: "Another CPTO"
 avatar: "/assets/images/jlcases-avatar.webp"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
-linkedin: "https://linkedin.com/in/jlcases"
+linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
 categories: Framework
