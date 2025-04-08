@@ -35,14 +35,33 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        {% include responsive-image.html 
-          image_path="assets/images/imagen-light.webp"
-          alt="Hero visual"
-          width="1024"
-          height="576"
-          loading="eager"
-          fetchpriority="high"
-          class="hero-visual" %}
+        <picture class="hero-image">
+          <!-- Dark mode image -->
+          <source
+            media="(prefers-color-scheme: dark)"
+            srcset="/assets/images/imagen-dark-600.webp 600w,
+                    /assets/images/imagen-dark-1200.webp 1200w"
+            sizes="(max-width: 600px) 600px, 1200px"
+            type="image/webp">
+          
+          <!-- Light mode image -->
+          <source
+            media="(prefers-color-scheme: light)"
+            srcset="/assets/images/imagen-light-600.webp 600w,
+                    /assets/images/imagen-light-1200.webp 1200w"
+            sizes="(max-width: 600px) 600px, 1200px"
+            type="image/webp">
+          
+          <!-- Fallback image -->
+          <img
+            src="/assets/images/imagen-light-600.webp"
+            alt="Hero visual"
+            width="1200"
+            height="675"
+            loading="eager"
+            fetchpriority="high"
+            class="hero-image">
+        </picture>
       </div>
     </div>
   </div>
