@@ -68,6 +68,19 @@
         background-color: #ffffff;
         color: #121212;
       }
+      /* Estilos críticos para el logo */
+      .logo-text {
+        font-family: 'Inter', sans-serif;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: var(--color-text-primary);
+      }
+      @font-face {
+        font-family: 'Inter';
+        font-weight: 100 900;
+        font-display: swap;
+        src: url('/assets/fonts/inter-var.woff2') format('woff2');
+      }
     </style>
     
     <link rel="stylesheet" href="{{ '/assets/css/design-system.min.css' | relative_url }}">
@@ -121,6 +134,8 @@
               <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home" itemprop="url"><span itemprop="name">HOME</span></a></li>
               <li><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog" itemprop="url"><span itemprop="name">BLOG</span></a></li>
               <li><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute" itemprop="url"><span itemprop="name">CONTRIBUTE</span></a></li>
+              <li><a href="https://github.com/jlcases/paelladoc?utm_source=paelladoc&utm_medium=header&utm_campaign=github" target="_blank" rel="noopener" aria-label="GitHub Repository" itemprop="url"><span itemprop="name">GITHUB</span></a></li>
+              <li><a href="https://github.com/jlcases/paelladoc/discussions?utm_source=paelladoc&utm_medium=header&utm_campaign=discussions" target="_blank" rel="noopener" aria-label="GitHub Discussions" itemprop="url"><span itemprop="name">DISCUSSIONS</span></a></li>
             </ul>
             {% include theme-toggle.html %}
             <!-- Overlay para el menú móvil -->
@@ -136,8 +151,23 @@
 
     {% include footer.html %}
 
-    <script src="{{ '/assets/js/main.min.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/js/theme-system.min.js' | relative_url }}" defer></script>
-    <script src="{{ '/assets/js/github-stats.js' | relative_url }}" defer></script>
+    <!-- Scripts optimizados -->
+    <script defer src="/assets/js/theme-system.min.js"></script>
+    <script type="module">
+      // Carga dinámica de scripts no críticos
+      window.addEventListener('load', () => {
+        const scripts = [
+          '/assets/js/main.min.js',
+          '/assets/js/github-stats.js'
+        ];
+        
+        scripts.forEach(src => {
+          const script = document.createElement('script');
+          script.src = src;
+          script.async = true;
+          document.body.appendChild(script);
+        });
+      });
+    </script>
   </body>
 </html>
