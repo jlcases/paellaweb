@@ -1,154 +1,101 @@
 /**
- * Navigation Component
- * 
- * Maneja el comportamiento de la navegación móvil y del cambio de tema
+ * Navigation Component (Simplified & Debugged)
+ * Maneja el comportamiento de la navegación móvil
  */
-
-// Inicialización del componente al cargar el DOM
 document.addEventListener('DOMContentLoaded', () => {
-  const Navigation = {
-    // Elementos del DOM
-    elements: {
-      menuToggle: document.querySelector('.menu-toggle'),
-      navLinks: document.querySelector('.nav-links'),
-      menuOverlay: document.querySelector('.menu-overlay'),
-      themeToggle: document.querySelector('.theme-toggle'),
-      body: document.body
-    },
-    
-    // Estado del componente
-    state: {
-      isMenuOpen: false
-    },
-    
-    // Inicialización
-    init() {
-      this.bindEvents();
-      this.initializeMenu();
-      this.initializeTheme();
-    },
-    
-    // Asociación de eventos
-    bindEvents() {
-      const { menuToggle, navLinks, menuOverlay, themeToggle } = this.elements;
-      
-      // Evento para el botón del menú
-      if (menuToggle) {
-        menuToggle.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          this.toggleMenu();
-        });
-      }
-      
-      // Evento para el overlay
-      if (menuOverlay) {
-        menuOverlay.addEventListener('click', () => this.closeMenu());
-      }
-      
-      // Eventos para los enlaces de navegación
-      if (navLinks) {
-        navLinks.querySelectorAll('a').forEach(link => {
-          link.addEventListener('click', () => this.closeMenu());
-        });
-      }
-      
-      // Evento para cambio de tema
-      if (themeToggle) {
-        themeToggle.addEventListener('click', () => this.toggleTheme());
-      }
-      
-      // Cerrar menú con Escape
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && this.state.isMenuOpen) {
-          this.closeMenu();
-        }
-      });
-      
-      // Cerrar menú al redimensionar ventana
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && this.state.isMenuOpen) {
-          this.closeMenu();
-        }
-      });
-    },
-    
-    // Inicializar menú
-    initializeMenu() {
-      const { menuToggle } = this.elements;
-      if (menuToggle) {
-        menuToggle.setAttribute('aria-expanded', 'false');
-      }
-      this.closeMenu();
-    },
-    
-    // Inicializar tema
-    initializeTheme() {
-      // Detectar preferencia del usuario
-      const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const savedTheme = localStorage.getItem('theme');
-      
-      if (savedTheme) {
-        // Aplicar tema guardado
-        this.elements.body.setAttribute('data-theme', savedTheme);
-      } else if (prefersDarkMode) {
-        // Aplicar tema oscuro por defecto
-        this.elements.body.setAttribute('data-theme', 'dark');
-      } else {
-        // Aplicar tema claro por defecto
-        this.elements.body.setAttribute('data-theme', 'light');
-      }
-    },
-    
-    // Alternar apertura/cierre del menú
-    toggleMenu() {
-      if (this.state.isMenuOpen) {
-        this.closeMenu();
-      } else {
-        this.openMenu();
-      }
-    },
-    
-    // Abrir menú
-    openMenu() {
-      const { menuToggle, navLinks, menuOverlay, body } = this.elements;
-      
-      this.state.isMenuOpen = true;
-      
-      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'true');
-      if (menuToggle) menuToggle.classList.add('active');
-      if (navLinks) navLinks.classList.add('active');
-      if (menuOverlay) menuOverlay.classList.add('active');
-      if (body) body.classList.add('no-scroll');
-    },
-    
-    // Cerrar menú
-    closeMenu() {
-      const { menuToggle, navLinks, menuOverlay, body } = this.elements;
-      
-      this.state.isMenuOpen = false;
-      
-      if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
-      if (menuToggle) menuToggle.classList.remove('active');
-      if (navLinks) navLinks.classList.remove('active');
-      if (menuOverlay) menuOverlay.classList.remove('active');
-      if (body) body.classList.remove('no-scroll');
-    },
-    
-    // Alternar tema claro/oscuro
-    toggleTheme() {
-      const { body } = this.elements;
-      const currentTheme = body.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-      
-      // Cambiar el tema
-      body.setAttribute('data-theme', newTheme);
-      
-      // Guardar preferencia
-      localStorage.setItem('theme', newTheme);
-    }
-  };
+  console.log('[NAV] DOM Cargado. Inicializando...');
   
-  // Inicializar componente de navegación
-  Navigation.init();
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  const menuOverlay = document.querySelector('.menu-overlay');
+  const body = document.body;
+
+  if (!menuToggle) {
+    console.error('[NAV] Error: No se encontró .menu-toggle');
+    return;
+  }
+  if (!navLinks) {
+    console.error('[NAV] Error: No se encontró .nav-links');
+    return;
+  }
+  if (!menuOverlay) {
+    console.warn('[NAV] Warning: No se encontró .menu-overlay');
+  }
+  if (!body) {
+    console.error('[NAV] Error: No se encontró body');
+    return;
+  }
+
+  let isMenuOpen = false;
+
+  const openMenu = () => {
+    if (isMenuOpen) return;
+    console.log('[NAV] Abriendo menú...');
+    isMenuOpen = true;
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.classList.add('active');
+    navLinks.classList.add('active');
+    if (menuOverlay) menuOverlay.classList.add('active');
+    body.classList.add('no-scroll');
+  };
+
+  const closeMenu = () => {
+    if (!isMenuOpen) return;
+    console.log('[NAV] Cerrando menú...');
+    isMenuOpen = false;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.classList.remove('active');
+    navLinks.classList.remove('active');
+    if (menuOverlay) menuOverlay.classList.remove('active');
+    body.classList.remove('no-scroll');
+  };
+
+  // Asegurar estado inicial cerrado
+  console.log('[NAV] Estableciendo estado inicial cerrado.');
+  closeMenu();
+
+  menuToggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('[NAV] Click en menu-toggle');
+    if (isMenuOpen) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  if (menuOverlay) {
+    menuOverlay.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('[NAV] Click en menu-overlay');
+      closeMenu();
+    });
+  }
+
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      console.log('[NAV] Click en enlace de navegación');
+      // Cerrar el menú después de un pequeño delay para permitir la navegación
+      if (isMenuOpen) {
+        setTimeout(closeMenu, 100);
+      }
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && isMenuOpen) {
+      console.log('[NAV] Redimensión a escritorio, cerrando menú.');
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
+      console.log('[NAV] Tecla Escape presionada, cerrando menú.');
+      closeMenu();
+    }
+  });
+
+  console.log('[NAV] Script de navegación inicializado correctamente.');
 }); 

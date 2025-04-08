@@ -449,11 +449,13 @@ img {
     max-width: 400px;
     margin: 0 auto var(--spacing-xl);
     min-height: unset;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
   
   .hero-image {
     max-width: 100%;
-    height: auto;
+    height: 100%;
     object-fit: contain;
   }
 }
@@ -478,6 +480,8 @@ img {
   .hero-visual {
     max-width: 350px;
     min-height: unset;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 }
 
@@ -498,6 +502,8 @@ img {
   
   .hero-visual {
     max-width: 300px;
+    aspect-ratio: 16 / 9;
+    height: auto;
   }
 }
 
