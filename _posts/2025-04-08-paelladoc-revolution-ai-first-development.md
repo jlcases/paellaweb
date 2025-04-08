@@ -7,14 +7,11 @@ author: "J.L. Cases"
 avatar: "/assets/images/default-avatar.png"
 github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
-image: "/assets/images/paelladoc-hero.jpg"
+image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
-categories:
-  - Framework
-  - Best Practices
+categories: Framework
 tags:
-  - AI-first development
-  - Cursor AI
+  - Best Practices
   - context preservation
   - structured documentation
   - PAELLADOC
