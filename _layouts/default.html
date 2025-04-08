@@ -30,10 +30,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <!-- Preload de imágenes críticas para LCP -->
-    <link rel="preload" as="image" href="/assets/images/imagen-dark-600.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: dark) and (max-width: 600px)">
-    <link rel="preload" as="image" href="/assets/images/imagen-dark.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: dark) and (min-width: 601px)">
-    <link rel="preload" as="image" href="/assets/images/imagen-light-600.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: light) and (max-width: 600px)">
-    <link rel="preload" as="image" href="/assets/images/imagen-light.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: light) and (min-width: 601px)">
+    <link rel="preload" as="image" href="/assets/images/responsive/imagen-dark_480.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: dark) and (max-width: 600px)">
+    <link rel="preload" as="image" href="/assets/images/responsive/imagen-dark_1024.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: dark) and (min-width: 601px)">
+    <link rel="preload" as="image" href="/assets/images/responsive/imagen-light_480.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: light) and (max-width: 600px)">
+    <link rel="preload" as="image" href="/assets/images/responsive/imagen-light_1024.webp" type="image/webp" fetchpriority="high" media="(prefers-color-scheme: light) and (min-width: 601px)">
     
     <!-- Cargar solo los iconos de Font Awesome que usamos -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -153,19 +153,27 @@
 
     <!-- Scripts optimizados -->
     <script defer src="/assets/js/theme-system.min.js"></script>
-    <script type="module">
-      // Carga dinámica de scripts no críticos
-      window.addEventListener('load', () => {
-        const scripts = [
-          '/assets/js/main.min.js',
-          '/assets/js/github-stats.js'
-        ];
+    <script>
+      // Carga inmediata para el menú móvil y tema
+      document.addEventListener('DOMContentLoaded', function() {
+        // Cargar scripts críticos de navegación inmediatamente
+        var navScript = document.createElement('script');
+        navScript.src = '/assets/js/components/navigation.js';
+        document.body.appendChild(navScript);
         
-        scripts.forEach(src => {
-          const script = document.createElement('script');
-          script.src = src;
-          script.async = true;
-          document.body.appendChild(script);
+        // Carga scripts no críticos después de la carga completa
+        window.addEventListener('load', function() {
+          const scripts = [
+            '/assets/js/main.min.js',
+            '/assets/js/github-stats.js'
+          ];
+          
+          scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = src;
+            script.async = true;
+            document.body.appendChild(script);
+          });
         });
       });
     </script>
