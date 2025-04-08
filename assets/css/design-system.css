@@ -441,12 +441,20 @@ img {
 
   .github-stats {
     justify-content: center;
+    margin-top: var(--spacing-md);
   }
 
   .hero-visual {
     order: -1;
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 400px;
+    margin: 0 auto var(--spacing-xl);
+    min-height: unset;
+  }
+  
+  .hero-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -468,7 +476,8 @@ img {
   }
 
   .hero-visual {
-    min-height: 300px;
+    max-width: 350px;
+    min-height: unset;
   }
 }
 
@@ -485,6 +494,10 @@ img {
     flex-direction: column;
     align-items: center;
     gap: var(--spacing-sm);
+  }
+  
+  .hero-visual {
+    max-width: 300px;
   }
 }
 
