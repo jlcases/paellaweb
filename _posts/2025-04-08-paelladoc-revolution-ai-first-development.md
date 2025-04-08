@@ -4,7 +4,11 @@ title: "PAELLADOC: The definitive solution to context loss destroying your AI pr
 subtitle: "Transform your development with the only system that preserves context throughout the entire lifecycle"
 date: 2025-04-08
 author: "J.L. Cases"
+author_bio: "AI Engineering Lead and Creator of PAELLADOC. Specialized in context preservation systems and AI-assisted development."
 avatar: "/assets/images/paelladoc-avatar.png"
+github: "https://github.com/jlcases"
+twitter: "https://x.com/jlcases"
+linkedin: "https://linkedin.com/in/jlcases"
 image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
 categories: Framework
