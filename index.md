@@ -36,28 +36,80 @@ image: /assets/images/og-image.jpg
       </div>
       <div class="hero-visual">
         <picture class="hero-image">
-          <!-- Dark mode image -->
+          <!-- Dark mode AVIF -->
           <source
             media="(prefers-color-scheme: dark)"
-            srcset="/assets/images/responsive/imagen-dark_600.webp 600w,
-                    /assets/images/responsive/imagen-dark_1200.webp 1200w"
-            sizes="(max-width: 600px) 600px, 1200px"
-            type="image/webp">
+            type="image/avif"
+            srcset="/assets/images/responsive/imagen-dark_320.avif 320w,
+                    /assets/images/responsive/imagen-dark_480.avif 480w,
+                    /assets/images/responsive/imagen-dark_768.avif 768w,
+                    /assets/images/responsive/imagen-dark_1024.avif 1024w,
+                    /assets/images/responsive/imagen-dark_1200.avif 1200w,
+                    /assets/images/responsive/imagen-dark_1920.avif 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
           
-          <!-- Light mode image -->
+          <!-- Light mode AVIF -->
           <source
             media="(prefers-color-scheme: light)"
-            srcset="/assets/images/responsive/imagen-light_600.webp 600w,
-                    /assets/images/responsive/imagen-light_1200.webp 1200w"
-            sizes="(max-width: 600px) 600px, 1200px"
-            type="image/webp">
+            type="image/avif"
+            srcset="/assets/images/responsive/imagen-light_320.avif 320w,
+                    /assets/images/responsive/imagen-light_480.avif 480w,
+                    /assets/images/responsive/imagen-light_768.avif 768w,
+                    /assets/images/responsive/imagen-light_1024.avif 1024w,
+                    /assets/images/responsive/imagen-light_1200.avif 1200w,
+                    /assets/images/responsive/imagen-light_1920.avif 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
+
+          <!-- Dark mode WebP -->
+          <source
+            media="(prefers-color-scheme: dark)"
+            type="image/webp"
+            srcset="/assets/images/responsive/imagen-dark_320.webp 320w,
+                    /assets/images/responsive/imagen-dark_480.webp 480w,
+                    /assets/images/responsive/imagen-dark_768.webp 768w,
+                    /assets/images/responsive/imagen-dark_1024.webp 1024w,
+                    /assets/images/responsive/imagen-dark_1200.webp 1200w,
+                    /assets/images/responsive/imagen-dark_1920.webp 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
+          
+          <!-- Light mode WebP -->
+          <source
+            media="(prefers-color-scheme: light)"
+            type="image/webp"
+            srcset="/assets/images/responsive/imagen-light_320.webp 320w,
+                    /assets/images/responsive/imagen-light_480.webp 480w,
+                    /assets/images/responsive/imagen-light_768.webp 768w,
+                    /assets/images/responsive/imagen-light_1024.webp 1024w,
+                    /assets/images/responsive/imagen-light_1200.webp 1200w,
+                    /assets/images/responsive/imagen-light_1920.webp 1920w"
+            sizes="(max-width: 320px) 320px,
+                   (max-width: 480px) 480px,
+                   (max-width: 768px) 768px,
+                   (max-width: 1024px) 1024px,
+                   (max-width: 1200px) 1200px,
+                   1920px">
           
           <!-- Fallback image -->
           <img
-            src="/assets/images/responsive/imagen-light_600.webp"
+            src="/assets/images/responsive/imagen-light_1024.webp"
             alt="Hero visual"
-            width="1200"
-            height="675"
+            width="1920"
+            height="1080"
             loading="eager"
             fetchpriority="high"
             class="hero-image">

@@ -1,0 +1,26 @@
+{
+  "name": "paelladocweb",
+  "version": "1.0.0",
+  "description": "This is the official website for PAELLADOC, an AI documentation framework that helps solve context loss problems in AI development teams.",
+  "main": "generate-images.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlcases/paellaweb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jlcases/paellaweb/issues"
+  },
+  "homepage": "https://github.com/jlcases/paellaweb#readme",
+  "dependencies": {
+    "sharp": "^0.34.1"
+  }
+}

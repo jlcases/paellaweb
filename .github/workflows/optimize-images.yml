@@ -3,23 +3,23 @@ name: Optimize Images
 on:
   push:
     paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
+      - 'assets/images/**'
   pull_request:
     paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
-      - '**.webp'
+      - 'assets/images/**'
 
 jobs:
   optimize-images:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -31,37 +31,48 @@ jobs:
           npm install -g sharp-cli
           npm install -g svgo
 
-      - name: Create output directories
-        run: |
-          mkdir -p assets/images/responsive
-          mkdir -p assets/images/original
-
       - name: Process Images
         run: |
-          find assets/images -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -not -path "*/responsive/*" -not -path "*/original/*" | while read img; do
-            # Guardar original
-            cp "$img" "assets/images/original/$(basename "$img")"
-            
-            # Convertir a AVIF y WebP en diferentes tamaños
-            for size in 400 600 800 1200; do
-              sharp "$img" -resize $size --withoutEnlargement -o "assets/images/responsive/$(basename "${img%.*}")_${size}.avif" --avif
-              sharp "$img" -resize $size --withoutEnlargement -o "assets/images/responsive/$(basename "${img%.*}")_${size}.webp" --webp
-            done
-            
-            # Optimizar original
-            sharp "$img" -o "$img"
+          # Crear directorios si no existen
+          mkdir -p assets/images/responsive
+
+          # Procesar todas las imágenes en assets/images
+          for img in assets/images/*.{jpg,jpeg,png,webp}; do
+            if [ -f "$img" ]; then
+              filename=$(basename "$img")
+              name="${filename%.*}"
+              ext="${filename##*.}"
+              
+              # Crear versiones WebP para diferentes dispositivos
+              # 320px - Móviles pequeños
+              # 480px - Móviles
+              # 768px - Tablets
+              # 1024px - Laptops
+              # 1200px - Desktops
+              # 1920px - Pantallas grandes
+              for size in 320 480 768 1024 1200 1920; do
+                sharp "$img" \
+                  --resize "$size" \
+                  --format webp \
+                  --quality 85 \
+                  --output "assets/images/responsive/${name}_${size}.webp"
+              done
+
+              # Crear versión AVIF para navegadores modernos
+              for size in 320 480 768 1024 1200 1920; do
+                sharp "$img" \
+                  --resize "$size" \
+                  --format avif \
+                  --quality 80 \
+                  --output "assets/images/responsive/${name}_${size}.avif"
+              done
+            fi
           done
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit-message: "chore: optimize and convert images"
-          title: "🖼️ Optimize and convert images"
-          body: |
-            This PR optimizes images and creates responsive versions:
-            - Converts images to WebP and AVIF formats
-            - Creates responsive sizes (400w, 600w, 800w, 1200w)
-            - Optimizes original images
-            - Preserves original files in assets/images/original
-          branch: optimize-images
-          delete-branch: true 
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add assets/images/responsive/
+          git commit -m "chore: optimize and generate responsive images" || echo "No changes to commit"
+          git push origin HEAD:${GITHUB_REF} 
