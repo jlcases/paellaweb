@@ -45,12 +45,11 @@ image: /assets/images/og-image.jpg
                     /assets/images/responsive/imagen_1024.avif 1024w,
                     /assets/images/responsive/imagen_1200.avif 1200w,
                     /assets/images/responsive/imagen_1920.avif 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
+            sizes="(max-width: 480px) 300px,
+                   (max-width: 768px) 350px,
+                   (max-width: 992px) 400px,
+                   (max-width: 1200px) 600px,
+                   min(800px, 100vw)">
           
           <!-- WebP (ampliamente soportado) -->
           <source
@@ -61,12 +60,11 @@ image: /assets/images/og-image.jpg
                     /assets/images/responsive/imagen_1024.webp 1024w,
                     /assets/images/responsive/imagen_1200.webp 1200w,
                     /assets/images/responsive/imagen_1920.webp 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
+            sizes="(max-width: 480px) 300px,
+                   (max-width: 768px) 350px,
+                   (max-width: 992px) 400px,
+                   (max-width: 1200px) 600px,
+                   min(800px, 100vw)">
           
           <!-- Fallback original -->
           <img
