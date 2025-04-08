@@ -45,11 +45,12 @@ image: /assets/images/og-image.jpg
                     /assets/images/responsive/imagen_1024.avif 1024w,
                     /assets/images/responsive/imagen_1200.avif 1200w,
                     /assets/images/responsive/imagen_1920.avif 1920w"
-            sizes="(max-width: 480px) 300px,
+            sizes="(max-width: 360px) 280px,
+                   (max-width: 480px) 300px,
                    (max-width: 768px) 350px,
                    (max-width: 992px) 400px,
-                   (max-width: 1200px) 600px,
-                   min(800px, 100vw)">
+                   (max-width: 1200px) 550px,
+                   min(700px, 100vw)">
           
           <!-- WebP (ampliamente soportado) -->
           <source
@@ -60,18 +61,17 @@ image: /assets/images/og-image.jpg
                     /assets/images/responsive/imagen_1024.webp 1024w,
                     /assets/images/responsive/imagen_1200.webp 1200w,
                     /assets/images/responsive/imagen_1920.webp 1920w"
-            sizes="(max-width: 480px) 300px,
+            sizes="(max-width: 360px) 280px,
+                   (max-width: 480px) 300px,
                    (max-width: 768px) 350px,
                    (max-width: 992px) 400px,
-                   (max-width: 1200px) 600px,
-                   min(800px, 100vw)">
+                   (max-width: 1200px) 550px,
+                   min(700px, 100vw)">
           
           <!-- Fallback original -->
           <img
             src="/assets/images/imagen-min.png"
             alt="Hero visual PAELLADOC"
-            width="1024"
-            height="1024"
             loading="eager"
             fetchpriority="high"
             class="hero-image">

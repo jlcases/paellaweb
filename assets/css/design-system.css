@@ -424,6 +424,46 @@ img {
   color: var(--color-primary);
 }
 
+/* Imágenes responsive */
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+  aspect-ratio: 1/1;
+  display: block;
+}
+
+/* Estilos específicos para diferentes breakpoints */
+@media (max-width: 1200px) {
+  .hero-image img {
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-image img {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image img {
+    max-width: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-image img {
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .hero-image img {
+    max-width: 280px;
+  }
+}
+
 /* Responsive Hero */
 @media (max-width: 992px) {
   .hero-content {
