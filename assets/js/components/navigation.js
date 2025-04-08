@@ -5,11 +5,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('[NAV] DOM Cargado. Inicializando...');
   
+  // Obtener elementos del DOM
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks = document.querySelector('.nav-links');
   const menuOverlay = document.querySelector('.menu-overlay');
   const body = document.body;
 
+  // Verificar que los elementos existen
   if (!menuToggle) {
     console.error('[NAV] Error: No se encontró .menu-toggle');
     return;
@@ -18,13 +20,19 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('[NAV] Error: No se encontró .nav-links');
     return;
   }
+  
+  // Crear overlay si no existe
+  let createdOverlay = false;
   if (!menuOverlay) {
-    console.warn('[NAV] Warning: No se encontró .menu-overlay');
+    console.warn('[NAV] Warning: No se encontró .menu-overlay, creando uno...');
+    const newOverlay = document.createElement('div');
+    newOverlay.className = 'menu-overlay';
+    document.querySelector('.site-nav').appendChild(newOverlay);
+    createdOverlay = true;
   }
-  if (!body) {
-    console.error('[NAV] Error: No se encontró body');
-    return;
-  }
+
+  // Obtener una referencia actualizada
+  const overlay = createdOverlay ? document.querySelector('.menu-overlay') : menuOverlay;
 
   let isMenuOpen = false;
 
@@ -35,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-expanded', 'true');
     menuToggle.classList.add('active');
     navLinks.classList.add('active');
-    if (menuOverlay) menuOverlay.classList.add('active');
+    if (overlay) overlay.classList.add('active');
     body.classList.add('no-scroll');
   };
 
@@ -46,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.classList.remove('active');
     navLinks.classList.remove('active');
-    if (menuOverlay) menuOverlay.classList.remove('active');
+    if (overlay) overlay.classList.remove('active');
     body.classList.remove('no-scroll');
   };
 
@@ -65,8 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (menuOverlay) {
-    menuOverlay.addEventListener('click', (e) => {
+  if (overlay) {
+    overlay.addEventListener('click', (e) => {
       e.preventDefault();
       console.log('[NAV] Click en menu-overlay');
       closeMenu();

@@ -336,16 +336,18 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--color-overlay);
+  background-color: rgba(0, 0, 0, 0.7);
   z-index: var(--z-overlay);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--transition-base), visibility var(--transition-base);
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
 }
 
 .menu-overlay.active {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 
 /* Hero Section */
