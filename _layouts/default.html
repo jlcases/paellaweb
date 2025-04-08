@@ -141,8 +141,6 @@
               <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
               <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
               <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
-              <li role="none"><a href="https://github.com/jlcases/paelladoc?utm_source=paelladoc&utm_medium=header&utm_campaign=github" target="_blank" rel="noopener" aria-label="GitHub Repository, opens in a new tab" itemprop="url" role="menuitem"><span itemprop="name">GITHUB</span></a></li>
-              <li role="none"><a href="https://github.com/jlcases/paelladoc/discussions?utm_source=paelladoc&utm_medium=header&utm_campaign=discussions" target="_blank" rel="noopener" aria-label="GitHub Discussions, opens in a new tab" itemprop="url" role="menuitem"><span itemprop="name">DISCUSSIONS</span></a></li>
             </ul>
             {% include theme-toggle.html %}
             <!-- Overlay para el menú móvil -->
