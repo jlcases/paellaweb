@@ -35,16 +35,31 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        <picture>
-          <!-- Versión WebP para diferentes tamaños de pantalla -->
-          <source media="(max-width: 400px)" srcset="/assets/images/imagen-min-400.webp" type="image/webp">
-          <source media="(max-width: 600px)" srcset="/assets/images/imagen-min-600.webp" type="image/webp">
-          <source srcset="/assets/images/imagen-min.webp" type="image/webp">
-          
-          <!-- Fallback PNG para navegadores que no soportan WebP -->
-          <source media="(max-width: 400px)" srcset="/assets/images/imagen-min-400.png" type="image/png">
-          <source media="(max-width: 600px)" srcset="/assets/images/imagen-min-600.png" type="image/png">
-          <img src="/assets/images/imagen-min.png" alt="PAELLADOC AI Development Workflow" class="workflow-image" width="600" height="400" fetchpriority="high" loading="eager" decoding="async" style="background-color: #121212; object-fit: contain;">
+        <picture class="hero-visual">
+          <!-- Dark theme -->
+          <source
+              srcset="/assets/images/imagen-dark-600.webp 600w,
+                      /assets/images/imagen-dark.webp 1024w"
+              sizes="(max-width: 600px) 600px,
+                     1024px"
+              media="(prefers-color-scheme: dark)"
+              type="image/webp">
+          <!-- Light theme -->
+          <source
+              srcset="/assets/images/imagen-light-600.webp 600w,
+                      /assets/images/imagen-light.webp 1024w"
+              sizes="(max-width: 600px) 600px,
+                     1024px"
+              media="(prefers-color-scheme: light)"
+              type="image/webp">
+          <!-- Fallback -->
+          <img src="/assets/images/imagen-light.webp"
+               alt="Hero visual"
+               width="1024"
+               height="576"
+               loading="eager"
+               decoding="async"
+               fetchpriority="high">
         </picture>
       </div>
     </div>
