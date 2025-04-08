@@ -98,6 +98,9 @@ layout: default
       <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" rel="noopener" aria-label="Share on Facebook" class="share-button facebook-share">
         <i class="fab fa-facebook" aria-hidden="true"></i>
       </a>
+      <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" rel="noopener" aria-label="Discuss on GitHub" class="share-button github-share">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
     </div>
     
     <div class="post-navigation">
@@ -118,6 +121,15 @@ layout: default
   </div>
 </article>
 
+{% assign has_related_posts = false %}
+{% for post in site.posts %}
+  {% if post.url != page.url %}
+    {% assign has_related_posts = true %}
+    {% break %}
+  {% endif %}
+{% endfor %}
+
+{% if has_related_posts %}
 <section class="related-posts">
   <div class="container">
     <h2>You might also like</h2>
@@ -193,4 +205,5 @@ layout: default
       {% endif %}
     </div>
   </div>
-</section> 
+</section>
+{% endif %} 
