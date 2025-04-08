@@ -65,22 +65,34 @@ webrick:
 
 # Jekyll Responsive Image Configuration
 responsive_image:
-  # Ruta donde están tus imágenes originales (relativa a la raíz del proyecto)
-  source: "assets/images"
+  # Plantilla Liquid para personalizar la salida HTML (opcional, usamos la por defecto)
+  # template: _includes/responsive-image.html 
+
+  # Ruta donde están tus imágenes originales
+  source: assets/images
   # Ruta donde se guardarán las imágenes generadas
-  output: "assets/resized"
-  # Formatos a generar (webp es ideal para la web)
+  output: assets/images/generated # Cambiado a 'generated' para claridad
+
+  # Formatos a generar (añadimos AVIF)
   formats:
     - webp
+    - avif
+    # Puedes añadir el formato original (jpg, png) si quieres un fallback mejor
+    # - original 
+
   # Tamaños a generar (en píxeles de ancho)
   sizes:
-    - width: 400
-    - width: 600
-    - width: 800
+    - width: 320
+    - width: 480
+    - width: 768
+    - width: 1024
     - width: 1200
+    - width: 1920
+
   # Calidad por defecto para la compresión (0-100)
   default_quality: 85
+
   # Atributos por defecto para la etiqueta <img> generada
   attributes:
-    # loading: lazy # Descomenta para activar lazy loading
-    alt: "" # Deja vacío para forzar a poner alt en el tag Liquid
+    loading: lazy # Activamos lazy loading por defecto
+    alt: "" # Forzar a poner alt en el tag Liquid

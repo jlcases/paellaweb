@@ -36,83 +36,34 @@ image: /assets/images/og-image.jpg
       </div>
       <div class="hero-visual">
         <picture class="hero-image">
-          <!-- Dark mode AVIF -->
-          <source
-            media="(prefers-color-scheme: dark)"
-            type="image/avif"
-            srcset="/assets/images/responsive/imagen-dark_320.avif 320w,
-                    /assets/images/responsive/imagen-dark_480.avif 480w,
-                    /assets/images/responsive/imagen-dark_768.avif 768w,
-                    /assets/images/responsive/imagen-dark_1024.avif 1024w,
-                    /assets/images/responsive/imagen-dark_1200.avif 1200w,
-                    /assets/images/responsive/imagen-dark_1920.avif 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
+          <!-- Dark mode: Usar imagen-dark-min.png -->
+          <source 
+            media="(prefers-color-scheme: dark)" 
+            type="image/avif" 
+            srcset="{% responsive_image_block path='assets/images/imagen-dark-min.png' format='avif' %}">
+          <source 
+            media="(prefers-color-scheme: dark)" 
+            type="image/webp" 
+            srcset="{% responsive_image_block path='assets/images/imagen-dark-min.png' format='webp' %}">
           
-          <!-- Light mode AVIF -->
-          <source
-            media="(prefers-color-scheme: light)"
-            type="image/avif"
-            srcset="/assets/images/responsive/imagen-light_320.avif 320w,
-                    /assets/images/responsive/imagen-light_480.avif 480w,
-                    /assets/images/responsive/imagen-light_768.avif 768w,
-                    /assets/images/responsive/imagen-light_1024.avif 1024w,
-                    /assets/images/responsive/imagen-light_1200.avif 1200w,
-                    /assets/images/responsive/imagen-light_1920.avif 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
-
-          <!-- Dark mode WebP -->
-          <source
-            media="(prefers-color-scheme: dark)"
-            type="image/webp"
-            srcset="/assets/images/responsive/imagen-dark_320.webp 320w,
-                    /assets/images/responsive/imagen-dark_480.webp 480w,
-                    /assets/images/responsive/imagen-dark_768.webp 768w,
-                    /assets/images/responsive/imagen-dark_1024.webp 1024w,
-                    /assets/images/responsive/imagen-dark_1200.webp 1200w,
-                    /assets/images/responsive/imagen-dark_1920.webp 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
-          
-          <!-- Light mode WebP -->
-          <source
-            media="(prefers-color-scheme: light)"
-            type="image/webp"
-            srcset="/assets/images/responsive/imagen-light_320.webp 320w,
-                    /assets/images/responsive/imagen-light_480.webp 480w,
-                    /assets/images/responsive/imagen-light_768.webp 768w,
-                    /assets/images/responsive/imagen-light_1024.webp 1024w,
-                    /assets/images/responsive/imagen-light_1200.webp 1200w,
-                    /assets/images/responsive/imagen-light_1920.webp 1920w"
-            sizes="(max-width: 320px) 320px,
-                   (max-width: 480px) 480px,
-                   (max-width: 768px) 768px,
-                   (max-width: 1024px) 1024px,
-                   (max-width: 1200px) 1200px,
-                   1920px">
-          
-          <!-- Fallback image -->
-          <img
-            src="/assets/images/responsive/imagen-light_1024.webp"
-            alt="Hero visual"
-            width="1920"
-            height="1080"
-            loading="eager"
-            fetchpriority="high"
-            class="hero-image">
+          <!-- Light mode (o por defecto): Usar imagen-min.png -->
+          <source 
+            media="(prefers-color-scheme: light)" 
+            type="image/avif" 
+            srcset="{% responsive_image_block path='assets/images/imagen-min.png' format='avif' %}">
+          <source 
+            media="(prefers-color-scheme: light)" 
+            type="image/webp" 
+            srcset="{% responsive_image_block path='assets/images/imagen-min.png' format='webp' %}">
+            
+          <!-- Fallback para navegadores que no soportan <picture> o los formatos -->
+          {% responsive_image path="assets/images/imagen-min.png" 
+              alt="Hero visual PAELLADOC" 
+              class="hero-image" 
+              width="1024" 
+              height="1024"
+              loading="eager" 
+              fetchpriority="high" %}
         </picture>
       </div>
     </div>
