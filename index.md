@@ -35,36 +35,14 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        <picture class="hero-image">
-          <!-- Dark mode: Usar imagen-dark-min.png si existe -->
-          <source 
-            media="(prefers-color-scheme: dark)" 
-            type="image/avif" 
-            srcset="{% responsive_image path='assets/images/imagen-min.png' format='avif' %}">
-          <source 
-            media="(prefers-color-scheme: dark)" 
-            type="image/webp" 
-            srcset="{% responsive_image path='assets/images/imagen-min.png' format='webp' %}">
-          
-          <!-- Light mode (o por defecto): Usar imagen-min.png -->
-          <source 
-            media="(prefers-color-scheme: light)" 
-            type="image/avif" 
-            srcset="{% responsive_image path='assets/images/imagen-min.png' format='avif' %}">
-          <source 
-            media="(prefers-color-scheme: light)" 
-            type="image/webp" 
-            srcset="{% responsive_image path='assets/images/imagen-min.png' format='webp' %}">
-            
-          <!-- Fallback para navegadores que no soportan <picture> o los formatos -->
-          {% responsive_image path="assets/images/imagen-min.png" 
-              alt="Hero visual PAELLADOC" 
-              class="hero-image" 
-              width="1024" 
-              height="1024"
-              loading="eager" 
-              fetchpriority="high" %}
-        </picture>
+        <img 
+          src="/assets/images/imagen-min.png" 
+          alt="Hero visual PAELLADOC" 
+          class="hero-image" 
+          width="1024" 
+          height="1024"
+          loading="eager" 
+          fetchpriority="high">
       </div>
     </div>
   </div>
