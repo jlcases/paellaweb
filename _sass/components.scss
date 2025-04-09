@@ -516,5 +516,7 @@ body[data-theme="light"] {
   }
 } 
 
-// Importar componente de estadísticas de GitHub
-@import "components/github-stats"; 
+// Importar componentes
+@import "components/hero";
+@import "components/github-stats";
+@import "components/blog"; 
