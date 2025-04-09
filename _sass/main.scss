@@ -224,7 +224,7 @@ h1, h2 {
 
   @media (max-width: 768px) {
     height: auto;
-    padding: 6rem 0;
+    padding: 4rem 0 6rem;
 
     .hero-content {
       flex-direction: column-reverse !important;
@@ -249,6 +249,8 @@ h1, h2 {
     .workflow-image {
       max-width: 100%;
       max-height: 60vh;
+      display: block;
+      margin: 0 auto;
     }
 
     .hero-buttons {
