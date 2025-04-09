@@ -150,11 +150,14 @@
       box-shadow: 0 5px 5px rgba($dark-secondary-color, 0.1); // Sombra oscura
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.3s ease-out;
+      transition: max-height 0.3s ease-out, visibility 0.3s ease-out;
       border-top: 1px solid $dark-card-border;
+      z-index: 101;
+      visibility: hidden;
       
       &.active {
         max-height: 400px; // Ajustar si es necesario
+        visibility: visible;
       }
       
       li {
@@ -175,6 +178,26 @@
         }
       }
     }
+  }
+}
+
+// Estilos para el overlay del menú móvil
+.menu-overlay {
+  position: fixed; // Posición fija para cubrir toda la pantalla
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); // Fondo oscuro semitransparente
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+  z-index: 100; // Inferior al menú activo, igual o superior al header
+  cursor: pointer; // Indicar que se puede hacer clic para cerrar
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }
 
@@ -348,5 +371,11 @@ body[data-theme="light"] {
            color: $secondary-color;
         }
      }
+  }
+
+  // Estilos modo claro para el overlay (si es necesario, por ahora solo fondo oscuro)
+  .menu-overlay {
+    // Podría tener un color de fondo diferente en modo claro si se desea
+    // background-color: rgba(255, 255, 255, 0.7); 
   }
 } 
