@@ -152,7 +152,7 @@
       overflow: hidden;
       transition: max-height 0.3s ease-out, visibility 0.3s ease-out;
       border-top: 1px solid $dark-card-border;
-      z-index: 101;
+      z-index: 110;
       visibility: hidden;
       
       &.active {
