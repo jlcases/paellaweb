@@ -74,6 +74,9 @@ image: /assets/images/og-image.jpg
             alt="Hero visual PAELLADOC"
             loading="eager"
             fetchpriority="high"
+            width="700"
+            height="700"
+            style="aspect-ratio: 1/1;"
             class="hero-image">
         </picture>
       </div>
