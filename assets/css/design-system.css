@@ -499,7 +499,7 @@ img {
   max-width: 100vw;
   overflow-x: hidden !important;
   background-color: var(--color-surface);
-  padding: 20px 16px; /* Aumentado el padding vertical */
+  padding: 10px 16px 20px; /* Reducido padding vertical */
   margin-top: 60px;
   box-sizing: border-box;
   position: relative;
@@ -546,7 +546,7 @@ img {
 }
 
 .hero-value-prop {
-  margin: 0 0 12px 0; /* Margen mínimo */
+  margin: 0 0 8px 0; /* Reducido de 12px a 8px para móvil */
   font-size: 14px; /* Texto muy pequeño en móvil */
   line-height: 1.3;
   color: var(--color-text-secondary);
@@ -569,15 +569,17 @@ img {
   gap: 8px; /* Espacio mínimo entre botones */
   width: 100%;
   max-width: 280px;
-  margin: 10px 0; /* Margen mínimo */
+  margin: 5px 0 10px 0; /* Modificado: reducido margen superior */
 }
 
 .hero-buttons .button {
   width: 100%;
   max-width: 280px;
-  padding: 6px 10px; /* Botones aún más compactos */
-  min-height: 36px; /* Reducir altura mínima */
+  padding: 8px 12px; /* Aumentado ligeramente el padding vertical */
+  min-height: 38px; /* Aumentado altura mínima para mejor visibilidad */
   font-size: 14px; /* Texto más pequeño en botones */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Añadido sombra para destacar */
+  z-index: 5; /* Asegurar que está por encima de cualquier otro elemento */
 }
 
 .github-stats {
@@ -887,6 +889,8 @@ img {
 .button.primary {
   background-color: var(--color-primary);
   color: #000000; /* Texto negro para contraste con primario claro/oscuro */
+  font-weight: var(--font-weight-bold); /* Texto más negrita para mejor legibilidad */
+  border: 1px solid rgba(0,0,0,0.2); /* Borde sutil para mejor definición */
 }
 .button.primary:hover {
   background-color: var(--color-primary-dark);
@@ -970,6 +974,163 @@ img {
    - Secciones de componentes específicos duplicadas (e.g., Hero).
 */
 
+/* Botón espectacular de GitHub con stats incluidas */
+.github-mega-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(90deg, #171515 0%, #24292e 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3), 0 0 20px rgba(0,0,0,0.1) inset !important;
+  padding: 0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  min-width: 240px !important;
+  max-width: 100% !important;
+  min-height: unset !important;
+  transform: translateZ(0);
+}
+
+.github-mega-button:hover {
+  transform: translateY(-3px) scale(1.02) !important;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.1) inset !important;
+}
+
+.github-mega-button:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ffd700, transparent, #1E90FF, transparent, #ffd700);
+  background-size: 400%;
+  border-radius: 10px;
+  z-index: -1;
+  animation: glowingBorder 8s linear infinite;
+}
+
+@keyframes glowingBorder {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.github-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 15px;
+}
+
+.github-button-main {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  padding-right: 15px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+.github-button-main i {
+  font-size: 20px;
+}
+
+.github-stats-inline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.github-stat-inline {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 4px 0;
+  position: relative;
+}
+
+.github-stat-inline:first-child i {
+  color: #ffd700 !important;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.github-stat-inline:last-child i {
+  color: #1E90FF !important;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+}
+
+.github-mega-button:hover .github-stat-inline:first-child i {
+  animation: starPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+.github-mega-button:hover .github-stat-inline:last-child i {
+  animation: forkWobble 1.5s ease-in-out infinite;
+}
+
+@keyframes forkWobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* Media queries para el botón de GitHub */
+@media (max-width: 480px) {
+  .github-mega-button {
+    min-width: unset !important;
+    width: 100% !important;
+  }
+  
+  .github-button-content {
+    padding: 6px 12px;
+  }
+  
+  .github-button-main {
+    padding-right: 8px;
+  }
+  
+  .github-stats-inline {
+    gap: 8px;
+  }
+  
+  .hero-buttons .button {
+    font-size: 15px; /* Texto ligeramente más grande para mejor legibilidad */
+    padding: 10px 16px; /* Botón más grande para mejor área táctil */
+    border-radius: 8px; /* Bordes más redondeados */
+    min-height: 42px; /* Mayor altura para mejor visibilidad */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+  }
+  
+  .button.primary {
+    border-width: 2px; /* Borde más grueso */
+  }
+}
+
+@media (min-width: 768px) {
+  .github-mega-button {
+    min-width: 260px !important;
+  }
+  
+  .github-button-content {
+    padding: 10px 18px;
+  }
+  
+  .github-button-main i {
+    font-size: 22px;
+  }
+  
+  .github-stat-inline {
+    font-size: 14px;
+  }
+}
+
 /* Contenedor para el botón de GitHub + stats */
 .github-social {
   display: flex !important; /* Forzar visibilidad */
@@ -1050,6 +1211,114 @@ img {
 /* Override de la regla que oculta github-stats */
 .hero .github-stats {
   display: flex !important;
+}
+
+/* Prueba social GitHub - formato espectacular */
+.github-proof {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.github-stats-showcase {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border-radius: 25px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.4), rgba(0,0,0,0.2));
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.github-stat-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(30,30,30,0.7));
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.github-stat-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.github-stat-badge::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255,255,255,0.05) 0%,
+    rgba(255,255,255,0.1) 50%,
+    rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+
+.github-stat-badge:first-child i {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+  animation: starPulse 3s ease-in-out infinite;
+}
+
+.github-stat-badge:last-child i {
+  color: #1E90FF;
+  text-shadow: 0 0 8px rgba(30, 144, 255, 0.5);
+  animation: forkWobble 3s ease-in-out infinite;
+}
+
+/* Animaciones para las estrellas y forks */
+@keyframes starPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+
+@keyframes forkWobble {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* Estilos específicos para números */
+#github-stars, #github-forks, .github-stars, .github-forks {
+  font-weight: 700;
+  color: #FFFFFF;
+  text-shadow: 0 0 8px rgba(255,255,255,0.6);
+  transition: all 0.3s ease;
+}
+
+#github-stars:hover, #github-forks:hover, .github-stars:hover, .github-forks:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 768px) {
+  .github-proof {
+    justify-content: flex-start;
+  }
+  
+  .github-stats-showcase {
+    gap: 20px;
+    padding: 2px 8px;
+  }
+  
+  .github-stat-badge {
+    font-size: 16px;
+    padding: 8px 16px;
+  }
 }
 
 /* Fin del archivo refactorizado */ 

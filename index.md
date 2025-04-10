@@ -9,25 +9,27 @@ image: /assets/images/og-image.jpg
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <div class="github-social">
-          <a href="https://github.com/jlcases/paelladoc" class="button primary">
-            <i class="fab fa-github" aria-hidden="true"></i>
-            <span>View on GitHub</span>
-          </a>
-          <div class="github-stats">
-            <a href="https://github.com/jlcases/paelladoc" class="github-stat">
+        <div class="github-proof">
+          <div class="github-stats-showcase">
+            <div class="github-stat-badge">
               <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <span id="github-stars">-</span> stars
-            </a>
-            <a href="https://github.com/jlcases/paelladoc/network/members" class="github-stat">
+              <span id="github-stars">42</span> stars
+            </div>
+            <div class="github-stat-badge">
               <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
-              <span id="github-forks">-</span> forks
-            </a>
+              <span id="github-forks">13</span> forks
+            </div>
           </div>
         </div>
         
         <h1 id="lcp-target">Vibe coding with Cursor</h1>
         <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation.</p>
+        <div class="hero-buttons">
+          <a href="https://github.com/jlcases/paelladoc" class="button primary">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>View on GitHub</span>
+          </a>
+        </div>
       </div>
       <div class="hero-visual">
         <img src="/assets/images/imagen-min.png" alt="Hero visual PAELLADOC" width="100%" height="auto">
@@ -95,6 +97,21 @@ image: /assets/images/og-image.jpg
     <div class="cta-content">
       <h2 id="cta-heading">Build AI Products That <span>Last</span></h2>
       <p>Stop the AI hacking. Start building responsibly.</p>
+      
+      <!-- Prueba social para la sección CTA -->
+      <div class="github-proof">
+        <div class="github-stats-showcase">
+          <div class="github-stat-badge">
+            <i class="fa-solid fa-star" aria-hidden="true"></i>
+            <span class="github-stars">42</span> stars
+          </div>
+          <div class="github-stat-badge">
+            <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
+            <span class="github-forks">13</span> forks
+          </div>
+        </div>
+      </div>
+      
       <div class="cta-buttons">
         <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button primary" aria-label="View PAELLADOC on GitHub">
           <i class="fa-brands fa-github" aria-hidden="true"></i>
