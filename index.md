@@ -9,13 +9,25 @@ image: /assets/images/og-image.jpg
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
+        <div class="github-social">
+          <a href="https://github.com/jlcases/paelladoc" class="button primary">
+            <i class="fab fa-github" aria-hidden="true"></i>
+            <span>View on GitHub</span>
+          </a>
+          <div class="github-stats">
+            <a href="https://github.com/jlcases/paelladoc" class="github-stat">
+              <i class="fa-solid fa-star" aria-hidden="true"></i>
+              <span id="github-stars">-</span> stars
+            </a>
+            <a href="https://github.com/jlcases/paelladoc/network/members" class="github-stat">
+              <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
+              <span id="github-forks">-</span> forks
+            </a>
+          </div>
+        </div>
+        
         <h1 id="lcp-target">Vibe coding with Cursor</h1>
         <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation.</p>
-        
-        <div class="hero-buttons">
-          <a href="https://github.com/jlcases/paelladoc" class="button primary">GitHub</a>
-          <a href="https://github.com/jlcases/paelladoc/discussions" class="button secondary">Community</a>
-        </div>
       </div>
       <div class="hero-visual">
         <img src="/assets/images/imagen-min.png" alt="Hero visual PAELLADOC" width="100%" height="auto">
