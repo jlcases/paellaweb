@@ -887,11 +887,26 @@ img {
 }
 
 .button.primary {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); /* Gradiente diagonal */
   color: #000000; /* Texto negro para contraste con primario claro/oscuro */
   font-weight: var(--font-weight-bold); /* Texto más negrita para mejor legibilidad */
   border: 1px solid rgba(0,0,0,0.2); /* Borde sutil para mejor definición */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2); /* Sombra sutil para mejor legibilidad */
+  position: relative; /* Para permitir efectos de superposición */
+  overflow: visible; /* Permitir que los efectos se desborden */
 }
+
+.button.primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+  border-radius: inherit;
+}
+
 .button.primary:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-2px);
@@ -1101,15 +1116,27 @@ img {
   }
   
   .hero-buttons .button {
-    font-size: 15px; /* Texto ligeramente más grande para mejor legibilidad */
-    padding: 10px 16px; /* Botón más grande para mejor área táctil */
-    border-radius: 8px; /* Bordes más redondeados */
-    min-height: 42px; /* Mayor altura para mejor visibilidad */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.25); /* Sombra más pronunciada */
+    font-size: 16px; /* Texto más grande para mejor legibilidad */
+    padding: 12px 20px; /* Botón más grande para mejor área táctil */
+    border-radius: 10px; /* Bordes más redondeados */
+    min-height: 48px; /* Mayor altura para mejor visibilidad */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3); /* Sombra más pronunciada */
+    letter-spacing: 0.5px; /* Mejor espaciado entre letras */
+    transition: all 0.2s ease-out; /* Transición más rápida */
   }
   
   .button.primary {
     border-width: 2px; /* Borde más grueso */
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  }
+  
+  .button.primary:active {
+    transform: translateY(1px); /* Efecto de presionado */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .hero-visual {
+    margin-top: 15px; /* Espacio adicional sobre la imagen para evitar superposición */
   }
 }
 
