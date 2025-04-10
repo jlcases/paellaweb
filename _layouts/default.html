@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}" class="no-js" itemscope itemtype="http://schema.org/WebPage">
+<html lang="{{ site.lang | default: "en-US" }}" class="no-js" itemscope itemtype="http://schema.org/WebPage" data-theme="light">
   <head>
     <!-- Metadatos, SEO, Favicon, etc. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,15 +25,18 @@
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#000000">
     
+    <!-- Estilos adicionales para el menú desktop/mobile -->
+    <style>
+      @media (max-width: 768px) {
+        .desktop-nav {
+          display: none !important;
+        }
+      }
+    </style>
+    
     <!-- Preload y CSS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- Preload de imágenes críticas para LCP -->
-    <link rel="preload" as="image" href="/assets/images/responsive/imagen_480.webp" type="image/webp" media="(prefers-color-scheme: dark) and (max-width: 600px)">
-    <link rel="preload" as="image" href="/assets/images/responsive/imagen_1024.webp" type="image/webp" media="(prefers-color-scheme: dark) and (min-width: 601px)">
-    <link rel="preload" as="image" href="/assets/images/responsive/imagen_480.webp" type="image/webp" media="(prefers-color-scheme: light) and (max-width: 600px)">
-    <link rel="preload" as="image" href="/assets/images/responsive/imagen_1024.webp" type="image/webp" media="(prefers-color-scheme: light) and (min-width: 601px)">
     
     <!-- Cargar solo los iconos de Font Awesome que usamos -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -119,8 +122,10 @@
     
     <!-- Umami Analytics - Sin cookies -->
     <script defer src="https://cloud.umami.is/script.js" data-website-id="f74b1c68-b362-4670-ae00-4e72cf02be92"></script>
+    <!-- Añadir el CSS del menú móvil -->
+    <link rel="stylesheet" href="{{ '/assets/css/mobile-menu.css' | relative_url }}">
   </head>
-  <body>
+  <body class="">
     <!-- Skip navigation for accessibility -->
     <a class="skip-to-content" href="#main-content">Skip to content</a>
     
@@ -131,13 +136,15 @@
             <span class="logo-text" itemprop="name">PAELLADOC</span>
           </a>
           <nav class="site-nav" role="navigation" aria-label="Main Navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
-            <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="main-navigation" id="menu-toggle-button">
+            <!-- Botón de menú móvil -->
+            <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-nav">
               <span class="sr-only">Menu</span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </button>
-            <ul class="nav-links" id="main-navigation" role="menu">
+            <!-- Navegación de escritorio -->
+            <ul class="nav-links desktop-nav" role="menu">
               <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
               <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
               <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
@@ -154,9 +161,13 @@
 
     {% include footer.html %}
 
+    <!-- Scripts -->
+    <!-- Añadir nuestro script para el menú móvil antes que los demás -->
+    <script src="{{ '/assets/js/mobile-nav.js' | relative_url }}"></script>
+    <!-- Mantener otros scripts -->
+    <script defer src="{{ '/assets/js/theme-system.min.js' | relative_url }}"></script>
+    
     <!-- Scripts optimizados -->
-    <script defer src="/assets/js/components/navigation.js"></script>
-    <script defer src="/assets/js/theme-system.min.js"></script>
     <script>
       // Add a hidden class for accessibility
       if (!document.querySelector('.sr-only')) {
@@ -181,7 +192,32 @@
       });
     </script>
     
-    <!-- Overlay para el menú móvil -->
-    <div class="menu-overlay" aria-hidden="true"></div>
+    <!-- NUEVO Navegación Móvil -->
+    <div id="mobile-nav" class="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+      <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <ul class="mobile-nav-links" role="menu">
+        <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
+        <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
+        <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
+        <!-- Enlace social exclusivo móvil -->
+        <li role="none">
+          <a href="https://x.com/i/communities/1907494161458090406" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Join our community on X" role="menuitem">
+            <svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" fill="currentColor">
+              <g><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></g>
+            </svg>
+            <span>Join community now</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- NUEVO Overlay -->
+    <div id="mobile-nav-overlay" class="mobile-nav-overlay"></div>
+
   </body>
 </html>

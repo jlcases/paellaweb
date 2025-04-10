@@ -1,0 +1,208 @@
+/* 
+ * MENU MÓVIL PARA PAELLADOC
+ * Implementación simple y robusta desde cero
+ */
+
+/* Estilos Básicos */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Botón de Menú */
+.mobile-menu-toggle {
+  display: block; /* Visible siempre, pero en desktop lo ocultamos con media query */
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  padding: 10px;
+  margin-right: 15px; /* ELIMINAR - estaba acercando en vez de separar */
+}
+
+.mobile-menu-toggle:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-bottom: 5px;
+  background-color: var(--color-text-primary); /* Usar color de texto del tema */
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.mobile-menu-toggle span:last-child {
+  margin-bottom: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Panel de Navegación */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -320px; /* Inicialmente fuera de pantalla */
+  width: 300px;
+  max-width: 85vw;
+  height: 100%;
+  background-color: var(--color-surface); /* Usar color de superficie del tema */
+  z-index: 1001;
+  /* Modificar transición para incluir opacity y visibility */
+  transition: right 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+  padding: 60px 20px 20px;
+  /* Añadir ocultación explícita inicial */
+  opacity: 0;
+  visibility: hidden;
+}
+
+.mobile-nav.open {
+  right: 0;
+  /* Añadir visibilidad explícita al abrir */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Overlay oscuro */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-overlay);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Enlaces del Menú */
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-nav-links li {
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 15px;
+}
+
+.mobile-nav-links li:last-child {
+  border-bottom: none;
+}
+
+.mobile-nav-links a {
+  display: block;
+  color: var(--color-text-primary);
+  font-size: 18px;
+  text-decoration: none;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.mobile-nav-links a:hover,
+.mobile-nav-links a:focus,
+.mobile-nav-links a.active {
+  color: var(--color-primary); /* Color primario del tema */
+  outline: none;
+}
+
+/* Enlace Social - Solo Móvil */
+.mobile-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 12px 15px;
+  background-color: var(--color-surface-variant);
+  border-radius: 50px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.mobile-social-link:hover,
+.mobile-social-link:focus {
+  background-color: var(--color-border);
+  color: var(--color-primary);
+  outline: none;
+}
+
+.mobile-social-link svg {
+  margin-right: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Botón Cerrar */
+.mobile-nav-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text-primary);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.mobile-nav-close:hover,
+.mobile-nav-close:focus {
+  color: var(--color-primary);
+  outline: 2px solid var(--color-primary);
+}
+
+/* Media Queries */
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+  
+  /* Ocultar completamente el panel de navegación y el overlay en desktop */
+  .mobile-nav,
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+} 

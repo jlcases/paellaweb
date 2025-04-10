@@ -1,114 +1,123 @@
 /**
- * Navigation Component (Improved Accessibility)
- * Maneja el comportamiento de la navegación móvil y su accesibilidad
+ * Navigation Component (Refactored)
+ * Handles mobile navigation behavior and accessibility from scratch.
  */
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('[NAV] DOM Cargado. Inicializando...');
-  
-  // Obtener elementos del DOM
-  const menuToggle = document.querySelector('#menu-toggle-button');
-  const navLinks = document.querySelector('#main-navigation');
-  const menuOverlay = document.querySelector('.menu-overlay');
+  console.log('[NAV Refactored] DOM Loaded. Initializing...');
+
+  // Get DOM elements using IDs defined in HTML
+  const menuToggleBtn = document.getElementById('menu-toggle-button');
+  const mobileNavPanel = document.getElementById('mobile-nav-panel');
+  const closeMenuBtn = document.getElementById('close-menu-button');
+  const menuOverlay = document.getElementById('menu-overlay');
   const body = document.body;
 
-  // Verificar que los elementos existen
-  if (!menuToggle) {
-    console.error('[NAV] Error: No se encontró #menu-toggle-button');
+  // Verify essential elements exist
+  if (!menuToggleBtn) {
+    console.error('[NAV Refactored] Error: #menu-toggle-button not found.');
     return;
   }
-  if (!navLinks) {
-    console.error('[NAV] Error: No se encontró #main-navigation');
+  if (!mobileNavPanel) {
+    console.error('[NAV Refactored] Error: #mobile-nav-panel not found.');
     return;
   }
-  
-  // Crear overlay si no existe
-  let createdOverlay = false;
+  if (!closeMenuBtn) {
+    console.error('[NAV Refactored] Error: #close-menu-button not found.');
+    return;
+  }
   if (!menuOverlay) {
-    console.warn('[NAV] Warning: No se encontró .menu-overlay, creando uno...');
-    const newOverlay = document.createElement('div');
-    newOverlay.className = 'menu-overlay';
-    newOverlay.setAttribute('aria-hidden', 'true');
-    document.querySelector('.site-nav').appendChild(newOverlay);
-    createdOverlay = true;
+    console.error('[NAV Refactored] Error: #menu-overlay not found.');
+    return;
   }
 
-  // Obtener una referencia actualizada
-  const overlay = createdOverlay ? document.querySelector('.menu-overlay') : menuOverlay;
+  // Get focusable elements within the mobile panel
+  const focusableElementsSelector = 'a[href], button:not([disabled])';
+  let focusableElements = [];
+  let firstFocusableElement;
+  let lastFocusableElement;
 
-  // Obtener todos los elementos navegables del menú
-  const menuItems = navLinks.querySelectorAll('a');
-  const firstMenuItem = menuItems[0];
-  const lastMenuItem = menuItems[menuItems.length - 1];
+  const updateFocusableElements = () => {
+    focusableElements = Array.from(mobileNavPanel.querySelectorAll(focusableElementsSelector));
+    firstFocusableElement = focusableElements[0];
+    lastFocusableElement = focusableElements[focusableElements.length - 1];
+  };
 
   let isMenuOpen = false;
 
-  // Crear anuncio para lectores de pantalla
-  const createA11yAnnouncement = (message) => {
-    const announcement = document.createElement('div');
-    announcement.setAttribute('role', 'status');
-    announcement.setAttribute('aria-live', 'polite');
-    announcement.classList.add('sr-only');
-    announcement.textContent = message;
-    document.body.appendChild(announcement);
-    
-    // Eliminar el anuncio después de que sea leído
-    setTimeout(() => {
-      if (announcement.parentNode) {
-        announcement.parentNode.removeChild(announcement);
-      }
-    }, 3000);
-  };
-
+  // Function to open the menu
   const openMenu = () => {
     if (isMenuOpen) return;
-    console.log('[NAV] Abriendo menú...');
+    console.log('[NAV Refactored] Opening menu...');
     isMenuOpen = true;
-    menuToggle.setAttribute('aria-expanded', 'true');
-    menuToggle.classList.add('active');
-    navLinks.classList.add('active');
-    if (overlay) {
-      overlay.classList.add('active');
-      overlay.setAttribute('aria-hidden', 'false');
-    }
+
+    menuToggleBtn.setAttribute('aria-expanded', 'true');
+    menuToggleBtn.classList.add('active');
+
+    mobileNavPanel.hidden = false;
+    mobileNavPanel.classList.add('active');
+    
+    menuOverlay.hidden = false;
+    menuOverlay.classList.add('active');
+
     body.classList.add('no-scroll');
-    
-    // Anunciar para lectores de pantalla
-    createA11yAnnouncement('Menú de navegación abierto');
-    
-    // Establecer foco en el primer elemento del menú para accesibilidad
+
+    // Update focusable elements and set focus
+    updateFocusableElements();
     setTimeout(() => {
-      if (firstMenuItem) firstMenuItem.focus();
-    }, 100);
+      if (closeMenuBtn) {
+         closeMenuBtn.focus(); // Focus the close button first
+      } else if (firstFocusableElement) {
+        firstFocusableElement.focus();
+      }
+    }, 100); // Delay ensures transition completes
+
+    console.log('[NAV Refactored] Menu opened.');
   };
 
+  // Function to close the menu
   const closeMenu = () => {
     if (!isMenuOpen) return;
-    console.log('[NAV] Cerrando menú...');
+    console.log('[NAV Refactored] Closing menu...');
     isMenuOpen = false;
-    menuToggle.setAttribute('aria-expanded', 'false');
-    menuToggle.classList.remove('active');
-    navLinks.classList.remove('active');
-    if (overlay) {
-      overlay.classList.remove('active');
-      overlay.setAttribute('aria-hidden', 'true');
-    }
-    body.classList.remove('no-scroll');
-    
-    // Anunciar para lectores de pantalla
-    createA11yAnnouncement('Menú de navegación cerrado');
-    
-    // Devolver foco al botón de menú
-    menuToggle.focus();
+
+    menuToggleBtn.setAttribute('aria-expanded', 'false');
+    menuToggleBtn.classList.remove('active');
+
+    mobileNavPanel.classList.remove('active');
+    menuOverlay.classList.remove('active');
+
+    // Use transitionend event for smoother hiding
+    const onTransitionEnd = (event) => {
+      if (event.target === mobileNavPanel && event.propertyName === 'transform') {
+        mobileNavPanel.hidden = true;
+        menuOverlay.hidden = true;
+        body.classList.remove('no-scroll');
+        mobileNavPanel.removeEventListener('transitionend', onTransitionEnd);
+        console.log('[NAV Refactored] Menu fully closed and hidden.');
+      }
+    };
+    mobileNavPanel.addEventListener('transitionend', onTransitionEnd);
+
+    // Fallback if transitionend doesn't fire (e.g., reduced motion)
+    setTimeout(() => {
+      if (!mobileNavPanel.hidden) { // Check if already hidden by event
+        mobileNavPanel.hidden = true;
+        menuOverlay.hidden = true;
+        body.classList.remove('no-scroll');
+         console.log('[NAV Refactored] Menu hidden via fallback timeout.');
+      }
+    }, 400); // Slightly longer than transition duration
+
+    // Return focus to the toggle button
+    menuToggleBtn.focus();
   };
 
-  // Asegurar estado inicial cerrado
-  console.log('[NAV] Estableciendo estado inicial cerrado.');
-  closeMenu();
+  // --- Event Listeners ---
 
-  menuToggle.addEventListener('click', (e) => {
+  // Toggle button click
+  menuToggleBtn.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('[NAV] Click en menu-toggle');
     if (isMenuOpen) {
       closeMenu();
     } else {
@@ -116,54 +125,56 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  if (overlay) {
-    overlay.addEventListener('click', (e) => {
-      e.preventDefault();
-      console.log('[NAV] Click en menu-overlay');
-      closeMenu();
-    });
-  }
+  // Close button click
+  closeMenuBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeMenu();
+  });
 
-  // Manejo de teclado para trampa de foco (focus trap)
-  // Mantiene el foco dentro del menú cuando está abierto
-  lastMenuItem.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && !e.shiftKey && isMenuOpen) {
+  // Overlay click
+  menuOverlay.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    closeMenu();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isMenuOpen) {
       e.preventDefault();
-      menuToggle.focus();
+      closeMenu();
+    }
+  });
+
+  // Focus trap logic
+  mobileNavPanel.addEventListener('keydown', (e) => {
+    if (!isMenuOpen || e.key !== 'Tab') return;
+
+    if (e.shiftKey) { // Shift + Tab
+      if (document.activeElement === firstFocusableElement || document.activeElement === closeMenuBtn) {
+        e.preventDefault();
+        lastFocusableElement.focus();
+      }
+    } else { // Tab
+      if (document.activeElement === lastFocusableElement) {
+        e.preventDefault();
+        closeMenuBtn.focus(); // Trap focus back to the close button or first element
+      }
+    }
+  });
+
+  // Close menu if window resizes to desktop view
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768 && isMenuOpen) {
+      console.log('[NAV Refactored] Resized to desktop, closing menu.');
+      closeMenu();
     }
   });
   
-  menuToggle.addEventListener('keydown', (e) => {
-    if (e.key === 'Tab' && e.shiftKey && isMenuOpen) {
-      e.preventDefault();
-      lastMenuItem.focus();
-    }
-  });
+  // Ensure initial state is correct (menu closed)
+  mobileNavPanel.hidden = true;
+  menuOverlay.hidden = true;
 
-  navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      console.log('[NAV] Click en enlace de navegación');
-      // Cerrar el menú después de un pequeño delay para permitir la navegación
-      if (isMenuOpen) {
-        setTimeout(closeMenu, 100);
-      }
-    });
-  });
-
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 768 && isMenuOpen) {
-      console.log('[NAV] Redimensión a escritorio, cerrando menú.');
-      closeMenu();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && isMenuOpen) {
-      console.log('[NAV] Tecla Escape presionada, cerrando menú.');
-      e.preventDefault();
-      closeMenu();
-    }
-  });
-
-  console.log('[NAV] Script de navegación accesible inicializado correctamente.');
+  console.log('[NAV Refactored] Navigation script initialized successfully.');
 }); 
