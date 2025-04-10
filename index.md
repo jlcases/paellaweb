@@ -9,76 +9,16 @@ image: /assets/images/og-image.jpg
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
-        <h1 id="lcp-target" fetchpriority="high">Vibe coding <span class="highlight">with Cursor</span> that <span class="highlight">actually&nbsp;scales</span></h1>
-        <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation. PAELLADOC makes your development <strong>mucho mejor</strong>, where context is king.</p>
+        <h1 id="lcp-target">Vibe coding with Cursor</h1>
+        <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation.</p>
         
         <div class="hero-buttons">
-          <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button primary" aria-label="View PAELLADOC on GitHub">
-            <i class="fab fa-github" aria-hidden="true"></i>
-            <span>View on GitHub</span>
-          </a>
-          <a href="https://github.com/jlcases/paelladoc/discussions" target="_blank" rel="noopener" class="button secondary" aria-label="Join the PAELLADOC Community">
-            <i class="fa-solid fa-users" aria-hidden="true"></i>
-            <span>Join the Community</span>
-          </a>
-        </div>
-        
-        <div class="github-stats">
-          <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="github-stat">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
-            <span id="github-stars">-</span> stars
-          </a>
-          <a href="https://github.com/jlcases/paelladoc/network/members" target="_blank" rel="noopener" class="github-stat">
-            <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
-            <span id="github-forks">-</span> forks
-          </a>
+          <a href="https://github.com/jlcases/paelladoc" class="button primary">GitHub</a>
+          <a href="https://github.com/jlcases/paelladoc/discussions" class="button secondary">Community</a>
         </div>
       </div>
       <div class="hero-visual">
-        <picture class="hero-image">
-          <!-- AVIF (mejor compresión) -->
-          <source
-            type="image/avif"
-            srcset="/assets/images/responsive/imagen_320.avif 320w,
-                    /assets/images/responsive/imagen_480.avif 480w,
-                    /assets/images/responsive/imagen_768.avif 768w,
-                    /assets/images/responsive/imagen_1024.avif 1024w,
-                    /assets/images/responsive/imagen_1200.avif 1200w,
-                    /assets/images/responsive/imagen_1920.avif 1920w"
-            sizes="(max-width: 360px) 280px,
-                   (max-width: 480px) 300px,
-                   (max-width: 768px) 350px,
-                   (max-width: 992px) 400px,
-                   (max-width: 1200px) 550px,
-                   min(700px, 100vw)">
-          
-          <!-- WebP (ampliamente soportado) -->
-          <source
-            type="image/webp"
-            srcset="/assets/images/responsive/imagen_320.webp 320w,
-                    /assets/images/responsive/imagen_480.webp 480w,
-                    /assets/images/responsive/imagen_768.webp 768w,
-                    /assets/images/responsive/imagen_1024.webp 1024w,
-                    /assets/images/responsive/imagen_1200.webp 1200w,
-                    /assets/images/responsive/imagen_1920.webp 1920w"
-            sizes="(max-width: 360px) 280px,
-                   (max-width: 480px) 300px,
-                   (max-width: 768px) 350px,
-                   (max-width: 992px) 400px,
-                   (max-width: 1200px) 550px,
-                   min(700px, 100vw)">
-          
-          <!-- Fallback original -->
-          <img
-            src="/assets/images/imagen-min.png"
-            alt="Hero visual PAELLADOC"
-            loading="eager"
-            fetchpriority="high"
-            width="700"
-            height="700"
-            style="aspect-ratio: 1/1;"
-            class="hero-image">
-        </picture>
+        <img src="/assets/images/imagen-min.png" alt="Hero visual PAELLADOC" width="100%" height="auto">
       </div>
     </div>
   </div>
