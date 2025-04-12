@@ -11,7 +11,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate-v2
-  - jekyll-responsive-image
+  # - jekyll-responsive-image  # Temporalmente desactivado para la compilación de GitHub Actions
 
 # Configuración del plugin jekyll-responsive-image
 responsive_image:
