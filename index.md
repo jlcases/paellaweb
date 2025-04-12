@@ -12,12 +12,12 @@ image: /assets/images/og-image.jpg
         <div class="github-proof">
           <div class="github-stats-showcase">
             <div class="github-stat-badge">
-              <i class="fa-solid fa-star" aria-hidden="true"></i>
-              <span id="github-stars">42</span> stars
+              <i class="fa-solid fa-star fa-bounce" style="color: #FFD700;" aria-hidden="true"></i>
+              <span id="github-stars" class="stat-counter">277</span> <span class="stat-label">stars</span>
             </div>
             <div class="github-stat-badge">
-              <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
-              <span id="github-forks">13</span> forks
+              <i class="fa-solid fa-code-fork fa-flip" style="color: #4e9bff;" aria-hidden="true"></i>
+              <span id="github-forks" class="stat-counter">47</span> <span class="stat-label">forks</span>
             </div>
           </div>
         </div>
@@ -25,7 +25,7 @@ image: /assets/images/og-image.jpg
         <h1 id="lcp-target">The Complete AI-First Development Framework</h1>
         <p class="hero-value-prop">Perfect AI development, like perfect paella: quality ingredients, structure, and expertise.</p>
         <div class="hero-buttons">
-          <a href="https://github.com/jlcases/paelladoc" class="button primary">
+          <a href="https://github.com/jlcases/paelladoc" class="button github-button primary">
             <i class="fab fa-github" aria-hidden="true"></i>
             <span>View on GitHub</span>
           </a>
@@ -102,18 +102,18 @@ image: /assets/images/og-image.jpg
       <div class="github-proof">
         <div class="github-stats-showcase">
           <div class="github-stat-badge">
-            <i class="fa-solid fa-star" aria-hidden="true"></i>
-            <span class="github-stars">42</span> stars
+            <i class="fa-solid fa-star fa-bounce" style="color: #FFD700;" aria-hidden="true"></i>
+            <span class="github-stars stat-counter">277</span> <span class="stat-label">stars</span>
           </div>
           <div class="github-stat-badge">
-            <i class="fa-solid fa-code-fork" aria-hidden="true"></i>
-            <span class="github-forks">13</span> forks
+            <i class="fa-solid fa-code-fork fa-flip" style="color: #4e9bff;" aria-hidden="true"></i>
+            <span class="github-forks stat-counter">47</span> <span class="stat-label">forks</span>
           </div>
         </div>
       </div>
       
       <div class="cta-buttons">
-        <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button primary" aria-label="View PAELLADOC on GitHub">
+        <a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener" class="button github-button primary" aria-label="View PAELLADOC on GitHub">
           <i class="fa-brands fa-github" aria-hidden="true"></i>
           <span>View on GitHub</span>
         </a>

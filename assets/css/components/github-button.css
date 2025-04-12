@@ -1,0 +1,54 @@
+/* GitHub Button - Componente reutilizable */
+
+.github-button {
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary-dark);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.github-button:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  box-shadow: var(--shadow-lg);
+}
+
+.github-button:active {
+  transform: translateY(1px);
+}
+
+.github-button i {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Asegurar que en tema claro también el icono sea blanco */
+[data-theme="light"] .github-button {
+  color: white;
+}
+
+[data-theme="light"] .github-button i {
+  color: white;
+}
+
+/* Ajustes para móvil */
+@media (max-width: 768px) {
+  .github-button {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-md);
+  }
+  
+  .github-button i {
+    font-size: 1.3rem;
+  }
+} 
