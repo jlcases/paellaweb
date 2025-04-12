@@ -1,0 +1,39 @@
+/* 
+ * Ajustes de posición para el botón de cambio de tema
+ */
+
+/* Posición general */
+.theme-toggle {
+  margin-left: var(--spacing-lg);
+  margin-right: var(--spacing-md);
+}
+
+/* Ajustes específicos para móvil */
+@media (max-width: 768px) {
+  .theme-toggle {
+    position: absolute;
+    right: 70px; /* Más separación con el menú móvil (antes era 60px) */
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+  
+  /* Si el botón del menú móvil está presente */
+  .mobile-menu-toggle + .theme-toggle {
+    right: 70px; /* Aseguramos que esté a 70px del borde derecho */
+  }
+  
+  /* En dispositivos muy pequeños, damos aún más espacio */
+  @media (max-width: 380px) {
+    .theme-toggle {
+      right: 75px;
+    }
+  }
+}
+
+/* Versión para tabletas */
+@media (min-width: 769px) and (max-width: 992px) {
+  .theme-toggle {
+    margin-left: var(--spacing-xl);
+  }
+} 
