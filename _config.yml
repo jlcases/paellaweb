@@ -23,8 +23,8 @@ responsive_image:
     - width: 1024
     - width: 1200
     - width: 1920
-  base_path: _posts_images_original   # Carpeta para imágenes originales
-  output_path_format: assets/images/responsive/:basename_:width.:extension  # Formato de salida simplificado
+  base_path: assets/images   # Carpeta para imágenes ya procesadas
+  output_path_format: assets/images/:basename_:width.:extension  # Formato de salida simplificado
   save_to_source: false
   strip: true
   quality: 85
