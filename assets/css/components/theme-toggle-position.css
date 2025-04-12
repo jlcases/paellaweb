@@ -12,7 +12,7 @@
 @media (max-width: 768px) {
   .theme-toggle {
     position: absolute;
-    right: 70px; /* Más separación con el menú móvil (antes era 60px) */
+    right: 85px; /* Más alejado del menú móvil (antes era 70px) */
     top: 50%;
     transform: translateY(-50%);
     margin: 0;
@@ -20,13 +20,13 @@
   
   /* Si el botón del menú móvil está presente */
   .mobile-menu-toggle + .theme-toggle {
-    right: 70px; /* Aseguramos que esté a 70px del borde derecho */
+    right: 85px; /* Aseguramos que esté a 85px del borde derecho */
   }
   
   /* En dispositivos muy pequeños, damos aún más espacio */
   @media (max-width: 380px) {
     .theme-toggle {
-      right: 75px;
+      right: 90px; /* Aumentado desde 75px */
     }
   }
 }
