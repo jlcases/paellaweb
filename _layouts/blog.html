@@ -2,35 +2,6 @@
 layout: default
 ---
 
-<style>
-  /* Estilos críticos inline para forzar el layout vertical en móvil */
-  @media (max-width: 991.98px) {
-    .blog-layout {
-      display: block !important;
-      flex-direction: column !important;
-      grid-template-columns: 1fr !important;
-    }
-    
-    .blog-layout > * {
-      width: 100% !important;
-      display: block !important;
-      float: none !important;
-    }
-    
-    .blog-layout .posts-container {
-      width: 100% !important;
-      max-width: 100% !important;
-    }
-    
-    .blog-layout .blog-sidebar {
-      width: 100% !important;
-      max-width: 100% !important;
-      margin-top: 40px !important;
-      position: static !important;
-    }
-  }
-</style>
-
 <link rel="stylesheet" href="{{ '/assets/css/blog-fix.css' | relative_url }}">
 
 <section class="blog-hero">
@@ -42,7 +13,7 @@ layout: default
 
 <section class="blog-content">
   <div class="container">
-    <div class="blog-layout blog-responsive-layout">
+    <div class="blog-layout">
       <main class="posts-container blog-main-content">
         {% if page.featured_post %}
           {% assign featured = site.posts | where: "slug", page.featured_post | first %}
@@ -149,7 +120,7 @@ layout: default
         {% endif %}
       </main>
       
-      <aside class="blog-sidebar blog-sidebar-responsive">
+      <aside class="blog-sidebar">
         <div class="sidebar-section categories-section">
           <h3>Categories</h3>
           <ul class="categories-list">
@@ -203,5 +174,3 @@ layout: default
     </div>
   </div>
 </section> 
-
-<script src="{{ '/assets/js/blog-responsive-fix.js' | relative_url }}"></script> 

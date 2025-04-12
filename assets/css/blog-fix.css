@@ -1,89 +1,82 @@
 /**
- * BLOG LAYOUT OVERRIDE
- * CSS altamente específico para asegurar que funcione siempre
+ * BLOG LAYOUT - Sistema de diseño limpio
  */
 
-body .blog-layout {
-  display: block !important;
-  width: 100% !important;
-  max-width: 1200px !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+/* Base styles - Mobile first */
+.blog-layout {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
 }
 
-body .blog-layout .posts-container {
-  display: block !important;
-  width: 100% !important;
-  float: none !important;
+.blog-layout .posts-container {
+  width: 100%;
+  max-width: 100%;
+  order: 1;
 }
 
-body .blog-layout .blog-sidebar {
-  display: block !important;
-  width: 100% !important;
-  float: none !important;
-  margin-top: 2rem !important;
-  position: static !important;
+.blog-layout .blog-sidebar {
+  width: 100%;
+  max-width: 100%;
+  order: 2;
+  position: static;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 0;
 }
 
-/* Solo en desktop, cambiamos a 2 columnas */
+/* Desktop layout */
 @media (min-width: 992px) {
-  body .blog-layout {
-    display: table !important;
-    table-layout: fixed !important;
-    width: 100% !important;
+  .blog-layout {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
   }
   
-  body .blog-layout .posts-container {
-    display: table-cell !important;
-    width: calc(100% - 320px) !important;
-    vertical-align: top !important;
-    padding-right: 20px !important;
+  .blog-layout .posts-container {
+    flex: 1;
+    max-width: calc(100% - 320px);
+    padding-right: 20px;
+    order: 1;
   }
   
-  body .blog-layout .blog-sidebar {
-    display: table-cell !important;
-    width: 300px !important;
-    vertical-align: top !important;
-    margin-top: 0 !important;
-    position: relative !important;
+  .blog-layout .blog-sidebar {
+    width: 300px;
+    flex: 0 0 300px;
+    max-width: 300px;
+    position: sticky;
+    top: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    order: 2;
   }
 }
 
-/* Solución ultra-específica para asegurar display vertical en móvil */
+/* Asegurar correcto comportamiento en móvil con especificidad en lugar de !important */
 @media (max-width: 991.98px) {
-  body .blog-layout,
-  body .blog-layout[class],
-  body .blog-layout[class][class],
-  body #content .blog-layout,
-  body main .blog-layout,
-  html body .blog-layout {
-    display: block !important;
-    flex-direction: column !important;
-    grid-template-columns: 1fr !important;
+  body .container .blog-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   
-  body .blog-layout .posts-container,
-  body .blog-layout .posts-container[class],
-  body .blog-layout[class] .posts-container,
-  body #content .blog-layout .posts-container,
-  html body .blog-layout .posts-container {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
+  body .container .blog-layout .posts-container {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
   }
   
-  body .blog-layout .blog-sidebar,
-  body .blog-layout .blog-sidebar[class],
-  body .blog-layout[class] .blog-sidebar,
-  body #content .blog-layout .blog-sidebar,
-  html body .blog-layout .blog-sidebar {
-    display: block !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    float: none !important;
-    margin-top: 40px !important;
-    position: static !important;
-    height: auto !important;
+  body .container .blog-layout .blog-sidebar {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+    margin-top: 40px;
+    margin-bottom: 0;
+    position: static;
+    height: auto;
   }
 } 

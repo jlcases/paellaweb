@@ -46,74 +46,78 @@ $blog-max-width: 1200px;
 }
 
 .blog-layout {
-  width: 100% !important;
+  width: 100%;
   max-width: $blog-max-width;
   margin: 0 auto;
   padding: var(--spacing-md);
-  display: flex !important;
-  flex-direction: column !important;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-2xl);
-  flex-wrap: wrap !important;
+  flex-wrap: wrap;
 
   > * {
-    width: 100% !important;
-    min-width: 100% !important;
-    max-width: 100% !important;
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
   }
 
   @media (min-width: 992px) {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: flex-start;
     padding: var(--spacing-xl);
 
     > * {
-      width: auto !important;
-      min-width: auto !important;
-      max-width: none !important;
+      width: auto;
+      min-width: auto;
+      max-width: none;
     }
   }
 }
 
 // Contenedor de posts - Mobile First
 .posts-container {
-  width: 100% !important;
-  min-width: 100% !important;
+  width: 100%;
+  min-width: 100%;
   order: 1;
-  flex-basis: 100% !important;
+  flex-basis: 100%;
 
   @media (min-width: 992px) {
     flex: 1;
-    min-width: 0 !important;
-    width: auto !important;
+    min-width: 0;
+    width: auto;
+    order: 1;
   }
 }
 
 // Sidebar - Mobile First
 .blog-sidebar {
-  width: 100% !important;
-  min-width: 100% !important;
+  width: 100%;
+  min-width: 100%;
   order: 2;
-  flex-basis: 100% !important;
+  flex-basis: 100%;
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
   border: 1px solid var(--color-border);
+  margin-top: var(--spacing-xl);
 
   @media (min-width: 992px) {
-    width: $blog-sidebar-width !important;
-    min-width: $blog-sidebar-width !important;
-    flex-basis: $blog-sidebar-width !important;
+    width: $blog-sidebar-width;
+    min-width: $blog-sidebar-width;
+    flex-basis: $blog-sidebar-width;
     flex-shrink: 0;
     position: sticky;
     top: calc(80px + var(--spacing-xl));
     height: calc(100vh - 80px - var(--spacing-xl) * 2);
     overflow-y: auto;
+    order: 2;
+    margin-top: 0;
   }
 
   @media (max-width: 991px) {
-    position: static !important;
-    height: auto !important;
-    overflow: visible !important;
+    position: static;
+    height: auto;
+    overflow: visible;
   }
 }
 
