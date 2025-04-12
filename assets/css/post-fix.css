@@ -8,6 +8,11 @@
   padding: 0 20px;
 }
 
+/* Fix spacing issues with header */
+.post {
+  padding-top: 120px; /* Evitar que el título se meta debajo del menú */
+}
+
 /* Fix post content width */
 .post-content {
   max-width: 100%;
@@ -29,6 +34,11 @@
   text-align: center;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border, #eaeaea);
+}
+
+/* Prevenir by+name juntos sin espacio */
+.post-meta .post-author span[itemprop="name"] {
+  margin-left: 3px;
 }
 
 .post-title {
@@ -71,8 +81,11 @@
   display: block;
 }
 
-/* OCULTAR el segundo box de autor (el que aparece duplicado) */
-.post-header .post-author[itemprop="author"] {
+/* OCULTAR elementos duplicados */
+.post-header .post-author[itemprop="author"],
+.post-meta + .post-author,
+.author-info + .author-info,
+.post-author + .post-author {
   display: none;
 }
 
@@ -195,4 +208,9 @@ body .post .post-featured-image {
   body .post .container {
     padding: 0 15px;
   }
+}
+
+/* Corregir problema con "by" pegado al nombre */
+.post-author span {
+  margin: 0 2px;
 } 
