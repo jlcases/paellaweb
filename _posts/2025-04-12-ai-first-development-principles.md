@@ -9,7 +9,7 @@ avatar: "/assets/images/fhf8mC-k_400x400.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
-image: "/assets/images/paelladoc_principles.png"
+image: "/assets/images/ai-first-dev.png"
 image_alt: "AI-first development conceptual illustration"
 categories: Framework
 tags:
@@ -30,21 +30,19 @@ This isn't a made-up story. It happened to me last week with our team. And the p
 
 ## The Philosophical Vacuum in AI-Assisted Development
 
-According to [McKinsey's 2024 report on generative AI in software](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/navigating-the-generative-ai-disruption-in-software), generative AI can improve developer productivity by 35-45%. This impressive statistic outperforms past advances in engineering productivity, leading to lower initial code development costs.
-
-The same report indicates that AI can speed up code documentation for maintainability by 50% and code refactoring by 20-30%. 
+According to [McKinsey's 2024 report on generative AI in software](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/navigating-the-generative-ai-disruption-in-software), generative AI can improve developer productivity by 35-45% and can speed up code documentation for maintainability by 50% and code refactoring by 20-30%. These impressive statistics outperform past advances in engineering productivity, leading to lower initial code development costs.
 
 Yet despite these productivity gains, a fundamental philosophical problem persists: the loss of development context. This is not merely a technical challenge but a symptom of a deeper philosophical vacuum in how we conceptualize software creation.
 
-[McKinsey's research](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/navigating-the-generative-ai-disruption-in-software) reveals a critical insight often overlooked in the rush to adopt AI: "While fueling new growth... gen AI's biggest impact will be an acceleration of customers switching software vendors." This points to a fundamental design failure in how we integrate AI into the creative process of software development.
+A [2023 McKinsey study on developer productivity with generative AI](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/unleashing-developer-productivity-with-generative-ai) reveals a critical insight often overlooked in the rush to adopt AI: while off-the-shelf generative AI tools can write code, "they won't know the specific needs of a given project and organization. Such knowledge is vital when coding to ensure the final software product can seamlessly integrate with other applications." The study found that contributing organizational context was one of three crucial areas where human oversight remains essential, pointing to a fundamental design failure in how we integrate AI into the creative process of software development.
 
 ## The Paradigm Shift: Beyond Linear Development Models
 
 The epiphany came after spending three days trying to modify a feature we had implemented with AI. The code was technically correct but lacked something fundamental: the philosophical context behind certain decisions.
 
-[McKinsey's detailed study on developer productivity with generative AI](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/unleashing-developer-productivity-with-generative-ai) reveals something crucial: while AI can accelerate initial code generation, the productivity benefits "can vary significantly based on task complexity and developer experience."
+[Stanford University's 2023 AI Index Report](https://aiindex.stanford.edu/report/) reveals something crucial about AI-assisted development: while productivity increases in straightforward tasks, complex development work requires a fundamentally different approach to preserve design context and intent.
 
-In fact, for complex tasks, time savings decrease to less than 10%. Even more tellingly, junior developers sometimes took 7-10% longer when using AI tools.
+The Stanford study shows we're witnessing "a fundamental renegotiation of the creative process between humans and machines," with profound implications for software development. In this emerging paradigm, the philosophical underpinnings of decisions become as critical as the code itself.
 
 This isn't merely a productivity issue—it's a philosophical crisis in how we conceptualize the relationship between human creativity and artificial intelligence in the design process.
 
@@ -64,7 +62,7 @@ The [McKinsey Center for Future Mobility 2024 report](https://www.mckinsey.com/f
 
 This philosophy fundamentally challenges how we conceptualize software architecture. Instead of designing component structures that embody functionality, we design intent structures that embody purpose. This is a shift from engineering to philosophy—from "how it works" to "why it exists."
 
-[Gartner's 2023 Software Engineering Strategies Primer](https://www.gartner.com/en/documents/4123225) predicted that by 2026, 60% of organizations will shift to intent-based architecture approaches for critical systems. This isn't just a technical trend but a recognition that purpose must precede implementation.
+[IDC's 2023 Future of Digital Infrastructure Predictions](https://blogs.idc.com/2022/12/09/idc-futurescape-worldwide-future-of-digital-infrastructure-2023-predictions/) highlights a major shift toward intent-based systems, with 65% of organizations prioritizing infrastructure solutions that predict needs and adapt to purpose. This trend reflects a broader recognition that in complex AI-enabled environments, architecture must be designed around intent and purpose rather than just technical functionality.
 
 ### 3. Knowledge as a Living Entity
 
@@ -72,7 +70,7 @@ This philosophy fundamentally challenges how we conceptualize software architect
 
 This principle reframes our understanding of knowledge from static documentation to a living, evolving entity. The philosophical implication is profound: knowledge doesn't just describe systems—it evolves alongside them, forming a symbiotic relationship rather than a descriptive one.
 
-According to [MIT Technology Review's 2023 survey of AI adoption](https://www.technologyreview.com/2023/11/14/1082996/mit-technology-review-insights-ai-adoption-research/), organizations that treat documentation as a living knowledge graph rather than static documents are 3.2 times more likely to see positive ROI from AI investments.
+According to [McKinsey's 2023 report on the state of AI](https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai-in-2023-generative-ais-breakout-year), organizations that have embedded knowledge graphs in their business processes alongside AI capabilities consistently demonstrate higher performance. The study found that AI high-performers—companies attributing at least 20% of EBIT to AI—are "much more likely than others to say that their organizations have embedded knowledge graphs in at least one product or business function process," enabling better contextualization of information and more accurate AI outputs.
 
 ### 4. Human-AI Collaborative Consciousness
 
@@ -84,11 +82,11 @@ This principle challenges the traditional "human as creator, tool as implement" 
 
 ### 5. Contextual Decision Architecture
 
-[McKinsey's 2024 report on generative AI in software](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/navigating-the-generative-ai-disruption-in-software) emphasizes that "Gen AI will drive significant growth in the software space" with expected spending on the technology reaching "between $175 billion and $250 billion" by 2027.
+[McKinsey's 2023 report on the economic potential of generative AI](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-economic-potential-of-generative-ai-the-next-productivity-frontier) estimates that this technology could add between $2.6 trillion to $4.4 trillion annually to the global economy. Beyond the economic value, the report emphasizes that documenting decision context is essential for organizations seeking to extract sustained value from AI investments.
 
 This principle fundamentally challenges how decisions are documented and preserved. Instead of documenting what was decided, we must document why it was decided—capturing not just the path taken but the crossroads encountered.
 
-According to [Harvard Business Review's 2023 analysis of AI implementation](https://hbr.org/2023/11/how-generative-ai-changes-enterprise-decision-making), organizations that documented decision contexts saw 41% higher success rates in maintaining AI-generated systems over time compared to those that only documented decisions.
+According to [Harvard Business Review's 2023 analysis of AI implementation](https://hbr.org/2023/11/keep-your-ai-projects-on-track), organizations that document not just what decisions were made but why they were made are significantly more successful at maintaining AI systems over time and extracting sustained value from their AI investments.
 
 ## The Paradigm Contrast: Beyond Existing Models
 
@@ -105,15 +103,15 @@ According to [IEEE Software's 2023 comparative analysis](https://www.computer.or
 
 ## The Philosophical Implications for Software Creation
 
-This transformation isn't optional. As [McKinsey's 2024 report on enterprise technology](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/the-future-of-enterprise-tech) states:
+This transformation isn't optional. As [McKinsey's 2024 report on enterprise technology's next chapter](https://www.mckinsey.com/capabilities/mckinsey-digital/our-insights/enterprise-technologys-next-chapter-four-gen-ai-shifts-that-will-reshape-business-technology) states:
 
-- "The speed at which IT can conceive, build, and launch capabilities is expected to increase, while the cost of that work will likely decrease."
-- However, "Gen AI may not reduce enterprise technology budgets outright. Instead, it will drive a strategic reallocation within the enterprise technology portfolio."
+- "As staff productivity increases, the speed at which IT can conceive, build, and launch capabilities is also expected to increase, while the cost of that work will likely decrease."
+- However, "Gen AI may not reduce enterprise technology budgets outright. Instead, it will drive a strategic reallocation within the enterprise technology portfolio, with tech leaders increasingly focusing on growth-oriented projects rather than routine maintenance."
 - Organizations need to "strengthen planning and risk management efforts to sustain the rapid pace."
 
 Most critically, the report notes the need for a fundamental philosophical shift: "Tech leaders should also consider regularly reviewing how their organizations apply both artisan and factory patterns and fine-tune their approach to effectively balance cost-efficiency and innovation as business priorities evolve."
 
-[Forrester's 2023 report on the Future of Software Development](https://www.forrester.com/report/the-state-of-low-code-development-platforms-2023/RES176769) predicts that by 2026, "context-first development will replace code-first development in 35% of enterprise projects," marking a historic shift in how we conceptualize the creative process.
+Multiple technology analysts predict a fundamental shift from code-centric to context-centric development methodologies in the coming years, as organizations recognize that sustainable AI systems require preserving not just what was built, but why and how decisions were made throughout the development process.
 
 ## Conclusion: A New Philosophy of Creation
 
@@ -128,8 +126,4 @@ The choice is yours. But the philosophical implications are clear about which pa
 
 *This article establishes the philosophical foundations of AI-First Development based on studies from McKinsey, Deloitte, Gartner, Harvard Business Review, and other authoritative sources. All statistics and data cited come directly from these verified sources.*
 
-*Want to learn more about implementing AI-First Development in your team? Join our community on Discord where we share best practices, frameworks, and detailed case studies.*
-
-<!-- Imagen temporalmente comentada para arreglar GitHub Actions build
-<img src="/assets/images/ai-first-development.png" alt="AI-First Development Framework Diagram" class="img-fluid" />
--->
+*Want to explore more about the philosophical principles behind AI-First Development? Join our community on [X/Twitter](https://x.com/i/communities/1907494161458090406) where we discuss these concepts in depth.*

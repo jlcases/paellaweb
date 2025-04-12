@@ -39,7 +39,17 @@ body {
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  width: 100%;
+  
+  @media (max-width: 768px) {
+    padding: 0 0.75rem;
+    max-width: 100%;
+  }
+  
+  @media (min-width: 769px) {
+    padding: 0 2rem;
+  }
 }
 
 // Estilos para destacar palabras clave en títulos

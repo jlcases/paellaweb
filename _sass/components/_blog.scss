@@ -449,4 +449,51 @@ $blog-max-width: 1200px;
   * {
     transition: none !important;
   }
+}
+
+// Post container - Para estilo individual de posts
+.post-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-top: var(--spacing-xl);
+  
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 var(--spacing-md);
+    
+    @media (min-width: 768px) {
+      max-width: 95%;
+      padding: 0 var(--spacing-lg);
+    }
+    
+    @media (min-width: 992px) {
+      max-width: 1200px;
+      padding: 0 var(--spacing-xl);
+    }
+  }
+  
+  .post-content {
+    width: 100%;
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-md);
+      margin: var(--spacing-lg) 0;
+    }
+  }
+  
+  .post-featured-image {
+    margin: var(--spacing-lg) 0;
+    
+    img, picture, source {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-md);
+      margin: 0;
+    }
+  }
 } 
