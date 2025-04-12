@@ -1,0 +1,25 @@
+{% comment %}
+  Schema.org WebSite markup for the entire website
+  Usage: {% include website-schema.html %}
+  Adds search box functionality to Google results
+{% endcomment %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "description": "{{ site.description }}",
+  "author": {
+    "@type": "Organization",
+    "name": "{{ site.author }}",
+    "url": "{{ site.url }}"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{{ site.url }}/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script> 

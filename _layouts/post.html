@@ -2,9 +2,15 @@
 layout: default
 ---
 
-{% include blog/schema-blog-post.html %}
+{% if page.categories contains "Framework" or page.categories contains "Technical" or page.tags contains "technical" or page.tags contains "tutorial" %}
+  {% include blog/tech-article.html %}
+{% else %}
+  {% include blog/schema-blog-post.html %}
+{% endif %}
 
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+{% include blog/breadcrumbs.html %}
+
+<article class="post" itemscope itemtype="http://schema.org/{% if page.categories contains 'Framework' or page.categories contains 'Technical' or page.tags contains 'technical' or page.tags contains 'tutorial' %}TechArticle{% else %}BlogPosting{% endif %}">
   <div class="container">
     <header class="post-header">
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>

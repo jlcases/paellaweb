@@ -1,0 +1,167 @@
+{% comment %}
+  Schema.org breadcrumbs navigation with microdata
+  Usage: {% include blog/breadcrumbs.html %}
+{% endcomment %}
+
+{% assign url_parts = page.url | split: '/' %}
+{% assign parent_url = "" %}
+
+<nav class="breadcrumbs" aria-label="Breadcrumbs">
+  <ol class="breadcrumb-list" itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ site.url }}">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+
+    {% if page.layout == 'post' %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ site.url }}/blog/">
+        <span itemprop="name">Blog</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    
+    {% if page.categories.size > 0 %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ site.url }}/categories/{{ page.categories.first | slugify }}/">
+        <span itemprop="name">{{ page.categories.first }}</span>
+      </a>
+      <meta itemprop="position" content="3" />
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title }}</span>
+      <meta itemprop="position" content="4" />
+    </li>
+    {% else %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title }}</span>
+      <meta itemprop="position" content="3" />
+    </li>
+    {% endif %}
+    
+    {% elsif page.url contains '/blog/' %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">Blog</span>
+      <meta itemprop="position" content="2" />
+    </li>
+    
+    {% elsif page.url contains '/categories/' %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ site.url }}/blog/">
+        <span itemprop="name">Blog</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.category }}</span>
+      <meta itemprop="position" content="3" />
+    </li>
+    
+    {% elsif page.url contains '/docs/' or page.layout == 'docs' %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a itemprop="item" href="{{ site.url }}/docs/">
+        <span itemprop="name">Docs</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    {% if page.url != '/docs/' %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title }}</span>
+      <meta itemprop="position" content="3" />
+    </li>
+    {% endif %}
+    
+    {% else %}
+    <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">{{ page.title }}</span>
+      <meta itemprop="position" content="2" />
+    </li>
+    {% endif %}
+  </ol>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "{{ site.url }}"
+    }
+    {% if page.layout == 'post' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "{{ site.url }}/blog/"
+    }
+    {% if page.categories.size > 0 %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.categories.first }}",
+      "item": "{{ site.url }}/categories/{{ page.categories.first | slugify }}/"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 4,
+      "name": "{{ page.title | escape }}"
+    }
+    {% else %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.title | escape }}"
+    }
+    {% endif %}
+    
+    {% elsif page.url contains '/blog/' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog"
+    }
+    
+    {% elsif page.url contains '/categories/' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "{{ site.url }}/blog/"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.category | escape }}"
+    }
+    
+    {% elsif page.url contains '/docs/' or page.layout == 'docs' %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Docs",
+      "item": "{{ site.url }}/docs/"
+    }
+    {% if page.url != '/docs/' %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ page.title | escape }}"
+    }
+    {% endif %}
+    
+    {% else %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ page.title | escape }}"
+    }
+    {% endif %}
+  ]
+}
+</script> 
