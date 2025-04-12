@@ -11,6 +11,21 @@
   gap: var(--spacing-xl);
 }
 
+/* Corrección de la relación de aspecto de la imagen del hero */
+.hero-visual {
+  width: 45%;
+  max-width: 500px;
+  aspect-ratio: 1/1; /* Forzamos relación 1:1 */
+  position: relative;
+}
+
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Mantiene relación de aspecto */
+  object-position: center;
+}
+
 /* En dispositivos móviles, ocultamos la imagen y ajustamos el diseño */
 @media (max-width: 768px) {
   .hero-visual {
@@ -67,9 +82,9 @@
 
 /* En pantallas medianas, reducimos el tamaño de la imagen pero la mantenemos visible */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .hero-visual img {
-    max-width: 100%;
-    height: auto;
+  .hero-visual {
+    width: 40%;
+    max-width: 400px;
   }
   
   .hero-content {
@@ -78,10 +93,6 @@
   }
   
   .hero-text {
-    flex: 1;
-  }
-  
-  .hero-visual {
     flex: 1;
   }
 } 

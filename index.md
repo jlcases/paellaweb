@@ -32,7 +32,7 @@ image: /assets/images/og-image.jpg
         </div>
       </div>
       <div class="hero-visual">
-        <img src="/assets/images/imagen-min.png" alt="Hero visual PAELLADOC" width="100%" height="auto">
+        <img src="/assets/images/imagen-min.png" alt="Hero visual PAELLADOC" width="1024" height="1024">
       </div>
     </div>
   </div>
