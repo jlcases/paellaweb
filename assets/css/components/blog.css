@@ -1,4 +1,6 @@
-/* Blog Layout Styles */
+/* Blog Layout Styles - First Principles Approach */
+
+/* --- Estilos Base del Tema (Se mantienen) --- */
 .blog-hero {
   padding: var(--spacing-2xl) var(--spacing-lg);
   text-align: center;
@@ -25,20 +27,47 @@
   padding-top: var(--spacing-lg);
 }
 
+/* --- LAYOUT PRINCIPAL (Mobile First con Flexbox - Esencial) --- */
 .blog-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: var(--spacing-2xl);
+  display: flex;
+  flex-direction: column; /* Columna por defecto */
+  gap: var(--spacing-xl); /* Espacio entre columna y sidebar en móvil */
   margin: var(--spacing-xl) auto;
   padding: 0 var(--spacing-lg);
   max-width: 1200px;
+  box-sizing: border-box;
+  
+  /* DEBUG */
+  border: 4px dashed red;
+  background-color: rgba(255, 0, 0, 0.05);
 }
 
 .posts-container {
   width: 100%;
-  min-width: 0; /* Evita desbordamiento en grid */
+  min-width: 0; /* Previene desbordamiento */
+  order: 1; /* Orden visual */
+  box-sizing: border-box;
+  
+  /* DEBUG */
+  border: 4px dashed blue;
+  background-color: rgba(0, 0, 255, 0.05);
+  padding: 8px;
 }
 
+.blog-sidebar {
+  width: 100%;
+  order: 2; /* Orden visual */
+  box-sizing: border-box;
+  /* Sticky solo en desktop */
+  
+  /* DEBUG */
+  border: 4px dashed green;
+  background-color: rgba(0, 255, 0, 0.05);
+  padding: 8px;
+}
+/* --- FIN LAYOUT PRINCIPAL --- */
+
+/* --- Estilos Contenido Blog (Se mantienen) --- */
 .posts-grid {
   display: grid;
   gap: var(--spacing-xl);
@@ -310,14 +339,7 @@
   line-height: 1.6;
 }
 
-/* Sidebar */
-.blog-sidebar {
-  position: sticky;
-  top: calc(80px + var(--spacing-xl));
-  height: calc(100vh - 80px - var(--spacing-xl) * 2);
-  overflow-y: auto;
-}
-
+/* Sidebar Sections Base */
 .sidebar-section {
   margin-bottom: var(--spacing-xl);
   background: var(--color-surface-variant);
@@ -333,22 +355,125 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
+/* === Newsletter Estilos Básicos === */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.newsletter-form input[type="email"] {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  box-sizing: border-box;
+}
+
+.newsletter-form button.button.primary {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: var(--color-text-inverted);
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+}
+/* =========================== */
+/* === RESPONSIVE LAYOUT === */
+/* =========================== */
+
+@media (min-width: 992px) {
+  /* --- LAYOUT DESKTOP --- */
   .blog-layout {
-    grid-template-columns: 1fr;
+    flex-direction: row; /* Cambia a fila */
+    gap: var(--spacing-2xl);
+    /* align-items: flex-start; /* Descomentar si se necesita alineación específica */
+    
+    /* DEBUG */
+    border-color: purple;
+    background-color: rgba(128, 0, 128, 0.05);
   }
-  
+
+  .posts-container {
+    flex: 1; /* Ocupa espacio disponible */
+    
+    /* DEBUG */
+    border-color: orange;
+  }
+
   .blog-sidebar {
-    position: static;
-    height: auto;
-    margin-top: var(--spacing-xl);
+    width: 300px; /* Ancho fijo */
+    flex-shrink: 0; /* No encoger */
+    /* order: 2; Ya está por defecto */
+    position: sticky;
+    top: calc(80px + var(--spacing-xl)); /* 80px header + espacio */
+    height: calc(100vh - 80px - var(--spacing-xl) * 2); /* Altura limitada */
+    overflow-y: auto; /* Scroll interno */
+    
+    /* DEBUG */
+    border-color: magenta;
   }
-  
+  /* --- FIN LAYOUT DESKTOP --- */
+
+  /* Newsletter en desktop (Input y botón en línea) */
+  .newsletter-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .newsletter-form input[type="email"] {
+    min-width: 0;
+  }
+
+  .newsletter-form button.button.primary {
+    width: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Detección DEBUG para pantallas - Muestra tamaño actual */
+body::after {
+  content: "MOBILE (<768px)";
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  background: black;
+  color: white;
+  padding: 5px 10px;
+  font-size: 12px;
+  z-index: 9999;
+  font-family: monospace;
+}
+
+@media (min-width: 768px) {
+  body::after {
+    content: "TABLET (768px-992px)";
+    background: blue;
+  }
+}
+
+@media (min-width: 992px) {
+  body::after {
+    content: "DESKTOP (>992px)";
+    background: green;
+  }
+}
+
+/* --- OTROS BREAKPOINTS (Ajustes menores visuales) --- */
+@media (max-width: 992px) {
   .featured-post {
     grid-template-columns: 1fr;
   }
-  
+
   .featured-post-image {
     height: 300px;
     order: -1;
@@ -360,35 +485,36 @@
     padding: var(--spacing-xl) var(--spacing-md);
     margin-top: 60px;
   }
-  
+
   .blog-layout {
     padding: 0 var(--spacing-md);
     margin: var(--spacing-lg) auto;
+    gap: var(--spacing-lg);
   }
-  
+
   .post-card {
     grid-template-columns: 1fr;
   }
-  
+
   .post-card-image {
     height: 200px;
     order: -1;
   }
-  
+
   .post-card-content {
     padding: var(--spacing-lg);
   }
-  
+
   .featured-post-content {
     padding: var(--spacing-lg);
   }
-  
+
   .post-footer {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-sm);
   }
-  
+
   .pagination {
     flex-wrap: wrap;
     gap: var(--spacing-md);
@@ -400,19 +526,19 @@
   .blog-hero h1 {
     font-size: 1.75rem;
   }
-  
+
   .blog-description {
     font-size: 1rem;
   }
-  
+
   .post-card .post-title {
     font-size: var(--font-size-lg);
   }
-  
+
   .post-card .post-excerpt {
     font-size: var(--font-size-sm);
   }
-  
+
   .featured-post-title {
     font-size: var(--font-size-xl);
   }
