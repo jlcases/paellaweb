@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Vibe Coding with Cursor as a Pro - PAELLADOC
-description: Transform your coding experience with PAELLADOC - The ultimate AI-powered development framework that makes your team's workflow mucho mejor.
+title: The Ultimate AI-First Development Framework | PAELLADOC
+description: Transform your AI development process with a comprehensive framework that makes AI projects sustainable, transparent and efficient. From ideation to deployment, build AI products that scale with confidence.
 image: /assets/images/og-image.jpg
 ---
 
@@ -22,8 +22,8 @@ image: /assets/images/og-image.jpg
           </div>
         </div>
         
-        <h1 id="lcp-target">Vibe coding with Cursor</h1>
-        <p class="hero-value-prop">Like a perfect paella, great code needs quality ingredients and precise preparation.</p>
+        <h1 id="lcp-target">The Complete AI-First Development Framework</h1>
+        <p class="hero-value-prop">Perfect AI development, like perfect paella: quality ingredients, structure, and expertise.</p>
         <div class="hero-buttons">
           <a href="https://github.com/jlcases/paelladoc" class="button primary">
             <i class="fab fa-github" aria-hidden="true"></i>
