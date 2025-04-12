@@ -2,6 +2,8 @@
 layout: default
 ---
 
+<link rel="stylesheet" href="{{ '/assets/css/post-fix.css' | relative_url }}">
+
 {% if page.categories contains "Framework" or page.categories contains "Technical" or page.tags contains "technical" or page.tags contains "tutorial" %}
   {% include blog/tech-article.html %}
 {% else %}
