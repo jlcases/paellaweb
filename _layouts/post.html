@@ -18,6 +18,11 @@ layout: default
   <div class="container">
     <header class="post-header">
       <h1 class="post-title" itemprop="headline">{{ page.title }}</h1>
+      
+      {% if page.subtitle %}
+      <p class="post-subtitle">{{ page.subtitle }}</p>
+      {% endif %}
+      
       <div class="post-meta">
         <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
           {{ page.date | date: "%B %d, %Y" }}
@@ -37,39 +42,6 @@ layout: default
         {% endif %}
         <span class="post-reading-time">{{ content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
       </div>
-      
-      {% if page.subtitle %}
-      <p class="post-subtitle">{{ page.subtitle }}</p>
-      {% endif %}
-      
-      <div class="post-author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <img src="{{ page.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ page.author | default: site.author }}" class="author-avatar" itemprop="image">
-        <div class="author-info">
-          <div class="author-name" itemprop="name">{{ page.author | default: site.author }}</div>
-          {% if page.author_bio %}
-          <div class="author-bio" itemprop="description">{{ page.author_bio }}</div>
-          {% else %}
-          <div class="author-bio" itemprop="description">PAELLADOC Creator & Lead Developer</div>
-          {% endif %}
-          <div class="author-links">
-            {% if page.github %}
-            <a href="{{ page.github }}" target="_blank" rel="noopener" aria-label="GitHub Profile" class="author-social">
-              <i class="fab fa-github" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if page.twitter %}
-            <a href="{{ page.twitter }}" target="_blank" rel="noopener" aria-label="Twitter Profile" class="author-social">
-              <i class="fab fa-x-twitter" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-            {% if page.linkedin %}
-            <a href="{{ page.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn Profile" class="author-social">
-              <i class="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
     </header>
     
     {% if page.image %}
@@ -77,7 +49,7 @@ layout: default
       {% include responsive-image.html 
          path=page.image 
          alt=page.image_alt 
-         sizes="(max-width: 768px) 100vw, 1200px" 
+         sizes="(max-width: 768px) 100vw, 800px" 
          lazy="true" 
       %}
       {% if page.image_caption %}

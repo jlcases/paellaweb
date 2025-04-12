@@ -1,96 +1,198 @@
-/* Post layout fixes */
+/* Post layout fixes - Integrado con sistema de diseño */
 
-/* Control container width */
+/* Control container width - reducir significativamente */
 .post .container {
-  max-width: 900px !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  padding: 0 20px !important;
+  max-width: 750px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
 }
 
 /* Fix post content width */
 .post-content {
-  max-width: 100% !important;
-  width: 100% !important;
-  overflow-wrap: break-word !important;
+  max-width: 100%;
+  width: 100%;
+  overflow-wrap: break-word;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
 /* Fix images in content */
 .post-content img {
-  max-width: 100% !important;
-  height: auto !important;
+  max-width: 100%;
+  height: auto;
 }
 
-/* Better post header spacing */
+/* Better post header spacing and layout */
 .post-header {
-  margin-bottom: 2rem !important;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border, #eaeaea);
+}
+
+.post-title {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  font-weight: 800;
+}
+
+.post-subtitle {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary, #555);
+  margin-bottom: 1.5rem;
+  font-weight: 400;
 }
 
 /* Ensure post meta displays correctly */
 .post-meta {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  gap: 0.5rem !important;
-  margin-bottom: 1rem !important;
-  font-size: 0.9rem !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary, #666);
 }
 
 /* Fix post featured image */
 .post-featured-image {
-  margin: 2rem 0 !important;
-  max-width: 100% !important;
-  border-radius: 8px !important;
-  overflow: hidden !important;
+  margin: 0 0 2.5rem;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .post-featured-image img {
-  width: 100% !important;
-  height: auto !important;
-  display: block !important;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Better author box styling */
-.post-author {
-  display: flex !important;
-  align-items: center !important;
-  padding: 1rem !important;
-  background: var(--color-surface-variant, #f5f5f5) !important;
-  border-radius: 8px !important;
-  margin: 1rem 0 2rem !important;
+/* OCULTAR el segundo box de autor (el que aparece duplicado) */
+.post-header .post-author[itemprop="author"] {
+  display: none;
 }
 
-.author-avatar {
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 50% !important;
-  margin-right: 1rem !important;
+/* Mejorar el primer autor en el meta */
+.post-meta .post-author {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  font-weight: 500;
 }
 
-.author-info {
-  flex: 1 !important;
+/* Estilos para tags */
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 2rem 0;
+  justify-content: center;
 }
 
-.author-name {
-  font-weight: bold !important;
-  margin-bottom: 0.25rem !important;
+.post-tag {
+  background: var(--color-surface-variant, #f0f0f0);
+  color: var(--color-text-secondary, #555);
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
 }
 
-.author-bio {
-  font-size: 0.9rem !important;
-  color: var(--color-text-secondary, #666) !important;
-  margin-bottom: 0.5rem !important;
+/* Mejorar compartir */
+.post-share {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  gap: 1rem;
+  padding: 1rem;
+  border-top: 1px solid var(--color-border, #eaeaea);
+  border-bottom: 1px solid var(--color-border, #eaeaea);
 }
 
-.author-links {
-  display: flex !important;
-  gap: 0.75rem !important;
+.share-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-surface-variant, #f0f0f0);
+  color: var(--color-text-secondary, #555);
+  transition: all 0.2s ease;
 }
 
-.author-social {
-  color: var(--color-text-tertiary, #777) !important;
-  transition: color 0.2s ease !important;
+.share-button:hover {
+  transform: translateY(-3px);
+  background: var(--color-primary, #0066cc);
+  color: white;
 }
 
-.author-social:hover {
-  color: var(--color-primary, #0066cc) !important;
+/* Navegación entre posts */
+.post-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.prev-post, .next-post {
+  padding: 1rem;
+  border-radius: 8px;
+  background: var(--color-surface-variant, #f0f0f0);
+  transition: all 0.2s ease;
+}
+
+.prev-post:hover, .next-post:hover {
+  background: var(--color-surface, #e5e5e5);
+}
+
+/* Ajustes para sección de posts relacionados */
+.related-posts {
+  margin-top: 4rem;
+}
+
+.related-posts .container {
+  max-width: 1000px;
+}
+
+.related-posts h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.related-posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Aumentar especificidad para asegurar que se aplican los estilos */
+body .post .post-title,
+body .post .post-content,
+body .post .post-meta,
+body .post .post-featured-image {
+  max-width: 100%;
+  width: 100%;
+}
+
+/* Responsive: reducir título en móvil */
+@media (max-width: 768px) {
+  .post-title {
+    font-size: 2rem;
+  }
+  
+  .post-navigation {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Aumentar especificidad en móvil */
+  body .post .container {
+    padding: 0 15px;
+  }
 } 
