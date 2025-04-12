@@ -10,7 +10,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-paginate
+  - jekyll-paginate-v2
   - jekyll-responsive-image
 
 # Configuración del plugin jekyll-responsive-image
@@ -56,10 +56,15 @@ collections:
     output: true
     permalink: /blog/:title/
 
-# Blog settings
-paginate: 6
-paginate_path: "/blog/page:num/"
-permalink: /blog/:title/
+# Pagination settings (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/page/:num/'
+  title: ':title - Page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
 # Default front matter
 defaults:
@@ -88,3 +93,6 @@ webrick:
     "Cache-Control": "max-age=31536000, public, immutable"
 
 # Jekyll Responsive Image Configuration
+
+# Añadir esto al archivo de configuración
+future: true

@@ -6,7 +6,7 @@ gem "jekyll", "~> 4.3.4"
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.17.0"
   gem "jekyll-seo-tag", "~> 2.8.0"
-  gem "jekyll-paginate", "~> 1.1.0"
+  gem "jekyll-paginate-v2", "~> 3.0"
   gem "jekyll-responsive-image", "~> 1.6.0"
 end
 
