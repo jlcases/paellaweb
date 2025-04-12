@@ -1,0 +1,87 @@
+/* 
+ * Hero Mobile Optimization
+ * Mejora los Core Web Vitals en dispositivos móviles
+ */
+
+/* Por defecto, mantenemos el diseño normal */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+}
+
+/* En dispositivos móviles, ocultamos la imagen y ajustamos el diseño */
+@media (max-width: 768px) {
+  .hero-visual {
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+    position: absolute;
+    overflow: hidden;
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  .hero-content {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    text-align: center;
+  }
+  
+  .github-stats-showcase {
+    justify-content: center;
+  }
+  
+  .hero-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Aseguramos que el título sea el LCP */
+  #lcp-target {
+    font-size: clamp(2rem, 8vw, 3rem);
+    margin-top: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .hero-value-prop {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: var(--spacing-lg);
+  }
+}
+
+/* Adicional: Agregar hint para los navegadores sobre prioridad de carga */
+@media (min-width: 769px) {
+  .hero-visual img {
+    /* Indica al navegador que esta imagen es importante (desktop) */
+    fetchpriority: high;
+  }
+}
+
+/* En pantallas medianas, reducimos el tamaño de la imagen pero la mantenemos visible */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero-visual img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .hero-content {
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .hero-text {
+    flex: 1;
+  }
+  
+  .hero-visual {
+    flex: 1;
+  }
+} 
