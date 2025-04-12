@@ -131,6 +131,21 @@
     <script defer src="https://cloud.umami.is/script.js" data-website-id="f74b1c68-b362-4670-ae00-4e72cf02be92"></script>
     <!-- Añadir el CSS del menú móvil -->
     <link rel="stylesheet" href="{{ '/assets/css/mobile-menu.css' | relative_url }}">
+    
+    <!-- Forzar tema oscuro por defecto, pero respetando preferencias -->
+    <script>
+      // Solo establecer tema oscuro si no hay preferencia guardada
+      if (!localStorage.getItem('paellaTheme')) {
+        localStorage.setItem('paellaTheme', 'dark');
+      }
+      // Aplicar el tema guardado en localStorage
+      const savedTheme = localStorage.getItem('paellaTheme');
+      if (savedTheme === 'dark') {
+        document.documentElement.removeAttribute('data-theme');
+      } else if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    </script>
   </head>
   <body class="">
     <!-- Skip navigation for accessibility -->
