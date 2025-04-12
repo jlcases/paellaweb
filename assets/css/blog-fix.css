@@ -79,4 +79,50 @@
     position: static;
     height: auto;
   }
+}
+
+/* Estilos para el formulario de newsletter */
+.sidebar-section.newsletter-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.newsletter-form input[type="email"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.newsletter-form button {
+  width: 100%;
+  padding: 10px 16px;
+}
+
+/* En desktop, cambiamos a layout horizontal solo si hay suficiente espacio */
+@media (min-width: 768px) {
+  .newsletter-form {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  
+  .newsletter-form input[type="email"] {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .newsletter-form button {
+    width: auto;
+    white-space: nowrap;
+  }
 } 
