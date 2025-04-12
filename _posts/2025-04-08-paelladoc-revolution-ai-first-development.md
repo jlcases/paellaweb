@@ -26,7 +26,7 @@ Remember staring at your code from just 3 months ago? That sinking feeling when 
 
 This isn't just you. It's happening everywhere. The code flows faster with AI, but the context vanishes just as quickly.
 
-According to Stack Overflow's 2023 Developer Survey, **70% of developers struggle with understanding existing code** more than writing new code. The very tools promising productivity are creating a hidden crisis.
+According to [Stack Overflow's 2023 Developer Survey](https://survey.stackoverflow.co/2023/), **70% of developers struggle with understanding existing code** more than writing new code. The very tools promising productivity are creating a hidden crisis.
 
 This is the **Context Crisis** – and it's silently killing your AI projects.
 
@@ -34,9 +34,9 @@ This is the **Context Crisis** – and it's silently killing your AI projects.
 
 What happens when context disappears? The numbers tell a devastating story:
 
-* Teams waste up to **32% of developer time** on reconstructing lost context, according to McKinsey's 2023 Developer Efficiency Report
-* Just **23 minutes of focused work** remain after typical interruptions, making deep understanding nearly impossible, according to UC Irvine research by Gloria Mark
-* Context switching between projects reduces productivity by up to **40%**, costing approximately **$23,000 annually per developer** (Microsoft's 2022 Work Trend Index)
+* Teams waste up to **32% of developer time** on reconstructing lost context, according to [McKinsey's 2023 Developer Efficiency Report](https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/yes-you-can-measure-software-developer-productivity)
+* Just **23 minutes of focused work** remain after typical interruptions, making deep understanding nearly impossible, according to [UC Irvine research by Gloria Mark](https://www.ics.uci.edu/~gmark/chi08-mark.pdf)
+* Context switching between projects reduces productivity by up to **40%**, costing approximately **$23,000 annually per developer** according to [Microsoft's 2022 Work Trend Index](https://www.microsoft.com/en-us/worklab/work-trend-index/great-expectations-making-hybrid-work-work)
 
 The hidden tax on your development team is even worse:
 
