@@ -9,6 +9,8 @@ layout: default
 {% endif %}
 
 {% include blog/breadcrumbs.html %}
+{% include blog/entity-linking.html %}
+{% include author-entity.html %}
 
 <article class="post" itemscope itemtype="http://schema.org/{% if page.categories contains 'Framework' or page.categories contains 'Technical' or page.tags contains 'technical' or page.tags contains 'tutorial' %}TechArticle{% else %}BlogPosting{% endif %}">
   <div class="container">
@@ -20,7 +22,7 @@ layout: default
         </time>
         {% if page.author %}
         <span class="post-author">
-          por <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+          by <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
         </span>
         {% endif %}
         {% if page.categories.size > 0 %}

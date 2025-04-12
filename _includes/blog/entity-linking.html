@@ -1,0 +1,123 @@
+{% comment %}
+  Entity linking for key concepts in articles
+  Usage: {% include blog/entity-linking.html %}
+  Links key concepts with their Wikidata/Wikipedia entries
+{% endcomment %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% if page.entities %}
+      {% for entity in page.entities %}
+        {
+          "@type": "{{ entity.type | default: 'Thing' }}",
+          "name": "{{ entity.name }}",
+          "description": "{{ entity.description }}",
+          "sameAs": [
+            {% if entity.wikidata %}"{{ entity.wikidata }}"{% endif %}
+            {% if entity.wikidata and entity.wikipedia %},{% endif %}
+            {% if entity.wikipedia %}"{{ entity.wikipedia }}"{% endif %}
+            {% if entity.url and (entity.wikidata or entity.wikipedia) %},{% endif %}
+            {% if entity.url %}"{{ entity.url }}"{% endif %}
+          ]
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    {% elsif page.tags %}
+      {% for tag in page.tags %}
+        {% case tag %}
+          {% when "AI" or "Artificial Intelligence" %}
+            {
+              "@type": "Thing",
+              "name": "Artificial Intelligence",
+              "sameAs": [
+                "https://www.wikidata.org/wiki/Q11660",
+                "https://en.wikipedia.org/wiki/Artificial_intelligence"
+              ]
+            },
+          {% when "context preservation" %}
+            {
+              "@type": "Thing",
+              "name": "Context Preservation",
+              "description": "Maintaining history and rationale throughout development lifecycle",
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Context_(computing)"
+              ]
+            },
+          {% when "structured documentation" %}
+            {
+              "@type": "Thing",
+              "name": "Structured Documentation",
+              "description": "Documentation with defined format and standardized sections",
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Software_documentation"
+              ]
+            },
+          {% when "Best Practices" %}
+            {
+              "@type": "Thing",
+              "name": "Best Practices",
+              "description": "Commercial or professional procedures accepted as most effective",
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Best_practice"
+              ]
+            },
+          {% when "Framework" %}
+            {
+              "@type": "Thing",
+              "name": "Software Framework",
+              "description": "Abstraction providing generic functionality that can be selectively changed",
+              "sameAs": [
+                "https://www.wikidata.org/wiki/Q631378",
+                "https://en.wikipedia.org/wiki/Software_framework"
+              ]
+            },
+          {% when "Technical" %}
+            {
+              "@type": "Thing",
+              "name": "Technical Documentation",
+              "description": "Documentation describing the operation and use of a system or software",
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Technical_documentation"
+              ]
+            },
+          {% when "tutorial" %}
+            {
+              "@type": "Thing",
+              "name": "Tutorial",
+              "description": "Method of transferring knowledge through step-by-step instructions",
+              "sameAs": [
+                "https://www.wikidata.org/wiki/Q1002697",
+                "https://en.wikipedia.org/wiki/Tutorial"
+              ]
+            },
+          {% when "vision" %}
+            {
+              "@type": "Thing",
+              "name": "Vision Statement",
+              "description": "Declaration of an organization's objectives and intended methods of reaching them",
+              "sameAs": [
+                "https://en.wikipedia.org/wiki/Vision_statement"
+              ]
+            },
+          {% else %}
+            {
+              "@type": "Thing",
+              "name": "{{ tag }}"
+            }{% unless forloop.last %},{% endunless %}
+        {% endcase %}
+      {% endfor %}
+    {% else %}
+      {
+        "@type": "Thing",
+        "name": "PAELLADOC",
+        "description": "AI-First Development Framework with Context Preservation",
+        "sameAs": [
+          "https://github.com/jlcases/paelladoc"
+        ]
+      }
+    {% endif %}
+  ]
+}
+</script> 

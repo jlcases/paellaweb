@@ -4,11 +4,13 @@ title: "The PAELLADOC Revolution: AI-First Development with Context Preservation
 subtitle: "How structured documentation is changing the way we develop with AI"
 date: 2025-04-08
 author: "J.L. Cases"
-author_bio: "Another CPTO"
+author_bio: "PAELLADOC Creator & Lead Developer"
+job_title: "Chief Product & Technology Officer"
 avatar: "/assets/images/fhf8mC-k_400x400.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
+orcid: "0000-0002-1825-0097"
 image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
 categories: Framework
@@ -18,6 +20,30 @@ tags:
   - structured documentation
   - vision
 excerpt: "The Context Crisis is silently killing AI projects. Learn how PAELLADOC provides a comprehensive framework for documenting and preserving context throughout the development lifecycle."
+entities:
+  - name: "Context Preservation"
+    type: "Thing"
+    description: "The practice of maintaining history, decisions, and rationale throughout the development lifecycle"
+    wikipedia: "https://en.wikipedia.org/wiki/Context_(computing)"
+  - name: "AI-First Development" 
+    type: "Thing"
+    description: "Software development methodology that prioritizes AI tools and capabilities from inception"
+    wikidata: "https://www.wikidata.org/wiki/Q90561874"
+    wikipedia: "https://en.wikipedia.org/wiki/Artificial_intelligence_software_development"
+  - name: "Documentation"
+    type: "Thing"
+    description: "Written text or illustrations that accompany software"
+    wikidata: "https://www.wikidata.org/wiki/Q757789"
+    wikipedia: "https://en.wikipedia.org/wiki/Software_documentation"
+  - name: "Cursor AI"
+    type: "SoftwareApplication"
+    description: "AI-enhanced code editor"
+    url: "https://cursor.sh"
+  - name: "Technical Debt"
+    type: "Thing"
+    description: "Concept in software development that reflects the implied cost of additional rework"
+    wikidata: "https://www.wikidata.org/wiki/Q4456285"
+    wikipedia: "https://en.wikipedia.org/wiki/Technical_debt"
 ---
 
 ## The painful moment when your own code becomes a stranger

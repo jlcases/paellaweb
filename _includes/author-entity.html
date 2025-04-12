@@ -1,0 +1,38 @@
+{% comment %}
+  Author identity linking with web profiles
+  Usage: {% include author-entity.html %}
+{% endcomment %}
+
+{% if page.author %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "{{ page.github | default: site.url | append: '/author/' | append: page.author | slugify }}",
+  "name": "{{ page.author }}",
+  {% if page.author_bio %}"description": "{{ page.author_bio }}",{% endif %}
+  "image": "{{ page.avatar | default: '/assets/images/paelladoc-avatar.png' | prepend: site.url }}",
+  "sameAs": [
+    {% if page.github %}"{{ page.github }}"{% endif %}
+    {% if page.github and page.twitter %},{% endif %}
+    {% if page.twitter %}"{{ page.twitter }}"{% endif %}
+    {% if page.linkedin and (page.github or page.twitter) %},{% endif %}
+    {% if page.linkedin %}"{{ page.linkedin }}"{% endif %}
+    {% if page.orcid and (page.github or page.twitter or page.linkedin) %},{% endif %}
+    {% if page.orcid %}"https://orcid.org/{{ page.orcid }}"{% endif %}
+    {% if page.wikidata and (page.github or page.twitter or page.linkedin or page.orcid) %},{% endif %}
+    {% if page.wikidata %}"{{ page.wikidata }}"{% endif %}
+  ],
+  "jobTitle": "{% if page.job_title %}{{ page.job_title }}{% else %}Software Developer{% endif %}",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "PAELLADOC",
+    "url": "{{ site.url }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ site.url }}{{ page.url }}"
+  }
+}
+</script>
+{% endif %} 
