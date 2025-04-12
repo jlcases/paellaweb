@@ -50,7 +50,7 @@ image: /assets/images/og-image.jpg
       </div>
       
       <div class="pain-card">
-        <div class="pain-icon"><i class="fa-solid fa-gauge-simple-low" aria-hidden="true"></i></div>
+        <div class="pain-icon"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i></div>
         <h3>Teams That Slow Down</h3>
         <p>Initial AI velocity feels amazing until context gets lost and your team grinds to a halt.</p>
       </div>
