@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (savedTheme) {
       return savedTheme;
     } else {
-      return prefersDarkScheme.matches ? 'dark' : 'light';
+      return 'dark'; // Por defecto usar tema oscuro
     }
   }
 
