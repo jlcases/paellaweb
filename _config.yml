@@ -55,6 +55,12 @@ collections:
   posts:
     output: true
     permalink: /blog/:title/
+  categories:
+    output: true
+    permalink: /blog/categories/:name/
+  tags:
+    output: true
+    permalink: /blog/tags/:name/
 
 # Pagination settings (jekyll-paginate-v2)
 pagination:
@@ -65,6 +71,21 @@ pagination:
   limit: 0
   sort_field: 'date'
   sort_reverse: true
+
+# Category and tag settings
+category_archive:
+  enabled: true
+  path: "/blog/categories"
+  layout: "category"
+  permalinks:
+    category: /blog/categories/:name/
+
+tag_archive:
+  enabled: true
+  path: "/blog/tags"
+  layout: "tag"
+  permalinks:
+    tag: /blog/tags/:name/
 
 # Default front matter
 defaults:
@@ -77,11 +98,20 @@ defaults:
       author: "PAELLADOC Team"
       avatar: "/assets/images/paelladoc-avatar.png"
       github: "https://github.com/jlcases"
-
-# Category settings
-category_archive:
-  enabled: true
-  path: "/blog/categories/"
+  -
+    scope:
+      path: "blog/categories"
+      type: "pages"
+    values:
+      layout: "category"
+      permalink: /blog/categories/:name/
+  -
+    scope:
+      path: "blog/tags"
+      type: "pages"
+    values:
+      layout: "tag"
+      permalink: /blog/tags/:name/
 
 # Cache settings
 sass:

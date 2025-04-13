@@ -5,6 +5,7 @@ subtitle: "Why AI-Generated Code Becomes Unmaintainable (and How to Fix It)"
 date: 2025-04-12
 author: "José Luis Cases"
 author_bio: "CPTO"
+job_title: "Chief Product & Technology Officer"
 avatar: "/assets/images/fhf8mC-k_400x400.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
@@ -18,6 +19,25 @@ tags:
   - Digital Transformation
   - Context Preservation
 excerpt: "The uncomfortable philosophical truth about why AI-generated code becomes unmaintainable, and how a new development paradigm can fundamentally transform software creation."
+entities:
+  - name: "AI-First Development"
+    type: "Thing"
+    description: "A development paradigm that prioritizes context preservation and philosophical understanding in AI-assisted coding"
+    wikidata: "https://www.wikidata.org/wiki/Q90561874"
+    wikipedia: "https://en.wikipedia.org/wiki/Artificial_intelligence_software_development"
+  - name: "Development Philosophy"
+    type: "Thing"
+    description: "The fundamental principles and approaches that guide software development practices"
+    wikipedia: "https://en.wikipedia.org/wiki/Programming_paradigm"
+  - name: "Context Preservation"
+    type: "Thing"
+    description: "The practice of maintaining development context, decisions, and rationale throughout the software lifecycle"
+    wikipedia: "https://en.wikipedia.org/wiki/Context_(computing)"
+  - name: "Digital Transformation"
+    type: "Thing"
+    description: "The integration of digital technology into all areas of business, fundamentally changing operations and value delivery"
+    wikidata: "https://www.wikidata.org/wiki/Q24256332"
+    wikipedia: "https://en.wikipedia.org/wiki/Digital_transformation"
 ---
 
 "Who wrote this code?"

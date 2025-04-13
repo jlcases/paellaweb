@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The PAELLADOC Revolution: AI-First Development with Context Preservation"
+title: "The PaellaDoc Revolution: AI-First Development"
 subtitle: "How structured documentation is changing the way we develop with AI"
 date: 2025-04-08
 author: "J.L. Cases"
@@ -13,12 +13,14 @@ linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 orcid: "0000-0002-1825-0097"
 image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
-categories: Framework
+categories: [Development]
 tags:
+  - AI-First Development
+  - Development Philosophy
+  - Digital Transformation
+  - Context Preservation
   - Best Practices
-  - context preservation
-  - structured documentation
-  - vision
+  - Structured Documentation
 excerpt: "The Context Crisis is silently killing AI projects. Learn how PAELLADOC provides a comprehensive framework for documenting and preserving context throughout the development lifecycle."
 entities:
   - name: "Context Preservation"

@@ -26,7 +26,7 @@ layout: default
                 {% if featured.categories.size > 0 %}
                 <span class="post-categories">
                   {% for category in featured.categories %}
-                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
+                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
                   {% endfor %}
                 </span>
                 {% endif %}
@@ -66,7 +66,7 @@ layout: default
                 {% if post.categories.size > 0 %}
                 <span class="post-categories">
                   {% for category in post.categories %}
-                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
+                  <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}/" class="post-category">{{ category }}</a>
                   {% endfor %}
                 </span>
                 {% endif %}
@@ -127,7 +127,7 @@ layout: default
             {% assign categories = site.categories | sort %}
             {% for category in categories %}
             <li>
-              <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}">
+              <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}/">
                 {{ category[0] }}
                 <span class="category-count">{{ category[1].size }}</span>
               </a>
@@ -155,7 +155,7 @@ layout: default
           <div class="tags-cloud">
             {% assign tags = site.tags | sort %}
             {% for tag in tags %}
-            <a href="{{ site.baseurl }}/blog/tags/{{ tag[0] | slugify }}" class="tag-link">
+            <a href="{{ site.baseurl }}/blog/tags/{{ tag[0] | slugify }}/" class="tag-link">
               {{ tag[0] }}
             </a>
             {% endfor %}

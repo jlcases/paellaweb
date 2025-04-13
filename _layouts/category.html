@@ -1,50 +1,34 @@
 ---
-layout: blog
+layout: default
 ---
 
-<link rel="stylesheet" href="{{ '/assets/css/category-fix.css' | relative_url }}">
-
-<div class="category-header">
-  <h2 class="category-title">{{ page.title }}</h2>
-  <p class="category-description">{{ page.description }}</p>
-</div>
-
-<div class="category-posts">
-  {% for post in site.categories[page.category] %}
-    <article class="post-card">
-      <div class="post-card-content">
-        <div class="post-meta">
-          <span class="post-date">{{ post.date | date: "%B %d, %Y" }}</span>
-          {% if post.categories.size > 0 %}
-          <span class="post-categories">
-            {% for category in post.categories %}
-            <a href="{{ site.baseurl }}/blog/categories/{{ category | slugify }}" class="post-category">{{ category }}</a>
-            {% endfor %}
-          </span>
-          {% endif %}
-        </div>
-        <h2 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-        <div class="post-footer">
-          <div class="post-author">
-            <img src="{{ post.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
-            <span class="author-name">{{ post.author | default: site.author }}</span>
-          </div>
-          <span class="post-reading-time">{{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
-        </div>
-      </div>
-      {% if post.image %}
-      <div class="post-card-image">
-        <a href="{{ post.url | relative_url }}">
-          {% include responsive-image.html 
-             path=post.image 
-             alt=post.title 
-             sizes="(max-width: 480px) 100vw, 400px" 
-             lazy="true" 
-          %}
-        </a>
-      </div>
-      {% endif %}
-    </article>
-  {% endfor %}
+<div class="container">
+    <h1>Posts in category "{{ page.category }}"</h1>
+    
+    <div class="post-list">
+        {% for post in site.categories[page.category] %}
+        <article class="post-preview">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+                {% if post.categories.size > 0 %}
+                <span class="post-categories">
+                    {% for cat in post.categories %}
+                    <a href="{{ site.baseurl }}/blog/categories/{{ cat | slugify }}/" class="category">{{ cat }}</a>
+                    {% endfor %}
+                </span>
+                {% endif %}
+            </div>
+            <p>{{ post.excerpt | strip_html | truncatewords: 50 }}</p>
+            <a href="{{ post.url | relative_url }}" class="read-more">Read more →</a>
+        </article>
+        {% endfor %}
+    </div>
+    
+    <div class="category-list">
+        <h2>All Categories</h2>
+        {% for category in site.categories %}
+        <a href="{{ site.baseurl }}/blog/categories/{{ category[0] | slugify }}/" class="category">{{ category[0] }} ({{ category[1].size }})</a>
+        {% endfor %}
+    </div>
 </div> 
