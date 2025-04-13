@@ -79,9 +79,9 @@ PAELLADOC's architecture is organized into:
 
 ## Next Steps
 
-- Learn more about [PAELLADOC's Philosophy](/docs/philosophy/)
+- Learn more about [PAELLADOC's Philosophy](/blog/ai-first-development-principles/)
 - Explore [Templates and Workflows](/docs/templates/)
-- Understand [Context Preservation](/docs/context-preservation/)
-- See [Example Projects](/docs/examples/)
+- Understand [Context Preservation](/blog/paelladoc-revolution-ai-first-development/)
+- See [Example Projects on GitHub](https://github.com/jlcases/paelladoc)
 
 For detailed information, visit the [PAELLADOC GitHub repository](https://github.com/jlcases/paelladoc).
