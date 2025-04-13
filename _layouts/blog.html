@@ -34,7 +34,11 @@ layout: default
               <h2 class="featured-post-title"><a href="{{ featured.url | relative_url }}">{{ featured.title }}</a></h2>
               <p class="featured-post-excerpt">{{ featured.excerpt | strip_html | truncatewords: 35 }}</p>
               <div class="featured-post-author">
-                <img src="{{ featured.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                {% if featured.avatar %}
+                <img src="{{ '/assets/images/' | append: featured.avatar | append: '.jpg' | relative_url }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                {% else %}
+                <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                {% endif %}
                 <span class="author-name">{{ featured.author | default: site.author }}</span>
                 <span class="post-reading-time">{{ featured.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
               </div>
@@ -75,7 +79,11 @@ layout: default
               <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
               <div class="post-footer">
                 <div class="post-author">
-                  <img src="{{ post.avatar | default: '/assets/images/paelladoc-avatar.png' }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                  {% if post.avatar %}
+                  <img src="{{ '/assets/images/' | append: post.avatar | append: '.jpg' | relative_url }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                  {% else %}
+                  <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                  {% endif %}
                   <span class="author-name">{{ post.author | default: site.author }}</span>
                 </div>
                 <span class="post-reading-time">{{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
