@@ -124,11 +124,12 @@ responsive_image:
   sizes:
     - width: 320
     - width: 480
-    - width: 800
-    - width: 1400
+    - width: 768
+    - width: 1024
+    - width: 1200
   strip: true
-  base_path: assets/img
-  output_path_format: assets/img/resized/%{width}/%{basename}
+  base_path: assets/images
+  output_path_format: assets/images/%{basename}_%{width}.%{extension}
   save_to_source: false
   cache: true
   quality: 85
@@ -137,8 +138,8 @@ responsive_image:
     - avif
     - original
   extra_images:
-    - assets/img/posts/*/*.{jpg,jpeg,png}
-    - assets/img/authors/*.{jpg,jpeg,png}
+    - assets/images/posts/*/*.{jpg,jpeg,png}
+    - assets/images/authors/*.{jpg,jpeg,png}
   gravity: center
   default_quality: 90
 
