@@ -6,11 +6,36 @@ permalink: /docs/getting-started/
 
 # Getting Started with PAELLADOC
 
-Welcome to PAELLADOC! This guide will walk you through the initial setup and basic usage of this powerful development exoskeleton.
+PAELLADOC is a powerful documentation system that adapts to your workflow and language preferences. This guide will show you how to use the PAELLA command for different documentation scenarios.
+
+## ⚠️ Important: Enable Auto-run Mode (YOLO)
+
+Before starting, you MUST enable auto-run mode (also known as YOLO mode) in Cursor settings:
+
+{% responsive_image path: _posts_images_original/yolo-mode.png alt: "YOLO mode settings in Cursor IDE" %}
+
+1. Open Cursor Settings
+2. Go to Chat section
+3. Check "Enable auto-run mode"
+4. This allows PAELLADOC to:
+   - Run commands automatically without confirmation
+   - Create and modify files instantly
+   - Provide a seamless documentation experience
+   - Execute all necessary operations without interruption
+
+Without YOLO mode enabled, PAELLADOC cannot function properly as it needs to:
+- Create directory structures automatically
+- Initialize and update .memory.json files
+- Generate documentation templates on the fly
+- Update files in real-time
+- Execute commands without manual confirmation
+
+💡 **Pro Tip**: YOLO mode is essential for PAELLADOC's automated workflow. It allows the system to work efficiently without requiring constant user confirmation for each operation.
 
 ## Requirements
 
 - **Cursor IDE 0.47+** - PAELLADOC is designed to work with Cursor IDE
+- **Auto-run Mode Enabled** - Required for automatic file operations
 - **Node.js 14+** - Required for running scripts
 - **Internet connection** - For research capabilities
 - **Git** - For repository management
@@ -27,60 +52,201 @@ Welcome to PAELLADOC! This guide will walk you through the initial setup and bas
 
 3. **That's it!** No additional setup required.
 
-## First Steps
+## Command Structure
 
-1. **Initialize a new project:**
-   ```bash
-   PAELLA your-project-name
-   ```
-   This will start an interactive conversation to create your project documentation.
+### Basic Syntax
+```bash
+PAELLA [--path="path"] [--name="name"] [--lang="[language_code]"] [--type="api|lib|app"] [--start="entry_point"]
+```
 
-2. **Continue working on an existing project:**
-   ```bash
-   CONTINUE your-project-name
-   ```
-   This will pick up where you left off with your documentation.
+### Core Parameters
 
-3. **Generate code from documentation:**
-   ```bash
-   GENERATE_CODE your-project-name
-   ```
-   This will create code based on your completed documentation.
+1. `--lang="[language_code]"` (Required First)
+   - Documentation language (ISO 639-1 code)
+   - Must be selected first
+   - Supported languages:
+     - 🇪🇸 es - Spanish (Español)
+     - 🇬🇧 en - English
+     - 🇫🇷 fr - French (Français)
+     - 🇩🇪 de - German (Deutsch)
+     - 🇷🇺 ru - Russian (Русский)
+     - 🇨🇳 zh - Chinese (中文)
+     - 🇯🇵 ja - Japanese (日本語)
 
-## Core Concepts
+2. `--path="path"`
+   - Documentation location
+   - Optional (defaults to ./docs)
+   - Examples:
+     ```bash
+     --path="./docs"              # Standard location
+     --path="/custom/path/docs"   # Custom location
+     ```
 
-### MECE Documentation Structure
+3. `--name="name"`
+   - Project name
+   - Optional
+   - Example: `--name="MyProject"`
 
-PAELLADOC is built on the MECE principle (Mutually Exclusive, Collectively Exhaustive):
-- **Mutually Exclusive:** Each piece of context has its specific place
-- **Collectively Exhaustive:** Nothing important is left out
-- **Context Preservation:** All documentation maintains critical context
+4. `--type="api|lib|app"`
+   - Project type
+   - Optional
+   - Values: "api", "lib", "app"
+   - Determines base templates
 
-### Command System
+5. `--start="entry_point"`
+   - Documentation approach
+   - Optional
+   - Values:
+     - "product" - Start with product documentation
+     - "engineering" - Start with technical documentation
+     - "existing" - Import existing documentation
+     - "code" - Generate from codebase
 
-PAELLADOC uses intuitive commands to manage your development process:
+## Use Cases
 
-| Command | Description | Example |
-|---------|-------------|---------|
-| `PAELLA` | Start new documentation project | `PAELLA new-product` |
-| `CONTINUE` | Continue existing documentation | `CONTINUE new-product` |
-| `GENERATE_CODE` | Generate code from documentation | `GENERATE_CODE new-product` |
-| `STORY` | Manage user stories | `STORY operation="create" title="User login"` |
-| `SPRINT` | Manage sprints | `SPRINT operation="plan" name="Sprint 1"` |
-| `MEETING` | Manage meeting notes | `MEETING operation="create" title="Planning"` |
+### 1. Product Documentation (PRD First)
 
-### Modular Architecture
+```bash
+# Basic product documentation
+PAELLA --lang="es" --start="product" --name="MiProducto"
 
-PAELLADOC's architecture is organized into:
-- **Core Commands:** Basic functionality for documentation
-- **Feature Modules:** Specialized capabilities for different aspects
-- **Templates:** Pre-defined structures for various document types
-- **Project Memory:** Persistent storage of project context
+# With custom path and type
+PAELLA --lang="en" --start="product" --name="MyProduct" --path="/docs/product" --type="app"
+```
+
+Creates:
+- Product Requirements Document (PRD)
+- User Stories
+- Market Research Template
+- Product Roadmap
+- Feature Specifications
+
+### 2. Technical Documentation
+
+```bash
+# API documentation
+PAELLA --lang="en" --start="engineering" --type="api" --name="MyAPI"
+
+# Library documentation
+PAELLA --lang="de" --start="engineering" --type="lib" --name="MeinePaket"
+```
+
+Generates:
+- Technical Architecture
+- API/Library Specifications
+- Development Guidelines
+- Component Documentation
+- Testing Strategy
+
+### 3. Code-First Documentation
+
+```bash
+# From existing codebase
+PAELLA --lang="en" --start="code" --code-path="/path/to/source" --type="api"
+
+# With custom output
+PAELLA --lang="fr" --start="code" --code-path="/src" --type="lib" --path="/docs/api"
+```
+
+Produces:
+- Code Structure Analysis
+- API/Component Documentation
+- Setup Instructions
+- Development Guides
+- Dependency Documentation
+
+### 4. Documentation Import
+
+```bash
+# Import and enhance
+PAELLA --lang="es" --start="existing" --docs-path="/old/docs" --path="/new/docs"
+
+# Import and translate
+PAELLA --lang="de" --start="existing" --docs-path="/en/docs" --path="/de/docs"
+```
+
+Performs:
+- Documentation Import
+- Structure Analysis
+- Gap Identification
+- Content Enhancement
+- Translation (if needed)
+
+## Memory Management
+
+PAELLADOC maintains a `.memory.json` file that tracks:
+- Selected language
+- Project information
+- Documentation progress
+- Created documents
+- Translation status
+
+## Best Practices
+
+1. **Language Selection**
+   - Always select language first
+   - All interactions will be in chosen language
+   - Can be changed later but requires re-initialization
+
+2. **Project Structure**
+   - Use recommended /docs directory when possible
+   - Keep documentation with code for better versioning
+   - Use custom paths for separate documentation management
+
+3. **Documentation Flow**
+   - Start with clear project purpose
+   - Define target audience
+   - Set concrete objectives
+   - Choose appropriate templates
+   - Iterate and improve
+
+4. **Version Control**
+   - Commit documentation with code
+   - Use meaningful commit messages
+   - Track documentation versions
+   - Maintain change history
+
+## Error Handling
+
+PAELLADOC provides:
+- Clear error messages
+- Recovery suggestions
+- Automatic rollback on failures
+- Path validation
+- Permission checks
+
+## Advanced Features
+
+1. **Multi-language Support**
+   - Documentation in multiple languages
+   - Automatic translation tracking
+   - Language-specific templates
+   - Cross-reference management
+
+2. **Template Customization**
+   - Modify existing templates
+   - Create custom templates
+   - Import template sets
+   - Share templates across projects
+
+3. **Integration Capabilities**
+   - Code analysis integration
+   - Version control hooks
+   - CI/CD pipeline integration
+   - Automated updates
 
 ## Next Steps
 
-- Learn more about [PAELLADOC's Philosophy](/blog/ai-first-development-principles/)
-- Explore [Templates and Workflows](/docs/templates/)
-- Understand [Context Preservation](/blog/paelladoc-revolution-ai-first-development/)
+After initializing your documentation with PAELLA, you can:
+1. Review generated documentation structure
+2. Fill in the templates
+3. Customize the documentation to your needs
+4. Use version control to track changes
+5. Set up continuous documentation updates
+
+For more detailed information, check out:
+- [Documentation Templates](./templates.md)
+- [Advanced Configuration](./configuration.md)
+- [Command Reference](./commands.md)
 
 For detailed information, visit the [PAELLADOC GitHub repository](https://github.com/jlcases/paelladoc).
