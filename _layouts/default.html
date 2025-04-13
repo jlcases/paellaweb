@@ -188,8 +188,9 @@
             <ul class="nav-links desktop-nav" role="menu">
               <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
               <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
-              <li role="none"><a href="{{ "/docs/getting-started" | relative_url }}" {% if page.url contains "/docs" %}class="active" aria-current="page"{% endif %} aria-label="Documentation page" itemprop="url" role="menuitem"><span itemprop="name">DOCS</span></a></li>
               <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
+              <li role="none"><a href="https://github.com/jlcases/paelladoc" aria-label="GitHub Repository" itemprop="url" role="menuitem"><span itemprop="name">GITHUB</span></a></li>
+              <li role="none"><a href="https://github.com/jlcases/paelladoc/discussions" aria-label="GitHub Discussions" itemprop="url" role="menuitem"><span itemprop="name">DISCUSSIONS</span></a></li>
             </ul>
             {% include theme-toggle.html %}
           </nav>
@@ -245,8 +246,9 @@
       <ul class="mobile-nav-links" role="menu">
         <li role="none"><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home page" itemprop="url" role="menuitem"><span itemprop="name">HOME</span></a></li>
         <li role="none"><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog page" itemprop="url" role="menuitem"><span itemprop="name">BLOG</span></a></li>
-        <li role="none"><a href="{{ "/docs/getting-started" | relative_url }}" {% if page.url contains "/docs" %}class="active" aria-current="page"{% endif %} aria-label="Documentation page" itemprop="url" role="menuitem"><span itemprop="name">DOCS</span></a></li>
         <li role="none"><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute page" itemprop="url" role="menuitem"><span itemprop="name">CONTRIBUTE</span></a></li>
+        <li role="none"><a href="https://github.com/jlcases/paelladoc" aria-label="GitHub Repository" itemprop="url" role="menuitem"><span itemprop="name">GITHUB</span></a></li>
+        <li role="none"><a href="https://github.com/jlcases/paelladoc/discussions" aria-label="GitHub Discussions" itemprop="url" role="menuitem"><span itemprop="name">DISCUSSIONS</span></a></li>
         <!-- Enlace social exclusivo móvil -->
         <li role="none">
           <a href="https://x.com/i/communities/1907494161458090406" class="mobile-social-link" target="_blank" rel="noopener noreferrer" aria-label="Join our community on X" role="menuitem">

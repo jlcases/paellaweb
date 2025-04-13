@@ -49,9 +49,6 @@ exclude:
 
 # Collections
 collections:
-  docs:
-    output: true
-    permalink: /:collection/:path/
   posts:
     output: true
     permalink: /blog/:title/
