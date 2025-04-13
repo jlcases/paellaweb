@@ -1,0 +1,91 @@
+/* Estilos para la documentación con barra lateral */
+
+.docs-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 30px;
+  padding: 20px;
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.sidebar-nav h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+}
+
+.sidebar-nav .nav {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.sidebar-nav .nav li {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav .nav a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 5px 0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-nav .nav a:hover {
+  color: var(--primary-color);
+  padding-left: 5px;
+}
+
+.nav-group {
+  margin-top: 15px;
+}
+
+.nav-group-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--heading-color);
+}
+
+.nav-group ul {
+  list-style: none;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+.docs-content {
+  flex-grow: 1;
+  max-width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  .docs-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+  }
+}

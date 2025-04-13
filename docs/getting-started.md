@@ -1,5 +1,5 @@
 ---
-layout: docs
+layout: docs-sidebar
 title: Getting started with PAELLADOC
 permalink: /docs/getting-started/
 ---

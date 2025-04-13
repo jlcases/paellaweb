@@ -1,0 +1,261 @@
+/* Styles for documentation with sidebar */
+
+/* Using existing design system variables for theme consistency */
+.docs-container {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 30px;
+  padding-top: 30px;
+  padding-bottom: 50px;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.sidebar-sticky {
+  position: sticky;
+  top: 100px; /* Adjusted for fixed header space */
+  padding: 20px;
+  border-radius: 6px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.sidebar-nav h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--heading-color);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.sidebar-nav .nav {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.sidebar-nav .nav li {
+  margin-bottom: 8px;
+}
+
+.sidebar-nav .nav a {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 5px 0;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.sidebar-nav .nav a:hover,
+.sidebar-nav .nav a:focus {
+  color: var(--primary-color);
+  padding-left: 5px;
+  text-decoration: none;
+}
+
+.sidebar-nav .nav a.active {
+  color: var(--primary-color);
+  font-weight: 600;
+  border-left: 3px solid var(--primary-color);
+  padding-left: 7px;
+}
+
+.nav-group {
+  margin-top: 15px;
+}
+
+.nav-group-title {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--heading-color);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.nav-group ul {
+  list-style: none;
+  padding-left: 15px;
+  margin-bottom: 15px;
+}
+
+/* Main content */
+.docs-content {
+  flex-grow: 1;
+  max-width: 900px;
+}
+
+.docs-content h1 {
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.docs-content h2 {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--heading-color);
+}
+
+.docs-content h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.docs-content h4 {
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.docs-content p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.docs-content ul, .docs-content ol {
+  margin-bottom: 15px;
+  padding-left: 25px;
+  color: var(--text-color);
+}
+
+.docs-content li {
+  margin-bottom: 5px;
+  line-height: 1.6;
+}
+
+.docs-content code {
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  border-radius: 3px;
+  background-color: var(--code-bg);
+  color: var(--code-color);
+}
+
+.docs-content pre {
+  background-color: var(--code-bg);
+  padding: 15px;
+  border-radius: 5px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+.docs-content pre code {
+  padding: 0;
+  background-color: transparent;
+}
+
+.docs-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.docs-content table th,
+.docs-content table td {
+  padding: 8px 12px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+}
+
+.docs-content table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.docs-content blockquote {
+  border-left: 4px solid var(--primary-color);
+  padding-left: 15px;
+  margin-left: 0;
+  color: var(--text-secondary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .docs-container {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+  }
+  
+  .docs-content {
+    max-width: 100%;
+  }
+}
+
+/* Specific style for documentation notes */
+.docs-note {
+  background-color: rgba(var(--primary-rgb), 0.1);
+  border-left: 4px solid var(--primary-color);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 0 5px 5px 0;
+}
+
+.docs-warning {
+  background-color: rgba(var(--warning-rgb), 0.1);
+  border-left: 4px solid var(--warning-color);
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 0 5px 5px 0;
+}
+
+/* Syntax highlighting adjustments */
+.highlight .k, .highlight .kd {
+  color: var(--syntax-keyword);
+}
+
+.highlight .s, .highlight .s1, .highlight .s2 {
+  color: var(--syntax-string);
+}
+
+/* Breadcrumbs for navigation */
+.docs-breadcrumbs {
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.docs-breadcrumbs a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.docs-breadcrumbs a:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.docs-breadcrumbs .separator {
+  margin: 0 8px;
+  color: var(--border-color);
+}

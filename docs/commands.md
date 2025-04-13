@@ -1,5 +1,5 @@
 ---
-layout: docs
+layout: docs-sidebar
 title: PAELLADOC command reference
 permalink: /docs/commands/
 ---
