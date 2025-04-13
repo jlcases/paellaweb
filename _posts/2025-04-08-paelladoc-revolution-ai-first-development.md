@@ -6,12 +6,12 @@ date: 2025-04-08
 author: "J.L. Cases"
 author_bio: "PAELLADOC Creator & Lead Developer"
 job_title: "Chief Product & Technology Officer"
-avatar: "/assets/images/fhf8mC-k_400x400.jpg"
+avatar: "fhf8mC-k_400x400"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 orcid: "0000-0002-1825-0097"
-image: "/assets/images/context_crisis.png"
+image: "context_crisis"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
 categories: [Development]
 tags:

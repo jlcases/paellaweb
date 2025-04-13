@@ -6,11 +6,11 @@ date: 2025-04-12
 author: "José Luis Cases"
 author_bio: "CPTO"
 job_title: "Chief Product & Technology Officer"
-avatar: "/assets/images/fhf8mC-k_400x400.jpg"
+avatar: "fhf8mC-k_400x400"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
-image: "/assets/images/ai-first-dev.png"
+image: "ai-first-dev"
 image_alt: "AI-first development conceptual illustration"
 categories: Framework
 tags:

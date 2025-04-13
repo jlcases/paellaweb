@@ -1,4 +1,4 @@
-url: "https://paelladoc.com" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site, leave empty for development
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "The Ultimate AI-First Development Framework | PAELLADOC" # the name of your site
 description: "Transform your AI development process with a comprehensive framework that makes AI projects sustainable, transparent and efficient. From ideation to deployment, build AI products that scale with confidence."

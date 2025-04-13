@@ -1,0 +1,31 @@
+<!-- Mobile Menu Button -->
+<button id="mobile-menu-button" class="mobile-menu-button" aria-label="Open menu">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns=" http://www.w3.org/2000/svg">
+    <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</button>
+
+<!-- Menu Overlay -->
+<div id="menu-overlay" class="menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <button id="mobile-menu-close" class="mobile-menu-close" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+   
+  <div class="mobile-menu-content">
+    <ul class="mobile-menu-list">
+      <li><a href="{{ site.baseurl }}/">Home</a></li>
+      <li><a href="{{ site.baseurl }}/docs/getting-started">Getting Started</a></li>
+      <li><a href="{{ site.baseurl }}/docs/commands">Commands</a></li>
+      <li><a href="{{ site.baseurl }}/docs/templates">Templates</a></li>
+      <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
+      <li><a href="https://github.com/jlcases/paelladoc" target="_blank" rel="noopener">GitHub</a></li>
+    </ul>
+  </div>
+</nav> 
