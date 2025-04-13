@@ -74,7 +74,7 @@ The hidden tax on your development team is even worse:
 
 Imagine this scenario: Your team uses Cursor AI to build a feature in record time. Three months later, a new developer needs to modify it. Without context preservation, they spend days deciphering the original intention, questioning decisions that were already debated, and essentially restarting the entire cognitive process.
 
-**The result**: a staggering waste of time, talent, and money that no one is measuring.
+**The result**: a staggering waste of time, talent, and money that no one is measuring. This phenomenon is explored in depth in our article on [the philosophical foundations of AI-First Development](/blog/ai-first-development-principles/).
 
 ## PAELLADOC: The breakthrough that changes everything
 
@@ -142,11 +142,11 @@ We're working on a more powerful version of PAELLADOC with enhanced templates an
 
 ## The 5 exclusive benefits that only PAELLADOC delivers
 
-1. **Context Preservation**: Every design decision and implementation detail is properly documented
+1. **Context Preservation**: Every design decision and implementation detail is properly documented, implementing the [Context as Primary Creation](/blog/ai-first-development-principles/#1-context-as-primary-creation) principle
 2. **Cursor AI Integration**: Templates optimized for working with Cursor AI
 3. **Integrated Documentation**: Documentation isn't a separate task – it's woven into your normal workflow
-4. **Knowledge Sharing**: Team learnings and decisions are preserved indefinitely, outlasting team changes
-5. **Better AI Assistance**: Structured documentation improves how AI tools understand your project
+4. **Knowledge Sharing**: Team learnings and decisions are preserved indefinitely, outlasting team changes, embodying the [Knowledge as a Living Entity](/blog/ai-first-development-principles/#3-knowledge-as-a-living-entity) principle
+5. **Better AI Assistance**: Structured documentation improves how AI tools understand your project, fostering [Human-AI Collaborative Consciousness](/blog/ai-first-development-principles/#4-human-ai-collaborative-consciousness)
 
 ## Transform your development today (in just 5 minutes)
 
@@ -175,7 +175,7 @@ The real question is: **Will you continue losing time, talent, and money to cont
 
 PAELLADOC makes possible what once seemed impossible: lightning-fast development WITH complete context preservation.
 
-The AI-first development revolution is here – and with PAELLADOC, you're leading it.
+The AI-first development revolution is here – and with PAELLADOC, you're leading it. For a deeper philosophical exploration of the AI-First Development paradigm, read our companion article on [The Hidden Truth About AI-First Development](/blog/ai-first-development-principles/).
 
 ---
 

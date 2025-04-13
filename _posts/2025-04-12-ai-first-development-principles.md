@@ -44,7 +44,7 @@ The epiphany came after spending three days trying to modify a feature we had im
 
 The Stanford study shows we're witnessing "a fundamental renegotiation of the creative process between humans and machines," with profound implications for software development. In this emerging paradigm, the philosophical underpinnings of decisions become as critical as the code itself.
 
-This isn't merely a productivity issue—it's a philosophical crisis in how we conceptualize the relationship between human creativity and artificial intelligence in the design process.
+This isn't merely a productivity issue—it's a philosophical crisis in how we conceptualize the relationship between human creativity and artificial intelligence in the design process. We've previously explored this as the [Context Crisis in AI development](/blog/paelladoc-revolution-ai-first-development/#the-painful-moment-when-your-own-code-becomes-a-stranger), which is silently undermining productivity across the industry.
 
 ## The Five Philosophical Principles of AI-First Development
 
@@ -122,8 +122,10 @@ The data is irrefutable. AI-First Development isn't a trend—it's a fundamental
 
 The choice is yours. But the philosophical implications are clear about which path leads to sustainable success.
 
+For teams looking to implement these principles in practice, our [PAELLADOC framework](/blog/paelladoc-revolution-ai-first-development/) provides a comprehensive system for context preservation throughout the entire development lifecycle.
+
 ---
 
 *This article establishes the philosophical foundations of AI-First Development based on studies from McKinsey, Deloitte, Gartner, Harvard Business Review, and other authoritative sources. All statistics and data cited come directly from these verified sources.*
 
-*Want to explore more about the philosophical principles behind AI-First Development? Join our community on [X/Twitter](https://x.com/i/communities/1907494161458090406) where we discuss these concepts in depth.*
+*Want to explore more about the philosophical principles behind AI-First Development? Join our community on [X/Twitter](https://x.com/i/communities/1907494161458090406) where we discuss these concepts in depth, or check out how we're implementing these principles in [PAELLADOC](/blog/paelladoc-revolution-ai-first-development/).*
