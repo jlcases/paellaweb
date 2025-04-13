@@ -11,7 +11,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate-v2
-  # - jekyll-responsive-image  # Temporalmente desactivado para la compilación de GitHub Actions
+  - jekyll-responsive-image
 
 # Configuración del plugin jekyll-responsive-image (desactivada)
 # responsive_image:
@@ -22,7 +22,6 @@ plugins:
 #     - width: 768
 #     - width: 1024
 #     - width: 1200
-#     - width: 1920
 #   base_path: assets/images
 #   output_path_format: assets/images/:basename_:width.:extension
 #   save_to_source: false
@@ -120,21 +119,28 @@ webrick:
     "Cache-Control": "max-age=31536000, public, immutable"
 
 # Jekyll Responsive Image Configuration
-
-# Añadir esto al archivo de configuración
-future: true
-
-# Responsive Images Configuration
 responsive_image:
   template: _includes/responsive-image.html
   sizes:
     - width: 320
     - width: 480
-    - width: 768
-    - width: 1024
-    - width: 1200
+    - width: 800
+    - width: 1400
   strip: true
-  base_path: assets/images
-  output_path_format: assets/images/%{width}/%{basename}
+  base_path: assets/img
+  output_path_format: assets/img/resized/%{width}/%{basename}
   save_to_source: false
-  cache: false
+  cache: true
+  quality: 85
+  formats:
+    - webp
+    - avif
+    - original
+  extra_images:
+    - assets/img/posts/*/*.{jpg,jpeg,png}
+    - assets/img/authors/*.{jpg,jpeg,png}
+  gravity: center
+  default_quality: 90
+
+# Añadir esto al archivo de configuración
+future: true
