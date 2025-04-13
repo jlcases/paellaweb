@@ -123,3 +123,18 @@ webrick:
 
 # Añadir esto al archivo de configuración
 future: true
+
+# Responsive Images Configuration
+responsive_image:
+  template: _includes/responsive-image.html
+  sizes:
+    - width: 320
+    - width: 480
+    - width: 768
+    - width: 1024
+    - width: 1200
+  strip: true
+  base_path: assets/images
+  output_path_format: assets/images/%{width}/%{basename}
+  save_to_source: false
+  cache: false

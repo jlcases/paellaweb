@@ -15,8 +15,7 @@
           <li><a href="{{ "/" | relative_url }}" {% if page.url == "/" %}class="active" aria-current="page"{% endif %} aria-label="Home" itemprop="url"><span itemprop="name">Home</span></a></li>
           <li><a href="{{ "/blog" | relative_url }}" {% if page.url contains "/blog" %}class="active" aria-current="page"{% endif %} aria-label="Blog" itemprop="url"><span itemprop="name">Blog</span></a></li>
           <li><a href="{{ "/contribute" | relative_url }}" {% if page.url == "/contribute/" %}class="active" aria-current="page"{% endif %} aria-label="Contribute" itemprop="url"><span itemprop="name">Contribute</span></a></li>
-          <li><a href="https://github.com/jlcases/paelladoc" aria-label="GitHub Repository" itemprop="url"><span itemprop="name">GITHUB</span></a></li>
-          <li><a href="https://github.com/jlcases/paelladoc/discussions" aria-label="GitHub Discussions" itemprop="url"><span itemprop="name">DISCUSSIONS</span></a></li>
+          <li><a href="https://paelladoc.com/docs/getting-started/" class="cta-button" aria-label="Start Now" itemprop="url"><span itemprop="name">Start Now</span></a></li>
         </ul>
         {% include theme-toggle.html %}
       </nav>

@@ -976,4 +976,46 @@ body[data-theme="light"] {
     font-weight: 700;
     letter-spacing: 0.02em;
   }
+}
+
+// CTA Button in header
+.nav-links {
+  .cta-button {
+    background: var(--primary-color);
+    color: var(--background-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: var(--primary-color-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    span {
+      color: var(--background-color);
+    }
+  }
+}
+
+// Responsive Images
+picture {
+  display: block;
+  width: 100%;
+  margin: 2rem 0;
+  
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    
+    &.screenshot {
+      border: 1px solid var(--border-color);
+      padding: 0.5rem;
+      background: var(--background-color);
+    }
+  }
 } 
