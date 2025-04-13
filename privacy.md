@@ -51,4 +51,6 @@ This website is not intended for children under the age of 13, and we do not kno
 
 If you have questions or comments about this Privacy Policy, please contact us at:
 
-[Insert Contact Email Address]
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+
+*Note: This email address is protected against spam bots.*
