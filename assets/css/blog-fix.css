@@ -1,74 +1,83 @@
 /**
- * BLOG LAYOUT - Mobile-first responsive approach
+ * BLOG LAYOUT - Sistema de diseño limpio
  */
 
-/* Reset all previous styles to ensure we start fresh */
-.blog-layout,
-.blog-layout .posts-container,
-.blog-layout .blog-sidebar {
-  width: 100% !important;
-  max-width: 100% !important;
-  position: static !important;
-  height: auto !important;
-  flex: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  top: auto !important;
-}
-
-/* ===== MOBILE LAYOUT (default) ===== */
-/* Force column layout on mobile with !important */
+/* Base styles - Mobile first */
 .blog-layout {
-  display: flex !important;
-  flex-direction: column !important;
-  width: 100% !important;
-  max-width: 1200px !important;
-  margin: 0 auto !important;
-  padding: var(--spacing-md) !important;
-  gap: 2rem !important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  gap: 2rem;
 }
 
 .blog-layout .posts-container {
-  width: 100% !important;
-  max-width: 100% !important;
-  order: 1 !important;
-  padding: 0 !important;
+  width: 100%;
+  max-width: 100%;
+  order: 1;
 }
 
 .blog-layout .blog-sidebar {
-  width: 100% !important;
-  max-width: 100% !important;
-  order: 2 !important;
-  position: static !important;
-  height: auto !important;
-  margin-top: 40px !important;
+  width: 100%;
+  max-width: 100%;
+  order: 2;
+  position: static;
+  height: auto;
+  margin-top: 40px;
+  margin-bottom: 0;
 }
 
-/* ===== DESKTOP LAYOUT ===== */
+/* Desktop layout */
 @media (min-width: 992px) {
   .blog-layout {
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: flex-start !important;
-    padding: var(--spacing-xl) !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
   }
   
   .blog-layout .posts-container {
-    flex: 1 !important;
-    max-width: calc(100% - 320px) !important;
-    padding-right: 20px !important;
-    order: 1 !important;
+    flex: 1;
+    max-width: calc(100% - 320px);
+    padding-right: 20px;
+    order: 1;
   }
   
   .blog-layout .blog-sidebar {
-    width: 300px !important;
-    min-width: 300px !important;
-    flex: 0 0 300px !important;
-    max-width: 300px !important;
-    position: sticky !important;
-    top: 100px !important;
-    margin-top: 0 !important;
-    order: 2 !important;
+    width: 300px;
+    flex: 0 0 300px;
+    max-width: 300px;
+    position: sticky;
+    top: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+    order: 2;
+  }
+}
+
+/* Asegurar correcto comportamiento en móvil con especificidad en lugar de !important */
+@media (max-width: 991.98px) {
+  body .container .blog-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  body .container .blog-layout .posts-container {
+    width: 100%;
+    max-width: 100%;
+    order: 1;
+  }
+  
+  body .container .blog-layout .blog-sidebar {
+    width: 100%;
+    max-width: 100%;
+    order: 2;
+    margin-top: 40px;
+    margin-bottom: 0;
+    position: static;
+    height: auto;
   }
 }
 
@@ -119,51 +128,5 @@
   
   .featured-post {
     grid-template-columns: 1fr !important;
-  }
-}
-
-/* Newsletter form */
-.sidebar-section.newsletter-section {
-  display: flex;
-  flex-direction: column;
-}
-
-.newsletter-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 12px;
-  margin-top: 16px;
-}
-
-.newsletter-form input[type="email"] {
-  width: 100%;
-  padding: 10px 12px;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  font-size: 16px;
-  box-sizing: border-box;
-}
-
-.newsletter-form button {
-  width: 100%;
-  padding: 10px 16px;
-}
-
-/* In desktop, change to layout horizontal for newsletter if enough space */
-@media (min-width: 768px) {
-  .newsletter-form {
-    flex-direction: row;
-    align-items: stretch;
-  }
-  
-  .newsletter-form input[type="email"] {
-    flex: 1;
-    min-width: 0;
-  }
-  
-  .newsletter-form button {
-    width: auto;
-    white-space: nowrap;
   }
 } 
