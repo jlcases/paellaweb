@@ -6,7 +6,7 @@ permalink: /terms/
 
 *Last updated: April 7, 2025*
 
-Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the [Insert Your Website URL, e.g., paelladoc.com] website (the "Service") operated by PAELLADOC ("us", "we", or "our").
+Please read these Terms of Service ("Terms", "Terms of Service") carefully before using the paelladoc.com website (the "Service") operated by PAELLADOC ("us", "we", or "our").
 
 Your access to and use of the Service is conditioned upon your acceptance of and compliance with these Terms. These Terms apply to all visitors, users, and others who wish to access or use the Service.
 
@@ -32,7 +32,7 @@ PAELLADOC has no control over, and assumes no responsibility for the content, pr
 
 ## Governing Law
 
-These Terms shall be governed and construed in accordance with the laws of [Your Jurisdiction, e.g., Valencia, Spain], without regard to its conflict of law provisions.
+These Terms shall be governed and construed in accordance with the laws of Valencia, Spain, without regard to its conflict of law provisions.
 
 ## Changes
 
@@ -42,4 +42,6 @@ We reserve the right, at our sole discretion, to modify or replace these Terms a
 
 If you have any questions about these Terms, please contact us at:
 
-[Insert Contact Email Address]
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+
+*Note: This email address is protected against spam bots.*

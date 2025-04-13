@@ -14,7 +14,24 @@ The [Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/standar
 
 PAELLADOC is partially conformant with WCAG 2.1 level AA. Partially conformant means that some parts of the content do not fully conform to the accessibility standard.
 
-[Optional: Add specific known limitations if any]
+## Technical Specifications
+
+Our website relies on the following technologies:
+
+- HTML
+- WAI-ARIA
+- CSS
+- JavaScript
+
+## Feedback
+
+We welcome your feedback on the accessibility of PAELLADOC. Please let us know if you encounter any accessibility barriers by contacting us at:
+
+<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#106;&#111;&#115;&#101;&#108;&#117;&#105;&#115;&#99;&#97;&#115;&#101;&#115;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>
+
+*Note: This email address is protected against spam bots.*
+
+We aim to respond to accessibility feedback within 2 business days.
 
 ## Measures Taken
 
@@ -26,27 +43,6 @@ PAELLADOC takes the following measures to ensure accessibility:
 - Provide continual accessibility training for our staff.
 - Assign clear accessibility targets and responsibilities.
 - Employ formal accessibility quality assurance methods.
-
-## Feedback
-
-We welcome your feedback on the accessibility of PAELLADOC. Please let us know if you encounter accessibility barriers:
-
-- E-mail: [Insert Contact Email Address]
-- Visitor address: [If applicable]
-- Postal address: [If applicable]
-
-We try to respond to feedback within [Number] business days.
-
-## Technical Specifications
-
-Accessibility of PAELLADOC relies on the following technologies to work with the particular combination of web browser and any assistive technologies or plugins installed on your computer:
-
-- HTML
-- WAI-ARIA
-- CSS
-- JavaScript
-
-These technologies are relied upon for conformance with the accessibility standards used.
 
 ## Assessment Approach
 
