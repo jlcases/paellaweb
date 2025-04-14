@@ -7,7 +7,7 @@ author: "José Luis Cases"
 avatar: "/assets/images/default-avatar.png"
 github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
-image: "/_posts_images_original/ai-security-risks-discovery-header-2048x1152.png"
+image: "_posts_images_original/ai-security-risks-discovery-header-2048x1152.png"
 image_alt: "The author's avatar character reacts with genuine horror upon discovering hidden dangers in AI-generated code, surrounded by glowing holographic screens"
 categories: 
   - AI Engineering
@@ -22,7 +22,7 @@ excerpt: "Are you using AI assistants for coding? The promise of productivity is
 
 ## Introduction: The time bomb hidden in your AI-generated code
 
-{% responsive_image path: /_posts_images_original/ai-security-risks-discovery-header-2048x1152.png alt: "The author's avatar character reacts with genuine horror upon discovering hidden dangers in AI-generated code, surrounded by glowing holographic screens" %}
+{% responsive_image path: _posts_images_original/ai-security-risks-discovery-header-2048x1152.png alt: "The author's avatar character reacts with genuine horror upon discovering hidden dangers in AI-generated code, surrounded by glowing holographic screens" %}
 
 Are you using AI assistants for coding? Probably. The promise of productivity is irresistible. But have you seriously considered what's happening under the hood? That brilliant code popping up in seconds might be hiding subtle vulnerabilities, like malicious instructions concealed with Unicode tricks that your LLM interprets without question.
 
@@ -32,7 +32,7 @@ And that's the ultimate consequence: your AI projects, built on this fragile fou
 
 ## The "helpful" assistant with a hidden agenda
 
-{% responsive_image path: /_posts_images_original/ai-assistant-security-investigation-1600x1200.png alt: "The author's avatar character investigates a suspicious AI assistant, uncovering hidden code while the robot continues its facade" %}
+{% responsive_image path: _posts_images_original/ai-assistant-security-investigation-1600x1200.png alt: "The author's avatar character investigates a suspicious AI assistant, uncovering hidden code while the robot continues its facade" %}
 
 Imagine this: you're working late, trying to meet a deadline. You ask your AI coding assistant to help refactor a complex piece of logic. It spits out elegant, functional code in seconds. You integrate it, tests pass, and you move on, feeling productive.
 
@@ -42,7 +42,7 @@ This isn't science fiction. It exploits a fundamental flaw: many AI tools can't 
 
 ## The numbers don't lie: Productivity at what cost?
 
-{% responsive_image path: /_posts_images_original/ai-data-privacy-protection-shield-1600x1200.png alt: "The author's avatar character actively guards against data leaks, creating energy barriers to protect proprietary code" %}
+{% responsive_image path: _posts_images_original/ai-data-privacy-protection-shield-1600x1200.png alt: "The author's avatar character actively guards against data leaks, creating energy barriers to protect proprietary code" %}
 
 The rush towards AI coding tools is undeniable. According to [Snyk's 2023 AI Code Security Report](https://snyk.io/reports/ai-code-security/), a staggering **96% of teams are already using them**. The [Stack Overflow 2024 Developer Survey](https://survey.stackoverflow.co/2024/ai) echoes this, with **76% using or planning to use AI tools this year**. The promise of boosting productivity (cited by 81% in the Stack Overflow survey) is clearly driving adoption.
 
@@ -58,7 +58,7 @@ The illusion of effortless productivity hides the underlying engineering reality
 
 ## Building sustainably: Practical steps for secure AI integration
 
-{% responsive_image path: /_posts_images_original/sustainable-vs-unsustainable-ai-development-1600x1200.png alt: "Split image showing the author's avatar character struggling with chaotic AI integration versus confidently managing a structured, secure AI system" %}
+{% responsive_image path: _posts_images_original/sustainable-vs-unsustainable-ai-development-1600x1200.png alt: "Split image showing the author's avatar character struggling with chaotic AI integration versus confidently managing a structured, secure AI system" %}
 
 Acknowledging the risks is the first step. Building truly sustainable AI-assisted projects requires a shift towards deliberate, security-conscious practices. It's not about abandoning AI, but integrating it responsibly. Here's how you start:
 
