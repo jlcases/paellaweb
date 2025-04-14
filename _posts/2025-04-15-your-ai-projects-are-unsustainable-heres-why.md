@@ -22,7 +22,17 @@ excerpt: "Are you using AI assistants for coding? The promise of productivity is
 
 ## Introduction: The time bomb hidden in your AI-generated code
 
-{% responsive_image path: assets/images/ai-security-risks-discovery-header-2048x1152.png alt: "The author's avatar character reacts with genuine horror upon discovering hidden dangers in AI-generated code, surrounded by glowing holographic screens" %}
+<picture>
+  <source type="image/avif" srcset="/assets/images/ai-security-risks-discovery-header-2048x1152_320.avif 320w, /assets/images/ai-security-risks-discovery-header-2048x1152_480.avif 480w, /assets/images/ai-security-risks-discovery-header-2048x1152_768.avif 768w, /assets/images/ai-security-risks-discovery-header-2048x1152_1024.avif 1024w, /assets/images/ai-security-risks-discovery-header-2048x1152_1200.avif 1200w">
+  <source type="image/webp" srcset="/assets/images/ai-security-risks-discovery-header-2048x1152_320.webp 320w, /assets/images/ai-security-risks-discovery-header-2048x1152_480.webp 480w, /assets/images/ai-security-risks-discovery-header-2048x1152_768.webp 768w, /assets/images/ai-security-risks-discovery-header-2048x1152_1024.webp 1024w, /assets/images/ai-security-risks-discovery-header-2048x1152_1200.webp 1200w">
+  <img src="/assets/images/ai-security-risks-discovery-header-2048x1152_1200.png" 
+       srcset="/assets/images/ai-security-risks-discovery-header-2048x1152_320.png 320w, /assets/images/ai-security-risks-discovery-header-2048x1152_480.png 480w, /assets/images/ai-security-risks-discovery-header-2048x1152_768.png 768w, /assets/images/ai-security-risks-discovery-header-2048x1152_1024.png 1024w, /assets/images/ai-security-risks-discovery-header-2048x1152_1200.png 1200w"
+       sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1200px"
+       alt="AI Security Risks Discovery"
+       loading="lazy"
+       width="1200"
+       height="675">
+</picture>
 
 Are you using AI assistants for coding? Probably. The promise of productivity is irresistible. But have you seriously considered what's happening under the hood? That brilliant code popping up in seconds might be hiding subtle vulnerabilities, like malicious instructions concealed with Unicode tricks that your LLM interprets without question.
 
@@ -32,7 +42,17 @@ And that's the ultimate consequence: your AI projects, built on this fragile fou
 
 ## The "helpful" assistant with a hidden agenda
 
-{% responsive_image path: assets/images/ai-assistant-security-investigation-1600x1200.png alt: "The author's avatar character investigates a suspicious AI assistant, uncovering hidden code while the robot continues its facade" %}
+<picture>
+  <source type="image/avif" srcset="/assets/images/ai-assistant-security-investigation-1600x1200_320.avif 320w, /assets/images/ai-assistant-security-investigation-1600x1200_480.avif 480w, /assets/images/ai-assistant-security-investigation-1600x1200_768.avif 768w, /assets/images/ai-assistant-security-investigation-1600x1200_1024.avif 1024w, /assets/images/ai-assistant-security-investigation-1600x1200_1200.avif 1200w">
+  <source type="image/webp" srcset="/assets/images/ai-assistant-security-investigation-1600x1200_320.webp 320w, /assets/images/ai-assistant-security-investigation-1600x1200_480.webp 480w, /assets/images/ai-assistant-security-investigation-1600x1200_768.webp 768w, /assets/images/ai-assistant-security-investigation-1600x1200_1024.webp 1024w, /assets/images/ai-assistant-security-investigation-1600x1200_1200.webp 1200w">
+  <img src="/assets/images/ai-assistant-security-investigation-1600x1200_1200.png"
+       srcset="/assets/images/ai-assistant-security-investigation-1600x1200_320.png 320w, /assets/images/ai-assistant-security-investigation-1600x1200_480.png 480w, /assets/images/ai-assistant-security-investigation-1600x1200_768.png 768w, /assets/images/ai-assistant-security-investigation-1600x1200_1024.png 1024w, /assets/images/ai-assistant-security-investigation-1600x1200_1200.png 1200w"
+       sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1200px"
+       alt="The author's avatar character investigates a suspicious AI assistant, uncovering hidden code while the robot continues its facade"
+       loading="lazy"
+       width="1200"
+       height="900">
+</picture>
 
 Imagine this: you're working late, trying to meet a deadline. You ask your AI coding assistant to help refactor a complex piece of logic. It spits out elegant, functional code in seconds. You integrate it, tests pass, and you move on, feeling productive.
 
@@ -42,7 +62,17 @@ This isn't science fiction. It exploits a fundamental flaw: many AI tools can't 
 
 ## The numbers don't lie: Productivity at what cost?
 
-{% responsive_image path: assets/images/ai-data-privacy-protection-shield-1600x1200.png alt: "The author's avatar character actively guards against data leaks, creating energy barriers to protect proprietary code" %}
+<picture>
+  <source type="image/avif" srcset="/assets/images/ai-data-privacy-protection-shield-1600x1200_320.avif 320w, /assets/images/ai-data-privacy-protection-shield-1600x1200_480.avif 480w, /assets/images/ai-data-privacy-protection-shield-1600x1200_768.avif 768w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1024.avif 1024w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1200.avif 1200w">
+  <source type="image/webp" srcset="/assets/images/ai-data-privacy-protection-shield-1600x1200_320.webp 320w, /assets/images/ai-data-privacy-protection-shield-1600x1200_480.webp 480w, /assets/images/ai-data-privacy-protection-shield-1600x1200_768.webp 768w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1024.webp 1024w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1200.webp 1200w">
+  <img src="/assets/images/ai-data-privacy-protection-shield-1600x1200_1200.png"
+       srcset="/assets/images/ai-data-privacy-protection-shield-1600x1200_320.png 320w, /assets/images/ai-data-privacy-protection-shield-1600x1200_480.png 480w, /assets/images/ai-data-privacy-protection-shield-1600x1200_768.png 768w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1024.png 1024w, /assets/images/ai-data-privacy-protection-shield-1600x1200_1200.png 1200w"
+       sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1200px"
+       alt="The author's avatar character actively guards against data leaks, creating energy barriers to protect proprietary code"
+       loading="lazy"
+       width="1200"
+       height="900">
+</picture>
 
 The rush towards AI coding tools is undeniable. According to [Snyk's 2023 AI Code Security Report](https://snyk.io/reports/ai-code-security/), a staggering **96% of teams are already using them**. The [Stack Overflow 2024 Developer Survey](https://survey.stackoverflow.co/2024/ai) echoes this, with **76% using or planning to use AI tools this year**. The promise of boosting productivity (cited by 81% in the Stack Overflow survey) is clearly driving adoption.
 
@@ -58,7 +88,17 @@ The illusion of effortless productivity hides the underlying engineering reality
 
 ## Building sustainably: Practical steps for secure AI integration
 
-{% responsive_image path: assets/images/sustainable-vs-unsustainable-ai-development-1600x1200.png alt: "Split image showing the author's avatar character struggling with chaotic AI integration versus confidently managing a structured, secure AI system" %}
+<picture>
+  <source type="image/avif" srcset="/assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_320.avif 320w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_480.avif 480w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_768.avif 768w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1024.avif 1024w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1200.avif 1200w">
+  <source type="image/webp" srcset="/assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_320.webp 320w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_480.webp 480w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_768.webp 768w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1024.webp 1024w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1200.webp 1200w">
+  <img src="/assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1200.png"
+       srcset="/assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_320.png 320w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_480.png 480w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_768.png 768w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1024.png 1024w, /assets/images/sustainable-vs-unsustainable-ai-development-1600x1200_1200.png 1200w"
+       sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1200px"
+       alt="Split image showing the author's avatar character struggling with chaotic AI integration versus confidently managing a structured, secure AI system"
+       loading="lazy"
+       width="1200"
+       height="900">
+</picture>
 
 Acknowledging the risks is the first step. Building truly sustainable AI-assisted projects requires a shift towards deliberate, security-conscious practices. It's not about abandoning AI, but integrating it responsibly. Here's how you start:
 
