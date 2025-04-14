@@ -29,7 +29,7 @@ excerpt: "Are you using AI assistants for coding? The promise of productivity is
        srcset="/assets/images/posts/2025-04-14-your-ai-projects-are-unsustainable-heres-why/ai-security-risks-discovery-header-2048x1152_320.png 320w, /assets/images/posts/2025-04-14-your-ai-projects-are-unsustainable-heres-why/ai-security-risks-discovery-header-2048x1152_480.png 480w, /assets/images/posts/2025-04-14-your-ai-projects-are-unsustainable-heres-why/ai-security-risks-discovery-header-2048x1152_768.png 768w, /assets/images/posts/2025-04-14-your-ai-projects-are-unsustainable-heres-why/ai-security-risks-discovery-header-2048x1152_1024.png 1024w, /assets/images/posts/2025-04-14-your-ai-projects-are-unsustainable-heres-why/ai-security-risks-discovery-header-2048x1152_1200.png 1200w"
        sizes="(max-width: 320px) 320px, (max-width: 480px) 480px, (max-width: 768px) 768px, (max-width: 1024px) 1024px, 1200px"
        alt="AI Security Risks Discovery"
-       loading="lazy"
+       loading="eager"
        width="1200"
        height="675">
 </picture>
