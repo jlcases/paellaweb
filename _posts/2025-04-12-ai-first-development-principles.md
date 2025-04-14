@@ -10,7 +10,7 @@ avatar: "fhf8mC-k_400x400"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
-image: "ai-first-dev"
+image: "/assets/images/ai-first-dev.png"
 image_alt: "AI-first development conceptual illustration"
 categories: Framework
 tags:

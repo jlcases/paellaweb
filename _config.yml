@@ -45,6 +45,8 @@ exclude:
   - generate-images.js # Ya no se necesita
   - package.json
   - package-lock.json
+  - assets/images/posts
+  - _site/assets/images/posts
 
 # Collections
 collections:

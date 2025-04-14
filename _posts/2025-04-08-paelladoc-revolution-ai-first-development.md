@@ -11,7 +11,7 @@ github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 orcid: "0000-0002-1825-0097"
-image: "context_crisis"
+image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
 categories: [Development]
 tags:
