@@ -132,6 +132,7 @@ responsive_image:
   output_path_format: assets/images/%{basename}_%{width}.%{extension}
   save_to_source: false
   cache: true
+  cache_dir: .jekyll-cache/responsive-image
   quality: 85
   formats:
     - webp
@@ -143,6 +144,7 @@ responsive_image:
     - assets/images/authors/*.{jpg,jpeg,png}
   gravity: center
   default_quality: 90
+  skip_processing: true # Solo procesar imágenes nuevas o modificadas
 
 # Añadir esto al archivo de configuración
 future: true
