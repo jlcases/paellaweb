@@ -127,24 +127,23 @@ responsive_image:
     - width: 768
     - width: 1024
     - width: 1200
-  strip: true
   base_path: assets/images
-  output_path_format: assets/images/%{dirname}/%{basename}_%{width}%{extension}
+  output_path_format: assets/images/%{dirname}/%{basename}_%{width}.%{extension}
   save_to_source: false
-  cache: false
-  cache_dir: .jekyll-cache/responsive-image
-  quality: 85
-  formats:
-    - webp
-    - avif
-    - original
+  cache: true
+  strip: true
   extra_images:
+    - assets/images/*/*.{jpg,jpeg,png}
     - assets/images/*.{jpg,jpeg,png}
-    - assets/images/posts/*/*.{jpg,jpeg,png}
-    - assets/images/authors/*.{jpg,jpeg,png}
+  ignore_missing_images: true
+  ignore_baseurl_prefix: true
+  formats: [webp, avif, original]
+  quality: 85
+  auto_rotate: true
   gravity: center
-  default_quality: 90
-  skip_processing: false
+  skip_processing: true
+  skip_pattern: "_[0-9]+\\."
+  process_original: false
 
 # Añadir esto al archivo de configuración
 future: true
