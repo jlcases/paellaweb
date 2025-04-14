@@ -128,7 +128,7 @@ responsive_image:
     - width: 1024
     - width: 1200
   strip: true
-  base_path: assets/images
+  base_path: .
   output_path_format: assets/images/%{basename}_%{width}.%{extension}
   save_to_source: false
   cache: true
@@ -138,6 +138,7 @@ responsive_image:
     - avif
     - original
   extra_images:
+    - _posts_images_original/*.{jpg,jpeg,png}
     - assets/images/posts/*/*.{jpg,jpeg,png}
     - assets/images/authors/*.{jpg,jpeg,png}
   gravity: center
