@@ -144,7 +144,7 @@ responsive_image:
     - assets/images/authors/*.{jpg,jpeg,png}
   gravity: center
   default_quality: 90
-  skip_processing: true # Solo procesar imágenes nuevas o modificadas
+  skip_processing: false # Forzar el procesamiento de todas las imágenes
 
 # Añadir esto al archivo de configuración
 future: true
