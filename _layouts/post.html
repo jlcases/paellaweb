@@ -50,7 +50,8 @@ layout: default
          path=page.image 
          alt=page.image_alt 
          sizes="(max-width: 768px) 100vw, 800px" 
-         lazy="true" 
+         lazy="false" 
+         featured="true"
       %}
       {% if page.image_caption %}
       <figcaption class="image-caption">{{ page.image_caption }}</figcaption>

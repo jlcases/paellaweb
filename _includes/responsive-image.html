@@ -3,6 +3,7 @@
 {% assign sizes = include.sizes | default: "(max-width: 800px) 100vw, 800px" %}
 {% assign widths = include.widths | default: "320,480,768,1024,1200" | split: "," %}
 {% assign lazy = include.lazy | default: "true" %}
+{% assign is_featured = include.featured | default: "false" %}
 
 <picture class="{{ include.class }}">
   <!-- AVIF Format -->
@@ -34,7 +35,7 @@
       {% endfor %}
     "
     alt="{{ alt }}"
-    {% if lazy == "true" %}loading="lazy" decoding="async"{% endif %}
+    {% if lazy == "true" and is_featured == "false" %}loading="lazy" decoding="async"{% else %}loading="eager" decoding="sync"{% endif %}
     {% if include.width %}width="{{ include.width }}"{% endif %}
     {% if include.height %}height="{{ include.height }}"{% endif %}
     class="{{ include.img_class }}">
