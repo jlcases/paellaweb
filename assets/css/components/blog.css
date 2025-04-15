@@ -581,6 +581,62 @@ body::after {
 }
 
 /* Estilos específicos para el contenido del artículo */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.post-header {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: var(--spacing-xl);
+  box-sizing: border-box;
+}
+
+.post-title {
+  font-size: clamp(1.75rem, 4vw, var(--font-size-3xl));
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-subtitle {
+  font-size: clamp(1.25rem, 3vw, var(--font-size-xl));
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-meta {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--spacing-lg);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  align-items: center;
+}
+
+.post-featured-image {
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+  box-sizing: border-box;
+}
+
+.post-featured-image picture,
+.post-featured-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius-lg);
+}
+
 .post-content {
   width: 100%;
   max-width: 100%;
@@ -591,13 +647,35 @@ body::after {
   hyphens: auto;
 }
 
-.post-content img {
+/* Estilos para tablas en el contenido */
+.post-content table {
+  width: 100%;
   max-width: 100%;
-  height: auto;
+  margin: var(--spacing-lg) 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
   display: block;
-  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
+.post-content th,
+.post-content td {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  min-width: 150px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.post-content th {
+  background: var(--color-surface-variant);
+  font-weight: var(--font-weight-bold);
+  text-align: left;
+}
+
+/* Estilos para elementos de texto */
 .post-content p,
 .post-content h1,
 .post-content h2,
@@ -606,11 +684,146 @@ body::after {
 .post-content h5,
 .post-content h6,
 .post-content ul,
-.post-content ol {
+.post-content ol,
+.post-content blockquote {
   width: 100%;
   max-width: 100%;
+  margin-bottom: var(--spacing-md);
   box-sizing: border-box;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  margin-bottom: var(--spacing-md);
+}
+
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: var(--spacing-md) auto;
+  border-radius: var(--border-radius-md);
+}
+
+/* Navegación entre posts */
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-2xl);
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.prev-post,
+.next-post {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+
+  .post-content {
+    padding: 0;
+  }
+
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+  }
+
+  .post-navigation {
+    flex-direction: column;
+    gap: var(--spacing-lg);
+  }
+
+  .prev-post,
+  .next-post {
+    width: 100%;
+  }
+
+  .post-content table {
+    font-size: var(--font-size-sm);
+  }
+
+  .post-content th,
+  .post-content td {
+    padding: var(--spacing-xs);
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+
+  .post-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .post-subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .post-content {
+    font-size: var(--font-size-base);
+  }
+
+  .post-content h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .post-content h3 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Estilos para compartir */
+.post-share {
+  margin: var(--spacing-xl) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.share-title {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+}
+
+.share-button {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface-variant);
+  color: var(--color-text-primary);
+  transition: all var(--transition-base);
+}
+
+.share-button:hover {
+  background: var(--color-primary);
+  color: var(--color-text-inverted);
+  transform: translateY(-2px);
+}
+
+/* Estilos para tags */
+.post-tags {
+  margin: var(--spacing-xl) 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.post-tag {
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--color-surface-variant);
+  border-radius: var(--border-radius-full);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
 }
