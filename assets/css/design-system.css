@@ -124,6 +124,8 @@ html, body {
   padding: 0;
   box-sizing: border-box;
   height: 100%;
+  max-width: 100vw !important;
+  overflow-x: hidden !important;
 }
 
 *, *::before, *::after {
@@ -486,6 +488,29 @@ img {
   }
   #mobile-menu-toggle {
     display: flex; /* Mostrar hamburguesa */
+  }
+  .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .post .container {
+    padding-left: var(--spacing-md) !important;
+    padding-right: var(--spacing-md) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  .post-content,
+  .post-featured-image,
+  .post-navigation,
+  .related-posts-grid,
+  .footer-content {
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
   }
 }
 
@@ -1601,6 +1626,13 @@ img {
     display: none;
   }
 }
+
+/* Debug: resalta el overflow si existe (puedes quitarlo después) */
+/*
+* {
+  outline: 1px solid rgba(255,0,0,0.1);
+}
+*/
 
 /* Fin del archivo refactorizado */ 
 /* Fin del archivo refactorizado */ 
