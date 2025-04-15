@@ -120,11 +120,10 @@
    2. ESTILOS BASE (Reset, Body, Tipografía, Enlaces, Foco)
    ========================================================================== */
 html, body {
-  overflow-x: hidden !important;
-  max-width: 100vw !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100%;
 }
 
 *, *::before, *::after {
@@ -142,8 +141,8 @@ body {
   padding: 0;
   transition: background-color var(--transition-base), color var(--transition-base);
   width: 100%;
-  max-width: 100vw;
-  overflow-x: hidden !important;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 /* Utilidad para prevenir scroll cuando menú móvil está abierto */
