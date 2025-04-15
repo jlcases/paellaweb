@@ -146,8 +146,32 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <!-- Umami Analytics - Sin cookies -->
-    <script defer src="https://cloud.umami.is/script.js" data-website-id="f74b1c68-b362-4670-ae00-4e72cf02be92"></script>
+    <!-- Umami Analytics - Condicional -->
+    <script>
+      // Función para verificar si debemos cargar Umami
+      function shouldLoadUmami() {
+        // No cargar en desarrollo local
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          return false;
+        }
+        
+        // Verificar si el usuario ha optado por no ser trackeado
+        if (localStorage.getItem('paellaNoTrack') === 'true') {
+          return false;
+        }
+        
+        return true;
+      }
+
+      // Cargar Umami solo si es necesario
+      if (shouldLoadUmami()) {
+        const umamiScript = document.createElement('script');
+        umamiScript.defer = true;
+        umamiScript.src = 'https://cloud.umami.is/script.js';
+        umamiScript.setAttribute('data-website-id', 'f74b1c68-b362-4670-ae00-4e72cf02be92');
+        document.head.appendChild(umamiScript);
+      }
+    </script>
     <!-- Añadir el CSS del menú móvil -->
     <link rel="stylesheet" href="{{ '/assets/css/mobile-menu.css' | relative_url }}">
     

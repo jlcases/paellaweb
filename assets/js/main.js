@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
     initSkipToContent();
     initDeferredImages();
+    initTrackingPreferences();
     console.log('PAELLADOC SCRIPTS: Componentes inicializados.');
   } catch (error) {
     console.error('PAELLADOC SCRIPTS: Error inicializando componentes:', error);
@@ -152,4 +153,51 @@ function initDeferredImages() {
   // Llamar después de eventos de interacción del usuario
   window.addEventListener('scroll', loadDeferredThemeImages, {once: true});
   window.addEventListener('mousemove', loadDeferredThemeImages, {once: true});
+}
+
+/**
+ * Gestiona las preferencias de tracking del usuario
+ */
+function initTrackingPreferences() {
+  // Crear un atajo de teclado para toggle tracking (Alt+T)
+  document.addEventListener('keydown', (e) => {
+    if (e.altKey && e.key === 't') {
+      const currentState = localStorage.getItem('paellaNoTrack') === 'true';
+      localStorage.setItem('paellaNoTrack', (!currentState).toString());
+      
+      // Mostrar mensaje de confirmación
+      const message = !currentState ? 
+        'Tracking desactivado para esta sesión' : 
+        'Tracking activado para esta sesión';
+      
+      // Crear y mostrar notificación
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #000;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      `;
+      notification.textContent = message;
+      document.body.appendChild(notification);
+      
+      // Mostrar y ocultar notificación
+      setTimeout(() => notification.style.opacity = '1', 100);
+      setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => notification.remove(), 300);
+      }, 3000);
+      
+      // Recargar para aplicar cambios
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        window.location.reload();
+      }
+    }
+  });
 } 
