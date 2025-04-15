@@ -647,35 +647,26 @@ body::after {
   hyphens: auto;
 }
 
-/* Estilos para tablas en el contenido */
-.post-content table {
-  width: 100%;
+/* Ajustes para imágenes dentro del contenido */
+.post-content img,
+.post-content picture {
   max-width: 100%;
-  margin: var(--spacing-lg) 0;
-  border-collapse: collapse;
-  box-sizing: border-box;
+  height: auto;
   display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
+  margin: var(--spacing-md) 0;
+  border-radius: var(--border-radius-md);
 }
 
-.post-content th,
-.post-content td {
-  padding: var(--spacing-sm);
-  border: 1px solid var(--color-border);
-  min-width: 150px;
-  box-sizing: border-box;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+.post-content picture img {
+  margin: 0; /* Elimina márgenes adicionales para imágenes dentro de picture */
 }
 
-.post-content th {
-  background: var(--color-surface-variant);
-  font-weight: var(--font-weight-bold);
-  text-align: left;
+.post-content picture source {
+  display: block;
+  max-width: 100%;
 }
 
-/* Estilos para elementos de texto */
+/* Ajustes para elementos de texto */
 .post-content p,
 .post-content h1,
 .post-content h2,
@@ -686,20 +677,11 @@ body::after {
 .post-content ul,
 .post-content ol,
 .post-content blockquote {
-  width: 100%;
   max-width: 100%;
   margin-bottom: var(--spacing-md);
-  box-sizing: border-box;
   overflow-wrap: break-word;
   word-wrap: break-word;
-}
-
-.post-content img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: var(--spacing-md) auto;
-  border-radius: var(--border-radius-md);
+  word-break: break-word;
 }
 
 /* Navegación entre posts */
@@ -752,6 +734,28 @@ body::after {
     padding: var(--spacing-xs);
     min-width: 120px;
   }
+
+  .post-content img,
+  .post-content picture {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .post-content picture source {
+    width: 100%;
+  }
+
+  /* Ajuste de tamaños de fuente para móvil */
+  .post-content h1 { font-size: var(--font-size-2xl); }
+  .post-content h2 { font-size: var(--font-size-xl); }
+  .post-content h3 { font-size: var(--font-size-lg); }
+  .post-content p,
+  .post-content ul,
+  .post-content ol { 
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+  }
 }
 
 @media (max-width: 480px) {
@@ -777,6 +781,11 @@ body::after {
 
   .post-content h3 {
     font-size: var(--font-size-lg);
+  }
+
+  .post-content img,
+  .post-content picture {
+    border-radius: var(--border-radius-sm);
   }
 }
 
@@ -826,4 +835,102 @@ body::after {
   border-radius: var(--border-radius-full);
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
+}
+
+/* Estilos para tablas en el contenido */
+.post-content table {
+  width: 100%;
+  max-width: 100%;
+  margin: var(--spacing-lg) 0;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--color-surface);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.post-content th,
+.post-content td {
+  padding: var(--spacing-sm);
+  border: 1px solid var(--color-border);
+  min-width: 150px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-content th {
+  background: var(--color-surface-variant);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+}
+
+/* Ajustes para listas */
+.post-content ul,
+.post-content ol {
+  padding-left: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+}
+
+.post-content li {
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-content ul ul,
+.post-content ol ol,
+.post-content ul ol,
+.post-content ol ul {
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Ajustes para enlaces */
+.post-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-base);
+}
+
+.post-content a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+/* Ajustes para blockquotes */
+.post-content blockquote {
+  margin: var(--spacing-lg) 0;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-surface-variant);
+  border-radius: var(--border-radius-md);
+}
+
+.post-content blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Ajustes específicos para móvil */
+@media (max-width: 768px) {
+  .post-content table {
+    font-size: var(--font-size-sm);
+    margin: var(--spacing-md) -var(--spacing-md);
+    width: calc(100% + var(--spacing-md) * 2);
+    border-radius: 0;
+  }
+
+  .post-content th,
+  .post-content td {
+    padding: var(--spacing-xs);
+    min-width: 120px;
+  }
+
+  .post-content blockquote {
+    margin: var(--spacing-md) -var(--spacing-md);
+    border-radius: 0;
+  }
 }
