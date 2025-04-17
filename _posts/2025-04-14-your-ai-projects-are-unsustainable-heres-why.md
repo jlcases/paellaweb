@@ -91,7 +91,7 @@ Acknowledging the risks is the first step. Building truly sustainable AI-assiste
     *   *Benefit:* Forces a mindset shift towards carefully crafting and reviewing prompts for potential security implications *before* generation.
 *   **Mandate human code review (especially for AI output):** Never blindly trust AI-generated code. Implement rigorous review processes specifically scrutinizing AI contributions.
     *   *Benefit:* Catches vulnerabilities, logical errors, and adherence to project standards that AI might miss, significantly reducing downstream issues.
-*   **Automate security scanning (and actually use it):** Integrate SAST (Static Application Security Testing), SCA (Software Composition Analysis), and DAST (Dynamic Application Security Testing) tools deeply into your CI/CD pipeline.
+*   **Automate security scanning (and actually use it):** Integrate SAST (Static Application Security Testing), SCA (Software Composition Analysis), and DAST (Dynamic Application Security Testing) tools deeply into your CI/CD pipeline. For a comprehensive guide on implementing these tools, check our detailed walkthrough in [Securing AI Code with Snyk: A Practical Guide](/blog/securing-ai-code-with-snyk/).
     *   *Benefit:* Provides a crucial safety net, automatically flagging known vulnerabilities in both generated code and suggested dependencies before they reach production.
 *   **Filter for hidden threats:** Implement checks for suspicious Unicode characters or other obfuscation techniques within code, comments, and configuration files.
     *   *Benefit:* Directly mitigates the risk of hidden malicious instructions being interpreted by AI tools or runtime environments.
