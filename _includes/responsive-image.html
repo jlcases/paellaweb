@@ -7,31 +7,41 @@
 
 {% comment %}
 Fix for handling hyphenated filenames - convert hyphens to underscores
-in the filename while preserving the path
+in the filename while preserving the path and ensuring absolute paths
 {% endcomment %}
-{% if image_path contains "/" %}
-  {% assign path_parts = image_path | split: "/" %}
-  {% assign filename = path_parts | last %}
-  {% assign filename_with_underscores = filename | replace: "-", "_" %}
-  {% assign path_parts_size = path_parts | size | minus: 1 %}
-  {% assign directory_path = "" %}
-  {% for i in (0..path_parts_size) %}
-    {% if i < path_parts_size %}
-      {% if directory_path == "" %}
-        {% assign directory_path = path_parts[i] %}
-      {% else %}
-        {% assign directory_path = directory_path | append: "/" | append: path_parts[i] %}
+
+{% unless image_path contains "://" %}
+  {% if image_path contains "/" %}
+    {% assign first_char = image_path | slice: 0 %}
+    {% unless first_char == "/" %}
+      {% assign image_path = "/" | append: image_path %}
+    {% endunless %}
+    
+    {% assign path_parts = image_path | split: "/" %}
+    {% assign filename = path_parts | last %}
+    {% assign filename_with_underscores = filename | replace: "-", "_" %}
+    {% assign path_parts_size = path_parts | size | minus: 1 %}
+    {% assign directory_path = "" %}
+    {% for i in (0..path_parts_size) %}
+      {% if i < path_parts_size %}
+        {% if directory_path == "" %}
+          {% assign directory_path = path_parts[i] %}
+        {% else %}
+          {% assign directory_path = directory_path | append: "/" | append: path_parts[i] %}
+        {% endif %}
       {% endif %}
+    {% endfor %}
+    {% if directory_path != "" %}
+      {% assign base_filename = directory_path | append: "/" | append: filename_with_underscores | split: '.' | first %}
+    {% else %}
+      {% assign base_filename = filename_with_underscores | split: '.' | first %}
     {% endif %}
-  {% endfor %}
-  {% if directory_path != "" %}
-    {% assign base_filename = directory_path | append: "/" | append: filename_with_underscores | split: '.' | first %}
   {% else %}
-    {% assign base_filename = filename_with_underscores | split: '.' | first %}
+    {% assign base_filename = image_path | replace: "-", "_" | split: '.' | first %}
   {% endif %}
 {% else %}
-  {% assign base_filename = image_path | replace: "-", "_" | split: '.' | first %}
-{% endif %}
+  {% assign base_filename = image_path %}
+{% endunless %}
 
 <picture class="{{ include.class }}">
   <!-- AVIF Format -->
