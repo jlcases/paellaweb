@@ -2,13 +2,13 @@
 layout: post
 title: "Securing AI Code with Snyk: A Practical Guide"
 subtitle: "Essential security strategies for protecting your AI-first development against hidden vulnerabilities"
-date: 2023-04-17
+date: 2025-04-17
 author: "@jlcases"
 avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
-image: "/assets/images/securing-ai-code-snyk-header.png"
-image_alt: "Security shield protecting AI code with Snyk interface showing vulnerability detection in the background"
+image: "/assets/images/snyk-ai-code-security-header.png"
+image_alt: "Developer identifying security vulnerabilities in AI-generated code with Snyk protection shields emerging to secure the application"
 categories: [security]
 tags:
   - ml-pipeline-security
