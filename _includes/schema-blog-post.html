@@ -1,0 +1,10 @@
+  "headline": "{{ page.title }}",
+  "description": "{{ page.description }}",
+  {% if page.image %}
+  "image": [
+    "@type": "ImageObject",
+    "url": "{{ site.url }}{{ page.image }}",
+    "height": "1200",
+    "width": "800"
+  ],
+  {% endif %} 
