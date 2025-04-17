@@ -31,22 +31,12 @@ collections:
   posts:
     output: true
     permalink: /blog/:title/
-  categories:
-    output: true
-    permalink: /blog/categories/:name/
-  tags:
-    output: true
-    permalink: /blog/tags/:name/
 
-# Pagination settings (jekyll-paginate-v2)
-pagination:
-  enabled: true
-  per_page: 6
-  permalink: '/page/:num/'
-  title: ':title - Page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
+# Category settings per web-taxonomy-guidelines
+categories:
+  - framework
+  - security
+  - productivity
 
 # Category and tag settings
 category_archive:
@@ -54,7 +44,7 @@ category_archive:
   path: "/blog/categories"
   layout: "category"
   permalinks:
-    category: /blog/categories/:name/
+    category: /blog/category/:name/
 
 tag_archive:
   enabled: true
@@ -80,14 +70,17 @@ defaults:
       type: "pages"
     values:
       layout: "category"
-      permalink: /blog/categories/:name/
-  -
-    scope:
-      path: "blog/tags"
-      type: "pages"
-    values:
-      layout: "tag"
-      permalink: /blog/tags/:name/
+      permalink: /blog/category/:name/
+
+# Pagination settings (jekyll-paginate-v2)
+pagination:
+  enabled: true
+  per_page: 6
+  permalink: '/page/:num/'
+  title: ':title - Page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
 
 # Cache settings
 sass:

@@ -1,17 +1,56 @@
 ---
 layout: default
-title: Tags
+title: "Content Topics | PAELLADOC"
 permalink: /blog/tags/
 ---
 
 <div class="container">
-    <h1>All Tags</h1>
+    <h1>Content Topics</h1>
+    
+    <div class="taxonomy-explanation">
+        <p>These topic tags help organize content within our main categories. Unlike categories, these are informative metadata that help with content discovery but do not represent main content silos.</p>
+    </div>
+    
+    <div class="tags-groups">
+        <div class="tag-group">
+            <h2>Conceptual Topics</h2>
+            <div class="tags-cloud">
+                <a href="#ai-first-development" class="tag concept-tag">ai-first-development</a>
+                <a href="#context-preservation" class="tag concept-tag">context-preservation</a>
+                <a href="#development-philosophy" class="tag concept-tag">development-philosophy</a>
+                <a href="#knowledge-management" class="tag concept-tag">knowledge-management</a>
+                <a href="#ml-pipeline-security" class="tag concept-tag">ml-pipeline-security</a>
+            </div>
+        </div>
+        
+        <div class="tag-group">
+            <h2>Tool Topics</h2>
+            <div class="tags-cloud">
+                <a href="#snyk" class="tag tool-tag">snyk</a>
+                <a href="#cursor-ai" class="tag tool-tag">cursor-ai</a>
+                <a href="#github-copilot" class="tag tool-tag">github-copilot</a>
+                <a href="#tensorflow" class="tag tool-tag">tensorflow</a>
+                <a href="#pytorch" class="tag tool-tag">pytorch</a>
+            </div>
+        </div>
+        
+        <div class="tag-group">
+            <h2>Format Topics</h2>
+            <div class="tags-cloud">
+                <a href="#tutorial" class="tag format-tag">tutorial</a>
+                <a href="#case-study" class="tag format-tag">case-study</a>
+                <a href="#opinion" class="tag format-tag">opinion</a>
+                <a href="#research" class="tag format-tag">research</a>
+                <a href="#comparison" class="tag format-tag">comparison</a>
+            </div>
+        </div>
+    </div>
     
     <div class="tags-list">
         {% assign sorted_tags = site.tags | sort %}
         {% for tag in sorted_tags %}
         <div class="tag-item">
-            <h2 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h2>
+            <h3 id="{{ tag[0] | slugify }}">{{ tag[0] }}</h3>
             <ul>
                 {% for post in tag[1] %}
                 <li>
@@ -22,5 +61,9 @@ permalink: /blog/tags/
             </ul>
         </div>
         {% endfor %}
+    </div>
+    
+    <div class="taxonomy-note">
+        <p><strong>Note:</strong> Tags are used solely for content organization and do not generate indexed pages. For main content areas, please visit our <a href="/blog/categories/">categories</a>.</p>
     </div>
 </div> 

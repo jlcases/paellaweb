@@ -1,26 +1,36 @@
 ---
 layout: default
-title: Categories
+title: "Content Categories | PAELLADOC"
 permalink: /blog/categories/
 ---
 
 <div class="container">
-    <h1>All Categories</h1>
+    <h1>Content Categories</h1>
+    
+    <p class="taxonomy-description">Browse our content by these main thematic areas:</p>
     
     <div class="categories-list">
-        {% assign sorted_categories = site.categories | sort %}
-        {% for category in sorted_categories %}
-        <div class="category-item">
-            <h2 id="{{ category[0] | slugify }}">{{ category[0] }}</h2>
-            <ul>
-                {% for post in category[1] %}
-                <li>
-                    <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-                    <span class="post-date">({{ post.date | date: "%B %d, %Y" }})</span>
-                </li>
-                {% endfor %}
-            </ul>
+        <div class="category-card primary-category">
+            <h2><a href="/blog/category/framework/">AI-First Development Framework</a></h2>
+            <p>Methodology and principles of AI-First Development, preserving context throughout the software lifecycle for sustainable AI projects</p>
+            <a href="/blog/category/framework/" class="category-link">Explore Framework Articles</a>
         </div>
-        {% endfor %}
+        
+        <div class="category-card secondary-category">
+            <h2><a href="/blog/category/security/">AI Security and Risk Mitigation</a></h2>
+            <p>Security in AI development, protection strategies, vulnerability management and risk mitigation for sustainable AI projects</p>
+            <a href="/blog/category/security/" class="category-link">Explore Security Articles</a>
+        </div>
+        
+        <div class="category-card complementary-category">
+            <h2><a href="/blog/category/productivity/">AI Development Productivity</a></h2>
+            <p>Optimization of workflows and achieving real efficiency in AI development beyond vanity metrics, for measurable and sustainable productivity</p>
+            <a href="/blog/category/productivity/" class="category-link">Explore Productivity Articles</a>
+        </div>
+    </div>
+    
+    <div class="taxonomy-explanation">
+        <h3>About Our Content Structure</h3>
+        <p>Our content is organized into focused thematic categories to help you navigate our knowledge base efficiently. Each category page provides an overview of the topic and links to all relevant articles. We've carefully designed this structure to provide maximum value while avoiding content duplication or cannibalization.</p>
     </div>
 </div> 

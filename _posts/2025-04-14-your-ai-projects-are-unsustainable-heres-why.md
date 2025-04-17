@@ -9,14 +9,11 @@ github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
 image: "/assets/images/ai-security-risks-discovery-header-2048x1152.png"
 image_alt: "The author's avatar character reacts with genuine horror upon discovering hidden dangers in AI-generated code, surrounded by glowing holographic screens"
-categories: 
-  - AI Engineering
+categories: [security]
 tags:
-  - AI development
-  - code security
-  - technical debt
-  - AI security
-  - sustainable development
+  - ai-first-development
+  - ml-pipeline-security
+  - knowledge-management
 excerpt: "Are you using AI assistants for coding? The promise of productivity is irresistible. But that brilliant code popping up in seconds might be hiding subtle vulnerabilities that could make your entire project unsustainable."
 ---
 

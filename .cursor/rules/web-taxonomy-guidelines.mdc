@@ -1,0 +1,171 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Taxonomía de contenido: Guía de implementación para paelladoc.com
+
+## Estructura de categorías
+
+### Categorías principales (silos temáticos)
+
+| Categoría | URL | Descripción | Pilares |
+|-----------|-----|-------------|---------|
+| **Framework** | `/blog/category/framework/` | Metodología y principios fundamentales de AI-first Development | Principal |
+| **Security** | `/blog/category/security/` | Seguridad en desarrollo AI, protección y mitigación de riesgos | Secundario |
+| **Productivity** | `/blog/category/productivity/` | Optimización de flujos de trabajo y eficiencia real en desarrollo AI | Complementario |
+
+### Página de categoría: Estructura requerida
+
+```markdown
+---
+layout: category
+title: "Título con palabras clave (ej: AI-First Development Framework)"
+permalink: /blog/category/[categoria]/
+description: "Descripción rica en semántica (150-160 caracteres)"
+---
+
+## Introducción conceptual
+<!-- 300-400 palabras explicando el concepto principal y su relevancia -->
+
+## Subtemas principales
+<!-- Lista de 4-6 subtemas con breve descripción -->
+
+## Artículos en esta categoría
+<!-- Listado automático de posts en esta categoría -->
+
+## Categorías relacionadas
+<!-- Enlaces a otras categorías relevantes -->
+```
+
+### Implementación técnica en Jekyll
+
+```yaml
+# En el _config.yml
+categories:
+  - framework
+  - security
+  - productivity
+
+# Front matter de cada post
+---
+layout: post
+title: "Título del artículo"
+date: YYYY-MM-DD
+author: "@jlcases"
+categories: [framework]  # Solo UNA categoría principal 
+tags: [ai-first-development, context-preservation]  # Múltiples etiquetas permitidas
+---
+```
+
+## Sistema de etiquetas (tags)
+
+### Función de las etiquetas
+- **NO son categorías secundarias**
+- Son **metadatos informativos** que no deben generar páginas indexables
+- Funcionan como organizadores internos y mejoradores de UX
+- No deben competir con las categorías principales
+
+### Grupos de etiquetas autorizadas
+
+1. **Etiquetas conceptuales** (máximo 3 por artículo)
+   - ai-first-development
+   - context-preservation
+   - development-philosophy
+   - knowledge-management
+   - ml-pipeline-security
+
+2. **Etiquetas de herramientas** (máximo 2 por artículo)
+   - snyk
+   - cursor-ai
+   - github-copilot
+   - tensorflow
+   - pytorch
+
+3. **Etiquetas de formato** (máximo 1 por artículo)
+   - tutorial
+   - case-study
+   - opinion
+   - research
+   - comparison
+
+### Implementación técnica de etiquetas
+
+```html
+<!-- Mostrar etiquetas sin enlaces en _layouts/post.html -->
+{% if page.tags %}
+<div class="post-tags">
+  <span>Temas:</span>
+  {% for tag in page.tags %}
+    <span class="tag">{{ tag }}</span>
+  {% endfor %}
+</div>
+{% endif %}
+
+<!-- Configuración en Jekyll para NO generar páginas de etiquetas -->
+<!-- Añadir en _config.yml -->
+jekyll-archives:
+  enabled:
+    - categories
+  # tags explícitamente no habilitados
+```
+
+## Asignaciones específicas por artículo
+
+| Artículo | Categoría | Etiquetas recomendadas |
+|----------|-----------|-------------------------|
+| "The PaellaDoc Revolution" | framework | [ai-first-development, context-preservation, development-methodology] |
+| "The Hidden Truth About AI-First Development" | framework | [development-philosophy, context-crisis, knowledge-management] |
+| "Your AI Projects Are Unsustainable" | security | [ai-security, vulnerability, context-loss] |
+| "The Dangerous Illusion of AI Productivity" | productivity | [ai-efficiency, development-reality, productivity-patterns] |
+| "Securing AI Code with Snyk" | security | [snyk, sast-dast-sca, ai-security-tools] |
+
+## Principios SEO para maximizar autoridad temática
+
+1. **No canibalización**
+   - Cada tema principal tiene UNA página de categoría autoritativa
+   - Artículos individuales cubren aspectos específicos
+   - Las etiquetas NO compiten con las categorías
+
+2. **Jerarquía de enlazado**
+   - Páginas de categoría reciben más enlaces internos
+   - Artículos específicos enlazan "hacia arriba" a su categoría
+   - Estructura de enlaces refleja relación jerárquica
+
+3. **Evolución controlada**
+   - Fase actual (4-5 artículos): Solo categorías principales
+   - Fase intermedia (8-15 artículos): Considerar subcategorías
+   - Fase avanzada (15+ artículos): Estructura completa de silos
+
+4. **Diferenciación semántica**
+   - Categorías: Términos más amplios y conceptuales
+   - Artículos individuales: Long-tail keywords específicas
+   - Meta-títulos diferenciados para evitar competencia interna
+
+## Directrices para editores de contenido
+
+1. **Asignar UNA SOLA categoría principal** a cada artículo
+2. **Seleccionar 3-5 etiquetas relevantes** siguiendo los grupos autorizados
+3. **NO crear nuevas categorías** sin revisión de estrategia
+4. **Mantener consistencia** en la nomenclatura
+5. **Revisar regularmente** la taxonomía existente
+
+## Ajustes técnicos requeridos
+
+- [ ] Implementar layout para páginas de categoría
+- [ ] Configurar Jekyll para no generar páginas de etiquetas
+- [ ] Añadir estilos CSS para etiquetas informativas
+- [ ] Implementar breadcrumbs con Schema.org markup
+- [ ] Configurar robots.txt para excluir páginas no deseadas
+
+## Métricas de seguimiento
+
+- Autoridad de página para categorías principales
+- Ranking para keywords objetivo por categoría
+- Profundidad y tiempo de visita por silo temático
+- Distribución de PageRank interno
+- Tasas de conversión por categoría
+
+---
+
+**Nota para IA**: Esta taxonomía está diseñada siguiendo los principios de Koray Tugberk para maximizar la autoridad temática. Las categorías representan silos principales de contenido mientras que las etiquetas son metadatos informativos sin generar páginas indexables en esta fase de desarrollo de contenido. 

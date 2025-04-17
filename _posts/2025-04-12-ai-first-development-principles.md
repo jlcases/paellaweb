@@ -12,12 +12,11 @@ twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 image: "/assets/images/ai-first-dev.png"
 image_alt: "AI-first development conceptual illustration"
-categories: Framework
+categories: [framework]
 tags:
-  - AI-First Development
-  - Development Philosophy
-  - Digital Transformation
-  - Context Preservation
+  - ai-first-development
+  - development-philosophy
+  - context-preservation
 excerpt: "The uncomfortable philosophical truth about why AI-generated code becomes unmaintainable, and how a new development paradigm can fundamentally transform software creation."
 entities:
   - name: "AI-First Development"

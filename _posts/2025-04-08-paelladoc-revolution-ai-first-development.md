@@ -13,14 +13,11 @@ linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
 orcid: "0000-0002-1825-0097"
 image: "/assets/images/context_crisis.png"
 image_alt: "PAELLADOC system diagram showing context preservation across development lifecycle"
-categories: [Development]
+categories: [framework]
 tags:
-  - AI-First Development
-  - Development Philosophy
-  - Digital Transformation
-  - Context Preservation
-  - Best Practices
-  - Structured Documentation
+  - ai-first-development
+  - context-preservation
+  - development-philosophy
 excerpt: "The Context Crisis is silently killing AI projects. Learn how PAELLADOC provides a comprehensive framework for documenting and preserving context throughout the development lifecycle."
 entities:
   - name: "Context Preservation"

@@ -2,5 +2,14 @@
 User-agent: *
 Allow: /
 
+# Disallow tag pages as per taxonomy guidelines
+Disallow: /blog/tags/
+Disallow: /blog/tags/*
+
+# Allow category pages (our main content silos)
+Allow: /blog/category/framework/
+Allow: /blog/category/security/
+Allow: /blog/category/productivity/
+
 # Sitemap location
 Sitemap: https://paelladoc.com/sitemap.xml 

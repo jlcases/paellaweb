@@ -9,13 +9,11 @@ github: "https://github.com/jlcases" # Assuming PAELLADOC Team associated with j
 # twitter: "" # Optional
 image: "/assets/images/ai-productivity-illusion-tangled-debt.png"
 image_alt: "Developer avatar tangled in red technical debt threads emerging from an AI coding screen, representing the illusion of AI productivity."
-categories: AI Engineering
+categories: [productivity]
 tags:
-  - ai productivity
-  - code quality
-  - technical debt
-  - context preservation
-  - developer experience
+  - ai-first-development
+  - context-preservation
+  - development-philosophy
 excerpt: "You chased speed with AI, but lost sustainable productivity. Ignoring context grinds projects to a halt. Discover how to harness AI for real, lasting gains."
 ---
 
