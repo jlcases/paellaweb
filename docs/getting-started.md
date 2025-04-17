@@ -4,6 +4,8 @@ title: Getting started with PAELLADOC
 permalink: /docs/getting-started/
 ---
 
+<link rel="preload" as="image" href="/assets/images/yolo-mode_1024.avif" type="image/avif" />
+
 # Getting Started with PAELLADOC
 
 PAELLADOC is a powerful documentation system that adapts to your workflow and language preferences. This guide will show you how to use the PAELLA command for different documentation scenarios.
