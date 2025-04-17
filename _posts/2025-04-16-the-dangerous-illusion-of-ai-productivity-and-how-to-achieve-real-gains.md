@@ -7,7 +7,7 @@ author: "@jlcases"
 avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
-image: "/assets/images/ai-productivity-illusion-header.png"
+image: "/assets/images/ai-productivity-illusion-tangled-debt.png"
 image_alt: "Developer encountering productivity mirage in AI desert landscape with actual productivity oasis in the distance"
 categories: [methodology]
 tags:

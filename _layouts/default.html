@@ -10,10 +10,10 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ site.url }}{{ page.url | replace:'index.html','' }}">
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}The Ultimate AI-First Development Framework | PAELLADOC{% endif %}">
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}Transform your AI development process with a comprehensive framework that makes AI projects sustainable, transparent and efficient. From ideation to deployment, build AI products that scale with confidence.{% endif %}">
+    <meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     
-    {% if page.layout == 'post' and page.image %}
-    <meta property="og:image" content="{{ site.url }}/assets/images/{{ page.image }}" />
+    {% if page.image %}
+    <meta property="og:image" content="{{ site.url }}{{ page.image }}" />
     {% else %}
     <meta property="og:image" content="{{ site.url }}/assets/images/og-image.jpg">
     {% endif %}
@@ -26,7 +26,7 @@
     <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elsif page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}Transform your AI development process with a comprehensive framework that makes AI projects sustainable, transparent and efficient. From ideation to deployment, build AI products that scale with confidence.{% endif %}">
     
     {% if page.layout == 'post' and page.image %}
-    <meta name="twitter:image" content="{{ site.url }}/assets/images/{{ page.image }}" />
+    <meta name="twitter:image" content="{{ site.url }}{{ page.image }}" />
     {% else %}
     <meta name="twitter:image" content="{{ site.url }}/assets/images/twitter-image.jpg">
     {% endif %}
