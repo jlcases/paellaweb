@@ -89,9 +89,9 @@ Here's the blueprint:
 *   **Now: Living Context with Paelladoc.** Create explicit, durable links between code and its *reason for being* – requirements, ADRs, design discussions, performance goals. Use tools like **Paelladoc** to build this living knowledge graph *within* your development environment.
 
 <picture>
-  <source srcset="/assets/images/_posts_images_original/context-preservation-knowledge-graph_768.avif" type="image/avif">
-  <source srcset="/assets/images/_posts_images_original/context-preservation-knowledge-graph_768.webp" type="image/webp">
-  <img src="/assets/images/_posts_images_original/context-preservation-knowledge-graph_768.png" alt="Illustration showing a line of code connected by bright lines to icons representing requirements, architecture, and design decisions, symbolizing context preservation." loading="lazy">
+  <source srcset="/assets/images/context-preservation-knowledge-graph_768.avif" type="image/avif">
+  <source srcset="/assets/images/context-preservation-knowledge-graph_768.webp" type="image/webp">
+  <img src="/assets/images/context-preservation-knowledge-graph_768.png" alt="Illustration showing a line of code connected by bright lines to icons representing requirements, architecture, and design decisions, symbolizing context preservation." loading="lazy">
 </picture>
 
 *   **Mandate Context Capture:** When AI generates significant code, capturing the *why* (the prompt, the decision, the requirement link) using Paelladoc isn't optional, it's essential.
@@ -121,9 +121,9 @@ Here's the blueprint:
 *   **Share Learnings:** Create channels to share best practices and pitfalls.
 
 <picture>
-  <source srcset="/assets/images/_posts_images_original/sustainable-ai-culture-collaboration_768.avif" type="image/avif">
-  <source srcset="/assets/images/_posts_images_original/sustainable-ai-culture-collaboration_768.webp" type="image/webp">
-  <img src="/assets/images/_posts_images_original/sustainable-ai-culture-collaboration_768.png" alt="Illustration of diverse developers collaborating around a screen showing AI-generated code linked to its context, discussing and reviewing it." loading="lazy">
+  <source srcset="/assets/images/sustainable-ai-culture-collaboration_768.avif" type="image/avif">
+  <source srcset="/assets/images/sustainable-ai-culture-collaboration_768.webp" type="image/webp">
+  <img src="/assets/images/sustainable-ai-culture-collaboration_768.png" alt="Illustration of diverse developers collaborating around a screen showing AI-generated code linked to its context, discussing and reviewing it." loading="lazy">
 </picture>
 
 *   **Benefit:** Cultivates collective intelligence for responsible and effective AI augmentation.
