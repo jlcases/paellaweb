@@ -47,7 +47,7 @@ layout: default
     {% if page.image %}
     <div class="post-featured-image">
       {% include responsive-image.html 
-         path=page.image 
+         path=page.image | replace: '-', '_' 
          alt=page.image_alt 
          sizes="(max-width: 768px) 100vw, 800px" 
          lazy="false" 
@@ -142,7 +142,7 @@ layout: default
             <div class="related-post-image">
               <a href="{{ post.url | relative_url }}">
                 {% include responsive-image.html 
-                   path=post.image 
+                   path=post.image | replace: '-', '_' 
                    alt=post.title 
                    sizes="(max-width: 480px) 100vw, 400px" 
                    lazy="true" 
@@ -169,7 +169,7 @@ layout: default
               <div class="related-post-image">
                 <a href="{{ post.url | relative_url }}">
                   {% include responsive-image.html 
-                     path=post.image 
+                     path=post.image | replace: '-', '_' 
                      alt=post.title 
                      sizes="(max-width: 480px) 100vw, 400px" 
                      lazy="true" 
