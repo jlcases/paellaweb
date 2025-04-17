@@ -6,8 +6,7 @@
 {% assign is_featured = include.featured | default: "false" %}
 
 {% comment %}
-Fix for handling hyphenated filenames - convert hyphens to underscores
-in the filename while preserving the path and ensuring absolute paths
+Ensure absolute URLs and maintain original hyphens in filenames
 {% endcomment %}
 
 {% unless image_path contains "://" %}
@@ -19,7 +18,6 @@ in the filename while preserving the path and ensuring absolute paths
     
     {% assign path_parts = image_path | split: "/" %}
     {% assign filename = path_parts | last %}
-    {% assign filename_with_underscores = filename | replace: "-", "_" %}
     {% assign path_parts_size = path_parts | size | minus: 1 %}
     {% assign directory_path = "" %}
     {% for i in (0..path_parts_size) %}
@@ -32,12 +30,12 @@ in the filename while preserving the path and ensuring absolute paths
       {% endif %}
     {% endfor %}
     {% if directory_path != "" %}
-      {% assign base_filename = directory_path | append: "/" | append: filename_with_underscores | split: '.' | first %}
+      {% assign base_filename = directory_path | append: "/" | append: filename | split: '.' | first %}
     {% else %}
-      {% assign base_filename = filename_with_underscores | split: '.' | first %}
+      {% assign base_filename = filename | split: '.' | first %}
     {% endif %}
   {% else %}
-    {% assign base_filename = image_path | replace: "-", "_" | split: '.' | first %}
+    {% assign base_filename = image_path | split: '.' | first %}
   {% endif %}
 {% else %}
   {% assign base_filename = image_path %}
