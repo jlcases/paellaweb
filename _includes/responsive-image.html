@@ -4,6 +4,8 @@
 {% assign widths = include.widths | default: "320,480,768,1024,1200" | split: "," %}
 {% assign lazy = include.lazy | default: "true" %}
 {% assign is_featured = include.featured | default: "false" %}
+{% assign img_width = include.width | default: "" %}
+{% assign img_height = include.height | default: "" %}
 
 {% comment %}
 Ensure absolute URLs and maintain original hyphens in filenames
@@ -66,6 +68,28 @@ Ensure absolute URLs and maintain original hyphens in filenames
   {% assign base_filename = domain | append: combined_path %}
 {% endif %}
 
+{% comment %}
+Set default width/height for optimal CLS (Cumulative Layout Shift)
+For featured images, we use the large 1200px version aspect ratio by default
+{% endcomment %}
+{% if img_width == "" or img_height == "" %}
+  {% if is_featured == "true" %}
+    {% assign default_width = 1200 %}
+    {% assign default_height = 675 %} 
+  {% else %}
+    {% assign default_width = 768 %}
+    {% assign default_height = 432 %}
+  {% endif %}
+  
+  {% if img_width == "" %}
+    {% assign img_width = default_width %}
+  {% endif %}
+  
+  {% if img_height == "" %}
+    {% assign img_height = default_height %}
+  {% endif %}
+{% endif %}
+
 <picture class="{{ include.class }}">
   <!-- AVIF Format -->
   <source
@@ -96,8 +120,9 @@ Ensure absolute URLs and maintain original hyphens in filenames
       {% endfor %}
     "
     alt="{{ alt }}"
+    width="{{ img_width }}"
+    height="{{ img_height }}"
+    {% if is_featured == "true" %}fetchpriority="high"{% endif %}
     {% if lazy == "true" and is_featured == "false" %}loading="lazy" decoding="async"{% else %}loading="eager" decoding="sync"{% endif %}
-    {% if include.width %}width="{{ include.width }}"{% endif %}
-    {% if include.height %}height="{{ include.height }}"{% endif %}
     class="{{ include.img_class }}">
 </picture> 
