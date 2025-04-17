@@ -71,8 +71,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "PAELLADOC Team"
-      avatar: "/assets/images/paelladoc-avatar.png"
+      author: "@jlcases"
+      avatar: "/assets/images/avatarjl.jpg"
       github: "https://github.com/jlcases"
   -
     scope:

@@ -3,8 +3,8 @@ layout: post
 title: "Your AI Projects Are Unsustainable - Here's Why"
 subtitle: "The time bomb hidden in your AI-generated code"
 date: 2025-04-14
-author: "José Luis Cases"
-avatar: "default-avatar"
+author: "@jlcases"
+avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://twitter.com/jlcases"
 image: "/assets/images/ai-security-risks-discovery-header-2048x1152.png"

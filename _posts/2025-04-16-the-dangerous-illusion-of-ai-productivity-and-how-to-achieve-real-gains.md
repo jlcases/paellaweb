@@ -3,8 +3,8 @@ layout: post
 title: "The Dangerous Illusion of AI Productivity (And How to Achieve Real Gains)"
 subtitle: "Why chasing speed without context leads to technical debt, and how to build sustainable AI-assisted workflows."
 date: 2025-04-16
-author: "PAELLADOC Team"
-avatar: "/assets/images/paelladoc-avatar.png" # Placeholder - Update required
+author: "@jlcases"
+avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases" # Assuming PAELLADOC Team associated with jlcases
 # twitter: "" # Optional
 image: "_posts_images_original/ai-productivity-illusion-tangled-debt.png"

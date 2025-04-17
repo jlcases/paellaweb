@@ -3,10 +3,10 @@ layout: post
 title: "The Hidden Truth About AI-First Development"
 subtitle: "Why AI-Generated Code Becomes Unmaintainable (and How to Fix It)"
 date: 2025-04-12
-author: "José Luis Cases"
+author: "@jlcases"
 author_bio: "CPTO"
 job_title: "Chief Product & Technology Officer"
-avatar: "fhf8mC-k_400x400"
+avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"

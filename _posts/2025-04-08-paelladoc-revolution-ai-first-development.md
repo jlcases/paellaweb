@@ -3,10 +3,10 @@ layout: post
 title: "The PaellaDoc Revolution: AI-First Development"
 subtitle: "How structured documentation is changing the way we develop with AI"
 date: 2025-04-08
-author: "J.L. Cases"
+author: "@jlcases"
 author_bio: "PAELLADOC Creator & Lead Developer"
 job_title: "Chief Product & Technology Officer"
-avatar: "fhf8mC-k_400x400"
+avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases"
 twitter: "https://x.com/jlcases"
 linkedin: "https://www.linkedin.com/in/jose-luis-cases-lozano/"
