@@ -125,4 +125,4 @@ webrick:
 #   cache_policy: aggressive
 
 # Añadir esto al archivo de configuración
-# future: true # Comentado si solo era para el plugin
+future: true # Permitir posts con fechas futuras
