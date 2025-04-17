@@ -46,13 +46,7 @@ layout: default
     
     {% if page.image %}
     <div class="post-featured-image">
-      {% include responsive-image.html 
-         path="{{ page.image }}"
-         alt=page.image_alt 
-         sizes="(max-width: 768px) 100vw, 800px" 
-         lazy="false" 
-         featured="true"
-      %}
+      {% include responsive-image.html path=page.image alt=page.image_alt sizes="(max-width: 768px) 100vw, 800px" lazy="false" featured="true" %}
       {% if page.image_caption %}
       <figcaption class="image-caption">{{ page.image_caption }}</figcaption>
       {% endif %}
@@ -141,12 +135,7 @@ layout: default
             {% if post.image %}
             <div class="related-post-image">
               <a href="{{ post.url | relative_url }}">
-                {% include responsive-image.html 
-                   path="{{ post.image }}"
-                   alt=post.title 
-                   sizes="(max-width: 480px) 100vw, 400px" 
-                   lazy="true" 
-                %}
+                {% include responsive-image.html path=post.image alt=post.title sizes="(max-width: 480px) 100vw, 400px" lazy="true" %}
               </a>
             </div>
             {% endif %}
@@ -168,12 +157,7 @@ layout: default
               {% if post.image %}
               <div class="related-post-image">
                 <a href="{{ post.url | relative_url }}">
-                  {% include responsive-image.html 
-                     path="{{ post.image }}"
-                     alt=post.title 
-                     sizes="(max-width: 480px) 100vw, 400px" 
-                     lazy="true" 
-                  %}
+                  {% include responsive-image.html path=post.image alt=post.title sizes="(max-width: 480px) 100vw, 400px" lazy="true" %}
                 </a>
               </div>
               {% endif %}
