@@ -9,7 +9,9 @@
 Ensure absolute URLs and maintain original hyphens in filenames
 {% endcomment %}
 
-{% unless image_path contains "://" %}
+{% if image_path contains "://" %}
+  {% assign base_filename = image_path %}
+{% else %}
   {% if image_path contains "/" %}
     {% assign first_char = image_path | slice: 0 %}
     {% unless first_char == "/" %}
@@ -30,16 +32,16 @@ Ensure absolute URLs and maintain original hyphens in filenames
       {% endif %}
     {% endfor %}
     {% if directory_path != "" %}
-      {% assign base_filename = directory_path | append: "/" | append: filename | split: '.' | first %}
+      {% assign base_path = directory_path | append: "/" | append: filename | split: '.' | first %}
     {% else %}
-      {% assign base_filename = filename | split: '.' | first %}
+      {% assign base_path = filename | split: '.' | first %}
     {% endif %}
   {% else %}
-    {% assign base_filename = image_path | split: '.' | first %}
+    {% assign base_path = image_path | split: '.' | first %}
   {% endif %}
-{% else %}
-  {% assign base_filename = image_path %}
-{% endunless %}
+  
+  {% assign base_filename = site.url | append: site.baseurl | append: base_path %}
+{% endif %}
 
 <picture class="{{ include.class }}">
   <!-- AVIF Format -->
