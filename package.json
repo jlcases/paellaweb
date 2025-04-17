@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/jlcases/paellaweb#readme",
   "dependencies": {
+    "glob": "^11.0.1",
     "sharp": "^0.34.1"
   }
 }

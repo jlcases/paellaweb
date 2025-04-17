@@ -41,7 +41,6 @@ En tu post, utiliza el tag de Jekyll para imágenes responsivas:
 ```markdown
 {% responsive_image path: _posts_images_original/nombre-imagen.jpg alt: "Descripción accesible de la imagen" %}
 ```
-
 Parámetros adicionales disponibles:
 - `class`: Clases CSS para el elemento picture
 - `image_class`: Clases CSS para el elemento img
@@ -99,3 +98,4 @@ Cuando añades imágenes, el sistema:
 1. **Archivos originales**: `_posts_images_original/` → Gestionados con Git LFS
 2. **Imágenes procesadas**: `assets/images/posts_responsive/` → Generadas automáticamente
 3. **Configuración**: Ver `_config.yml` bajo la clave `responsive_image`
+

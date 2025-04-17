@@ -35,25 +35,63 @@ layout: default
               <p class="featured-post-excerpt">{{ featured.excerpt | strip_html | truncatewords: 35 }}</p>
               <div class="featured-post-author">
                 {% if featured.avatar %}
-                <img src="{{ '/assets/images/' | append: featured.avatar | append: '.jpg' | relative_url }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                  {% assign author_avatar_path = featured.avatar %}
+                  {% unless author_avatar_path contains '/' %}
+                    {% assign author_avatar_path = '/assets/images/' | append: author_avatar_path %}
+                  {% endunless %}
+                  {% unless author_avatar_path contains '.png' or author_avatar_path contains '.jpg' or author_avatar_path contains '.jpeg' or author_avatar_path contains '.webp' %}
+                    {% assign author_avatar_path = author_avatar_path | append: '.png' %}
+                  {% endunless %}
                 {% else %}
-                <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
+                  {% assign author_avatar_path = '/assets/images/default-avatar.png' %}
                 {% endif %}
+                <img src="{{ author_avatar_path | relative_url }}" alt="{{ featured.author | default: site.author }}" class="author-avatar">
                 <span class="author-name">{{ featured.author | default: site.author }}</span>
                 <span class="post-reading-time">{{ featured.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
               </div>
             </div>
             {% if featured.image %}
+            {% assign image_path = featured.image %}
+            
+            {% comment %} Handle images with _posts_images_original prefix {% endcomment %}
+            {% if image_path contains '_posts_images_original/' %}
+              {% assign filename = image_path | split: '_posts_images_original/' | last %}
+              {% assign image_path = '/assets/images/' | append: filename %}
+            {% else %}
+              {% comment %} Handle paths without leading slashes {% endcomment %}
+              {% unless image_path contains '/' %}
+                {% assign image_path = '/assets/images/' | append: image_path %}
+              {% else %}
+                {% comment %} If it has a leading slash but not /assets/images/ {% endcomment %}
+                {% unless image_path contains '/assets/images/' %}
+                  {% assign image_path = '/assets/images' | append: image_path %}
+                {% endunless %}
+              {% endunless %}
+            {% endif %}
+            
+            {% comment %} Make sure there's no double slash between assets/images and the rest {% endcomment %}
+            {% assign image_path = image_path | replace: '/assets/images//', '/assets/images/' %}
+            
+            {% comment %} Extract the file extension {% endcomment %}
+            {% assign image_ext = image_path | split: '.' | last %}
+            
+            {% comment %} Get the path without extension {% endcomment %}
+            {% assign image_name = image_path | split: '.' | pop | join: '.' %}
+            
+            {% if image_ext != '' %}
             <div class="featured-post-image">
               <a href="{{ featured.url | relative_url }}">
-                {% include responsive-image.html 
-                   path=featured.image 
-                   alt=featured.title 
-                   sizes="(max-width: 768px) 100vw, 600px" 
-                   lazy="true" 
-                %}
+                <picture>
+                  <source srcset="{{ image_name | append: '_600.avif' | relative_url }}" type="image/avif" media="(min-width: 769px)">
+                  <source srcset="{{ image_name | append: '_600.webp' | relative_url }}" type="image/webp" media="(min-width: 769px)">
+                  <source srcset="{{ image_name | append: '_600.' | append: image_ext | relative_url }}" media="(min-width: 769px)">
+                  <source srcset="{{ image_name | append: '_480.avif' | relative_url }}" type="image/avif">
+                  <source srcset="{{ image_name | append: '_480.webp' | relative_url }}" type="image/webp">
+                  <img src="{{ image_name | append: '_480.' | append: image_ext | relative_url }}" alt="{{ featured.title }}" loading="lazy">
+                </picture>
               </a>
             </div>
+            {% endif %}
             {% endif %}
           </div>
           {% endif %}
@@ -80,26 +118,61 @@ layout: default
               <div class="post-footer">
                 <div class="post-author">
                   {% if post.avatar %}
-                  <img src="{{ '/assets/images/' | append: post.avatar | append: '.jpg' | relative_url }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                    {% assign author_avatar_path = post.avatar %}
+                    {% unless author_avatar_path contains '/' %}
+                      {% assign author_avatar_path = '/assets/images/' | append: author_avatar_path %}
+                    {% endunless %}
+                    {% unless author_avatar_path contains '.png' or author_avatar_path contains '.jpg' or author_avatar_path contains '.jpeg' or author_avatar_path contains '.webp' %}
+                      {% assign author_avatar_path = author_avatar_path | append: '.png' %}
+                    {% endunless %}
                   {% else %}
-                  <img src="{{ '/assets/images/paelladoc-avatar.png' | relative_url }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
+                    {% assign author_avatar_path = '/assets/images/default-avatar.png' %}
                   {% endif %}
+                  <img src="{{ author_avatar_path | relative_url }}" alt="{{ post.author | default: site.author }}" class="author-avatar">
                   <span class="author-name">{{ post.author | default: site.author }}</span>
                 </div>
                 <span class="post-reading-time">{{ post.content | number_of_words | divided_by: 180 | plus: 1 }} min read</span>
               </div>
             </div>
             {% if post.image %}
+            {% assign image_path = post.image %}
+            
+            {% comment %} Handle images with _posts_images_original prefix {% endcomment %}
+            {% if image_path contains '_posts_images_original/' %}
+              {% assign filename = image_path | split: '_posts_images_original/' | last %}
+              {% assign image_path = '/assets/images/' | append: filename %}
+            {% else %}
+              {% comment %} Handle paths without leading slashes {% endcomment %}
+              {% unless image_path contains '/' %}
+                {% assign image_path = '/assets/images/' | append: image_path %}
+              {% else %}
+                {% comment %} If it has a leading slash but not /assets/images/ {% endcomment %}
+                {% unless image_path contains '/assets/images/' %}
+                  {% assign image_path = '/assets/images' | append: image_path %}
+                {% endunless %}
+              {% endunless %}
+            {% endif %}
+            
+            {% comment %} Make sure there's no double slash between assets/images and the rest {% endcomment %}
+            {% assign image_path = image_path | replace: '/assets/images//', '/assets/images/' %}
+            
+            {% comment %} Extract the file extension {% endcomment %}
+            {% assign image_ext = image_path | split: '.' | last %}
+            
+            {% comment %} Get the path without extension {% endcomment %}
+            {% assign image_name = image_path | split: '.' | pop | join: '.' %}
+            
+            {% if image_ext != '' %}
             <div class="post-card-image">
               <a href="{{ post.url | relative_url }}">
-                {% include responsive-image.html 
-                   path=post.image 
-                   alt=post.title 
-                   sizes="(max-width: 480px) 100vw, 400px" 
-                   lazy="true" 
-                %}
+                <picture>
+                  <source srcset="{{ image_name | append: '_480.avif' | relative_url }}" type="image/avif">
+                  <source srcset="{{ image_name | append: '_480.webp' | relative_url }}" type="image/webp">
+                  <img src="{{ image_name | append: '_480.' | append: image_ext | relative_url }}" alt="{{ post.title }}" loading="lazy">
+                </picture>
               </a>
             </div>
+            {% endif %}
             {% endif %}
           </article>
           {% endfor %}

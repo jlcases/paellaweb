@@ -11,29 +11,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate-v2
-  - jekyll-responsive-image
 
-# Configuración del plugin jekyll-responsive-image (desactivada)
-# responsive_image:
-#   template: _includes/responsive-image.html
-#   sizes:
-#     - width: 320
-#     - width: 480
-#     - width: 768
-#     - width: 1024
-#     - width: 1200
-#   base_path: assets/images
-#   output_path_format: assets/images/:basename_:width.:extension
-#   save_to_source: false
-#   strip: true
-#   quality: 85
-#   formats:
-#     - webp
-#     - avif
-#   gravity: center
-#   default_quality: 90
-
-# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -120,32 +98,38 @@ webrick:
   headers:
     "Cache-Control": "max-age=31536000, public, immutable"
 
-# Jekyll Responsive Image Configuration
-responsive_image:
-  template: _includes/responsive-image.html
-  sizes:
-    - width: 320
-    - width: 480
-    - width: 768
-    - width: 1024
-    - width: 1200
-  base_path: assets/images
-  output_path_format: assets/images/%{dirname}/%{basename}_%{width}.%{extension}
-  save_to_source: false
-  cache: true
-  strip: true
-  extra_images:
-    - assets/images/*/*.{jpg,jpeg,png}
-    - assets/images/*.{jpg,jpeg,png}
-  ignore_missing_images: true
-  ignore_baseurl_prefix: true
-  formats: [webp, avif, original]
-  quality: 85
-  auto_rotate: true
-  gravity: center
-  skip_processing: true
-  skip_pattern: "_[0-9]+\\."
-  process_original: false
+# Jekyll Responsive Image Configuration # Comentar todo este bloque
+# responsive_image:
+#   template: _includes/responsive-image.html
+#   sizes:
+#     - width: 320
+#     - width: 480
+#     - width: 768
+#     - width: 1024
+#     - width: 1200
+#   base_path: assets/images
+#   output_path_format: assets/images/%{filename}_%{width}.%{extension}
+#   save_to_source: false
+#   cache: true
+#   cache_dir: .jekyll-cache/responsive-image
+#   strip: true
+#   extra_images:
+#     - assets/images/*/*.{jpg,jpeg,png}
+#     - assets/images/*.{jpg,jpeg,png}
+#   ignore_missing_images: true
+#   ignore_baseurl_prefix: true
+#   formats: [webp, avif, original]
+#   quality: 85
+#   auto_rotate: true
+#   gravity: center
+#   skip_processing: false
+#   skip_pattern: "(_[0-9]+\\.|_resized_|_processed_)"
+#   process_original: true
+#   regenerate_max_age: 2592000
+#   check_for_updates: false
+#   force_regeneration: true
+#   use_cache: true
+#   cache_policy: aggressive
 
 # Añadir esto al archivo de configuración
-future: true
+# future: true # Comentado si solo era para el plugin
