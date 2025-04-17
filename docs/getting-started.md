@@ -12,7 +12,7 @@ PAELLADOC is a powerful documentation system that adapts to your workflow and la
 
 Before starting, you MUST enable auto-run mode (also known as YOLO mode) in Cursor settings:
 
-{% include responsive-image.html path="yolo-mode.png" alt="YOLO mode settings in Cursor IDE" class="screenshot" %}
+{% include responsive-image.html path="/assets/images/yolo-mode.png" alt="YOLO mode settings in Cursor IDE" class="screenshot" %}
 
 1. Open Cursor Settings
 2. Go to Chat section
