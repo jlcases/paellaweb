@@ -40,10 +40,11 @@ Ensure absolute URLs and maintain original hyphens in filenames
     {% assign base_path = image_path | split: '.' | first %}
   {% endif %}
   
-  {% if site.url contains "/" %}
-    {% assign base_filename = site.url | append: site.baseurl | append: base_path %}
+  {% assign last_char = site.url | slice: -1 %}
+  {% if last_char == "/" %}
+    {% assign base_filename = site.url | append: site.baseurl | remove: '/' | append: base_path %}
   {% else %}
-    {% assign base_filename = site.url | append: "/" | append: site.baseurl | append: base_path %}
+    {% assign base_filename = site.url | append: "/" | append: site.baseurl | remove: '/' | append: base_path %}
   {% endif %}
 {% endif %}
 
