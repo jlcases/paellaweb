@@ -7,7 +7,7 @@ author: "@jlcases"
 avatar: "/assets/images/avatarjl.jpg"
 github: "https://github.com/jlcases" # Assuming PAELLADOC Team associated with jlcases
 # twitter: "" # Optional
-image: "_posts_images_original/ai-productivity-illusion-tangled-debt.png"
+image: "/assets/images/ai-productivity-illusion-tangled-debt.png"
 image_alt: "Developer avatar tangled in red technical debt threads emerging from an AI coding screen, representing the illusion of AI productivity."
 categories: AI Engineering
 tags:
