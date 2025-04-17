@@ -40,12 +40,30 @@ Ensure absolute URLs and maintain original hyphens in filenames
     {% assign base_path = image_path | split: '.' | first %}
   {% endif %}
   
-  {% assign last_char = site.url | slice: -1 %}
-  {% if last_char == "/" %}
-    {% assign base_filename = site.url | append: site.baseurl | remove: '/' | append: base_path %}
-  {% else %}
-    {% assign base_filename = site.url | append: "/" | append: site.baseurl | remove: '/' | append: base_path %}
+  {% assign domain = site.url %}
+  {% assign last_char_domain = domain | slice: -1 %}
+  {% unless last_char_domain == "/" %}
+    {% assign domain = domain | append: "/" %}
+  {% endunless %}
+  
+  {% assign baseurl = site.baseurl %}
+  {% assign first_char_baseurl = baseurl | slice: 0 %}
+  {% if first_char_baseurl == "/" %}
+    {% assign baseurl = baseurl | slice: 1, baseurl.size %}
   {% endif %}
+  
+  {% assign first_char_base_path = base_path | slice: 0 %}
+  {% if first_char_base_path == "/" %}
+    {% assign base_path = base_path | slice: 1, base_path.size %}
+  {% endif %}
+  
+  {% assign combined_path = baseurl %}
+  {% if combined_path != "" and combined_path.size > 0 %}
+    {% assign combined_path = combined_path | append: "/" %}
+  {% endif %}
+  {% assign combined_path = combined_path | append: base_path %}
+  
+  {% assign base_filename = domain | append: combined_path %}
 {% endif %}
 
 <picture class="{{ include.class }}">
